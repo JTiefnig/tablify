@@ -1,0 +1,1033 @@
+/* Tablify webview styles. All colors come from the active VS Code theme. */
+
+:root {
+  --tf-added: var(--vscode-editorGutter-addedBackground, #487e02);
+  --tf-modified: var(--vscode-editorGutter-modifiedBackground, #1b81a8);
+  --tf-deleted: var(--vscode-editorGutter-deletedBackground, #f14c4c);
+  --tf-bg: var(--vscode-editor-background);
+  --tf-fg: var(--vscode-editor-foreground);
+  --tf-muted: var(--vscode-descriptionForeground);
+  --tf-border: var(--vscode-editorGroup-border, var(--vscode-panel-border));
+  --tf-header-bg: var(--vscode-editorGroupHeader-tabsBackground, var(--tf-bg));
+  --tf-row-alt: color-mix(in srgb, var(--tf-fg) 3%, var(--tf-bg));
+  --tf-row-hover: var(--vscode-list-hoverBackground);
+  --tf-accent: var(--vscode-focusBorder);
+  --tf-link: var(--vscode-textLink-foreground);
+  --tf-linked-bg: color-mix(in srgb, var(--vscode-textLink-foreground) 15%, transparent);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: var(--tf-bg);
+  color: var(--tf-fg);
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* --- Filter widget (styled like the editor's Find widget) ------------------ */
+
+.filter-widget {
+  position: absolute;
+  top: 0;
+  right: 18px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+  height: 33px;
+  width: min(440px, calc(100vw - 36px));
+  padding: 0 4px 0 6px;
+  background: var(--vscode-editorWidget-background, var(--tf-header-bg));
+  color: var(--vscode-editorWidget-foreground, var(--tf-fg));
+  border: 1px solid var(--vscode-editorWidget-border, transparent);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 0 8px 2px var(--vscode-widget-shadow);
+}
+
+.filter-input-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+#filter {
+  width: 100%;
+  box-sizing: border-box;
+  height: 24px;
+  padding: 0 6px;
+  border: 1px solid var(--vscode-input-border, transparent);
+  border-radius: 2px;
+  background: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  font: inherit;
+}
+
+#filter::placeholder {
+  color: var(--vscode-input-placeholderForeground);
+}
+
+#filter:focus {
+  outline: 1px solid var(--tf-accent);
+  outline-offset: -1px;
+}
+
+.match-count {
+  flex-shrink: 0;
+  min-width: 64px;
+  padding: 0 2px;
+  text-align: left;
+  font-size: 0.92em;
+  color: var(--tf-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--vscode-icon-foreground, var(--tf-fg));
+  cursor: pointer;
+}
+
+.icon-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-button:hover:not(:disabled) {
+  background: var(--vscode-toolbar-hoverBackground);
+}
+
+.icon-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.icon-button:focus-visible {
+  outline: 1px solid var(--tf-accent);
+}
+
+.filter-suggest {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  background: var(--vscode-editorSuggestWidget-background, var(--vscode-menu-background));
+  color: var(--vscode-editorSuggestWidget-foreground, var(--vscode-menu-foreground));
+  border: 1px solid var(--vscode-editorSuggestWidget-border, var(--tf-border));
+  border-radius: 3px;
+  box-shadow: 0 2px 8px var(--vscode-widget-shadow);
+}
+
+.filter-suggest .filter-dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 8px;
+}
+
+.filter-suggest .filter-dropdown-item.active {
+  background: var(--vscode-editorSuggestWidget-selectedBackground, var(--vscode-list-activeSelectionBackground));
+  color: var(--vscode-editorSuggestWidget-selectedForeground, var(--vscode-list-activeSelectionForeground));
+  font-weight: normal;
+}
+
+.suggest-kind {
+  color: var(--tf-muted);
+  font-size: 0.85em;
+}
+
+/* --- Error / empty message ------------------------------------------------ */
+
+.message {
+  margin: 24px;
+  padding: 16px;
+  max-width: 640px;
+  border: 1px solid var(--vscode-inputValidation-errorBorder, var(--tf-border));
+  background: var(--vscode-inputValidation-errorBackground, transparent);
+  border-radius: 4px;
+}
+
+.message-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.message-text {
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+}
+
+.message button {
+  padding: 4px 12px;
+  border: 1px solid var(--vscode-button-border, transparent);
+  border-radius: 2px;
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  font: inherit;
+  cursor: pointer;
+}
+
+.message button:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+
+/* --- Table ----------------------------------------------------------------- */
+
+#table {
+  flex: 1;
+  min-height: 0;
+}
+
+.tabulator {
+  border: none;
+  background: var(--tf-bg);
+  font-size: inherit;
+}
+
+.tabulator .tabulator-header,
+.tabulator .tabulator-header .tabulator-col {
+  background: var(--tf-header-bg);
+  color: var(--tf-fg);
+  border-color: var(--tf-border);
+}
+
+.tabulator .tabulator-header {
+  border-bottom: 1px solid var(--tf-border);
+}
+
+.tabulator .tabulator-header .tabulator-col .tabulator-col-content {
+  padding: 6px 8px;
+}
+
+.tabulator .tabulator-header .tabulator-col:hover {
+  background: var(--tf-row-hover);
+  cursor: pointer;
+}
+
+.tabulator .tabulator-tableholder {
+  background: var(--tf-bg);
+}
+
+.tabulator .tabulator-tableholder .tabulator-table {
+  background: transparent;
+  color: var(--tf-fg);
+}
+
+.tabulator-row,
+.tabulator-row.tabulator-row-even {
+  background: var(--tf-bg);
+  border-bottom: 1px solid var(--tf-border);
+}
+
+.tabulator-row.tabulator-row-even {
+  background: var(--tf-row-alt);
+}
+
+.tabulator-row.tabulator-selectable:hover,
+.tabulator-row:hover {
+  background: var(--tf-row-hover);
+}
+
+.tabulator-row .tabulator-cell {
+  border-right-color: var(--tf-border);
+  color: var(--tf-fg);
+  padding: 5px 8px;
+}
+
+.tabulator-row .tabulator-cell.wrap {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.tabulator-cell img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.tabulator-cell a {
+  color: var(--tf-link);
+}
+
+/* Header linked to an active filter clause. */
+.tabulator .tabulator-header .tabulator-col.header-linked {
+  background: var(--tf-linked-bg);
+}
+
+.tabulator .tabulator-header .tabulator-col.header-linked .tabulator-col-title {
+  color: var(--tf-link);
+}
+
+/* Columns with a filter dropdown get a small caret. */
+.tabulator .tabulator-header .tabulator-col.has-filter-options .tabulator-col-title::after {
+  content: "";
+  display: inline-block;
+  margin-left: 5px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  vertical-align: middle;
+  opacity: 0.5;
+}
+
+.tabulator-tooltip,
+.tabulator-menu {
+  background: var(--vscode-editorHoverWidget-background, var(--vscode-menu-background));
+  color: var(--vscode-editorHoverWidget-foreground, var(--vscode-menu-foreground));
+  border: 1px solid var(--vscode-editorHoverWidget-border, var(--tf-border));
+  box-shadow: 0 2px 8px var(--vscode-widget-shadow);
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+}
+
+.tabulator-tooltip {
+  max-width: min(600px, 80vw);
+  white-space: pre-wrap;
+}
+
+.tabulator-menu {
+  background: var(--vscode-menu-background);
+  color: var(--vscode-menu-foreground);
+  border-color: var(--vscode-menu-border, var(--tf-border));
+}
+
+.tabulator-menu .tabulator-menu-item:not(.tabulator-menu-item-disabled):hover {
+  background: var(--vscode-menu-selectionBackground);
+  color: var(--vscode-menu-selectionForeground);
+}
+
+/* --- Typed values (attribute definitions) ------------------------------- */
+
+.badge {
+  --tone: var(--tf-muted);
+  display: inline-flex;
+  align-items: center;
+  padding: 0 6px;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--tone) 45%, transparent);
+  background: color-mix(in srgb, var(--tone) 16%, transparent);
+  color: var(--tf-fg);
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.badge.blue { --tone: var(--vscode-charts-blue); }
+.badge.green { --tone: var(--vscode-charts-green); }
+.badge.yellow { --tone: var(--vscode-charts-yellow); }
+.badge.orange { --tone: var(--vscode-charts-orange); }
+.badge.red { --tone: var(--vscode-charts-red); }
+.badge.purple { --tone: var(--vscode-charts-purple); }
+
+.badge-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.chip {
+  padding: 0 6px;
+  border-radius: 9px;
+  background: var(--vscode-badge-background, color-mix(in srgb, var(--tf-fg) 12%, transparent));
+  color: var(--vscode-badge-foreground, var(--tf-fg));
+  font-size: 0.9em;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Value not allowed by the attribute definition. */
+.undefined-value {
+  color: var(--vscode-errorForeground);
+}
+
+.badge.undefined-value {
+  --tone: var(--vscode-errorForeground);
+  border-style: dashed;
+  background: transparent;
+  font-weight: normal;
+}
+
+.boolean.true {
+  color: var(--vscode-charts-green);
+  font-weight: 700;
+}
+
+.boolean.false {
+  color: var(--tf-muted);
+}
+
+/* --- Editing ------------------------------------------------------------------- */
+
+/* Editable cells get a faint frame on hover; locked cells (keys, nested data) do not. */
+.tabulator-row .tabulator-cell.tabulator-editable:not(.locked):hover,
+.tabulator-row .tabulator-cell.edit-toggle:not(.locked):hover,
+.tabulator-row .tabulator-cell.edit-richText:not(.locked):hover {
+  box-shadow: inset 0 0 0 1px var(--vscode-editorWidget-border, var(--tf-border));
+}
+
+.tabulator-row .tabulator-cell.edit-toggle:not(.locked) {
+  cursor: pointer;
+}
+
+.tabulator-row .tabulator-cell.locked {
+  cursor: default;
+}
+
+.tabulator-row .tabulator-cell.tabulator-editing {
+  border: 1px solid var(--tf-accent) !important;
+  padding: 0;
+}
+
+.tabulator-row .tabulator-cell.tabulator-editing input,
+.tabulator-row .tabulator-cell.tabulator-editing textarea,
+.tabulator-row .tabulator-cell.tabulator-editing select {
+  box-sizing: border-box;
+  padding: 4px 6px !important;
+  border: none;
+  outline: none;
+  background: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  font: inherit;
+  color-scheme: inherit;
+}
+
+.tabulator-row .tabulator-cell.tabulator-editing textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.tabulator-edit-list {
+  background: var(--vscode-editorSuggestWidget-background, var(--vscode-menu-background)) !important;
+  color: var(--vscode-editorSuggestWidget-foreground, var(--vscode-menu-foreground)) !important;
+  border: 1px solid var(--vscode-editorSuggestWidget-border, var(--tf-border)) !important;
+  box-shadow: 0 2px 8px var(--vscode-widget-shadow) !important;
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size) !important;
+}
+
+.tabulator-edit-list .tabulator-edit-list-item {
+  color: inherit !important;
+  padding: 3px 8px !important;
+}
+
+.tabulator-edit-list .tabulator-edit-list-item:hover,
+.tabulator-edit-list .tabulator-edit-list-item.focused {
+  background: var(--vscode-list-hoverBackground) !important;
+  color: inherit !important;
+  outline: none !important;
+}
+
+.tabulator-edit-list .tabulator-edit-list-item.active {
+  background: var(--vscode-editorSuggestWidget-selectedBackground, var(--vscode-list-activeSelectionBackground)) !important;
+  color: var(--vscode-editorSuggestWidget-selectedForeground, var(--vscode-list-activeSelectionForeground)) !important;
+}
+
+.tabulator-edit-list .tabulator-edit-list-notice {
+  color: var(--tf-muted) !important;
+}
+
+/* Rich-text editor for html attributes */
+.rich-text-editor {
+  position: fixed;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 16px);
+  background: var(--vscode-editorWidget-background, var(--tf-bg));
+  color: var(--vscode-editorWidget-foreground, var(--tf-fg));
+  border: 1px solid var(--tf-accent);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px var(--vscode-widget-shadow);
+}
+
+.rte-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  border-bottom: 1px solid var(--vscode-editorWidget-border, var(--tf-border));
+}
+
+.rte-button {
+  min-width: 26px;
+  height: 24px;
+  padding: 0 6px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--vscode-icon-foreground, var(--tf-fg));
+  font: inherit;
+  cursor: pointer;
+}
+
+.rte-button:hover {
+  background: var(--vscode-toolbar-hoverBackground);
+}
+
+.rte-button.active {
+  background: var(--vscode-inputOption-activeBackground, var(--vscode-toolbar-activeBackground));
+  color: var(--vscode-inputOption-activeForeground, inherit);
+}
+
+.rte-bold { font-weight: 700; }
+.rte-italic { font-style: italic; }
+.rte-underline { text-decoration: underline; }
+.rte-strikeThrough { text-decoration: line-through; }
+
+.rte-content {
+  min-height: 90px;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: 8px 10px;
+  background: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  outline: none;
+  line-height: 1.45;
+}
+
+.rte-content p,
+.rte-content h3 {
+  margin: 0 0 6px;
+}
+
+.rte-content img {
+  max-width: 100%;
+}
+
+.rte-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border-top: 1px solid var(--vscode-editorWidget-border, var(--tf-border));
+}
+
+.rte-hint {
+  margin-right: auto;
+  color: var(--tf-muted);
+  font-size: 0.9em;
+}
+
+.rte-footer button {
+  padding: 3px 12px;
+  border: 1px solid var(--vscode-button-border, transparent);
+  border-radius: 2px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.rte-primary {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+}
+
+.rte-primary:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+
+.rte-secondary {
+  background: var(--vscode-button-secondaryBackground, transparent);
+  color: var(--vscode-button-secondaryForeground, var(--tf-fg));
+}
+
+.list-editor {
+  width: 100%;
+}
+
+/* --- Git: change bar, changed cells, history popup ------------------------- */
+
+.tabulator .tabulator-header .tabulator-col.baseline-column,
+.tabulator-row .tabulator-cell.baseline-column {
+  padding: 0;
+  border-right: none !important;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.tabulator-row .tabulator-cell.baseline-column {
+  position: relative;
+}
+
+/* Like the editor's change markers in the gutter. */
+.change-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2px;
+  width: 3px;
+}
+
+.change-bar.added {
+  background: var(--tf-added);
+}
+
+.change-bar.modified {
+  background: var(--tf-modified);
+}
+
+.change-bar.deleted {
+  background: var(--tf-deleted);
+}
+
+.tabulator-row .tabulator-cell.baseline-column:hover .change-bar.added,
+.tabulator-row .tabulator-cell.baseline-column:hover .change-bar.modified {
+  width: 4px;
+}
+
+/* Baseline header: "changes only" toggle, a muted change bar that lights up when on. */
+.changes-toggle {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(var(--tf-added) 0 33%, var(--tf-modified) 33% 67%, var(--tf-deleted) 67%);
+  opacity: 0.3;
+}
+
+.tabulator .tabulator-header .tabulator-col.baseline-column:hover .changes-toggle {
+  opacity: 0.7;
+}
+
+.tabulator .tabulator-header .tabulator-col.baseline-column.changes-only {
+  background: var(--tf-linked-bg);
+}
+
+.tabulator .tabulator-header .tabulator-col.baseline-column.changes-only .changes-toggle {
+  opacity: 1;
+}
+
+/* Rows deleted since the last commit ("changes only" mode): read-only, struck through. */
+.tabulator-row.row-deleted .tabulator-cell:not(.baseline-column) {
+  opacity: 0.6;
+  text-decoration: line-through;
+  text-decoration-color: var(--tf-deleted);
+}
+
+.tabulator-row.row-deleted .tabulator-cell.baseline-column {
+  cursor: default;
+}
+
+/* Drag handle, shown when hovering the row. */
+.row-grip {
+  position: absolute;
+  top: 9px;
+  left: 8px;
+  width: 6px;
+  height: 12px;
+  fill: var(--vscode-icon-foreground, var(--tf-muted));
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.tabulator-row:hover .row-grip {
+  opacity: 0.45;
+}
+
+.tabulator-row .tabulator-cell.baseline-column:hover .row-grip {
+  opacity: 0.9;
+}
+
+.tabulator-row .tabulator-cell.baseline-column {
+  cursor: grab;
+}
+
+/* Row being dragged and its drop placeholder. */
+.tabulator-row.tabulator-moving {
+  background: var(--vscode-list-dropBackground, var(--tf-row-hover)) !important;
+  border: 1px solid var(--tf-accent) !important;
+  box-shadow: 0 2px 8px var(--vscode-widget-shadow);
+  pointer-events: none;
+}
+
+.tabulator .tabulator-tableholder .tabulator-placeholder,
+.tabulator-row.tabulator-row-moving {
+  background: var(--vscode-list-dropBackground, var(--tf-linked-bg)) !important;
+}
+
+/* Hover toolbar of the baseline: add above / below, delete. */
+.row-actions {
+  position: fixed;
+  z-index: 120;
+  display: flex;
+  gap: 1px;
+  padding: 2px;
+  background: var(--vscode-editorWidget-background, var(--tf-header-bg));
+  border: 1px solid var(--vscode-editorWidget-border, var(--tf-border));
+  border-radius: 5px;
+  box-shadow: 0 2px 6px var(--vscode-widget-shadow);
+}
+
+.row-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--vscode-icon-foreground, var(--tf-fg));
+  cursor: pointer;
+}
+
+.row-action svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.row-action:hover {
+  background: var(--vscode-toolbar-hoverBackground);
+}
+
+.row-action.delete:hover {
+  color: var(--vscode-errorForeground);
+}
+
+/* A just-added row. */
+@keyframes row-flash {
+  from {
+    background: var(--vscode-editor-findMatchHighlightBackground, var(--tf-linked-bg));
+  }
+}
+
+.tabulator-row.row-flash {
+  animation: row-flash 1.6s ease-out;
+}
+
+/* Changed fields of a modified row: a small corner mark. */
+.tabulator-row .tabulator-cell.cell-modified,
+.tabulator-row .tabulator-cell.cell-added {
+  background-repeat: no-repeat;
+  background-size: 7px 7px;
+  background-position: top left;
+}
+
+.tabulator-row .tabulator-cell.cell-modified {
+  background-image: linear-gradient(135deg, var(--tf-modified) 50%, transparent 50%);
+}
+
+.tabulator-row .tabulator-cell.cell-added {
+  background-image: linear-gradient(135deg, var(--tf-added) 50%, transparent 50%);
+}
+
+.history-popup {
+  position: fixed;
+  z-index: 250;
+  display: flex;
+  flex-direction: column;
+  width: min(620px, calc(100vw - 16px));
+  max-height: calc(100vh - 16px);
+  background: var(--vscode-editorHoverWidget-background, var(--vscode-editorWidget-background, var(--tf-bg)));
+  color: var(--vscode-editorHoverWidget-foreground, var(--tf-fg));
+  border: 1px solid var(--vscode-editorHoverWidget-border, var(--tf-border));
+  border-radius: 4px;
+  box-shadow: 0 4px 16px var(--vscode-widget-shadow);
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px 8px 12px;
+  border-bottom: 1px solid var(--vscode-editorHoverWidget-border, var(--tf-border));
+}
+
+.history-title {
+  font-weight: 700;
+}
+
+.history-status {
+  color: var(--tf-muted);
+}
+
+.history-status.added {
+  color: var(--tf-added);
+}
+
+.history-status.modified {
+  color: var(--tf-modified);
+}
+
+.history-close {
+  margin-left: auto;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--vscode-icon-foreground, var(--tf-fg));
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.history-close:hover {
+  background: var(--vscode-toolbar-hoverBackground);
+}
+
+.history-body {
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.history-field {
+  display: grid;
+  grid-template-columns: minmax(80px, 0.8fr) minmax(0, 2fr) minmax(140px, 1.4fr);
+  gap: 10px;
+  padding: 5px 12px 5px 10px;
+  border-left: 2px solid transparent;
+}
+
+.history-field.modified {
+  border-left-color: var(--tf-modified);
+}
+
+.history-field.added {
+  border-left-color: var(--tf-added);
+}
+
+.history-field.removed {
+  border-left-color: var(--tf-deleted);
+}
+
+.history-name {
+  color: var(--tf-muted);
+  overflow-wrap: anywhere;
+}
+
+.history-kind {
+  display: block;
+  font-size: 0.85em;
+}
+
+.history-field.modified .history-kind {
+  color: var(--tf-modified);
+}
+
+.history-field.added .history-kind {
+  color: var(--tf-added);
+}
+
+.history-field.removed .history-kind {
+  color: var(--tf-deleted);
+}
+
+.history-value {
+  overflow-wrap: anywhere;
+}
+
+.history-was {
+  margin-top: 2px;
+  color: var(--tf-muted);
+  font-size: 0.92em;
+}
+
+.history-before {
+  text-decoration: line-through;
+  text-decoration-color: var(--tf-deleted);
+}
+
+.history-empty,
+.history-loading {
+  color: var(--tf-muted);
+  font-style: italic;
+}
+
+.history-blame {
+  font-size: 0.92em;
+  min-width: 0;
+}
+
+.history-author {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-author.uncommitted {
+  color: var(--tf-modified);
+}
+
+.history-commit {
+  color: var(--tf-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-blame.repeat .history-author {
+  color: var(--tf-muted);
+  opacity: 0.6;
+}
+
+.history-blame.repeat .history-commit {
+  display: none;
+}
+
+.history-hash {
+  font-family: var(--vscode-editor-font-family, monospace);
+  color: var(--tf-link);
+}
+
+.history-error {
+  margin: 4px 12px;
+  color: var(--vscode-errorForeground);
+}
+
+.history-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 12px;
+  border-top: 1px solid var(--vscode-editorHoverWidget-border, var(--tf-border));
+}
+
+.history-note {
+  margin-right: auto;
+  color: var(--tf-muted);
+  font-size: 0.9em;
+}
+
+.history-reveal {
+  padding: 3px 10px;
+  border: 1px solid var(--vscode-button-border, transparent);
+  border-radius: 2px;
+  background: var(--vscode-button-secondaryBackground, transparent);
+  color: var(--vscode-button-secondaryForeground, var(--tf-fg));
+  font: inherit;
+  cursor: pointer;
+}
+
+/* --- Header filter dropdown ---------------------------------------------- */
+
+.filter-dropdown {
+  position: fixed;
+  z-index: 9999;
+  min-width: 160px;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--vscode-menu-background);
+  color: var(--vscode-menu-foreground);
+  border: 1px solid var(--vscode-menu-border, var(--tf-border));
+  border-radius: 4px;
+  box-shadow: 0 2px 8px var(--vscode-widget-shadow);
+}
+
+.filter-dropdown-title {
+  padding: 5px 10px;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--tf-muted);
+  border-bottom: 1px solid var(--vscode-menu-separatorBackground, var(--tf-border));
+}
+
+.filter-dropdown-item {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.filter-dropdown-item:hover,
+.filter-dropdown-item.active {
+  background: var(--vscode-menu-selectionBackground);
+  color: var(--vscode-menu-selectionForeground);
+}
+
+.filter-dropdown-item.active {
+  font-weight: 600;
+}
+
+/* Saved filters menu (filter bar bookmark button). */
+.icon-button.saved svg path {
+  fill: currentColor;
+}
+
+.saved-filters-menu {
+  max-width: 360px;
+}
+
+.saved-filters-menu .filter-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.saved-filter-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.saved-filter-delete {
+  visibility: hidden;
+  padding: 0 4px;
+  border-radius: 3px;
+  color: inherit;
+  opacity: 0.8;
+}
+
+.saved-filters-menu .filter-dropdown-item:hover .saved-filter-delete {
+  visibility: visible;
+}
+
+.saved-filter-delete:hover {
+  opacity: 1;
+  background: var(--vscode-toolbar-hoverBackground);
+}
+
+.filter-dropdown-separator {
+  height: 1px;
+  margin: 4px 0;
+  background: var(--vscode-menu-separatorBackground, var(--tf-border));
+}
+
+.filter-dropdown-item.disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.filter-dropdown-notice {
+  padding: 5px 10px;
+  color: var(--tf-muted);
+  font-style: italic;
+}

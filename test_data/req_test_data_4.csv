@@ -1,0 +1,40 @@
+id,type,text,status,review,lables,developer,start_version,end_version,change_request,comment,miscellaneous,security,asil
+API-001,heading_1,API Design & Integration,valid,not_reviewed,,DEV,10.1,unbound,,,,,
+API-002,heading_2,REST API Specifications,valid,not_reviewed,,DEV,10.1,unbound,,,,,
+API-003,requirement,"<html>The API must follow <b>RESTful principles</b> with proper HTTP methods (GET, POST, PUT, DELETE, PATCH).</html>",valid,accepted,"Functional, API Design","OPS, DEV",10.1,unbound,CRID-1024,"Approved. Ensure proper status codes (2xx, 4xx, 5xx) and resource naming conventions. Reference REST best practices guide.","Comment: Approved. Ensure proper status codes (2xx, 4xx, 5xx) and resource naming conventions. Reference REST best practices guide. | 
+ Review Status: accepted",no,QM
+API-004,requirement,API endpoints must return consistent JSON response formats with proper error messages and status codes.,valid,accepted,"Functional, Documentation",DEV,10.2,10.10,,,,no,QM
+API-005,requirement,"The API should support versioning (e.g., /api/v1/, /api/v2/) to maintain backward compatibility.",invalid,rejected,"Functional, Design",OPS,10.1,10.8,,Unclear versioning strategy. Should we support multiple versions simultaneously? What is the deprecation timeline? Need a versioning policy document.,"Comment: Unclear versioning strategy. Should we support multiple versions simultaneously? What is the deprecation timeline? Need a versioning policy document. | 
+ Review Status: rejected",no,QM
+API-006,heading_2,Authentication & Authorization,valid,not_reviewed,,SEC,10.1,unbound,,,,,
+API-007,requirement,<html>All API endpoints must require <b>API key authentication</b> or JWT bearer tokens.</html>,valid,accepted,"Security, Functional","SEC, DEV",10.3,unbound,,,,yes,ASIL_C
+API-008,requirement,"Rate limiting must be enforced: 1000 requests per minute per API key for standard tier, 10000 per minute for premium tier.",draft,not_reviewed,"Non-Functional, Security","OPS, DEV",10.4,unbound,"CRID-1180
+CRID-1181",Need to define rate limit response codes and retry strategies. What about burst allowances? Consider sliding window vs fixed window algorithm.,"Comment: Need to define rate limit response codes and retry strategies. What about burst allowances? Consider sliding window vs fixed window algorithm. | 
+ Review Status: not_reviewed",yes,ASIL_C
+API-009,heading_2,Data Validation & Error Handling,valid,not_reviewed,,DEV,10.1,unbound,,,,,
+API-010,requirement,All request payloads must be validated against defined JSON schemas with detailed error messages for validation failures.,valid,accepted,"Functional, Data Quality",DEV,10.1,unbound,,,,no,QM
+API-011,requirement,"<html>API must handle <b>gracefully</b> error scenarios including null references, type mismatches, and missing required fields.</html>",invalid,rejected,"Functional, Reliability","QA, DEV",10.2,10.8,,Vague definition of 'gracefully'. Specify exact error codes for each scenario. Provide error response examples in API documentation.,"Comment: Vague definition of 'gracefully'. Specify exact error codes for each scenario. Provide error response examples in API documentation. | 
+ Review Status: rejected",no,QM
+API-012,requirement,"API responses with errors must include error code, error message, and request ID for easy debugging.",draft,not_reviewed,"Functional, Documentation",DEV,10.3,unbound,CRID-1207,Good practice. Consider adding error documentation with common error scenarios. Should error messages be user-friendly or technical?,"Comment: Good practice. Consider adding error documentation with common error scenarios. Should error messages be user-friendly or technical? | 
+ Review Status: not_reviewed",no,QM
+API-013,heading_2,Performance & Pagination,valid,not_reviewed,,OPS,10.1,unbound,,,,,
+API-014,requirement,List endpoints must support pagination with limit (max 100) and offset parameters.,valid,accepted,"Non-Functional, Performance",DEV,10.5,unbound,,,,no,QM
+API-015,requirement,"<html>API responses must include <b>metadata</b> (total_count, page, page_size, has_next) for pagination support.</html>",valid,accepted,"Functional, API Design",DEV,10.6,10.6,,,,no,QM
+API-016,requirement,Implement query result caching for read-only endpoints with configurable TTL (Time To Live) up to 24 hours.,draft,not_reviewed,"Performance, Non-Functional","OPS, DEV",10.7,unbound,,Worth implementing. Need to define cache invalidation strategy. How do we handle cache staleness for critical data changes?,"Comment: Worth implementing. Need to define cache invalidation strategy. How do we handle cache staleness for critical data changes? | 
+ Review Status: not_reviewed",no,QM
+API-017,heading_1,Webhooks & Async Operations,valid,not_reviewed,,DEV,10.1,10.6,,,,,
+API-018,requirement,API must support webhook callbacks for async event notifications with retry mechanisms (exponential backoff).,draft,not_reviewed,"Functional, Non-Functional","OPS, DEV",10.1,unbound,"CRID-1302
+CRID-1308
+CRID-1315",Essential feature. Define webhook delivery guarantees (at-least-once vs exactly-once). Specify max retry attempts and timeout values.,"Comment: Essential feature. Define webhook delivery guarantees (at-least-once vs exactly-once). Specify max retry attempts and timeout values. | 
+ Review Status: not_reviewed",no,QM
+API-019,requirement,<html>Webhook payloads must be <b>signed</b> using HMAC-SHA256 for authenticity verification.</html>,valid,accepted,"Security, Functional",SEC,10.3,10.8,,,,yes,ASIL_C
+API-020,heading_1,Documentation & Support,valid,not_reviewed,,"DEV, TLA",10.1,unbound,,,,,
+API-021,requirement,Complete API documentation must be provided in OpenAPI 3.0 format with Swagger UI for interactive testing.,valid,accepted,"Documentation, Functional",DEV,10.8,unbound,,,,no,QM
+API-022,requirement,"<html>API documentation must include <b>code examples</b> in multiple languages (JavaScript, Python, Java, Go, cURL).</html>",draft,not_reviewed,Documentation,"DEV, TLA",10.9,unbound,"CRID-1420
+CRID-1426",Good practice for developer experience. Recommend using SDKs to reduce maintenance burden. Consider auto-generating examples from OpenAPI spec.,"Comment: Good practice for developer experience. Recommend using SDKs to reduce maintenance burden. 
+ Consider auto-generating examples from OpenAPI spec. | 
+ Review Status: not_reviewed",no,QM
+API-023,information,<html><b>Note:</b> All API changes must follow semantic versioning and include deprecation warnings at least 6 months before removal.</html>,valid,not_relevant,Information,DEV,10.1,unbound,,,,,
+API-024,requirement,"Provide a public status page showing API uptime, incidents, and scheduled maintenance.",invalid,rejected,"Operations, Support",OPS,10.1,10.6,,Too vague on implementation. Should this be a separate service? What is the update frequency? Define SLA thresholds for status reporting.,"Comment: Too vague on implementation. Should this be a separate service? 
+ What is the update frequency? Define SLA thresholds for status reporting. | 
+ Review Status: rejected",no,QM

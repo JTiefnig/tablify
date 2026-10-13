@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "text": "The system should support user authentication.",
+    "status": "Pending",
+    "type": "Functional"
+  },
+  {
+    "id": 2,
+    "text": "The application must be responsive and work on multiple devices.",
+    "status": "In Progress",
+    "type": "Non-Functional"
+  },
+  {
+    "id": 3,
+    "text": "Users should be able to reset their passwords.",
+    "status": "Completed",
+    "type": "Functional"
+  },
+  {
+    "id": 4,
+    "text": "The system should provide real-time notifications.",
+    "status": "Pending",
+    "type": "Functional"
+  },
+  {
+    "id": 5,
+    "text": "The application must support data encryption for sensitive information.",
+    "status": "In Progress",
+    "type": "Security"
+  },
+  {
+    "id": 6,
+    "text": "Users should have different permission levels (e.g., admin, regular user).",
+    "status": "Completed",
+    "type": "Security"
+  },
+  {
+    "id": 7,
+    "text": "The system should generate reports based on user activities.",
+    "status": "Pending",
+    "type": "Reporting"
+  },
+  {
+    "id": 8,
+    "text": "The application must be compatible with major web browsers.",
+    "status": "In Progress",
+    "type": "Non-Functional"
+  },
+  {
+    "id": 9,
+    "text": "The system should have a backup and recovery mechanism.",
+    "status": "Completed",
+    "type": "Security"
+  },
+  {
+    "id": 10,
+    "text": "Users should be able to customize their profile settings.",
+    "status": "Pending",
+    "type": "User Experience"
+  }
+]

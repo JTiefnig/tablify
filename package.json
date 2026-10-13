@@ -1,0 +1,266 @@
+{
+  "name": "tablify",
+  "displayName": "Tablify",
+  "description": "View and edit JSON and YAML lists and hashes of entries, and CSV files, as an interactive table.",
+  "version": "0.1.1",
+  "publisher": "JohannesTiefnig",
+  "icon": "media/tablify-icon.png",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JTiefnig/tablify"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "json",
+    "yaml",
+    "csv",
+    "table",
+    "requirements",
+    "viewer"
+  ],
+  "main": "./dist/extension.cjs",
+  "activationEvents": [],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "On-save commands from .vscode/tablify.yaml only run in trusted workspaces."
+    }
+  },
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "tablify.tableView",
+        "displayName": "Tablify Table",
+        "selector": [
+          {
+            "filenamePattern": "*.json"
+          },
+          {
+            "filenamePattern": "*.yaml"
+          },
+          {
+            "filenamePattern": "*.yml"
+          },
+          {
+            "filenamePattern": "*.csv"
+          },
+          {
+            "filenamePattern": "*.tsv"
+          }
+        ],
+        "priority": "option"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tablify.openAsTable",
+        "title": "Open as Table",
+        "category": "Tablify",
+        "icon": "$(table)"
+      },
+      {
+        "command": "tablify.openAsText",
+        "title": "Open as Text",
+        "category": "Tablify",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "tablify.filter",
+        "title": "Filter Rows",
+        "category": "Tablify",
+        "icon": "$(filter)"
+      },
+      {
+        "command": "tablify.clearFilter",
+        "title": "Clear Filter",
+        "category": "Tablify",
+        "icon": "$(filter-filled)"
+      },
+      {
+        "command": "tablify.saveFilter",
+        "title": "Save Filter…",
+        "category": "Tablify",
+        "icon": "$(bookmark)"
+      },
+      {
+        "command": "tablify.saveView",
+        "title": "Save View…",
+        "category": "Tablify",
+        "icon": "$(save)"
+      },
+      {
+        "command": "tablify.resetView",
+        "title": "Reset View",
+        "category": "Tablify",
+        "icon": "$(discard)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "tablify.openAsTable",
+          "when": "resourceExtname =~ /^\\.(json|ya?ml|csv|tsv)$/i",
+          "group": "navigation@20"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "tablify.openAsTable",
+          "when": "resourceExtname =~ /^\\.(json|ya?ml|csv|tsv)$/i && activeCustomEditorId != tablify.tableView",
+          "group": "navigation"
+        },
+        {
+          "command": "tablify.openAsText",
+          "when": "activeCustomEditorId == tablify.tableView",
+          "group": "navigation"
+        },
+        {
+          "command": "tablify.filter",
+          "when": "activeCustomEditorId == tablify.tableView && !tablify.filterActive",
+          "group": "navigation@1"
+        },
+        {
+          "command": "tablify.clearFilter",
+          "when": "activeCustomEditorId == tablify.tableView && tablify.filterActive",
+          "group": "navigation@1"
+        },
+        {
+          "command": "tablify.saveView",
+          "when": "activeCustomEditorId == tablify.tableView && tablify.layoutModified",
+          "group": "navigation@2"
+        },
+        {
+          "command": "tablify.saveView",
+          "when": "activeCustomEditorId == tablify.tableView",
+          "group": "1_tablify@1"
+        },
+        {
+          "command": "tablify.resetView",
+          "when": "activeCustomEditorId == tablify.tableView && tablify.layoutModified",
+          "group": "1_tablify@2"
+        },
+        {
+          "command": "tablify.saveFilter",
+          "when": "activeCustomEditorId == tablify.tableView && tablify.filterActive",
+          "group": "1_tablify@3"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "tablify.openAsTable",
+          "when": "resourceExtname =~ /^\\.(json|ya?ml|csv|tsv)$/i",
+          "group": "3_open"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "tablify.openAsTable",
+          "when": "resourceExtname =~ /^\\.(json|ya?ml|csv|tsv)$/i"
+        },
+        {
+          "command": "tablify.openAsText",
+          "when": "activeCustomEditorId == tablify.tableView"
+        },
+        {
+          "command": "tablify.filter",
+          "when": "activeCustomEditorId == tablify.tableView"
+        },
+        {
+          "command": "tablify.clearFilter",
+          "when": "activeCustomEditorId == tablify.tableView && tablify.filterActive"
+        },
+        {
+          "command": "tablify.saveFilter",
+          "when": "activeCustomEditorId == tablify.tableView && tablify.filterActive"
+        },
+        {
+          "command": "tablify.saveView",
+          "when": "activeCustomEditorId == tablify.tableView"
+        },
+        {
+          "command": "tablify.resetView",
+          "when": "activeCustomEditorId == tablify.tableView && tablify.layoutModified"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Tablify",
+      "properties": {
+        "tablify.idField": {
+          "type": "string",
+          "default": "id",
+          "description": "Field name used for the ID column of hash files (the key of each entry)."
+        },
+        "tablify.git.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show which rows changed since the last commit (change bar) and git blame per entry for files in a git repository."
+        },
+        "tablify.saveWithoutFormatting": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Save from the table view with **Save without Formatting**, so format-on-save, trim whitespace and other save actions do not rewrite entries the table did not change. Applies to the Ctrl/Cmd+S shortcut."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "tablify.filter",
+        "key": "ctrl+f",
+        "mac": "cmd+f",
+        "when": "activeCustomEditorId == tablify.tableView"
+      },
+      {
+        "command": "workbench.action.files.saveWithoutFormatting",
+        "key": "ctrl+s",
+        "mac": "cmd+s",
+        "when": "activeCustomEditorId == tablify.tableView && config.tablify.saveWithoutFormatting"
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": "**/.vscode/tablify.json",
+        "url": "./schemas/tablify.schema.json"
+      }
+    ],
+    "yamlValidation": [
+      {
+        "fileMatch": [
+          "**/.vscode/tablify.yaml",
+          "**/.vscode/tablify.yml"
+        ],
+        "url": "./schemas/tablify.schema.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run check && node esbuild.js --production",
+    "build": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "check": "tsc -p . --noEmit && tsc -p webview --noEmit",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "package": "vsce package --skip-license"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/tabulator-tables": "^6.3.6",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^4.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dompurify": "^3.4.16",
+    "jsonc-parser": "^3.3.1",
+    "tabulator-tables": "^6.6.1",
+    "yaml": "^2.9.1"
+  }
+}

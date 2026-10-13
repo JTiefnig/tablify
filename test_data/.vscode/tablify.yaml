@@ -1,0 +1,146 @@
+# Tablify configuration for this workspace folder (the F5 development host opens test_data).
+#
+# Views apply to the data files matched by `files` (globs relative to the workspace folder;
+# patterns without "/" match the file name anywhere). The first matching view is used.
+# Without a matching view, every field is shown as plain text in data order.
+#
+# Per view:
+#   files          globs of the data files the view applies to (omit for all files)
+#   columns        column order; "Save View" in the table writes it
+#   hiddenColumns  columns not shown (they can still be filtered)
+#   otherColumns   show | hide fields that are not in `columns`
+#   widths         column widths in pixels
+#   readonlyColumns  columns that cannot be edited in the table
+#   onSave         shell command run after saving, e.g. a formatter; placeholders (shell-quoted):
+#                  ${file}, ${relativeFile}, ${fileDirname}, ${workspaceFolder}; trusted workspaces only
+#   filters        saved filters { name, query }, offered in the filter bar ("Save Filter" writes them)
+#   attributes     how fields are displayed, edited and filtered:
+#
+# Attribute types:
+#   string     single-line text
+#   text       multi-line plain text (wraps, keeps line breaks)
+#   html       structured text, rendered as sanitized HTML
+#   enum       single select from `values` (badges, filter dropdown)
+#   multienum  multi select from `values` (list of badges)
+#   list       free list of strings
+#   number     numeric value (right-aligned, filter with < <= > >=)
+#   boolean    true/false, yes/no, 1/0
+#   date       ISO 8601 date (filter with < <= > >=)
+#
+# Per attribute: type (required), label, description (header tooltip), readonly (not editable).
+# Enum values: value (required), label, color, description.
+# Colors: gray, blue, green, yellow, orange, red, purple.
+
+views:
+  - name: Requirements
+    files: ["req_test_data*.{json,yaml,yml,csv}"]
+    columns: [id, type, status, text, review_status, asil, security, tags, developer, change_request, cluster_von, cluster_bis, comment]
+    hiddenColumns: [miscellaneous]
+    readonlyColumns: [developer]
+    onSave: bash test-formatter.sh ${file}
+    filters:
+      - { name: Open requirements, query: "type=requirement AND status=draft" }
+      - { name: Safety relevant, query: "asil!=QM" }
+    widths: { id: 90, type: 70, status: 80, text: 420, review_status: 80, asil: 75, security: 65, developer: 100, change_request: 90, cluster_von: 70, cluster_bis: 70 }
+    attributes:
+      id:
+        type: string
+        label: ID
+        readonly: true
+
+      type:
+        type: enum
+        label: Type
+        values:
+          - { value: requirement, label: REQ, color: blue, description: Requirement }
+          - { value: information, label: INFO, color: gray, description: Information }
+          - { value: heading_1, label: H1, description: Heading level 1 }
+          - { value: heading_2, label: H2, description: Heading level 2 }
+          - { value: heading_3, label: H3, description: Heading level 3 }
+
+      status:
+        type: enum
+        label: Status
+        values:
+          - { value: draft, label: Draft, color: orange }
+          - { value: valid, label: Valid, color: green }
+          - { value: invalid, label: Invalid, color: red }
+
+      text:
+        type: html
+        label: Text
+        description: Requirement text; may contain <html>…</html> markup.
+
+      review_status:
+        type: enum
+        label: Review
+        values:
+          - { value: not_reviewed, label: NRV, color: gray, description: Not reviewed }
+          - { value: accepted, label: ACC, color: green, description: Accepted }
+          - { value: rejected, label: REJ, color: red, description: Rejected }
+          - { value: not_relevant, label: NRL, color: orange, description: Not relevant }
+          - { value: unclear, label: UNC, color: blue, description: Unclear }
+
+      asil:
+        type: enum
+        label: ASIL
+        description: Automotive Safety Integrity Level
+        values:
+          - QM
+          - { value: ASIL_A, label: A, color: yellow }
+          - { value: ASIL_B, label: B, color: yellow }
+          - { value: ASIL_C, label: C, color: orange }
+          - { value: ASIL_D, label: D, color: red }
+
+      security:
+        type: boolean
+        label: SEC
+        description: Security relevant
+
+      tags:
+        type: multienum
+        label: Tags
+        values:
+          - Functional
+          - Non-Functional
+          - Security
+          - Performance
+          - Usability
+          - Accessibility
+          - Compatibility
+          - Compliance
+          - Reliability
+          - Reporting
+          - Documentation
+          - Information
+          - API Design
+          - Design
+          - Data Quality
+          - Operations
+          - Support
+
+      developer:
+        type: string
+        label: Developer
+
+      change_request:
+        type: text
+        label: CR IDs
+
+      cluster_von:
+        type: string
+        label: From
+        description: First cluster this element applies to
+
+      cluster_bis:
+        type: string
+        label: To
+        description: Last cluster this element applies to
+
+      comment:
+        type: text
+        label: Comment
+
+      miscellaneous:
+        type: text
+        label: Misc

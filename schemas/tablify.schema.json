@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/JTiefnig/tablify/schemas/tablify.schema.json",
+  "title": "Tablify workspace configuration",
+  "description": "Views for JSON/YAML table files in this workspace folder (.vscode/tablify.yaml).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "views": {
+      "description": "The first view whose `files` match a data file is used for it.",
+      "type": "array",
+      "items": { "$ref": "#/definitions/view" }
+    }
+  },
+  "definitions": {
+    "stringList": {
+      "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }]
+    },
+    "view": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "description": "Shown when saving a view from the table." },
+        "files": {
+          "$ref": "#/definitions/stringList",
+          "description": "Glob patterns of the data files this view applies to, relative to the workspace folder. Patterns without '/' match the file name at any depth. Omit to apply to all files."
+        },
+        "columns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Column order. Written by Save View in the table."
+        },
+        "hiddenColumns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Columns that are not shown (they can still be filtered)."
+        },
+        "otherColumns": {
+          "enum": ["show", "hide"],
+          "default": "show",
+          "description": "Whether fields that are not in `columns` are shown after them."
+        },
+        "widths": {
+          "type": "object",
+          "additionalProperties": { "type": "number", "exclusiveMinimum": 0 },
+          "description": "Column widths in pixels."
+        },
+        "readonlyColumns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Columns that cannot be edited in the table."
+        },
+        "onSave": {
+          "type": "string",
+          "markdownDescription": "Shell command run after a file of this view is saved from an open table, e.g. a formatter: `npx prettier --write ${file}`. Placeholders (shell-quoted): `${file}`, `${relativeFile}`, `${fileDirname}`, `${workspaceFolder}`. Runs in the workspace folder; only in trusted workspaces."
+        },
+        "filters": {
+          "type": "array",
+          "description": "Saved filters, offered in the filter bar. Written by Save Filter in the table.",
+          "items": {
+            "type": "object",
+            "required": ["name", "query"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string", "minLength": 1, "description": "Shown in the saved filters menu." },
+              "query": { "type": "string", "description": "Filter query, e.g. status=draft AND tags=Security." }
+            }
+          }
+        },
+        "attributes": {
+          "type": "object",
+          "description": "Attribute name -> definition: how a field is displayed, edited and filtered.",
+          "additionalProperties": {
+            "oneOf": [{ "$ref": "#/definitions/type" }, { "$ref": "#/definitions/attribute" }]
+          }
+        }
+      }
+    },
+    "type": {
+      "enum": ["string", "text", "html", "enum", "multienum", "list", "number", "boolean", "date"],
+      "markdownEnumDescriptions": [
+        "Single-line text.",
+        "Multi-line plain text; wraps and keeps line breaks.",
+        "Structured text, rendered as sanitized HTML.",
+        "Single select from `values`; shown as a badge.",
+        "Multi select from `values` (a list, or a comma-separated string); shown as badges.",
+        "Free list of strings; shown as chips.",
+        "Number; right-aligned, filter with `<`, `<=`, `>`, `>=`.",
+        "true/false, yes/no, 1/0; shown as a check mark.",
+        "ISO 8601 date (2026-10-08); filter with `<`, `<=`, `>`, `>=`."
+      ]
+    },
+    "color": {
+      "enum": ["gray", "blue", "green", "yellow", "orange", "red", "purple"]
+    },
+    "value": {
+      "oneOf": [
+        { "type": ["string", "number", "boolean"] },
+        {
+          "type": "object",
+          "required": ["value"],
+          "additionalProperties": false,
+          "properties": {
+            "value": { "type": ["string", "number", "boolean"], "description": "Value as stored in the data." },
+            "label": { "type": "string", "description": "Text shown in the badge." },
+            "color": { "$ref": "#/definitions/color" },
+            "description": { "type": "string", "description": "Tooltip text." }
+          }
+        }
+      ]
+    },
+    "attribute": {
+      "type": "object",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "$ref": "#/definitions/type" },
+        "label": { "type": "string", "description": "Column title. Defaults to the attribute name." },
+        "description": { "type": "string", "description": "Column header tooltip." },
+        "readonly": { "type": "boolean", "default": false, "description": "Not editable in the table." },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Allowed values, in display order (enum and multienum).",
+          "items": { "$ref": "#/definitions/value" }
+        }
+      },
+      "if": { "properties": { "type": { "enum": ["enum", "multienum"] } } },
+      "then": { "required": ["type", "values"] }
+    }
+  }
+}

@@ -1,0 +1,299 @@
+// Turns JSON / YAML / CSV text into table rows. Free of the vscode API so it can be
+// unit-tested with plain Node.
+//
+// Supported shapes, at the top level of the file:
+//   array:    [ {...}, ... ]         a list of entries
+//   mapping:  { ID: {...}, ... }     a hash of ID -> entry (every value an object)
+// CSV / TSV files are always a list: the header names the fields (see csv.ts).
+
+import * as jsonc from "jsonc-parser";
+import * as YAML from "yaml";
+import { parseCsv } from "./csv.ts";
+import {
+  ROW_INDEX,
+  ROW_LOCKED,
+  type Cell,
+  type ErrorKind,
+  type Row,
+  type Scalar,
+} from "./messages.ts";
+
+export type Language = "json" | "yaml" | "csv";
+export type Shape = "array" | "mapping";
+/** Location of a row's object in the document: [3] (list) or ["REQ-001"] (hash). */
+export type RowPath = (string | number)[];
+
+export interface ParseOptions {
+  /** Field name for the key of each entry in the `mapping` shape. */
+  idField: string;
+}
+
+export interface Table {
+  shape: Shape;
+  rows: Row[];
+  /** Union of all row fields in first-seen order (excludes ROW_INDEX). */
+  fields: string[];
+  /** Source offset of each row's entry, indexed like `rows`. */
+  offsets: number[];
+  /** Document path of each row's object, indexed like `rows`. */
+  paths: RowPath[];
+}
+
+export type ParseResult =
+  | { ok: true; table: Table }
+  | { ok: false; kind: ErrorKind; message: string; line?: number };
+
+export function languageForPath(path: string): Language {
+  if (/\.ya?ml$/i.test(path)) return "yaml";
+  if (/\.(csv|tsv)$/i.test(path)) return "csv";
+  return "json";
+}
+
+export function parseTable(
+  text: string,
+  language: Language,
+  options: ParseOptions,
+): ParseResult {
+  if (!text.trim()) {
+    return { ok: false, kind: "empty", message: "The file is empty." };
+  }
+
+  if (language === "csv") {
+    return parseCsvTable(text);
+  }
+
+  const source = language === "yaml" ? loadYaml(text) : loadJson(text);
+  if ("error" in source) {
+    return { ok: false, kind: "syntax", ...source.error };
+  }
+
+  const shape = detectShape(source.value);
+  if (!shape) {
+    return {
+      ok: false,
+      kind: "shape",
+      message:
+        "Expected a list of entries or a hash of ID -> entry at the top level of the file.",
+    };
+  }
+
+  const items = rawItems(source.value, shape);
+  const entries = toEntries(source.value, shape, options.idField);
+  const offsets = source.offsets(shape);
+  const fields: string[] = [];
+  const seen = new Set<string>();
+
+  const rows = entries.map((entry, index) => {
+    const row: Row = {};
+    // Cells that cannot be edited in place: the key of a mapping entry,
+    // nested structures, and everything in rows that are not objects.
+    const locked: string[] = isPlainObject(items[index].value) ? [] : ["*"];
+    if (shape === "mapping") {
+      locked.push(options.idField);
+    }
+
+    for (const [key, value] of Object.entries(entry)) {
+      if (value === undefined) {
+        continue;
+      }
+      const cell = toCell(value);
+      row[key] = cell;
+      if (isComplex(value)) {
+        locked.push(key);
+      }
+      if (!seen.has(key)) {
+        seen.add(key);
+        fields.push(key);
+      }
+    }
+    row[ROW_INDEX] = index;
+    if (locked.length > 0) {
+      row[ROW_LOCKED] = locked;
+    }
+    return row;
+  });
+
+  const paths = items.map(({ key }): RowPath => [key]);
+  return { ok: true, table: { shape, rows, fields, offsets, paths } };
+}
+
+/** Every field is a string; empty fields are left out, like missing fields in JSON. */
+function parseCsvTable(text: string): ParseResult {
+  const result = parseCsv(text);
+  if (!result.ok) {
+    return { ok: false, kind: "syntax", message: result.message, line: result.line };
+  }
+  const { columns, records } = result.doc;
+  const rows = records.map((record, index) => {
+    const row: Row = {};
+    record.fields.forEach((field, i) => {
+      if (i < columns.length && field.value !== "") row[columns[i]] = field.value;
+    });
+    row[ROW_INDEX] = index;
+    return row;
+  });
+  return {
+    ok: true,
+    table: {
+      shape: "array",
+      rows,
+      fields: columns,
+      offsets: records.map((record) => record.start),
+      paths: records.map((_, index): RowPath => [index]),
+    },
+  };
+}
+
+interface Source {
+  value: unknown;
+  offsets(shape: Shape): number[];
+}
+
+interface SourceError {
+  error: { message: string; line?: number };
+}
+
+function loadJson(text: string): Source | SourceError {
+  const errors: jsonc.ParseError[] = [];
+  const root = jsonc.parseTree(text, errors, { allowTrailingComma: true });
+
+  if (errors.length > 0 || !root) {
+    const first = errors[0];
+    return {
+      error: {
+        message: first
+          ? `${jsonc.printParseErrorCode(first.error)} at line ${lineAt(text, first.offset)}.`
+          : "Invalid JSON.",
+        line: first ? lineAt(text, first.offset) : undefined,
+      },
+    };
+  }
+
+  return {
+    value: jsonc.getNodeValue(root),
+    offsets(shape) {
+      switch (shape) {
+        case "array":
+          return (root.children ?? []).map((item) => item.offset);
+        case "mapping":
+          // Property nodes start at their key.
+          return (root.children ?? []).map((property) => property.offset);
+      }
+    },
+  };
+}
+
+function loadYaml(text: string): Source | SourceError {
+  const doc = YAML.parseDocument(text);
+
+  if (doc.errors.length > 0) {
+    const first = doc.errors[0];
+    return {
+      error: {
+        message: first.message.split("\n")[0],
+        line: first.linePos?.[0].line,
+      },
+    };
+  }
+
+  const start = (node: unknown) =>
+    YAML.isNode(node) && node.range ? node.range[0] : 0;
+
+  return {
+    value: doc.toJS(),
+    offsets(shape) {
+      const contents = doc.contents;
+      switch (shape) {
+        case "array":
+          return YAML.isSeq(contents) ? contents.items.map(start) : [];
+        case "mapping":
+          return YAML.isMap(contents)
+            ? contents.items.map((pair) => start(pair.key))
+            : [];
+      }
+    },
+  };
+}
+
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function detectShape(value: unknown): Shape | null {
+  if (Array.isArray(value)) {
+    return "array";
+  }
+  if (!isPlainObject(value)) {
+    return null;
+  }
+  const entries = Object.values(value);
+  if (entries.length > 0 && entries.every((entry) => isPlainObject(entry) || entry === null)) {
+    return "mapping";
+  }
+  return null;
+}
+
+function toEntries(
+  value: unknown,
+  shape: Shape,
+  idField: string,
+): Record<string, unknown>[] {
+  const asObject = (item: unknown): Record<string, unknown> =>
+    isPlainObject(item) ? item : { value: item };
+
+  switch (shape) {
+    case "array":
+      return (value as unknown[]).map(asObject);
+    case "mapping":
+      // The mapping key wins over a field of the same name.
+      return Object.entries(value as Record<string, unknown>).map(([id, fields]) => {
+        const { [idField]: _ignored, ...rest } = isPlainObject(fields) ? fields : {};
+        return { [idField]: id, ...rest };
+      });
+  }
+}
+
+function rawItems(value: unknown, shape: Shape): { key: string | number; value: unknown }[] {
+  switch (shape) {
+    case "array":
+      return (value as unknown[]).map((item, key) => ({ key, value: item }));
+    case "mapping":
+      return Object.entries(value as Record<string, unknown>).map(([key, item]) => ({ key, value: item }));
+  }
+}
+
+function isComplex(value: unknown): boolean {
+  return !isScalar(value) && !(Array.isArray(value) && value.every(isScalar));
+}
+
+function isScalar(value: unknown): value is Scalar {
+  return (
+    value === null ||
+    typeof value === "string" ||
+    typeof value === "number" ||
+    typeof value === "boolean"
+  );
+}
+
+function toCell(value: unknown): Cell {
+  if (isScalar(value)) {
+    return value;
+  }
+  if (Array.isArray(value) && value.every(isScalar)) {
+    return value;
+  }
+  if (value instanceof Date) {
+    return value.toISOString();
+  }
+  return JSON.stringify(value);
+}
+
+function lineAt(text: string, offset: number): number {
+  let line = 1;
+  for (let i = 0; i < offset && i < text.length; i++) {
+    if (text.charCodeAt(i) === 10) {
+      line++;
+    }
+  }
+  return line;
+}
