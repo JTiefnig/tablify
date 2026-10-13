@@ -2,7 +2,7 @@
 
 A VS Code extension that opens JSON, YAML and CSV files as an interactive, filterable table.
 
-<img width="1734" height="1050" alt="image" src="https://github.com/user-attachments/assets/23a2c2aa-f02b-4140-b5b3-1ba3d58f5eeb" />
+![Tablify table view](media/tablify-screenshot.png)
 
 [Recording of Tablify](https://github.com/user-attachments/assets/f11cfb34-4c39-4f40-9068-d628a83d4668)
 
