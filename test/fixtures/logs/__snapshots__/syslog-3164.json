@@ -1,0 +1,149 @@
+{
+  "columns": [
+    {
+      "name": "timestamp",
+      "role": "timestamp",
+      "nonEmpty": 26,
+      "superseded": false
+    },
+    {
+      "name": "host",
+      "role": "source",
+      "nonEmpty": 26,
+      "superseded": false
+    },
+    {
+      "name": "app",
+      "role": "source",
+      "nonEmpty": 26,
+      "superseded": false
+    },
+    {
+      "name": "pri",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": true
+    },
+    {
+      "name": "facility",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "severity",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "pid",
+      "role": "none",
+      "nonEmpty": 21,
+      "superseded": false
+    },
+    {
+      "name": "message",
+      "role": "message",
+      "nonEmpty": 26,
+      "superseded": false
+    }
+  ],
+  "records": [
+    {
+      "lineStart": 0,
+      "lineEnd": 0,
+      "fields": {
+        "timestamp": "Dec 31 23:58:01",
+        "host": "web01",
+        "app": "CRON",
+        "pid": "30211",
+        "message": "(root) CMD (/usr/lib/sa/sa1 1 1)"
+      },
+      "epochMs": 1798757881000
+    },
+    {
+      "lineStart": 1,
+      "lineEnd": 1,
+      "fields": {
+        "timestamp": "Dec 31 23:59:59",
+        "host": "web01",
+        "app": "systemd",
+        "pid": "1",
+        "message": "Starting Daily apt upgrade and clean activities..."
+      },
+      "epochMs": 1798757999000
+    },
+    {
+      "lineStart": 2,
+      "lineEnd": 2,
+      "fields": {
+        "timestamp": "Jan  1 00:00:02",
+        "host": "web01",
+        "app": "systemd",
+        "pid": "1",
+        "message": "apt-daily-upgrade.service: Succeeded."
+      },
+      "epochMs": 1798758002000
+    },
+    {
+      "lineStart": 3,
+      "lineEnd": 3,
+      "fields": {
+        "timestamp": "Jan  1 00:00:02",
+        "host": "web01",
+        "app": "systemd",
+        "pid": "1",
+        "message": "Finished Daily apt upgrade and clean activities."
+      },
+      "epochMs": 1798758002000
+    },
+    {
+      "lineStart": 4,
+      "lineEnd": 4,
+      "fields": {
+        "timestamp": "Jan  1 00:03:17",
+        "host": "web01",
+        "app": "sshd",
+        "pid": "2341",
+        "message": "Accepted password for alice from 10.0.0.5 port 52211 ssh2"
+      },
+      "epochMs": 1798758197000
+    },
+    {
+      "lineStart": 5,
+      "lineEnd": 5,
+      "fields": {
+        "timestamp": "Jan  1 00:03:17",
+        "host": "web01",
+        "app": "sshd",
+        "pid": "2341",
+        "message": "pam_unix(sshd:session): session opened for user alice(uid=1000) by (uid=0)"
+      },
+      "epochMs": 1798758197000
+    },
+    {
+      "lineStart": 6,
+      "lineEnd": 6,
+      "fields": {
+        "timestamp": "Jan  1 00:03:18",
+        "host": "web01",
+        "app": "systemd-logind",
+        "pid": "812",
+        "message": "New session 42 of user alice."
+      },
+      "epochMs": 1798758198000
+    },
+    {
+      "lineStart": 7,
+      "lineEnd": 7,
+      "fields": {
+        "timestamp": "Jan  1 00:05:44",
+        "host": "web01",
+        "app": "kernel",
+        "message": "[ 1234.567890] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro"
+      },
+      "epochMs": 1798758344000
+    }
+  ]
+}

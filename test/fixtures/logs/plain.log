@@ -1,0 +1,20 @@
+Starting backup job
+Copying /home to /mnt/backup
+WARNING: 3 files could not be read
+Copied 12034 files (4.2 GB)
+Verifying checksums
+Backup finished
+Rotating old backups
+Removed backup-2026-09-30.tar.gz
+Removed backup-2026-09-29.tar.gz
+Keeping 7 backups
+Free space: 412 GB
+Sending report to admin@example.com
+Report sent
+ERROR: could not update the status page
+Retrying status page update
+Status page updated
+Cleaning temporary files
+Done
+Exit code 0
+Next run scheduled

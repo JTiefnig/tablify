@@ -1,0 +1,20 @@
+2026-10-14 10:37:00,001 - orders - INFO - Worker started (pid 4211)
+2026-10-14 10:37:00,120 - orders.db - DEBUG - Connection pool created: size=5
+2026-10-14 10:37:01,400 - orders.api - INFO - GET /orders/4711 200 12ms
+2026-10-14 10:37:02,123 - orders.payment - ERROR - Payment failed
+Traceback (most recent call last):
+  File "/app/orders/payment.py", line 42, in charge
+    response = client.post(url, json=payload)
+  File "/usr/lib/python3.12/site-packages/httpx/_client.py", line 1145, in post
+    return self.request("POST", url, json=json)
+httpx.ConnectError: [Errno 111] Connection refused
+2026-10-14 10:37:02,200 - orders.payment - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 10:37:07,210 - orders.payment - INFO - Payment succeeded on retry
+2026-10-14 10:37:08,000 - orders - CRITICAL - Disk usage at 97%
+2026-10-14 10:37:09,000 - orders.api - INFO - POST /orders 201 33ms
+2026-10-14 10:37:10,000 - orders.api - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 10:37:11,000 - orders - DEBUG - Heartbeat
+2026-10-14 10:37:12,000 - orders.db - ERROR - Deadlock detected - retrying transaction
+2026-10-14 10:37:13,000 - orders.db - INFO - Transaction committed
+2026-10-14 10:37:14,000 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 10:37:15,000 - orders - INFO - Shutting down

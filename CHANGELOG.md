@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- Log files as a table: **Open as Log Table** shows a log file as a read-only, sortable,
+  filterable table with one row per event. Detects JSON Lines, logfmt, syslog (RFC 3164 and
+  5424), access logs, Nginx and Apache error logs, Log4j-style application logs and Python
+  `logging`, with a plain-text fallback; the format can be changed from the status bar.
+  Multi-line entries (stack traces), normalized levels with colors and filter chips, message
+  search (text or regex), time range filter, column menu, entry details and reveal in source.
+  Parsing and filtering run in the extension host and only visible rows are rendered, for
+  files with millions of lines; large files can be opened partially. Custom formats in
+  `tablify.log.customFormats`.
 - CSV and TSV files (`.csv`, `.tsv`): header line as column names, delimiter detected
   (`,` `;` tab `|`). Editing, adding, deleting and moving rows, git changes and blame work as
   for JSON and YAML.

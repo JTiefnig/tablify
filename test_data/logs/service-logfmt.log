@@ -1,0 +1,300 @@
+ts=2026-10-14T06:00:02.857Z level=info logger=db caller=server.go:129 msg="request" method=POST path=/health status=200 duration=260ms
+ts=2026-10-14T06:00:03.686Z level=debug logger=db caller=server.go:373 msg="query executed" db=orders rows=306 took=0.540s
+ts=2026-10-14T06:00:07.865Z level=info logger=worker caller=server.go:125 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:00:15.031Z level=info logger=worker caller=server.go:291 msg="request" method=GET path=/login status=200 duration=662ms
+ts=2026-10-14T06:00:22.061Z level=info logger=api caller=server.go:98 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:00:30.948Z level=info logger=api caller=server.go:69 msg="request" method=GET path=/login status=200 duration=125ms
+ts=2026-10-14T06:00:31.137Z level=info logger=api caller=server.go:364 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:00:39.532Z level=info logger=worker caller=server.go:315 msg="request" method=GET path=/ status=500 duration=862ms
+ts=2026-10-14T06:00:48.473Z level=warn logger=api caller=server.go:161 msg="request" method=POST path=/index.html status=200 duration=561ms
+ts=2026-10-14T06:00:51.854Z level=info logger=db caller=server.go:173 msg="request" method=GET path=/search status=200 duration=567ms
+ts=2026-10-14T06:00:55.510Z level=error logger=db caller=server.go:151 msg="query executed" db=orders rows=386 took=0.047s
+ts=2026-10-14T06:01:02.311Z level=info logger=api caller=server.go:109 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:01:07.627Z level=info logger=worker caller=server.go:60 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:01:07.630Z level=debug logger=db caller=server.go:103 msg="query executed" db=orders rows=8 took=0.457s
+ts=2026-10-14T06:01:08.008Z level=warn logger=db caller=server.go:48 msg="request" method=POST path=/search status=500 duration=389ms
+ts=2026-10-14T06:01:13.028Z level=warn logger=db caller=server.go:57 msg="request" method=POST path=/health status=404 duration=433ms
+ts=2026-10-14T06:01:14.041Z level=warn logger=api caller=server.go:370 msg="request" method=POST path=/api/v1/orders status=200 duration=726ms
+ts=2026-10-14T06:01:17.329Z level=debug logger=worker caller=server.go:147 msg="request" method=POST path=/index.html status=404 duration=629ms
+ts=2026-10-14T06:01:24.371Z level=info logger=api caller=server.go:160 msg="request" method=GET path=/api/v1/users/42 status=404 duration=562ms
+ts=2026-10-14T06:01:32.515Z level=info logger=api caller=server.go:208 msg="query executed" db=orders rows=289 took=0.622s
+ts=2026-10-14T06:01:40.318Z level=debug logger=worker caller=server.go:299 msg="request" method=POST path=/static/app.css status=500 duration=533ms
+ts=2026-10-14T06:01:41.801Z level=info logger=worker caller=server.go:47 msg="query executed" db=orders rows=328 took=0.485s
+ts=2026-10-14T06:01:46.832Z level=info logger=api caller=server.go:301 msg="query executed" db=orders rows=92 took=0.363s
+ts=2026-10-14T06:01:54.750Z level=info logger=api caller=server.go:77 msg="query executed" db=orders rows=121 took=0.127s
+ts=2026-10-14T06:02:01.652Z level=info logger=worker caller=server.go:277 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:02:10.502Z level=warn logger=api caller=server.go:399 msg="request" method=POST path=/index.html status=500 duration=876ms
+ts=2026-10-14T06:02:16.458Z level=debug logger=db caller=server.go:70 msg="request" method=POST path=/api/v1/orders/4711 status=201 duration=523ms
+ts=2026-10-14T06:02:23.956Z level=info logger=db caller=server.go:161 msg="query executed" db=orders rows=343 took=0.748s
+ts=2026-10-14T06:02:30.572Z level=debug logger=worker caller=server.go:313 msg="request" method=GET path=/api/v1/orders status=200 duration=624ms
+ts=2026-10-14T06:02:37.534Z level=debug logger=db caller=server.go:272 msg="request" method=GET path=/login status=500 duration=489ms
+ts=2026-10-14T06:02:38.994Z level=debug logger=worker caller=server.go:384 msg="query executed" db=orders rows=467 took=0.884s
+ts=2026-10-14T06:02:44.266Z level=warn logger=db caller=server.go:33 msg="request" method=POST path=/health status=201 duration=382ms
+ts=2026-10-14T06:02:49.711Z level=info logger=api caller=server.go:373 msg="request" method=GET path=/login status=201 duration=509ms
+ts=2026-10-14T06:02:50.671Z level=info logger=db caller=server.go:37 msg="request" method=POST path=/logout status=201 duration=420ms
+ts=2026-10-14T06:02:57.846Z level=info logger=worker caller=server.go:322 msg="request" method=POST path=/login status=500 duration=167ms
+ts=2026-10-14T06:03:03.754Z level=info logger=db caller=server.go:276 msg="query executed" db=orders rows=2 took=0.058s
+ts=2026-10-14T06:03:11.941Z level=debug logger=db caller=server.go:47 msg="request" method=POST path=/logout status=200 duration=140ms
+ts=2026-10-14T06:03:18.905Z level=error logger=api caller=server.go:256 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:03:19.965Z level=info logger=worker caller=server.go:395 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:03:20.058Z level=debug logger=db caller=server.go:65 msg="request" method=GET path=/static/logo.png status=200 duration=865ms
+ts=2026-10-14T06:03:21.380Z level=debug logger=db caller=server.go:37 msg="request" method=GET path=/search status=201 duration=233ms
+ts=2026-10-14T06:03:23.584Z level=debug logger=api caller=server.go:12 msg="request" method=POST path=/static/logo.png status=201 duration=697ms
+ts=2026-10-14T06:03:30.846Z level=warn logger=api caller=server.go:268 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:03:35.421Z level=info logger=api caller=server.go:300 msg="query executed" db=orders rows=116 took=0.811s
+ts=2026-10-14T06:03:43.900Z level=info logger=db caller=server.go:186 msg="query executed" db=orders rows=109 took=0.865s
+ts=2026-10-14T06:03:46.509Z level=info logger=db caller=server.go:385 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:03:48.491Z level=info logger=db caller=server.go:113 msg="query executed" db=orders rows=473 took=0.141s
+ts=2026-10-14T06:03:53.321Z level=info logger=api caller=server.go:88 msg="request" method=GET path=/ status=201 duration=341ms
+ts=2026-10-14T06:03:59.114Z level=info logger=api caller=server.go:249 msg="query executed" db=orders rows=113 took=0.685s
+ts=2026-10-14T06:04:03.332Z level=error logger=db caller=server.go:278 msg="query executed" db=orders rows=372 took=0.360s
+ts=2026-10-14T06:04:06.677Z level=warn logger=db caller=server.go:29 msg="request" method=GET path=/api/v1/users/42 status=201 duration=559ms
+ts=2026-10-14T06:04:13.135Z level=debug logger=db caller=server.go:287 msg="query executed" db=orders rows=367 took=0.996s
+ts=2026-10-14T06:04:21.334Z level=info logger=api caller=server.go:205 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:04:25.749Z level=warn logger=db caller=server.go:237 msg="query executed" db=orders rows=169 took=0.334s
+ts=2026-10-14T06:04:30.470Z level=debug logger=db caller=server.go:91 msg="request" method=POST path=/api/v1/orders/4711 status=200 duration=373ms
+ts=2026-10-14T06:04:34.048Z level=debug logger=api caller=server.go:286 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:04:39.971Z level=info logger=api caller=server.go:351 msg="request" method=POST path=/health status=201 duration=749ms
+ts=2026-10-14T06:04:41.881Z level=info logger=db caller=server.go:269 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:04:47.978Z level=info logger=db caller=server.go:370 msg="query executed" db=orders rows=72 took=0.329s
+ts=2026-10-14T06:04:55.676Z level=info logger=api caller=server.go:217 msg="query executed" db=orders rows=90 took=0.168s
+ts=2026-10-14T06:05:01.617Z level=info logger=worker caller=server.go:52 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:05:03.617Z level=warn logger=db caller=server.go:299 msg="query executed" db=orders rows=93 took=0.438s
+ts=2026-10-14T06:05:09.509Z level=error logger=db caller=server.go:66 msg="request" method=POST path=/admin status=200 duration=81ms
+ts=2026-10-14T06:05:14.728Z level=warn logger=worker caller=server.go:361 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:05:19.178Z level=info logger=api caller=server.go:262 msg="query executed" db=orders rows=16 took=0.438s
+ts=2026-10-14T06:05:20.961Z level=info logger=api caller=server.go:191 msg="request" method=GET path=/static/app.js status=500 duration=564ms
+ts=2026-10-14T06:05:26.620Z level=debug logger=db caller=server.go:356 msg="request" method=GET path=/ status=200 duration=403ms
+ts=2026-10-14T06:05:30.613Z level=info logger=worker caller=server.go:70 msg="query executed" db=orders rows=104 took=0.690s
+ts=2026-10-14T06:05:30.897Z level=info logger=db caller=server.go:33 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:05:39.523Z level=info logger=db caller=server.go:330 msg="query executed" db=orders rows=32 took=0.072s
+ts=2026-10-14T06:05:41.501Z level=info logger=api caller=server.go:289 msg="query executed" db=orders rows=450 took=0.615s
+ts=2026-10-14T06:05:46.855Z level=info logger=api caller=server.go:33 msg="request" method=POST path=/health status=500 duration=349ms
+ts=2026-10-14T06:05:52.252Z level=debug logger=worker caller=server.go:19 msg="request" method=POST path=/static/logo.png status=500 duration=14ms
+ts=2026-10-14T06:05:58.836Z level=info logger=api caller=server.go:47 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:06:07.232Z level=info logger=worker caller=server.go:146 msg="request" method=GET path=/admin status=200 duration=491ms
+ts=2026-10-14T06:06:09.965Z level=warn logger=worker caller=server.go:367 msg="request" method=GET path=/static/logo.png status=201 duration=315ms
+ts=2026-10-14T06:06:15.847Z level=info logger=api caller=server.go:181 msg="request" method=POST path=/static/app.js status=404 duration=777ms
+ts=2026-10-14T06:06:20.855Z level=info logger=db caller=server.go:118 msg="query executed" db=orders rows=424 took=0.011s
+ts=2026-10-14T06:06:27.175Z level=info logger=db caller=server.go:64 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:06:34.725Z level=info logger=worker caller=server.go:369 msg="query executed" db=orders rows=321 took=0.187s
+ts=2026-10-14T06:06:36.949Z level=info logger=api caller=server.go:302 msg="request" method=GET path=/index.html status=200 duration=755ms
+ts=2026-10-14T06:06:37.607Z level=warn logger=worker caller=server.go:286 msg="request" method=GET path=/api/v1/orders/4711 status=200 duration=6ms
+ts=2026-10-14T06:06:46.542Z level=info logger=db caller=server.go:211 msg="request" method=GET path=/login status=200 duration=91ms
+ts=2026-10-14T06:06:53.767Z level=info logger=worker caller=server.go:181 msg="query executed" db=orders rows=3 took=0.282s
+ts=2026-10-14T06:07:01.109Z level=info logger=worker caller=server.go:240 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:07:06.986Z level=info logger=db caller=server.go:169 msg="request" method=GET path=/static/logo.png status=500 duration=790ms
+ts=2026-10-14T06:07:09.390Z level=debug logger=db caller=server.go:353 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:07:12.206Z level=debug logger=worker caller=server.go:105 msg="query executed" db=orders rows=234 took=0.370s
+ts=2026-10-14T06:07:13.467Z level=info logger=api caller=server.go:237 msg="request" method=GET path=/search status=500 duration=130ms
+ts=2026-10-14T06:07:14.560Z level=warn logger=worker caller=server.go:394 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:07:22.566Z level=debug logger=worker caller=server.go:97 msg="request" method=GET path=/index.html status=500 duration=743ms
+ts=2026-10-14T06:07:23.927Z level=warn logger=db caller=server.go:380 msg="query executed" db=orders rows=63 took=0.522s
+ts=2026-10-14T06:07:24.629Z level=info logger=db caller=server.go:118 msg="request" method=GET path=/admin status=200 duration=516ms
+ts=2026-10-14T06:07:33.009Z level=info logger=db caller=server.go:301 msg="query executed" db=orders rows=373 took=0.589s
+ts=2026-10-14T06:07:40.715Z level=error logger=api caller=server.go:372 msg="request" method=GET path=/api/v1/users/42 status=500 duration=530ms
+ts=2026-10-14T06:07:41.483Z level=error logger=worker caller=server.go:319 msg="request" method=GET path=/static/app.js status=500 duration=784ms
+ts=2026-10-14T06:07:44.551Z level=info logger=api caller=server.go:270 msg="request" method=GET path=/static/app.css status=500 duration=492ms
+ts=2026-10-14T06:07:48.890Z level=error logger=api caller=server.go:96 msg="request" method=GET path=/health status=200 duration=527ms
+ts=2026-10-14T06:07:56.056Z level=debug logger=api caller=server.go:330 msg="request" method=GET path=/static/logo.png status=201 duration=550ms
+ts=2026-10-14T06:07:59.194Z level=info logger=db caller=server.go:152 msg="request" method=POST path=/index.html status=201 duration=286ms
+ts=2026-10-14T06:08:02.942Z level=debug logger=api caller=server.go:225 msg="query executed" db=orders rows=268 took=0.748s
+ts=2026-10-14T06:08:08.533Z level=info logger=worker caller=server.go:386 msg="request" method=GET path=/health status=200 duration=754ms
+ts=2026-10-14T06:08:08.663Z level=debug logger=api caller=server.go:76 msg="request" method=GET path=/api/v1/orders status=200 duration=225ms
+ts=2026-10-14T06:08:16.172Z level=info logger=api caller=server.go:134 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:08:21.907Z level=debug logger=worker caller=server.go:57 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:08:28.250Z level=warn logger=api caller=server.go:186 msg="request" method=POST path=/logout status=200 duration=699ms
+ts=2026-10-14T06:08:32.207Z level=warn logger=worker caller=server.go:285 msg="request" method=POST path=/api/v1/users/42 status=500 duration=99ms
+ts=2026-10-14T06:08:35.342Z level=info logger=worker caller=server.go:55 msg="query executed" db=orders rows=333 took=0.162s
+ts=2026-10-14T06:08:42.041Z level=warn logger=db caller=server.go:203 msg="query executed" db=orders rows=380 took=0.074s
+ts=2026-10-14T06:08:42.922Z level=error logger=api caller=server.go:24 msg="query executed" db=orders rows=489 took=0.531s
+ts=2026-10-14T06:08:47.175Z level=warn logger=worker caller=server.go:208 msg="query executed" db=orders rows=420 took=0.276s
+ts=2026-10-14T06:08:53.341Z level=debug logger=api caller=server.go:266 msg="request" method=GET path=/index.html status=404 duration=499ms
+ts=2026-10-14T06:08:53.716Z level=info logger=db caller=server.go:245 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:08:54.108Z level=info logger=db caller=server.go:195 msg="request" method=GET path=/index.html status=500 duration=525ms
+ts=2026-10-14T06:08:59.169Z level=info logger=db caller=server.go:210 msg="request" method=POST path=/api/v1/orders status=200 duration=452ms
+ts=2026-10-14T06:09:02.870Z level=info logger=db caller=server.go:186 msg="query executed" db=orders rows=367 took=0.225s
+ts=2026-10-14T06:09:03.179Z level=info logger=api caller=server.go:207 msg="request" method=POST path=/logout status=200 duration=867ms
+ts=2026-10-14T06:09:05.623Z level=warn logger=db caller=server.go:350 msg="request" method=POST path=/login status=201 duration=222ms
+ts=2026-10-14T06:09:08.564Z level=warn logger=worker caller=server.go:273 msg="request" method=POST path=/api/v1/orders status=200 duration=104ms
+ts=2026-10-14T06:09:17.215Z level=warn logger=worker caller=server.go:328 msg="request" method=POST path=/static/logo.png status=500 duration=101ms
+ts=2026-10-14T06:09:23.366Z level=info logger=api caller=server.go:346 msg="query executed" db=orders rows=464 took=0.821s
+ts=2026-10-14T06:09:29.635Z level=info logger=api caller=server.go:378 msg="query executed" db=orders rows=412 took=0.239s
+ts=2026-10-14T06:09:34.604Z level=info logger=worker caller=server.go:39 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:09:40.148Z level=info logger=worker caller=server.go:133 msg="request" method=GET path=/wp-login.php status=200 duration=829ms
+ts=2026-10-14T06:09:41.228Z level=info logger=worker caller=server.go:146 msg="request" method=POST path=/api/v1/users/42 status=200 duration=383ms
+ts=2026-10-14T06:09:47.112Z level=info logger=worker caller=server.go:147 msg="query executed" db=orders rows=469 took=0.690s
+ts=2026-10-14T06:09:54.450Z level=info logger=db caller=server.go:132 msg="request" method=POST path=/search status=201 duration=205ms
+ts=2026-10-14T06:10:00.829Z level=info logger=db caller=server.go:207 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:10:09.220Z level=error logger=api caller=server.go:185 msg="request" method=GET path=/api/v1/orders status=200 duration=81ms
+ts=2026-10-14T06:10:13.598Z level=debug logger=worker caller=server.go:166 msg="query executed" db=orders rows=4 took=0.573s
+ts=2026-10-14T06:10:21.687Z level=warn logger=db caller=server.go:304 msg="request" method=POST path=/static/logo.png status=200 duration=331ms
+ts=2026-10-14T06:10:28.093Z level=info logger=db caller=server.go:151 msg="request" method=GET path=/wp-login.php status=200 duration=14ms
+ts=2026-10-14T06:10:30.338Z level=info logger=db caller=server.go:72 msg="query executed" db=orders rows=60 took=0.266s
+ts=2026-10-14T06:10:34.391Z level=error logger=worker caller=server.go:308 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:10:37.644Z level=info logger=db caller=server.go:168 msg="request" method=POST path=/wp-login.php status=200 duration=309ms
+ts=2026-10-14T06:10:41.379Z level=warn logger=api caller=server.go:358 msg="request" method=POST path=/logout status=404 duration=232ms
+ts=2026-10-14T06:10:41.409Z level=info logger=worker caller=server.go:192 msg="query executed" db=orders rows=62 took=0.496s
+ts=2026-10-14T06:10:43.554Z level=error logger=db caller=server.go:90 msg="request" method=POST path=/index.html status=500 duration=288ms
+ts=2026-10-14T06:10:46.925Z level=warn logger=db caller=server.go:268 msg="query executed" db=orders rows=378 took=0.896s
+ts=2026-10-14T06:10:54.190Z level=info logger=api caller=server.go:67 msg="query executed" db=orders rows=455 took=0.679s
+ts=2026-10-14T06:11:01.388Z level=info logger=db caller=server.go:389 msg="request" method=GET path=/search status=500 duration=421ms
+ts=2026-10-14T06:11:03.615Z level=warn logger=worker caller=server.go:175 msg="request" method=GET path=/static/logo.png status=404 duration=410ms
+ts=2026-10-14T06:11:09.807Z level=debug logger=worker caller=server.go:368 msg="request" method=POST path=/ status=200 duration=782ms
+ts=2026-10-14T06:11:15.641Z level=debug logger=worker caller=server.go:275 msg="request" method=GET path=/ status=201 duration=334ms
+ts=2026-10-14T06:11:15.678Z level=debug logger=db caller=server.go:105 msg="request" method=GET path=/search status=200 duration=68ms
+ts=2026-10-14T06:11:21.152Z level=info logger=db caller=server.go:23 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:11:25.384Z level=error logger=api caller=server.go:400 msg="query executed" db=orders rows=63 took=0.769s
+ts=2026-10-14T06:11:31.925Z level=warn logger=api caller=server.go:111 msg="query executed" db=orders rows=253 took=0.993s
+ts=2026-10-14T06:11:33.127Z level=info logger=worker caller=server.go:23 msg="request" method=GET path=/static/app.css status=404 duration=181ms
+ts=2026-10-14T06:11:35.716Z level=info logger=db caller=server.go:75 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:11:41.705Z level=info logger=worker caller=server.go:119 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:11:44.856Z level=debug logger=api caller=server.go:368 msg="query executed" db=orders rows=394 took=0.815s
+ts=2026-10-14T06:11:48.771Z level=info logger=db caller=server.go:363 msg="query executed" db=orders rows=0 took=0.287s
+ts=2026-10-14T06:11:52.571Z level=info logger=db caller=server.go:27 msg="request" method=POST path=/api/v1/users/42 status=200 duration=520ms
+ts=2026-10-14T06:11:59.977Z level=debug logger=db caller=server.go:320 msg="request" method=POST path=/ status=500 duration=192ms
+ts=2026-10-14T06:12:07.783Z level=error logger=api caller=server.go:205 msg="query executed" db=orders rows=413 took=0.158s
+ts=2026-10-14T06:12:07.884Z level=debug logger=worker caller=server.go:123 msg="request" method=POST path=/index.html status=201 duration=661ms
+ts=2026-10-14T06:12:16.578Z level=info logger=api caller=server.go:262 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:12:23.523Z level=info logger=api caller=server.go:176 msg="request" method=POST path=/admin status=404 duration=490ms
+ts=2026-10-14T06:12:31.294Z level=info logger=api caller=server.go:374 msg="request" method=GET path=/search status=200 duration=146ms
+ts=2026-10-14T06:12:39.311Z level=info logger=api caller=server.go:187 msg="query executed" db=orders rows=149 took=0.254s
+ts=2026-10-14T06:12:47.997Z level=warn logger=worker caller=server.go:333 msg="query executed" db=orders rows=367 took=0.816s
+ts=2026-10-14T06:12:50.179Z level=info logger=worker caller=server.go:182 msg="request" method=GET path=/api/v1/users/42 status=200 duration=841ms
+ts=2026-10-14T06:12:53.559Z level=info logger=worker caller=server.go:379 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:13:01.444Z level=info logger=db caller=server.go:360 msg="request" method=GET path=/static/app.css status=200 duration=279ms
+ts=2026-10-14T06:13:08.726Z level=debug logger=worker caller=server.go:166 msg="request" method=POST path=/health status=201 duration=235ms
+ts=2026-10-14T06:13:10.394Z level=info logger=db caller=server.go:348 msg="request" method=GET path=/logout status=404 duration=179ms
+ts=2026-10-14T06:13:10.914Z level=info logger=worker caller=server.go:252 msg="query executed" db=orders rows=117 took=0.571s
+ts=2026-10-14T06:13:16.309Z level=debug logger=db caller=server.go:173 msg="query executed" db=orders rows=404 took=0.476s
+ts=2026-10-14T06:13:20.891Z level=debug logger=worker caller=server.go:147 msg="request" method=GET path=/api/v1/orders/4711 status=200 duration=439ms
+ts=2026-10-14T06:13:21.970Z level=info logger=db caller=server.go:229 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:13:25.987Z level=info logger=worker caller=server.go:118 msg="query executed" db=orders rows=295 took=0.721s
+ts=2026-10-14T06:13:31.448Z level=info logger=api caller=server.go:80 msg="request" method=GET path=/ status=404 duration=823ms
+ts=2026-10-14T06:13:31.707Z level=debug logger=api caller=server.go:46 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:13:38.805Z level=debug logger=api caller=server.go:302 msg="query executed" db=orders rows=76 took=0.307s
+ts=2026-10-14T06:13:42.574Z level=info logger=db caller=server.go:246 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:13:51.154Z level=info logger=db caller=server.go:261 msg="request" method=POST path=/logout status=200 duration=169ms
+ts=2026-10-14T06:13:58.390Z level=debug logger=db caller=server.go:343 msg="query executed" db=orders rows=394 took=0.185s
+ts=2026-10-14T06:14:05.081Z level=info logger=worker caller=server.go:328 msg="request" method=POST path=/search status=500 duration=544ms
+ts=2026-10-14T06:14:12.745Z level=info logger=worker caller=server.go:168 msg="request" method=GET path=/health status=500 duration=716ms
+ts=2026-10-14T06:14:15.863Z level=info logger=api caller=server.go:25 msg="query executed" db=orders rows=195 took=0.329s
+ts=2026-10-14T06:14:24.551Z level=info logger=api caller=server.go:84 msg="query executed" db=orders rows=171 took=0.182s
+ts=2026-10-14T06:14:24.713Z level=debug logger=db caller=server.go:149 msg="request" method=GET path=/admin status=201 duration=498ms
+ts=2026-10-14T06:14:29.289Z level=info logger=worker caller=server.go:35 msg="query executed" db=orders rows=145 took=0.480s
+ts=2026-10-14T06:14:29.432Z level=info logger=worker caller=server.go:350 msg="query executed" db=orders rows=202 took=0.306s
+ts=2026-10-14T06:14:35.940Z level=info logger=db caller=server.go:55 msg="query executed" db=orders rows=303 took=0.450s
+ts=2026-10-14T06:14:42.775Z level=info logger=worker caller=server.go:27 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:14:47.653Z level=info logger=api caller=server.go:250 msg="request" method=GET path=/api/v1/orders/4711 status=201 duration=716ms
+ts=2026-10-14T06:14:50.691Z level=info logger=api caller=server.go:247 msg="request" method=POST path=/static/logo.png status=404 duration=632ms
+ts=2026-10-14T06:14:57.771Z level=debug logger=worker caller=server.go:366 msg="query executed" db=orders rows=332 took=0.358s
+ts=2026-10-14T06:15:03.999Z level=info logger=api caller=server.go:101 msg="request" method=POST path=/static/logo.png status=404 duration=737ms
+ts=2026-10-14T06:15:09.357Z level=debug logger=api caller=server.go:228 msg="query executed" db=orders rows=236 took=0.414s
+ts=2026-10-14T06:15:13.597Z level=error logger=db caller=server.go:278 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:15:22.457Z level=info logger=worker caller=server.go:232 msg="request" method=POST path=/api/v1/orders/4711 status=201 duration=424ms
+ts=2026-10-14T06:15:25.762Z level=error logger=db caller=server.go:391 msg="query executed" db=orders rows=447 took=0.901s
+ts=2026-10-14T06:15:29.076Z level=info logger=worker caller=server.go:72 msg="query executed" db=orders rows=405 took=0.897s
+ts=2026-10-14T06:15:35.659Z level=error logger=worker caller=server.go:142 msg="query executed" db=orders rows=385 took=0.607s
+ts=2026-10-14T06:15:40.251Z level=info logger=worker caller=server.go:398 msg="request" method=POST path=/api/v1/users/42 status=201 duration=18ms
+ts=2026-10-14T06:15:48.426Z level=debug logger=worker caller=server.go:380 msg="request" method=POST path=/static/app.css status=404 duration=132ms
+ts=2026-10-14T06:15:56.166Z level=error logger=worker caller=server.go:338 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:16:04.762Z level=warn logger=worker caller=server.go:238 msg="request" method=GET path=/login status=200 duration=9ms
+ts=2026-10-14T06:16:06.824Z level=info logger=db caller=server.go:164 msg="request" method=POST path=/admin status=200 duration=491ms
+ts=2026-10-14T06:16:15.180Z level=debug logger=db caller=server.go:251 msg="query executed" db=orders rows=401 took=0.413s
+ts=2026-10-14T06:16:18.059Z level=info logger=worker caller=server.go:231 msg="request" method=GET path=/ status=201 duration=285ms
+ts=2026-10-14T06:16:22.449Z level=error logger=api caller=server.go:82 msg="request" method=GET path=/static/logo.png status=200 duration=843ms
+ts=2026-10-14T06:16:27.558Z level=debug logger=db caller=server.go:280 msg="request" method=POST path=/api/v1/orders/4711 status=404 duration=886ms
+ts=2026-10-14T06:16:33.752Z level=info logger=api caller=server.go:303 msg="request" method=POST path=/ status=500 duration=441ms
+ts=2026-10-14T06:16:37.719Z level=debug logger=db caller=server.go:366 msg="query executed" db=orders rows=282 took=0.298s
+ts=2026-10-14T06:16:43.125Z level=info logger=api caller=server.go:114 msg="request" method=GET path=/static/app.css status=500 duration=380ms
+ts=2026-10-14T06:16:48.036Z level=debug logger=worker caller=server.go:389 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:16:50.070Z level=warn logger=db caller=server.go:116 msg="request" method=POST path=/api/v1/orders status=200 duration=272ms
+ts=2026-10-14T06:16:51.089Z level=info logger=worker caller=server.go:389 msg="query executed" db=orders rows=365 took=0.579s
+ts=2026-10-14T06:16:57.889Z level=warn logger=worker caller=server.go:343 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:17:03.616Z level=info logger=api caller=server.go:344 msg="request" method=POST path=/api/v1/users/42 status=500 duration=52ms
+ts=2026-10-14T06:17:05.278Z level=info logger=api caller=server.go:29 msg="request" method=POST path=/index.html status=404 duration=270ms
+ts=2026-10-14T06:17:09.490Z level=warn logger=api caller=server.go:92 msg="request" method=GET path=/static/app.css status=201 duration=49ms
+ts=2026-10-14T06:17:18.114Z level=error logger=db caller=server.go:383 msg="request" method=POST path=/login status=404 duration=770ms
+ts=2026-10-14T06:17:20.317Z level=info logger=api caller=server.go:14 msg="query executed" db=orders rows=78 took=0.624s
+ts=2026-10-14T06:17:22.333Z level=debug logger=api caller=server.go:127 msg="request" method=GET path=/logout status=200 duration=899ms
+ts=2026-10-14T06:17:22.557Z level=debug logger=db caller=server.go:243 msg="request" method=POST path=/index.html status=200 duration=687ms
+ts=2026-10-14T06:17:28.512Z level=warn logger=worker caller=server.go:187 msg="request" method=POST path=/login status=404 duration=625ms
+ts=2026-10-14T06:17:33.767Z level=warn logger=api caller=server.go:50 msg="request" method=POST path=/health status=201 duration=216ms
+ts=2026-10-14T06:17:36.699Z level=info logger=db caller=server.go:97 msg="query executed" db=orders rows=394 took=0.258s
+ts=2026-10-14T06:17:39.728Z level=info logger=api caller=server.go:75 msg="query executed" db=orders rows=486 took=0.792s
+ts=2026-10-14T06:17:48.031Z level=info logger=worker caller=server.go:18 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:17:49.496Z level=info logger=api caller=server.go:159 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:17:50.398Z level=info logger=worker caller=server.go:246 msg="request" method=POST path=/wp-login.php status=201 duration=677ms
+ts=2026-10-14T06:17:52.249Z level=warn logger=db caller=server.go:221 msg="query executed" db=orders rows=353 took=0.495s
+ts=2026-10-14T06:17:53.886Z level=info logger=db caller=server.go:35 msg="query executed" db=orders rows=441 took=0.183s
+ts=2026-10-14T06:18:00.254Z level=info logger=api caller=server.go:183 msg="request" method=POST path=/login status=404 duration=645ms
+ts=2026-10-14T06:18:09.147Z level=error logger=worker caller=server.go:362 msg="request" method=POST path=/static/logo.png status=200 duration=822ms
+ts=2026-10-14T06:18:14.541Z level=info logger=worker caller=server.go:381 msg="query executed" db=orders rows=364 took=0.255s
+ts=2026-10-14T06:18:17.510Z level=info logger=api caller=server.go:105 msg="request" method=GET path=/static/app.js status=500 duration=788ms
+ts=2026-10-14T06:18:18.643Z level=debug logger=worker caller=server.go:244 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:18:26.685Z level=info logger=worker caller=server.go:47 msg="request" method=POST path=/admin status=500 duration=52ms
+ts=2026-10-14T06:18:34.560Z level=debug logger=worker caller=server.go:28 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:18:38.172Z level=debug logger=worker caller=server.go:172 msg="request" method=POST path=/search status=201 duration=183ms
+ts=2026-10-14T06:18:39.677Z level=debug logger=api caller=server.go:295 msg="request" method=POST path=/api/v1/users/42 status=201 duration=256ms
+ts=2026-10-14T06:18:46.863Z level=debug logger=db caller=server.go:100 msg="request" method=POST path=/login status=200 duration=116ms
+ts=2026-10-14T06:18:53.558Z level=info logger=worker caller=server.go:205 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:18:57.488Z level=debug logger=api caller=server.go:113 msg="query executed" db=orders rows=354 took=0.540s
+ts=2026-10-14T06:19:01.789Z level=info logger=db caller=server.go:267 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:19:10.300Z level=info logger=db caller=server.go:20 msg="query executed" db=orders rows=169 took=0.012s
+ts=2026-10-14T06:19:12.310Z level=warn logger=worker caller=server.go:188 msg="query executed" db=orders rows=193 took=0.766s
+ts=2026-10-14T06:19:13.936Z level=info logger=worker caller=server.go:103 msg="request" method=POST path=/static/app.js status=201 duration=639ms
+ts=2026-10-14T06:19:20.373Z level=info logger=api caller=server.go:241 msg="request" method=POST path=/api/v1/users/42 status=200 duration=275ms
+ts=2026-10-14T06:19:27.858Z level=info logger=db caller=server.go:51 msg="request" method=POST path=/static/logo.png status=200 duration=18ms
+ts=2026-10-14T06:19:34.215Z level=info logger=worker caller=server.go:90 msg="request" method=GET path=/ status=201 duration=587ms
+ts=2026-10-14T06:19:36.821Z level=info logger=worker caller=server.go:172 msg="request" method=POST path=/logout status=200 duration=156ms
+ts=2026-10-14T06:19:42.596Z level=info logger=db caller=server.go:352 msg="query executed" db=orders rows=119 took=0.436s
+ts=2026-10-14T06:19:45.257Z level=info logger=db caller=server.go:350 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:19:47.300Z level=info logger=worker caller=server.go:352 msg="request" method=POST path=/static/logo.png status=500 duration=28ms
+ts=2026-10-14T06:19:55.647Z level=debug logger=api caller=server.go:32 msg="request" method=GET path=/logout status=500 duration=779ms
+ts=2026-10-14T06:20:00.234Z level=info logger=api caller=server.go:42 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:20:01.415Z level=warn logger=worker caller=server.go:161 msg="request" method=GET path=/admin status=200 duration=382ms
+ts=2026-10-14T06:20:10.093Z level=warn logger=db caller=server.go:288 msg="request" method=POST path=/static/app.css status=200 duration=891ms
+ts=2026-10-14T06:20:16.641Z level=info logger=worker caller=server.go:177 msg="request" method=GET path=/index.html status=500 duration=113ms
+ts=2026-10-14T06:20:21.210Z level=info logger=worker caller=server.go:10 msg="request" method=POST path=/admin status=200 duration=858ms
+ts=2026-10-14T06:20:22.023Z level=info logger=db caller=server.go:236 msg="query executed" db=orders rows=257 took=0.916s
+ts=2026-10-14T06:20:30.514Z level=info logger=db caller=server.go:154 msg="request" method=POST path=/admin status=404 duration=654ms
+ts=2026-10-14T06:20:37.280Z level=info logger=api caller=server.go:121 msg="query executed" db=orders rows=305 took=0.435s
+ts=2026-10-14T06:20:41.954Z level=debug logger=api caller=server.go:101 msg="query executed" db=orders rows=366 took=0.930s
+ts=2026-10-14T06:20:43.151Z level=debug logger=worker caller=server.go:139 msg="request" method=GET path=/ status=201 duration=168ms
+ts=2026-10-14T06:20:51.373Z level=info logger=worker caller=server.go:67 msg="request" method=POST path=/static/app.css status=500 duration=792ms
+ts=2026-10-14T06:20:52.855Z level=warn logger=worker caller=server.go:152 msg="request" method=POST path=/static/logo.png status=500 duration=609ms
+ts=2026-10-14T06:21:00.953Z level=info logger=worker caller=server.go:20 msg="query executed" db=orders rows=101 took=0.111s
+ts=2026-10-14T06:21:01.177Z level=warn logger=api caller=server.go:41 msg="request" method=GET path=/search status=200 duration=724ms
+ts=2026-10-14T06:21:01.533Z level=error logger=worker caller=server.go:212 msg="query executed" db=orders rows=276 took=0.337s
+ts=2026-10-14T06:21:05.426Z level=debug logger=api caller=server.go:281 msg="request" method=GET path=/api/v1/orders/4711 status=200 duration=277ms
+ts=2026-10-14T06:21:08.989Z level=info logger=worker caller=server.go:92 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:21:15.851Z level=warn logger=worker caller=server.go:367 msg="request" method=GET path=/ status=404 duration=408ms
+ts=2026-10-14T06:21:22.018Z level=warn logger=api caller=server.go:100 msg="query executed" db=orders rows=477 took=0.244s
+ts=2026-10-14T06:21:30.928Z level=info logger=db caller=server.go:354 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:21:34.147Z level=warn logger=api caller=server.go:333 msg="request" method=GET path=/static/app.css status=201 duration=651ms
+ts=2026-10-14T06:21:43.081Z level=warn logger=api caller=server.go:213 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:21:50.188Z level=info logger=api caller=server.go:48 msg="query executed" db=orders rows=494 took=0.777s
+ts=2026-10-14T06:21:53.346Z level=info logger=worker caller=server.go:321 msg="query executed" db=orders rows=102 took=0.900s
+ts=2026-10-14T06:21:55.447Z level=info logger=api caller=server.go:188 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:21:57.919Z level=info logger=db caller=server.go:372 msg="query executed" db=orders rows=32 took=0.528s
+ts=2026-10-14T06:21:58.334Z level=error logger=worker caller=server.go:380 msg="request" method=POST path=/index.html status=200 duration=433ms
+ts=2026-10-14T06:22:04.179Z level=info logger=api caller=server.go:328 msg="request" method=GET path=/wp-login.php status=201 duration=254ms
+ts=2026-10-14T06:22:06.657Z level=info logger=db caller=server.go:267 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:22:08.017Z level=error logger=worker caller=server.go:264 msg="request" method=GET path=/static/app.css status=201 duration=359ms
+ts=2026-10-14T06:22:10.769Z level=info logger=api caller=server.go:369 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=3
+ts=2026-10-14T06:22:17.154Z level=info logger=worker caller=server.go:206 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:22:19.780Z level=warn logger=db caller=server.go:114 msg="query executed" db=orders rows=48 took=0.138s
+ts=2026-10-14T06:22:24.411Z level=info logger=db caller=server.go:124 msg="query executed" db=orders rows=487 took=0.163s
+ts=2026-10-14T06:22:29.098Z level=info logger=db caller=server.go:79 msg="query executed" db=orders rows=391 took=0.444s
+ts=2026-10-14T06:22:29.553Z level=info logger=api caller=server.go:234 msg="request" method=POST path=/api/v1/users/42 status=500 duration=312ms
+ts=2026-10-14T06:22:36.049Z level=debug logger=worker caller=server.go:190 msg="request" method=POST path=/api/v1/orders status=404 duration=262ms
+ts=2026-10-14T06:22:40.464Z level=info logger=worker caller=server.go:268 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:22:44.579Z level=info logger=db caller=server.go:385 msg="request" method=POST path=/static/app.css status=201 duration=212ms
+ts=2026-10-14T06:22:53.406Z level=info logger=worker caller=server.go:283 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:22:53.677Z level=info logger=db caller=server.go:15 msg="request" method=GET path=/health status=500 duration=826ms
+ts=2026-10-14T06:22:59.665Z level=debug logger=api caller=server.go:214 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1
+ts=2026-10-14T06:23:02.649Z level=info logger=api caller=server.go:288 msg="request" method=POST path=/static/app.css status=500 duration=63ms
+ts=2026-10-14T06:23:04.926Z level=info logger=worker caller=server.go:286 msg="request" method=GET path=/admin status=200 duration=1ms
+ts=2026-10-14T06:23:13.120Z level=warn logger=db caller=server.go:166 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=2
+ts=2026-10-14T06:23:21.684Z level=info logger=worker caller=server.go:64 msg="query executed" db=orders rows=242 took=0.262s
+ts=2026-10-14T06:23:30.039Z level=info logger=api caller=server.go:238 msg="upstream error" err="dial tcp 10.0.1.5:8080: connect: connection refused" retry=1

@@ -1,0 +1,21 @@
+[Wed Oct 14 10:37:02.123456 2026] [mpm_event:notice] [pid 2341:tid 140] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 10:37:02.123512 2026] [core:notice] [pid 2341:tid 140] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Oct 14 10:37:05.000001 2026] [core:error] [pid 2342:tid 141] [client 10.0.0.5:52211] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 10:37:06.882910 2026] [authz_core:error] [pid 2342:tid 142] [client 203.0.113.9:40022] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 10:37:07.100000 2026] [php:warn] [pid 2343:tid 150] [client 10.0.0.6:50000] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 10:37:08.000000 2026] [proxy:error] [pid 2343:tid 151] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 10:37:08.000100 2026] [proxy_http:error] [pid 2343:tid 151] [client 10.0.0.8:41000] AH01114: HTTP: failed to make connection to backend: localhost
+[Wed Oct 14 10:37:09.500000 2026] [ssl:info] [pid 2344:tid 160] [client 10.0.0.9:39000] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 10:37:10.000000 2026] [ssl:debug] [pid 2344:tid 160] ssl_engine_kernel.c(2394): [client 10.0.0.9:39000] AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 10:37:11.000000 2026] [mpm_event:crit] [pid 2341] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 10:37:12.000000 2026] [core:alert] [pid 2346:tid 170] [client 10.0.0.10:38000] /var/www/html/.htaccess: Invalid command 'RewriteEngine', perhaps misspelled or defined by a module not included in the server configuration
+[Wed Oct 14 10:37:13.000000 2026] [:error] [pid 2347:tid 171] [client 10.0.0.11:37000] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 10:37:14.000000 2026] [cgi:error] [pid 2348:tid 172] [client 10.0.0.12:36000] AH01215: Traceback (most recent call last):
+  File "/var/www/cgi-bin/app.py", line 3, in <module>
+    import missing_module
+ModuleNotFoundError: No module named 'missing_module'
+[Wed Oct 14 10:37:15.000000 2026] [mpm_event:notice] [pid 2341:tid 140] AH00491: caught SIGTERM, shutting down
+[Wed Oct 14 10:37:16.000000 2026] [core:emerg] [pid 2350:tid 180] (28)No space left on device: AH00023: Couldn't create the mpm-accept mutex
+[Wed Oct 14 10:37:17.000000 2026] [mpm_event:notice] [pid 2360:tid 190] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 10:37:18.000000 2026] [rewrite:trace3] [pid 2361:tid 191] [client 10.0.0.13:35000] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 10:37:19.000000 2026] [headers:warn] [pid 2361:tid 191] AH01503: Header unset ETag ignored

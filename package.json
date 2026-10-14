@@ -1,7 +1,7 @@
 {
   "name": "tablify",
   "displayName": "Tablify",
-  "description": "View and edit JSON and YAML lists and hashes of entries, and CSV files, as an interactive table.",
+  "description": "View and edit JSON and YAML lists and hashes of entries, and CSV files, as an interactive table. Open log files as a sortable, filterable table.",
   "version": "0.1.1",
   "publisher": "JohannesTiefnig",
   "icon": "media/tablify-icon.png",
@@ -24,7 +24,10 @@
     "csv",
     "table",
     "requirements",
-    "viewer"
+    "viewer",
+    "log",
+    "syslog",
+    "jsonl"
   ],
   "main": "./dist/extension.cjs",
   "activationEvents": [],
@@ -54,6 +57,31 @@
           },
           {
             "filenamePattern": "*.tsv"
+          }
+        ],
+        "priority": "option"
+      },
+      {
+        "viewType": "tablify.logView",
+        "displayName": "Log Table",
+        "selector": [
+          {
+            "filenamePattern": "*.log"
+          },
+          {
+            "filenamePattern": "*.log.[0-9]*"
+          },
+          {
+            "filenamePattern": "*.jsonl"
+          },
+          {
+            "filenamePattern": "*.ndjson"
+          },
+          {
+            "filenamePattern": "**/access_log*"
+          },
+          {
+            "filenamePattern": "**/error_log*"
           }
         ],
         "priority": "option"
@@ -101,6 +129,17 @@
         "title": "Reset View",
         "category": "Tablify",
         "icon": "$(discard)"
+      },
+      {
+        "command": "tablify.openAsLogTable",
+        "title": "Open as Log Table",
+        "category": "Tablify",
+        "icon": "$(list-flat)"
+      },
+      {
+        "command": "tablify.selectLogFormat",
+        "title": "Log Table: Select Format",
+        "category": "Tablify"
       }
     ],
     "menus": {
@@ -109,6 +148,11 @@
           "command": "tablify.openAsTable",
           "when": "resourceExtname =~ /^\\.(json|ya?ml|csv|tsv)$/i",
           "group": "navigation@20"
+        },
+        {
+          "command": "tablify.openAsLogTable",
+          "when": "!explorerResourceIsFolder",
+          "group": "navigation@21"
         }
       ],
       "editor/title": [
@@ -118,8 +162,13 @@
           "group": "navigation"
         },
         {
+          "command": "tablify.openAsLogTable",
+          "when": "(editorLangId == log || resourceExtname =~ /^\\.(jsonl|ndjson)$/i) && activeEditor == workbench.editors.files.textFileEditor",
+          "group": "navigation"
+        },
+        {
           "command": "tablify.openAsText",
-          "when": "activeCustomEditorId == tablify.tableView",
+          "when": "activeCustomEditorId == tablify.tableView || activeCustomEditorId == tablify.logView",
           "group": "navigation"
         },
         {
@@ -151,12 +200,21 @@
           "command": "tablify.saveFilter",
           "when": "activeCustomEditorId == tablify.tableView && tablify.filterActive",
           "group": "1_tablify@3"
+        },
+        {
+          "command": "tablify.selectLogFormat",
+          "when": "activeCustomEditorId == tablify.logView",
+          "group": "1_tablify@4"
         }
       ],
       "editor/title/context": [
         {
           "command": "tablify.openAsTable",
           "when": "resourceExtname =~ /^\\.(json|ya?ml|csv|tsv)$/i",
+          "group": "3_open"
+        },
+        {
+          "command": "tablify.openAsLogTable",
           "group": "3_open"
         }
       ],
@@ -167,11 +225,11 @@
         },
         {
           "command": "tablify.openAsText",
-          "when": "activeCustomEditorId == tablify.tableView"
+          "when": "activeCustomEditorId == tablify.tableView || activeCustomEditorId == tablify.logView"
         },
         {
           "command": "tablify.filter",
-          "when": "activeCustomEditorId == tablify.tableView"
+          "when": "activeCustomEditorId == tablify.tableView || activeCustomEditorId == tablify.logView"
         },
         {
           "command": "tablify.clearFilter",
@@ -188,6 +246,13 @@
         {
           "command": "tablify.resetView",
           "when": "activeCustomEditorId == tablify.tableView && tablify.layoutModified"
+        },
+        {
+          "command": "tablify.openAsLogTable"
+        },
+        {
+          "command": "tablify.selectLogFormat",
+          "when": "activeCustomEditorId == tablify.logView"
         }
       ]
     },
@@ -208,6 +273,109 @@
           "type": "boolean",
           "default": true,
           "markdownDescription": "Save from the table view with **Save without Formatting**, so format-on-save, trim whitespace and other save actions do not rewrite entries the table did not change. Applies to the Ctrl/Cmd+S shortcut."
+        },
+        "tablify.log.customFormats": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "Additional log formats: a JavaScript regex with named groups per format. They take part in format detection like the built-in formats and win ties. Invalid patterns are reported and skipped.",
+          "items": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique ID of the format."
+              },
+              "label": {
+                "type": "string",
+                "description": "Name shown in the format picker and the status bar."
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "regex",
+                  "jsonl",
+                  "logfmt"
+                ],
+                "default": "regex",
+                "markdownDescription": "How entries are read: a regex with named groups (needs `pattern`), JSON Lines or logfmt."
+              },
+              "pattern": {
+                "type": "string",
+                "markdownDescription": "JavaScript regex with named groups, e.g. `^(?<timestamp>\\S+) (?<level>[A-Z]+) (?<message>.*)$`. Applied to the first line of each entry."
+              },
+              "roles": {
+                "type": "object",
+                "markdownDescription": "Group name → role. Groups named `timestamp`, `level` and `message` get that role by default.",
+                "additionalProperties": {
+                  "type": "string",
+                  "enum": [
+                    "timestamp",
+                    "level",
+                    "message",
+                    "source",
+                    "none"
+                  ]
+                }
+              },
+              "multiline": {
+                "type": "boolean",
+                "default": true,
+                "description": "Lines that do not match continue the previous entry (stack traces)."
+              },
+              "timestampFormat": {
+                "type": "string",
+                "description": "Hint for the timestamp format (informational)."
+              },
+              "postProcess": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "syslog-pri",
+                    "split-http-request",
+                    "status-level",
+                    "nil-dash",
+                    "sd-params"
+                  ]
+                },
+                "description": "Built-in enrichers to apply."
+              }
+            }
+          }
+        },
+        "tablify.log.detectionSampleLines": {
+          "type": "number",
+          "default": 200,
+          "minimum": 1,
+          "description": "Number of non-empty lines from the start of a log file used to detect its format."
+        },
+        "tablify.log.detectionThreshold": {
+          "type": "number",
+          "default": 0.6,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Share of sampled lines a format must match to be detected; otherwise the file is shown as plain text."
+        },
+        "tablify.log.largeFileThresholdMB": {
+          "type": "number",
+          "default": 50,
+          "minimum": 0,
+          "description": "Log files above this size ask whether to load all of them or only the first or last lines."
+        },
+        "tablify.log.defaultHiddenColumns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "ident",
+            "version",
+            "tid"
+          ],
+          "description": "Log table columns hidden by default. Columns that are always empty or \"-\" are hidden as well."
         }
       }
     },
@@ -216,7 +384,7 @@
         "command": "tablify.filter",
         "key": "ctrl+f",
         "mac": "cmd+f",
-        "when": "activeCustomEditorId == tablify.tableView"
+        "when": "activeCustomEditorId == tablify.tableView || activeCustomEditorId == tablify.logView"
       },
       {
         "command": "workbench.action.files.saveWithoutFormatting",

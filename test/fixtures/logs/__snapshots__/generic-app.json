@@ -1,0 +1,135 @@
+{
+  "columns": [
+    {
+      "name": "timestamp",
+      "role": "timestamp",
+      "nonEmpty": 14,
+      "superseded": false
+    },
+    {
+      "name": "level",
+      "role": "level",
+      "nonEmpty": 14,
+      "superseded": false
+    },
+    {
+      "name": "logger",
+      "role": "source",
+      "nonEmpty": 11,
+      "superseded": false
+    },
+    {
+      "name": "thread",
+      "role": "none",
+      "nonEmpty": 13,
+      "superseded": false
+    },
+    {
+      "name": "message",
+      "role": "message",
+      "nonEmpty": 15,
+      "superseded": false
+    }
+  ],
+  "records": [
+    {
+      "lineStart": 0,
+      "lineEnd": 2,
+      "fields": {
+        "message": "Picked up JAVA_TOOL_OPTIONS: -Xmx512m\n  .   ____          _            __ _ _\n /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\"
+      },
+      "parseError": true
+    },
+    {
+      "lineStart": 3,
+      "lineEnd": 3,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:00,001",
+        "level": "INFO",
+        "thread": "main",
+        "logger": "com.example.Application",
+        "message": "Starting Application v1.4.2 using Java 21.0.4"
+      },
+      "epochMs": 1791967020001,
+      "level": "info"
+    },
+    {
+      "lineStart": 4,
+      "lineEnd": 4,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:00,512",
+        "level": "DEBUG",
+        "thread": "main",
+        "logger": "com.example.config.DataSourceConfig",
+        "message": "Using pool size 10"
+      },
+      "epochMs": 1791967020512,
+      "level": "debug"
+    },
+    {
+      "lineStart": 5,
+      "lineEnd": 5,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:01,200",
+        "level": "INFO",
+        "thread": "main",
+        "logger": "org.springframework.boot.web.embedded.tomcat.TomcatWebServer",
+        "message": "Tomcat initialized with port 8080 (http)"
+      },
+      "epochMs": 1791967021200,
+      "level": "info"
+    },
+    {
+      "lineStart": 6,
+      "lineEnd": 15,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:02,123",
+        "level": "ERROR",
+        "thread": "main",
+        "logger": "com.example.OrderService",
+        "message": "Payment failed\njava.lang.IllegalStateException: Payment provider unavailable\n\tat com.example.payment.PaymentClient.charge(PaymentClient.java:88)\n\tat com.example.OrderService.checkout(OrderService.java:142)\n\tat com.example.OrderController.post(OrderController.java:51)\n\t... 42 more\nCaused by: java.net.ConnectException: Connection refused\n\tat java.base/sun.nio.ch.Net.connect0(Native Method)\n\tat java.base/sun.nio.ch.Net.connect(Net.java:579)\n\t... 12 more"
+      },
+      "epochMs": 1791967022123,
+      "level": "error"
+    },
+    {
+      "lineStart": 16,
+      "lineEnd": 16,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:02,130",
+        "level": "WARN",
+        "thread": "http-nio-8080-exec-1",
+        "logger": "com.example.OrderController",
+        "message": "Retrying checkout for order 4711"
+      },
+      "epochMs": 1791967022130,
+      "level": "warn"
+    },
+    {
+      "lineStart": 17,
+      "lineEnd": 17,
+      "fields": {
+        "timestamp": "2026-10-14T10:37:03.000Z",
+        "level": "TRACE",
+        "thread": "scheduler-1",
+        "logger": "com.example.jobs.Cleanup",
+        "message": "Scanning 0 expired sessions"
+      },
+      "epochMs": 1791974223000,
+      "level": "trace"
+    },
+    {
+      "lineStart": 18,
+      "lineEnd": 18,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:03.500+02:00",
+        "level": "INFO",
+        "thread": "scheduler-1",
+        "logger": "com.example.jobs.Cleanup",
+        "message": "Done in 3 ms"
+      },
+      "epochMs": 1791967023500,
+      "level": "info"
+    }
+  ]
+}

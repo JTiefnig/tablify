@@ -1,0 +1,25 @@
+Backup job started
+Source: /home  Target: /mnt/backup/2026-10-14
+Scanning files...
+Found 120345 files (42.1 GB)
+WARNING: 3 files could not be read (permission denied)
+  /home/bob/.ssh/id_ed25519
+  /home/carol/private/notes.txt
+  /home/alice/.gnupg/private-keys-v1.d
+Copying...
+  10% done (907 MB/s)
+  20% done (479 MB/s)
+  30% done (113 MB/s)
+  40% done (148 MB/s)
+  50% done (100 MB/s)
+  60% done (317 MB/s)
+  70% done (147 MB/s)
+  80% done (795 MB/s)
+  90% done (453 MB/s)
+  100% done (837 MB/s)
+Verifying checksums
+ERROR: checksum mismatch for /home/alice/photos/IMG_0042.jpg, retrying
+Checksum OK after retry
+Rotating old backups: removed 2026-09-30, 2026-09-29
+Backup finished in 00:42:17
+Exit code 0

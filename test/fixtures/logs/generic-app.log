@@ -1,0 +1,27 @@
+Picked up JAVA_TOOL_OPTIONS: -Xmx512m
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-10-14 10:37:00,001 INFO  [main] com.example.Application - Starting Application v1.4.2 using Java 21.0.4
+2026-10-14 10:37:00,512 DEBUG [main] com.example.config.DataSourceConfig - Using pool size 10
+2026-10-14 10:37:01,200 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-10-14 10:37:02,123 ERROR [main] com.example.OrderService - Payment failed
+java.lang.IllegalStateException: Payment provider unavailable
+	at com.example.payment.PaymentClient.charge(PaymentClient.java:88)
+	at com.example.OrderService.checkout(OrderService.java:142)
+	at com.example.OrderController.post(OrderController.java:51)
+	... 42 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+	... 12 more
+2026-10-14 10:37:02,130 WARN  [http-nio-8080-exec-1] com.example.OrderController - Retrying checkout for order 4711
+2026-10-14T10:37:03.000Z TRACE [scheduler-1] com.example.jobs.Cleanup : Scanning 0 expired sessions
+2026-10-14 10:37:03.500+02:00 [INFO] [scheduler-1] com.example.jobs.Cleanup - Done in 3 ms
+2026-10-14 10:37:04,000 WARNING [pool-2-thread-1] com.example.cache.CacheWarmer - Cache miss rate high: 0.42
+2026-10-14 10:37:05,000 SEVERE [pool-2-thread-1] com.example.cache.CacheWarmer - Cache warmup aborted
+
+2026-10-14 10:37:06,000 FATAL [main] com.example.Application - Shutting down after unrecoverable error
+2026-10-14 10:37:06,100 INFO  Shutdown hook started
+2026-10-14 10:37:06,200 NOTICE [main] Graceful shutdown complete
+2026-10-14 10:37:07,000 CRITICAL [watchdog] com.example.Watchdog - Process did not exit within 30 s
+2026-10-14 10:37:08,000 DEBUG [main] com.example.Application$Shutdown: Exit code 1

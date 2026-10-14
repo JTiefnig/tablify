@@ -12,5 +12,5 @@
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true
   },
-  "include": [".", "../src/messages.ts"]
+  "include": [".", "../src/messages.ts", "../src/log/messages.ts"]
 }

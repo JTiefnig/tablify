@@ -1,0 +1,80 @@
+2026/10/14 08:00:12 error: installer: unpacking package
+2026/10/14 08:00:40 debug: updater: download complete
+2026-10-14 08:00:41 [WARN] updater: could not reach mirror, trying next
+2026/10/14 08:00:58 debug: installer: verifying signature
+2026-10-14 08:01:16 [WARN] updater: could not reach mirror, trying next
+2026/10/14 08:01:17 error: installer: unpacking package
+2026/10/14 08:01:34 info: updater: could not reach mirror, trying next
+2026/10/14 08:01:59 info: installer: unpacking package
+2026-10-14 08:02:05 [WARN] installer: unpacking package
+2026/10/14 08:02:14 warn: updater: download complete
+2026/10/14 08:02:22 debug: installer: post-install hook failed
+2026/10/14 08:02:35 warn: updater: download complete
+2026-10-14 08:02:53 [ERROR] updater: download complete
+2026/10/14 08:03:23 error: installer: verifying signature
+2026/10/14 08:03:27 warn: updater: download complete
+2026-10-14 08:03:41 [ERROR] installer: verifying signature
+2026/10/14 08:03:55 info: installer: verifying signature
+2026-10-14 08:04:00 [DEBUG] installer: unpacking package
+2026/10/14 08:04:07 warn: updater: could not reach mirror, trying next
+2026/10/14 08:04:15 warn: updater: could not reach mirror, trying next
+2026-10-14 08:04:25 [WARN] updater: download complete
+2026-10-14 08:04:33 [ERROR] updater: download complete
+2026-10-14 08:05:00 [INFO] installer: post-install hook failed
+2026-10-14 08:05:01 [INFO] installer: verifying signature
+2026-10-14 08:05:24 [INFO] installer: unpacking package
+2026-10-14 08:05:51 [DEBUG] installer: unpacking package
+2026/10/14 08:05:58 info: installer: verifying signature
+2026-10-14 08:06:28 [INFO] updater: could not reach mirror, trying next
+2026-10-14 08:06:53 [INFO] updater: could not reach mirror, trying next
+2026/10/14 08:07:07 warn: installer: post-install hook failed
+2026/10/14 08:07:30 debug: updater: download complete
+2026-10-14 08:07:53 [WARN] installer: post-install hook failed
+2026/10/14 08:07:58 warn: installer: verifying signature
+2026-10-14 08:08:10 [WARN] installer: unpacking package
+2026/10/14 08:08:26 error: updater: download complete
+2026/10/14 08:08:40 info: updater: download complete
+2026-10-14 08:08:57 [INFO] updater: download complete
+2026-10-14 08:08:59 [ERROR] updater: could not reach mirror, trying next
+2026-10-14 08:09:14 [WARN] installer: verifying signature
+2026/10/14 08:09:19 error: installer: post-install hook failed
+2026/10/14 08:09:46 warn: installer: unpacking package
+2026/10/14 08:10:14 info: updater: download complete
+2026-10-14 08:10:37 [DEBUG] updater: could not reach mirror, trying next
+2026-10-14 08:10:47 [DEBUG] installer: verifying signature
+2026-10-14 08:10:54 [DEBUG] installer: post-install hook failed
+2026-10-14 08:11:00 [DEBUG] installer: verifying signature
+2026-10-14 08:11:28 [INFO] installer: verifying signature
+2026-10-14 08:11:48 [DEBUG] installer: verifying signature
+2026/10/14 08:11:50 error: installer: post-install hook failed
+2026-10-14 08:11:56 [DEBUG] installer: unpacking package
+2026-10-14 08:12:01 [DEBUG] updater: could not reach mirror, trying next
+2026-10-14 08:12:11 [DEBUG] updater: could not reach mirror, trying next
+2026-10-14 08:12:32 [WARN] installer: verifying signature
+2026/10/14 08:12:55 error: updater: download complete
+2026-10-14 08:13:01 [WARN] installer: verifying signature
+2026-10-14 08:13:27 [DEBUG] installer: unpacking package
+2026-10-14 08:13:46 [INFO] updater: download complete
+2026/10/14 08:14:01 warn: updater: download complete
+2026/10/14 08:14:16 error: updater: could not reach mirror, trying next
+2026/10/14 08:14:46 debug: updater: could not reach mirror, trying next
+2026/10/14 08:14:48 info: installer: verifying signature
+2026-10-14 08:14:53 [DEBUG] installer: post-install hook failed
+2026/10/14 08:15:05 error: updater: download complete
+2026/10/14 08:15:15 debug: installer: post-install hook failed
+2026-10-14 08:15:40 [INFO] installer: unpacking package
+2026-10-14 08:16:00 [WARN] updater: could not reach mirror, trying next
+2026-10-14 08:16:00 [INFO] updater: download complete
+2026-10-14 08:16:22 [DEBUG] installer: post-install hook failed
+2026/10/14 08:16:39 warn: installer: verifying signature
+2026-10-14 08:16:51 [DEBUG] installer: post-install hook failed
+2026/10/14 08:17:16 debug: updater: could not reach mirror, trying next
+2026/10/14 08:17:30 debug: updater: download complete
+2026-10-14 08:17:59 [WARN] installer: post-install hook failed
+2026/10/14 08:18:15 debug: installer: unpacking package
+2026-10-14 08:18:16 [INFO] installer: unpacking package
+2026/10/14 08:18:34 debug: installer: post-install hook failed
+2026-10-14 08:18:56 [INFO] installer: verifying signature
+2026/10/14 08:19:14 debug: updater: could not reach mirror, trying next
+2026/10/14 08:19:28 warn: installer: post-install hook failed
+2026/10/14 08:19:58 warn: updater: download complete

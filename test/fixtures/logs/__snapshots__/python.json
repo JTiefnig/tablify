@@ -1,0 +1,126 @@
+{
+  "columns": [
+    {
+      "name": "timestamp",
+      "role": "timestamp",
+      "nonEmpty": 14,
+      "superseded": false
+    },
+    {
+      "name": "level",
+      "role": "level",
+      "nonEmpty": 14,
+      "superseded": false
+    },
+    {
+      "name": "logger",
+      "role": "source",
+      "nonEmpty": 14,
+      "superseded": false
+    },
+    {
+      "name": "message",
+      "role": "message",
+      "nonEmpty": 14,
+      "superseded": false
+    }
+  ],
+  "records": [
+    {
+      "lineStart": 0,
+      "lineEnd": 0,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:00,001",
+        "logger": "orders",
+        "level": "INFO",
+        "message": "Worker started (pid 4211)"
+      },
+      "epochMs": 1791967020001,
+      "level": "info"
+    },
+    {
+      "lineStart": 1,
+      "lineEnd": 1,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:00,120",
+        "logger": "orders.db",
+        "level": "DEBUG",
+        "message": "Connection pool created: size=5"
+      },
+      "epochMs": 1791967020120,
+      "level": "debug"
+    },
+    {
+      "lineStart": 2,
+      "lineEnd": 2,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:01,400",
+        "logger": "orders.api",
+        "level": "INFO",
+        "message": "GET /orders/4711 200 12ms"
+      },
+      "epochMs": 1791967021400,
+      "level": "info"
+    },
+    {
+      "lineStart": 3,
+      "lineEnd": 9,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:02,123",
+        "logger": "orders.payment",
+        "level": "ERROR",
+        "message": "Payment failed\nTraceback (most recent call last):\n  File \"/app/orders/payment.py\", line 42, in charge\n    response = client.post(url, json=payload)\n  File \"/usr/lib/python3.12/site-packages/httpx/_client.py\", line 1145, in post\n    return self.request(\"POST\", url, json=json)\nhttpx.ConnectError: [Errno 111] Connection refused"
+      },
+      "epochMs": 1791967022123,
+      "level": "error"
+    },
+    {
+      "lineStart": 10,
+      "lineEnd": 10,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:02,200",
+        "logger": "orders.payment",
+        "level": "WARNING",
+        "message": "Retrying in 5 s (attempt 1 of 3)"
+      },
+      "epochMs": 1791967022200,
+      "level": "warn"
+    },
+    {
+      "lineStart": 11,
+      "lineEnd": 11,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:07,210",
+        "logger": "orders.payment",
+        "level": "INFO",
+        "message": "Payment succeeded on retry"
+      },
+      "epochMs": 1791967027210,
+      "level": "info"
+    },
+    {
+      "lineStart": 12,
+      "lineEnd": 12,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:08,000",
+        "logger": "orders",
+        "level": "CRITICAL",
+        "message": "Disk usage at 97%"
+      },
+      "epochMs": 1791967028000,
+      "level": "fatal"
+    },
+    {
+      "lineStart": 13,
+      "lineEnd": 13,
+      "fields": {
+        "timestamp": "2026-10-14 10:37:09,000",
+        "logger": "orders.api",
+        "level": "INFO",
+        "message": "POST /orders 201 33ms"
+      },
+      "epochMs": 1791967029000,
+      "level": "info"
+    }
+  ]
+}

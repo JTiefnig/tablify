@@ -1,0 +1,204 @@
+2026/10/14 08:00:03 [error] 1233#0: *6219 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.8, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:00:12 [warn] 1216#0: *2425 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:00:20 [notice] 1273#1273: start worker process 1273
+2026/10/14 08:00:37 [info] 1261#0: *4323 client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:01:00 [info] 1231#0: *3374 client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:01:31 [error] 1285#0: *6309 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 2001:db8::1, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:01:37 [error] 1275#0: *8421 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.1.20, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:02:07 [error] 1264#0: *2131 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 203.0.113.9, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:02:32 [warn] 1279#0: *6557 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.7
+2026/10/14 08:02:49 [error] 1239#1239: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.7, server: example.com
+2026/10/14 08:02:58 [info] 1295#0: *272 client closed connection while waiting for request, client: 10.0.0.8, server: 0.0.0.0:443
+2026/10/14 08:03:16 [warn] 1267#0: *4352 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.7
+2026/10/14 08:03:38 [error] 1250#0: *8322 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.5, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:04:06 [warn] 1206#0: *6924 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 192.168.1.20
+2026/10/14 08:04:19 [error] 1235#0: *8088 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 198.51.100.23, server: example.com
+2026/10/14 08:04:25 [error] 1231#1231: open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.7, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:04:29 [error] 1234#0: *8719 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.20, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:04:44 [notice] 1291#1291: start worker process 1291
+2026/10/14 08:05:09 [error] 1288#0: *3371 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.12, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:05:32 [error] 1276#0: *51 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.8, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:06:05 [info] 1261#0: *3910 client closed connection while waiting for request, client: 203.0.113.9, server: 0.0.0.0:443
+2026/10/14 08:06:09 [error] 1258#0: *209 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 2001:db8::1, server: example.com
+2026/10/14 08:06:36 [error] 1233#1233: open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.5, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:07:15 [alert] 1274#1274: worker process 1274 exited on signal 11 (core dumped)
+2026/10/14 08:07:30 [error] 1202#0: *4763 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.8, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:07:40 [error] 1238#1238: connect() failed (111: Connection refused) while connecting to upstream, client: 2001:db8::1, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:08:12 [warn] 1269#0: *7971 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:08:41 [info] 1238#0: *8485 client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:08:58 [warn] 1281#0: *6723 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.8
+2026/10/14 08:09:21 [error] 1273#0: *7057 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.12, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:09:26 [info] 1248#0: *4488 client closed connection while waiting for request, client: 10.0.0.8, server: 0.0.0.0:443
+2026/10/14 08:09:43 [notice] 1242#1242: start worker process 1242
+2026/10/14 08:10:00 [error] 1274#0: *5625 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.7, server: example.com
+2026/10/14 08:10:28 [warn] 1244#0: *137 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:10:58 [error] 1237#0: *2665 connect() failed (111: Connection refused) while connecting to upstream, client: 2001:db8::1, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:11:16 [info] 1201#0: *3561 client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:11:19 [error] 1255#0: *11 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.20, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:11:28 [info] 1300#1300: client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:11:45 [emerg] 1225#1225: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2026/10/14 08:12:03 [error] 1245#0: *6329 connect() failed (111: Connection refused) while connecting to upstream, client: 198.51.100.23, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:12:10 [error] 1238#0: *2840 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 198.51.100.23, server: example.com
+2026/10/14 08:12:31 [notice] 1287#1287: signal process started
+2026/10/14 08:12:39 [notice] 1238#1238: start worker process 1238
+2026/10/14 08:12:59 [info] 1259#0: *6160 client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:13:08 [warn] 1240#0: *5859 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:13:35 [warn] 1252#0: *9158 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 198.51.100.23
+2026/10/14 08:13:41 [error] 1238#0: *9509 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 203.0.113.9, server: example.com
+2026/10/14 08:13:49 [notice] 1272#1272: start worker process 1272
+2026/10/14 08:14:15 [warn] 1200#0: *8488 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:14:20 [error] 1283#0: *9738 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.20, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:14:56 [notice] 1207#1207: signal process started
+2026/10/14 08:15:10 [error] 1294#1294: open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.12, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:15:50 [error] 1280#0: *106 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.12, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:15:58 [error] 1277#1277: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.7, server: example.com
+2026/10/14 08:16:13 [error] 1203#1203: connect() failed (111: Connection refused) while connecting to upstream, client: 198.51.100.23, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:16:17 [error] 1251#0: *3016 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.20, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:16:56 [warn] 1284#0: *7084 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.5
+2026/10/14 08:17:08 [info] 1284#0: *8381 client closed connection while waiting for request, client: 2001:db8::1, server: 0.0.0.0:443
+2026/10/14 08:17:38 [error] 1212#1212: connect() failed (111: Connection refused) while connecting to upstream, client: 203.0.113.9, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:17:55 [warn] 1213#0: *6961 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.5
+2026/10/14 08:18:14 [error] 1249#0: *4961 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 2001:db8::1, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:18:17 [info] 1217#0: *7510 client closed connection while waiting for request, client: 10.0.0.5, server: 0.0.0.0:443
+2026/10/14 08:18:27 [warn] 1264#0: *8603 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:18:39 [error] 1283#0: *5559 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.8, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:18:56 [info] 1238#1238: client closed connection while waiting for request, client: 2001:db8::1, server: 0.0.0.0:443
+2026/10/14 08:19:21 [warn] 1284#0: *8307 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:19:42 [crit] 1244#0: *6616 SSL_do_handshake() failed (SSL: error:0A00006C:SSL routines::bad key share) while SSL handshaking, client: 10.0.0.5
+2026/10/14 08:19:44 [info] 1229#0: *1741 client closed connection while waiting for request, client: 2001:db8::1, server: 0.0.0.0:443
+2026/10/14 08:20:05 [error] 1298#1298: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.12, server: example.com
+2026/10/14 08:20:12 [info] 1293#1293: client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:20:15 [error] 1204#1204: open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 2001:db8::1, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:20:39 [notice] 1203#1203: signal process started
+2026/10/14 08:20:46 [warn] 1217#1217: an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.12
+2026/10/14 08:21:02 [warn] 1236#0: *2656 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:21:08 [error] 1285#0: *545 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.5, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:21:31 [warn] 1269#1269: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:22:05 [error] 1226#0: *7762 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 203.0.113.9, server: example.com
+2026/10/14 08:25:00 [error] 1240#0: *62 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Exception: boom in /var/www/index.php:12
+Stack trace:
+#0 {main}
+  thrown in /var/www/index.php on line 12" while reading response header from upstream, client: 10.0.0.5
+2026/10/14 08:22:28 [info] 1217#1217: client closed connection while waiting for request, client: 198.51.100.23, server: 0.0.0.0:443
+2026/10/14 08:23:08 [info] 1272#0: *8475 client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:23:16 [error] 1276#0: *370 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.20, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:23:32 [info] 1208#1208: client closed connection while waiting for request, client: 192.168.1.20, server: 0.0.0.0:443
+2026/10/14 08:23:36 [notice] 1266#1266: reconfiguring
+2026/10/14 08:24:02 [error] 1289#1289: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 2001:db8::1, server: example.com
+2026/10/14 08:24:19 [error] 1243#0: *3286 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.5, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:24:27 [notice] 1293#1293: start worker process 1293
+2026/10/14 08:24:42 [error] 1272#1272: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.5, server: example.com
+2026/10/14 08:25:05 [crit] 1276#0: *1321 SSL_do_handshake() failed (SSL: error:0A00006C:SSL routines::bad key share) while SSL handshaking, client: 10.0.0.8
+2026/10/14 08:25:22 [error] 1204#0: *3691 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 203.0.113.9, server: example.com
+2026/10/14 08:25:50 [error] 1229#0: *907 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.12, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:26:24 [info] 1287#0: *297 client closed connection while waiting for request, client: 10.0.0.5, server: 0.0.0.0:443
+2026/10/14 08:26:49 [warn] 1216#0: *6994 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.7
+2026/10/14 08:27:17 [info] 1247#0: *5622 client closed connection while waiting for request, client: 10.0.0.5, server: 0.0.0.0:443
+2026/10/14 08:27:33 [error] 1201#0: *8786 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.5, server: example.com
+2026/10/14 08:27:33 [info] 1207#0: *2077 client closed connection while waiting for request, client: 10.0.0.8, server: 0.0.0.0:443
+2026/10/14 08:27:51 [error] 1277#0: *4002 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.8, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:28:30 [warn] 1215#0: *1252 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:29:02 [info] 1245#1245: client closed connection while waiting for request, client: 2001:db8::1, server: 0.0.0.0:443
+2026/10/14 08:29:22 [warn] 1270#0: *4002 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:29:56 [error] 1244#1244: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 2001:db8::1, server: example.com
+2026/10/14 08:30:13 [error] 1217#1217: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.12, server: example.com
+2026/10/14 08:30:33 [notice] 1215#1215: start worker process 1215
+2026/10/14 08:30:35 [info] 1283#0: *1872 client closed connection while waiting for request, client: 2001:db8::1, server: 0.0.0.0:443
+2026/10/14 08:30:37 [error] 1249#0: *1385 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.20, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:31:17 [warn] 1248#0: *728 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.12
+2026/10/14 08:31:41 [notice] 1268#1268: signal process started
+2026/10/14 08:31:44 [info] 1203#1203: client closed connection while waiting for request, client: 192.168.1.20, server: 0.0.0.0:443
+2026/10/14 08:32:21 [info] 1243#0: *7112 client closed connection while waiting for request, client: 10.0.0.5, server: 0.0.0.0:443
+2026/10/14 08:32:27 [warn] 1292#1292: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:32:55 [info] 1298#0: *2664 client closed connection while waiting for request, client: 2001:db8::1, server: 0.0.0.0:443
+2026/10/14 08:33:10 [info] 1235#0: *4496 client closed connection while waiting for request, client: 10.0.0.12, server: 0.0.0.0:443
+2026/10/14 08:33:44 [error] 1250#0: *4494 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.1.20, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:34:01 [notice] 1298#1298: reconfiguring
+2026/10/14 08:34:08 [notice] 1241#1241: start worker process 1241
+2026/10/14 08:34:37 [error] 1201#0: *5878 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.12, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:35:03 [notice] 1210#1210: start worker process 1210
+2026/10/14 08:35:07 [error] 1298#0: *4253 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.8, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:35:22 [error] 1279#0: *3813 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.5, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:35:34 [warn] 1256#0: *688 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.5
+2026/10/14 08:35:51 [error] 1286#1286: connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.5, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:36:29 [warn] 1209#0: *1855 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.12
+2026/10/14 08:36:42 [notice] 1287#1287: start worker process 1287
+2026/10/14 08:37:10 [error] 1203#0: *5903 connect() failed (111: Connection refused) while connecting to upstream, client: 198.51.100.23, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:37:34 [crit] 1237#0: *2627 SSL_do_handshake() failed (SSL: error:0A00006C:SSL routines::bad key share) while SSL handshaking, client: 10.0.0.5
+2026/10/14 08:37:53 [error] 1275#0: *9979 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 203.0.113.9, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:38:25 [info] 1265#0: *5637 client closed connection while waiting for request, client: 198.51.100.23, server: 0.0.0.0:443
+2026/10/14 08:39:02 [notice] 1219#1219: start worker process 1219
+2026/10/14 08:39:07 [crit] 1228#0: *9412 SSL_do_handshake() failed (SSL: error:0A00006C:SSL routines::bad key share) while SSL handshaking, client: 10.0.0.7
+2026/10/14 08:39:41 [error] 1260#0: *8526 connect() failed (111: Connection refused) while connecting to upstream, client: 203.0.113.9, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:39:58 [info] 1237#1237: client closed connection while waiting for request, client: 10.0.0.12, server: 0.0.0.0:443
+2026/10/14 08:40:22 [warn] 1295#1295: an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 2001:db8::1
+2026/10/14 08:40:48 [error] 1271#0: *5936 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 2001:db8::1, server: example.com
+2026/10/14 08:41:26 [warn] 1253#0: *2053 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 198.51.100.23
+2026/10/14 08:42:04 [error] 1233#0: *5597 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.7, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:42:09 [warn] 1218#0: *3246 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 2001:db8::1
+2026/10/14 08:42:10 [error] 1233#0: *7699 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.7, server: example.com
+2026/10/14 08:42:18 [error] 1255#0: *2736 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.8, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:42:51 [notice] 1249#1249: start worker process 1249
+2026/10/14 08:43:00 [notice] 1230#1230: reconfiguring
+2026/10/14 08:43:07 [info] 1243#0: *1766 client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:43:30 [warn] 1252#0: *7139 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:43:39 [error] 1298#0: *8346 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.8, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:43:39 [notice] 1286#1286: reconfiguring
+2026/10/14 08:44:04 [warn] 1265#0: *4577 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.12
+2026/10/14 08:44:23 [error] 1272#0: *8605 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 198.51.100.23, server: example.com
+2026/10/14 08:44:42 [warn] 1296#0: *2347 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.12
+2026/10/14 08:45:09 [error] 1278#0: *5691 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.8, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:45:16 [error] 1256#0: *2775 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.1.20, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:45:55 [error] 1229#0: *2311 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 10.0.0.12, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:46:31 [warn] 1221#0: *652 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.5
+2026/10/14 08:47:03 [info] 1247#0: *9358 client closed connection while waiting for request, client: 2001:db8::1, server: 0.0.0.0:443
+2026/10/14 08:47:36 [info] 1237#1237: client closed connection while waiting for request, client: 2001:db8::1, server: 0.0.0.0:443
+2026/10/14 08:48:04 [error] 1217#1217: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.7, server: example.com
+2026/10/14 08:48:26 [error] 1228#0: *5360 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 203.0.113.9, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:48:44 [notice] 1265#1265: reconfiguring
+2026/10/14 08:49:05 [info] 1255#0: *8541 client closed connection while waiting for request, client: 10.0.0.12, server: 0.0.0.0:443
+2026/10/14 08:49:40 [info] 1280#0: *131 client closed connection while waiting for request, client: 10.0.0.8, server: 0.0.0.0:443
+2026/10/14 08:50:18 [info] 1228#0: *4347 client closed connection while waiting for request, client: 10.0.0.8, server: 0.0.0.0:443
+2026/10/14 08:50:50 [error] 1263#0: *3254 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.7, server: example.com
+2026/10/14 08:51:24 [info] 1227#0: *1103 client closed connection while waiting for request, client: 10.0.0.12, server: 0.0.0.0:443
+2026/10/14 08:51:35 [warn] 1233#0: *9567 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 203.0.113.9
+2026/10/14 08:52:05 [notice] 1223#1223: start worker process 1223
+2026/10/14 08:52:24 [warn] 1280#0: *5852 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 08:52:30 [error] 1296#0: *6875 connect() failed (111: Connection refused) while connecting to upstream, client: 203.0.113.9, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:52:46 [warn] 1222#0: *5225 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 203.0.113.9
+2026/10/14 08:53:11 [error] 1261#1261: connect() failed (111: Connection refused) while connecting to upstream, client: 198.51.100.23, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:53:26 [error] 1264#0: *6702 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 203.0.113.9, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:53:43 [error] 1250#1250: connect() failed (111: Connection refused) while connecting to upstream, client: 198.51.100.23, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:54:00 [error] 1262#0: *5568 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.5, server: example.com
+2026/10/14 08:54:20 [warn] 1273#1273: an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.7
+2026/10/14 08:54:59 [error] 1277#0: *346 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.7, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:55:21 [warn] 1298#0: *807 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 203.0.113.9
+2026/10/14 08:55:55 [alert] 1268#1268: worker process 1268 exited on signal 11 (core dumped)
+2026/10/14 08:56:14 [error] 1247#0: *3533 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.12, server: example.com
+2026/10/14 08:56:14 [info] 1296#1296: client closed connection while waiting for request, client: 198.51.100.23, server: 0.0.0.0:443
+2026/10/14 08:56:45 [error] 1238#0: *4052 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.20, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 08:56:53 [info] 1283#0: *4424 client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 08:56:58 [info] 1297#0: *331 client closed connection while waiting for request, client: 10.0.0.8, server: 0.0.0.0:443
+2026/10/14 08:57:04 [notice] 1250#1250: signal process started
+2026/10/14 08:57:25 [warn] 1202#0: *7519 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.7
+2026/10/14 08:57:42 [notice] 1260#1260: start worker process 1260
+2026/10/14 08:58:09 [error] 1252#0: *7920 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.12, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:58:33 [emerg] 1293#1293: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2026/10/14 08:59:08 [error] 1228#0: *408 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.12, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"
+2026/10/14 08:59:36 [warn] 1213#0: *5447 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.7
+2026/10/14 08:59:43 [error] 1262#0: *1375 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 198.51.100.23, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "example.com"
+2026/10/14 09:00:22 [warn] 1292#1292: an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.0.0.5
+2026/10/14 09:00:54 [warn] 1294#0: *2468 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 203.0.113.9
+2026/10/14 09:01:30 [warn] 1200#0: *3428 conflicting server name "example.com" on 0.0.0.0:80, ignored
+2026/10/14 09:01:51 [notice] 1241#1241: start worker process 1241
+2026/10/14 09:02:24 [info] 1293#0: *1722 client closed connection while waiting for request, client: 10.0.0.7, server: 0.0.0.0:443
+2026/10/14 09:02:48 [info] 1220#0: *1991 client closed connection while waiting for request, client: 10.0.0.12, server: 0.0.0.0:443
+2026/10/14 09:03:17 [alert] 1204#1204: worker process 1204 exited on signal 11 (core dumped)
+2026/10/14 09:03:27 [info] 1262#0: *8964 client closed connection while waiting for request, client: 198.51.100.23, server: 0.0.0.0:443
+2026/10/14 09:03:28 [error] 1237#0: *4442 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 203.0.113.9, server: example.com
+2026/10/14 09:04:08 [warn] 1283#0: *4755 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 203.0.113.9
+2026/10/14 09:04:41 [error] 1259#0: *5410 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.0.0.8, server: example.com
+2026/10/14 09:04:52 [info] 1260#0: *6821 client closed connection while waiting for request, client: 10.0.0.8, server: 0.0.0.0:443
+2026/10/14 09:05:22 [emerg] 1200#1200: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2026/10/14 09:05:35 [error] 1258#0: *1002 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 2001:db8::1, server: example.com
+2026/10/14 09:06:13 [error] 1281#0: *3704 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.0.5, server: example.com, request: "GET /api/v1/orders HTTP/1.1", upstream: "http://127.0.0.1:8080/api/v1/orders", host: "example.com"

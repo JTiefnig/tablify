@@ -1,0 +1,22 @@
+{"level":30,"time":1792046222123,"pid":4211,"hostname":"web01","name":"orders","msg":"server listening","port":8080}
+{"level":20,"time":1792046222200,"pid":4211,"hostname":"web01","name":"orders","msg":"db pool ready","pool":{"size":5,"idle":5}}
+{"level":40,"time":1792046223000,"pid":4211,"hostname":"web01","name":"orders","msg":"slow query","durationMs":1200,"query":{"sql":"SELECT * FROM orders","params":{"limit":1000}}}
+{"level":50,"time":1792046224000,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":60,"time":1792046225000,"pid":4211,"hostname":"web01","name":"orders","msg":"out of memory"}
+{"@timestamp":"2026-10-14T10:37:06.000Z","log.level":"info","message":"ECS style entry","service":{"name":"billing"},"tags":["a","b"]}
+{"@timestamp":"2026-10-14T10:37:07.000Z","log":{"level":"warn","logger":"billing.tax"},"message":"nested ECS level","service":{"name":"billing"}}
+{"timestamp":"2026-10-14T10:37:08.000+02:00","severity":"ERROR","logger":"auth","message":"token expired","user":"alice","ok":false}
+{"ts":1792046229,"lvl":"debug","msg":"epoch seconds","component":"scheduler"}
+not json at all
+{"time":"2026-10-14T10:37:10Z","level":"info","msg":"trailing entry","extra":null}
+{"broken": "json",
+{"time":"2026-10-14T10:37:11Z","level":"trace","msg":"after malformed lines"}
+{"time":"2026-10-14T10:37:12Z","level":"info","msg":"request","req":{"method":"GET","url":"/orders","headers":{"accept":"*/*"}},"status":200}
+{"time":"2026-10-14T10:37:13Z","level":"info","msg":"request","req":{"method":"POST","url":"/orders"},"status":201}
+{"time":"2026-10-14T10:37:14Z","level":"warn","msg":"request","req":{"method":"GET","url":"/missing"},"status":404}
+{"time":"2026-10-14T10:37:15Z","level":"error","msg":"request","req":{"method":"GET","url":"/boom"},"status":500}
+{"levelname":"WARNING","asctime":"2026-10-14 10:37:16,000","name":"py.logger","message":"python json formatter"}
+{"t":"2026-10-14T10:37:17Z","lvl":"info","text":"short keys","module":"short"}
+{"datetime":"2026-10-14T10:37:18Z","level":"INFO","msg":"datetime key"}
+{"time":"2026-10-14T10:37:19Z","level":"debug","msg":"unicode ✓ – üñî","user":"zoë"}
+{"time":"2026-10-14T10:37:20Z","level":"info","msg":"done","count":3}

@@ -1,0 +1,301 @@
+{"@timestamp":"2026-10-14T06:00:03.488Z","log.level":"warn","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":209},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957603705,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"GET","url":"/index.html"},"responseTime":1367}
+{"level":30,"time":1791957609167,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":1190}
+{"@timestamp":"2026-10-14T06:00:10.989Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":479},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":60,"time":1791957611720,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"POST","url":"/admin"},"responseTime":1225,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791957618505,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/index.html"},"responseTime":1821}
+{"@timestamp":"2026-10-14T06:00:26.807Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":297},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791957633459,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/static/logo.png"},"responseTime":211,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":40,"time":1791957637480,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"GET","url":"/logout"},"responseTime":222}
+{"@timestamp":"2026-10-14T06:00:40.339Z","log.level":"warn","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":151},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791957643133,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":1433,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791957643704,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/admin"},"responseTime":856}
+{"@timestamp":"2026-10-14T06:00:44.361Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":159},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":60,"time":1791957653326,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/health"},"responseTime":1357,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791957658991,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/wp-login.php"},"responseTime":1677}
+{"@timestamp":"2026-10-14T06:01:03.838Z","log.level":"trace","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":492},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957670746,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/"},"responseTime":1125}
+{"level":30,"time":1791957673161,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"POST","url":"/health"},"responseTime":545}
+{"@timestamp":"2026-10-14T06:01:14.963Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":177},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":20,"time":1791957681608,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/admin"},"responseTime":873}
+{"level":40,"time":1791957683296,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/static/logo.png"},"responseTime":690}
+{"@timestamp":"2026-10-14T06:01:24.553Z","log.level":"warn","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":205},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957692705,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/wp-login.php"},"responseTime":61}
+{"level":40,"time":1791957695194,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":801}
+{"@timestamp":"2026-10-14T06:01:41.258Z","log.level":"fatal","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":427},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957707773,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/wp-login.php"},"responseTime":1986}
+{"level":50,"time":1791957707822,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/index.html"},"responseTime":601,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"@timestamp":"2026-10-14T06:01:49.700Z","log.level":"warn","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":233},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957716492,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"POST","url":"/health"},"responseTime":843}
+{"level":40,"time":1791957718543,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/"},"responseTime":1835}
+{"@timestamp":"2026-10-14T06:02:05.994Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":201},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957728053,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"POST","url":"/admin"},"responseTime":1768}
+{"level":30,"time":1791957734740,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/static/app.css"},"responseTime":1636}
+{"@timestamp":"2026-10-14T06:02:16.503Z","log.level":"error","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":473},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":20,"time":1791957743448,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/"},"responseTime":814}
+{"level":30,"time":1791957752138,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"GET","url":"/logout"},"responseTime":930}
+{"@timestamp":"2026-10-14T06:02:35.229Z","log.level":"error","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":184},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957757436,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/app.css"},"responseTime":1899}
+{"level":10,"time":1791957758911,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/static/logo.png"},"responseTime":335}
+{"@timestamp":"2026-10-14T06:02:39.299Z","log.level":"debug","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":122},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957767984,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/api/v1/users/42"},"responseTime":249}
+{"level":30,"time":1791957771207,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/api/v1/orders"},"responseTime":1214}
+{"@timestamp":"2026-10-14T06:02:51.950Z","log.level":"error","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":25},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957774834,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/api/v1/users/42"},"responseTime":565}
+{"level":30,"time":1791957778888,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/api/v1/users/42"},"responseTime":964}
+{"@timestamp":"2026-10-14T06:03:06.998Z","log.level":"error","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":380},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957794681,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/wp-login.php"},"responseTime":331}
+{"level":30,"time":1791957796580,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/health"},"responseTime":397}
+{"@timestamp":"2026-10-14T06:03:21.111Z","log.level":"error","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":88},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791957809459,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/admin"},"responseTime":873}
+{"level":40,"time":1791957813354,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/static/app.css"},"responseTime":1396}
+{"@timestamp":"2026-10-14T06:03:38.772Z","log.level":"debug","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":294},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791957826754,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/health"},"responseTime":1899}
+{"level":30,"time":1791957828218,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/logout"},"responseTime":1844}
+{"@timestamp":"2026-10-14T06:03:54.748Z","log.level":"warn","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":441},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791957835121,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"GET","url":"/health"},"responseTime":1722}
+{"level":30,"time":1791957837305,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/index.html"},"responseTime":806}
+{"@timestamp":"2026-10-14T06:04:02.320Z","log.level":"warn","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":480},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957844023,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/static/app.css"},"responseTime":1334}
+{"level":60,"time":1791957846097,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/static/app.js"},"responseTime":1547,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"@timestamp":"2026-10-14T06:04:06.667Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":121},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957853305,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"GET","url":"/login"},"responseTime":1828}
+{"level":30,"time":1791957854176,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/search?q=table+view"},"responseTime":1226}
+{"@timestamp":"2026-10-14T06:04:18.695Z","log.level":"error","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":153},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791957864561,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/api/v1/orders"},"responseTime":711}
+{"level":30,"time":1791957872202,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/index.html"},"responseTime":732}
+{"@timestamp":"2026-10-14T06:04:34.442Z","log.level":"error","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":230},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957880931,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/static/logo.png"},"responseTime":926}
+{"level":40,"time":1791957885320,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/app.js"},"responseTime":1251}
+{"@timestamp":"2026-10-14T06:04:53.824Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":439},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957900341,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/static/app.css"},"responseTime":1182}
+{"level":60,"time":1791957903846,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/api/v1/users/42"},"responseTime":1318,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"@timestamp":"2026-10-14T06:05:06.544Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":189},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957907256,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/api/v1/users/42"},"responseTime":1491}
+{"level":30,"time":1791957912958,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/login"},"responseTime":573}
+{"@timestamp":"2026-10-14T06:05:21.138Z","log.level":"warn","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":437},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957926412,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":808}
+{"level":30,"time":1791957929555,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/health"},"responseTime":506}
+{"@timestamp":"2026-10-14T06:05:32.254Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":405},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791957939104,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/api/v1/users/42"},"responseTime":337}
+{"level":30,"time":1791957943185,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"POST","url":"/search?q=table+view"},"responseTime":1910}
+{"@timestamp":"2026-10-14T06:05:50.367Z","log.level":"error","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":200},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957953358,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"GET","url":"/api/v1/orders/4711"},"responseTime":1085}
+{"level":30,"time":1791957958462,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/api/v1/orders/4711"},"responseTime":750}
+{"@timestamp":"2026-10-14T06:05:59.436Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":490},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791957966408,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/admin"},"responseTime":999}
+{"level":30,"time":1791957971252,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/health"},"responseTime":1277}
+{"@timestamp":"2026-10-14T06:06:13.150Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":475},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957975085,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"GET","url":"/logout"},"responseTime":1069}
+{"level":30,"time":1791957980680,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/logout"},"responseTime":808}
+{"@timestamp":"2026-10-14T06:06:24.770Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":56},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791957990617,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"GET","url":"/api/v1/orders/4711"},"responseTime":1269}
+{"level":30,"time":1791957994454,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/admin"},"responseTime":873}
+{"@timestamp":"2026-10-14T06:06:42.325Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":492},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958007300,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/admin"},"responseTime":1623}
+{"level":40,"time":1791958008336,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":1084}
+{"@timestamp":"2026-10-14T06:06:50.048Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":288},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958010667,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/api/v1/orders"},"responseTime":740}
+{"level":40,"time":1791958012907,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/login"},"responseTime":1824}
+{"@timestamp":"2026-10-14T06:06:55.864Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":214},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958016842,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/static/app.css"},"responseTime":906}
+{"level":40,"time":1791958021147,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/static/app.css"},"responseTime":691}
+{"@timestamp":"2026-10-14T06:07:05.701Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":494},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958031516,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/static/app.css"},"responseTime":264}
+{"level":30,"time":1791958036496,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/api/v1/orders/4711"},"responseTime":53}
+{"@timestamp":"2026-10-14T06:07:19.450Z","log.level":"warn","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":22},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958042270,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/index.html"},"responseTime":1963}
+{"level":30,"time":1791958045404,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/index.html"},"responseTime":427}
+{"@timestamp":"2026-10-14T06:07:25.735Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":268},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958049383,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/api/v1/orders"},"responseTime":622}
+{"level":30,"time":1791958054254,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":1270}
+{"@timestamp":"2026-10-14T06:07:41.401Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":217},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958069321,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/login"},"responseTime":1530}
+{"level":30,"time":1791958069453,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"POST","url":"/api/v1/orders"},"responseTime":429}
+{"@timestamp":"2026-10-14T06:07:50.991Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":363},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958079818,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/wp-login.php"},"responseTime":129}
+{"level":30,"time":1791958082022,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":190}
+{"@timestamp":"2026-10-14T06:08:02.408Z","log.level":"warn","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":267},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958085833,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/api/v1/orders/4711"},"responseTime":50}
+{"level":40,"time":1791958094002,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/login"},"responseTime":1612}
+{"@timestamp":"2026-10-14T06:08:16.923Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":165},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":60,"time":1791958101687,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/login"},"responseTime":777,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791958104570,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/static/logo.png"},"responseTime":185}
+{"@timestamp":"2026-10-14T06:08:33.406Z","log.level":"warn","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":196},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958121652,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"GET","url":"/search?q=table+view"},"responseTime":901}
+{"level":30,"time":1791958123312,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/logout"},"responseTime":908}
+{"@timestamp":"2026-10-14T06:08:47.260Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":490},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958127593,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/login"},"responseTime":1957}
+{"level":30,"time":1791958129343,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/logout"},"responseTime":1133}
+{"@timestamp":"2026-10-14T06:08:57.490Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":167},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791958143209,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"POST","url":"/static/app.css"},"responseTime":1925,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791958147482,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/logout"},"responseTime":331}
+{"@timestamp":"2026-10-14T06:09:13.778Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":293},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958159045,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/login"},"responseTime":1830}
+{"level":40,"time":1791958166663,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/login"},"responseTime":1170}
+{"@timestamp":"2026-10-14T06:09:29.113Z","log.level":"debug","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":170},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791958172795,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/logout"},"responseTime":1005,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791958177936,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/login"},"responseTime":58}
+{"@timestamp":"2026-10-14T06:09:39.073Z","log.level":"warn","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":374},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958179634,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/admin"},"responseTime":1136}
+{"level":40,"time":1791958187255,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/api/v1/orders/4711"},"responseTime":1401}
+{"@timestamp":"2026-10-14T06:09:50.964Z","log.level":"warn","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":342},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958199329,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/admin"},"responseTime":1716}
+{"level":10,"time":1791958199535,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"POST","url":"/health"},"responseTime":168}
+{"@timestamp":"2026-10-14T06:10:04.647Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":428},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958207623,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/admin"},"responseTime":306}
+{"level":50,"time":1791958210420,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/index.html"},"responseTime":621,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"@timestamp":"2026-10-14T06:10:13.909Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":30},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":10,"time":1791958217842,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/logout"},"responseTime":1407}
+{"level":30,"time":1791958224937,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/"},"responseTime":1297}
+this line is not JSON (e.g. a crash message on stdout)
+{"@timestamp":"2026-10-14T06:10:27.686Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":81},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958229573,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/static/app.js"},"responseTime":1542}
+{"level":20,"time":1791958231627,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/index.html"},"responseTime":784}
+{"@timestamp":"2026-10-14T06:10:37.734Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":22},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958239366,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"POST","url":"/health"},"responseTime":1521}
+{"level":30,"time":1791958248144,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"GET","url":"/"},"responseTime":602}
+{"@timestamp":"2026-10-14T06:10:51.585Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":275},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958252261,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/login"},"responseTime":1566}
+{"level":20,"time":1791958256441,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/health"},"responseTime":1075}
+{"@timestamp":"2026-10-14T06:10:59.385Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":296},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958264522,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/"},"responseTime":1721}
+{"level":40,"time":1791958268239,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/admin"},"responseTime":1520}
+{"@timestamp":"2026-10-14T06:11:09.063Z","log.level":"error","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":66},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":10,"time":1791958276906,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/index.html"},"responseTime":291}
+{"level":30,"time":1791958281101,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/api/v1/users/42"},"responseTime":629}
+{"@timestamp":"2026-10-14T06:11:23.318Z","log.level":"warn","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":483},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958285227,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/static/app.js"},"responseTime":1906}
+{"level":30,"time":1791958285659,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"POST","url":"/logout"},"responseTime":1142}
+{"@timestamp":"2026-10-14T06:11:32.943Z","log.level":"debug","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":227},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958294384,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/logout"},"responseTime":267}
+{"level":30,"time":1791958297264,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/api/v1/orders/4711"},"responseTime":535}
+{"@timestamp":"2026-10-14T06:11:40.111Z","log.level":"error","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":114},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958304144,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/api/v1/users/42"},"responseTime":1960}
+{"level":50,"time":1791958311721,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/api/v1/users/42"},"responseTime":1829,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"@timestamp":"2026-10-14T06:11:56.358Z","log.level":"debug","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":303},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958321738,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/static/app.js"},"responseTime":1724}
+{"level":40,"time":1791958322878,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/"},"responseTime":227}
+{"@timestamp":"2026-10-14T06:12:03.446Z","log.level":"debug","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":409},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":20,"time":1791958331571,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/index.html"},"responseTime":921}
+{"level":40,"time":1791958337853,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/api/v1/users/42"},"responseTime":1058}
+{"@timestamp":"2026-10-14T06:12:18.410Z","log.level":"trace","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":416},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":20,"time":1791958343868,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/api/v1/orders/4711"},"responseTime":1443}
+{"level":20,"time":1791958344342,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/app.js"},"responseTime":209}
+{"@timestamp":"2026-10-14T06:12:27.397Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":171},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":20,"time":1791958349389,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/static/app.js"},"responseTime":615}
+{"level":30,"time":1791958353209,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"GET","url":"/"},"responseTime":1158}
+{"@timestamp":"2026-10-14T06:12:39.395Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":229},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958366115,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/logout"},"responseTime":247}
+{"level":30,"time":1791958374120,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"POST","url":"/login"},"responseTime":1685}
+{"@timestamp":"2026-10-14T06:13:02.064Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":456},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958388511,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/static/app.css"},"responseTime":493}
+{"level":40,"time":1791958391227,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/api/v1/orders"},"responseTime":826}
+{"@timestamp":"2026-10-14T06:13:17.662Z","log.level":"debug","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":321},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":20,"time":1791958398435,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":995}
+{"level":50,"time":1791958405562,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":484,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"@timestamp":"2026-10-14T06:13:34.348Z","log.level":"error","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":421},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":10,"time":1791958418935,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/admin"},"responseTime":353}
+{"level":30,"time":1791958419196,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/health"},"responseTime":1701}
+{"@timestamp":"2026-10-14T06:13:47.147Z","log.level":"error","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":328},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":20,"time":1791958430810,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/wp-login.php"},"responseTime":850}
+{"level":30,"time":1791958437427,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/api/v1/users/42"},"responseTime":1957}
+{"@timestamp":"2026-10-14T06:13:58.579Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":488},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958439075,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"GET","url":"/wp-login.php"},"responseTime":357}
+{"level":30,"time":1791958444522,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/static/logo.png"},"responseTime":914}
+{"@timestamp":"2026-10-14T06:14:04.590Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":85},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":60,"time":1791958451458,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/logout"},"responseTime":957,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791958451985,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/index.html"},"responseTime":842}
+{"@timestamp":"2026-10-14T06:14:12.846Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":323},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958456943,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/api/v1/orders/4711"},"responseTime":1402}
+{"level":30,"time":1791958465552,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/index.html"},"responseTime":172}
+{"@timestamp":"2026-10-14T06:14:33.537Z","log.level":"debug","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":476},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958481568,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/api/v1/orders"},"responseTime":1096}
+{"level":40,"time":1791958483732,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/static/logo.png"},"responseTime":902}
+{"@timestamp":"2026-10-14T06:14:52.114Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":277},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958494177,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/app.js"},"responseTime":656}
+{"level":20,"time":1791958501859,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/static/logo.png"},"responseTime":175}
+{"@timestamp":"2026-10-14T06:15:06.468Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":479},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791958508991,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/static/logo.png"},"responseTime":1374,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":50,"time":1791958515564,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":1932,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"@timestamp":"2026-10-14T06:15:23.244Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":23},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958528478,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/index.html"},"responseTime":727}
+{"level":30,"time":1791958534523,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/static/app.js"},"responseTime":582}
+{"@timestamp":"2026-10-14T06:15:43.094Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":182},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791958544891,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/api/v1/orders"},"responseTime":1311,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791958545797,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/api/v1/users/42"},"responseTime":1120}
+{"@timestamp":"2026-10-14T06:15:49.534Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":14},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958553997,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/"},"responseTime":314}
+{"level":20,"time":1791958562343,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"POST","url":"/static/logo.png"},"responseTime":1557}
+{"@timestamp":"2026-10-14T06:16:06.188Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":278},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":10,"time":1791958574316,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"POST","url":"/static/app.css"},"responseTime":820}
+{"level":30,"time":1791958583029,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/login"},"responseTime":530}
+{"@timestamp":"2026-10-14T06:16:29.520Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":309},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":20,"time":1791958590955,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/index.html"},"responseTime":440}
+{"level":50,"time":1791958592555,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"POST","url":"/health"},"responseTime":1548,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"@timestamp":"2026-10-14T06:16:35.395Z","log.level":"error","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":56},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958598613,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/login"},"responseTime":510}
+{"level":30,"time":1791958599553,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/api/v1/orders/4711"},"responseTime":1597}
+{"@timestamp":"2026-10-14T06:16:40.484Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":385},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958604991,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/api/v1/orders/4711"},"responseTime":1332}
+{"level":30,"time":1791958605884,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/admin"},"responseTime":1162}
+{"@timestamp":"2026-10-14T06:16:52.295Z","log.level":"warn","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":387},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791958620213,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/search?q=table+view"},"responseTime":530,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":40,"time":1791958628799,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/wp-login.php"},"responseTime":821}
+{"@timestamp":"2026-10-14T06:17:16.652Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":140},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958638105,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/wp-login.php"},"responseTime":669}
+{"level":30,"time":1791958641046,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":1359}
+{"@timestamp":"2026-10-14T06:17:29.678Z","log.level":"warn","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":358},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958656391,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":640}
+{"level":30,"time":1791958657726,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/index.html"},"responseTime":255}
+{"@timestamp":"2026-10-14T06:17:40.465Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":30},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958667834,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/index.html"},"responseTime":145}
+{"level":30,"time":1791958674914,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/wp-login.php"},"responseTime":1221}
+{"@timestamp":"2026-10-14T06:18:03.684Z","log.level":"warn","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":107},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958690005,"pid":4211,"hostname":"db01","name":"orders","msg":"order created","req":{"method":"GET","url":"/static/app.css"},"responseTime":1187}
+{"level":30,"time":1791958694340,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/"},"responseTime":101}
+{"@timestamp":"2026-10-14T06:18:14.948Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":414},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958697253,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"GET","url":"/"},"responseTime":601}
+{"level":30,"time":1791958703637,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/static/app.js"},"responseTime":841}
+{"@timestamp":"2026-10-14T06:18:23.971Z","log.level":"warn","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":83},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958704810,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/wp-login.php"},"responseTime":746}
+{"level":30,"time":1791958712584,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/admin"},"responseTime":1952}
+{"@timestamp":"2026-10-14T06:18:37.370Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":99},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958726194,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"GET","url":"/wp-login.php"},"responseTime":1603}
+{"level":40,"time":1791958731458,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"GET","url":"/admin"},"responseTime":858}
+{"@timestamp":"2026-10-14T06:18:57.175Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":204},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958742793,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/search?q=table+view"},"responseTime":1909}
+{"level":40,"time":1791958748957,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"GET","url":"/api/v1/orders"},"responseTime":371}
+{"@timestamp":"2026-10-14T06:19:16.395Z","log.level":"error","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":356},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958763713,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/"},"responseTime":213}
+{"level":30,"time":1791958764894,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/wp-login.php"},"responseTime":1031}
+{"@timestamp":"2026-10-14T06:19:29.440Z","log.level":"warn","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":31},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791958770218,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/static/app.js"},"responseTime":1206,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791958778623,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"GET","url":"/wp-login.php"},"responseTime":163}
+{"@timestamp":"2026-10-14T06:19:41.214Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":228},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958782167,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"POST","url":"/admin"},"responseTime":539}
+{"level":40,"time":1791958784820,"pid":4211,"hostname":"web01","name":"orders","msg":"order created","req":{"method":"GET","url":"/login"},"responseTime":110}
+{"@timestamp":"2026-10-14T06:19:48.361Z","log.level":"info","message":"export done","service":{"name":"billing","version":"2.4.1"},"user":{"id":176},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958791801,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/static/app.js"},"responseTime":1135}
+{"level":40,"time":1791958797798,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/static/app.css"},"responseTime":359}
+{"@timestamp":"2026-10-14T06:20:01.928Z","log.level":"info","message":"invoice generated","service":{"name":"billing","version":"2.4.1"},"user":{"id":258},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958807827,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"GET","url":"/health"},"responseTime":1935}
+{"level":30,"time":1791958814087,"pid":4211,"hostname":"web02","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/api/v1/orders/4711"},"responseTime":1516}
+{"@timestamp":"2026-10-14T06:20:16.977Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":58},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958819944,"pid":4211,"hostname":"db01","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/admin"},"responseTime":1101}
+{"level":50,"time":1791958827642,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/app.js"},"responseTime":1846,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"@timestamp":"2026-10-14T06:20:34.424Z","log.level":"info","message":"tax lookup failed","service":{"name":"billing","version":"2.4.1"},"user":{"id":331},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958836925,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/wp-login.php"},"responseTime":150}
+{"level":30,"time":1791958844287,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/static/logo.png"},"responseTime":1606}
+{"@timestamp":"2026-10-14T06:20:51.272Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":131},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":30,"time":1791958857003,"pid":4211,"hostname":"web01","name":"orders","msg":"cache refreshed","req":{"method":"GET","url":"/api/v1/orders/4711"},"responseTime":1473}
+{"level":40,"time":1791958865518,"pid":4211,"hostname":"web02","name":"orders","msg":"order created","req":{"method":"POST","url":"/wp-login.php"},"responseTime":471}
+{"@timestamp":"2026-10-14T06:21:09.530Z","log.level":"debug","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":264},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791958871262,"pid":4211,"hostname":"web02","name":"orders","msg":"cache refreshed","req":{"method":"POST","url":"/static/app.css"},"responseTime":1854,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791958873124,"pid":4211,"hostname":"web01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/api/v1/orders"},"responseTime":1878}
+{"@timestamp":"2026-10-14T06:21:18.391Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":423},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":40,"time":1791958886606,"pid":4211,"hostname":"web02","name":"orders","msg":"request completed","req":{"method":"POST","url":"/static/logo.png"},"responseTime":1269}
+{"level":30,"time":1791958890067,"pid":4211,"hostname":"db01","name":"orders","msg":"request completed","req":{"method":"GET","url":"/health"},"responseTime":1406}
+{"@timestamp":"2026-10-14T06:21:35.313Z","log.level":"info","message":"user logged in","service":{"name":"billing","version":"2.4.1"},"user":{"id":76},"labels":{"env":"prod","region":"eu-central-1"}}
+{"level":50,"time":1791958903780,"pid":4211,"hostname":"db01","name":"orders","msg":"payment failed","req":{"method":"POST","url":"/admin"},"responseTime":1275,"err":{"type":"Error","message":"connection refused","stack":"Error: connection refused\n    at charge (/app/payment.js:42:11)"}}
+{"level":30,"time":1791958910380,"pid":4211,"hostname":"web01","name":"orders","msg":"request completed","req":{"method":"POST","url":"/api/v1/orders/4711"},"responseTime":986}

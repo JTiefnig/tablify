@@ -1,0 +1,400 @@
+Oct 14 08:00:20 web01 sshd[4806]: Accepted publickey for alice from 10.0.0.8 port 36717 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:00:41 db01 postgres[1724]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:00:42 web01 sshd[3882]: Failed password for invalid user admin from 10.0.0.5 port 43031 ssh2
+Oct 14 08:01:05 web01 postgres[7173]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:01:23 db01 sshd[2915]: Accepted publickey for bob from 203.0.113.9 port 48210 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:01:28 web01 kernel: [13676.376417] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:01:53 web02 dhclient[2345]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:01:55 db01 systemd[6225]: Starting Daily apt upgrade and clean activities...
+Oct 14 08:02:17 web02 sshd[4033]: Accepted publickey for alice from 10.0.0.12 port 36619 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:02:30 web01 dhclient[6277]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:02:41 db01 CRON[4674]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:03:11 db01 sshd[3103]: Failed password for invalid user admin from 10.0.0.12 port 40708 ssh2
+Oct 14 08:03:25 db01 systemd[3898]: apt-daily.service: Succeeded.
+Oct 14 08:03:52 web01 sshd[4052]: Accepted publickey for bob from 198.51.100.23 port 47546 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:03:54 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:04:04 db01 dhclient[6782]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:04:18 web01 systemd[2587]: logrotate.service: Deactivated successfully.
+Oct 14 08:04:36 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:05:04 web02 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:05:09 web01 dhclient[1789]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:05:36 db01 sshd[2921]: pam_unix(sshd:session): session closed for user bob
+Oct 14 08:05:55 web02 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:06:09 db01 systemd[488]: Started Session 42 of User alice.
+Oct 14 08:06:31 db01 postgres[4671]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:06:35 web01 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:06:36 web01 systemd[8501]: logrotate.service: Deactivated successfully.
+Oct 14 08:07:05 db01 systemd[8617]: Starting Daily apt upgrade and clean activities...
+Oct 14 08:07:09 web01 sshd[8989]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:07:20 web02 sshd[2132]: Accepted publickey for bob from 10.0.0.12 port 33796 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:07:28 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:07:30 db01 dhclient[1433]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:07:54 db01 sshd[8087]: pam_unix(sshd:session): session closed for user alice
+Oct 14 08:08:03 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:08:33 db01 postgres[3595]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:08:46 web02 kernel: [16860.259947] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:08:46 db01 postgres[4070]: LOG:  checkpoint starting: time
+Oct 14 08:08:47 web01 sshd[4050]: Accepted publickey for alice from 203.0.113.9 port 34643 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:09:03 web01 systemd[8253]: logrotate.service: Deactivated successfully.
+Oct 14 08:09:08 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:09:23 web01 dhclient[6969]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:09:26 web02 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:09:39 web01 sshd[1912]: Accepted publickey for bob from 203.0.113.9 port 37161 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:09:47 web01 CRON[7650]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:10:00 web01 systemd[7879]: Started Session 42 of User alice.
+Oct 14 08:10:15 web01 postgres[1904]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 08:10:32 web01 sshd[1828]: Accepted publickey for alice from 198.51.100.23 port 61826 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:10:48 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:11:00 web02 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:11:09 web01 postgres[8273]: LOG:  checkpoint starting: time
+Oct 14 08:11:18 db01 sshd[1298]: Accepted publickey for bob from 10.0.0.5 port 33286 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:11:37 web01 postgres[2879]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 08:11:40 db01 sshd[1422]: pam_unix(sshd:session): session closed for user alice
+Oct 14 08:12:02 web01 CRON[6915]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:12:32 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:12:51 web02 sshd[1643]: Accepted publickey for carol from 203.0.113.9 port 47089 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:12:58 web01 kernel: [18154.704318] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:13:09 web02 sshd[452]: Failed password for invalid user admin from 10.0.0.7 port 34801 ssh2
+Oct 14 08:13:26 web01 postgres[4645]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:13:54 web02 CRON[6354]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:13:59 db01 postgres[5256]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 08:14:15 db01 postgres[5205]: LOG:  checkpoint starting: time
+Oct 14 08:14:46 web01 sshd[4633]: pam_unix(sshd:session): session closed for user alice
+Oct 14 08:15:10 web02 sshd[4762]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:15:17 web01 kernel: [91111.665046] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+Oct 14 08:15:19 web02 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:15:20 web01 sshd[4591]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:15:34 db01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:15:37 web02 sshd[890]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:15:54 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:16:04 web01 sshd[6162]: Accepted publickey for carol from 10.0.0.12 port 36736 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:16:16 db01 postgres[6958]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 08:16:21 web01 CRON[2962]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:16:49 db01 sshd[3238]: Accepted publickey for bob from 198.51.100.23 port 46263 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:16:57 web01 sshd[6567]: Failed password for invalid user admin from 2001:db8::1 port 44577 ssh2
+Oct 14 08:17:04 web02 dhclient[6028]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:17:31 web01 CRON[3952]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:17:52 web02 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:18:19 db01 systemd[6053]: logrotate.service: Deactivated successfully.
+Oct 14 08:18:32 web01 postgres[5725]: LOG:  checkpoint starting: time
+Oct 14 08:19:01 db01 systemd[3225]: apt-daily.service: Succeeded.
+Oct 14 08:19:02 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:19:14 web02 kernel: [16157.403906] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:19:15 web01 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:19:45 web02 postgres[3528]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:19:48 db01 kernel: [17334.754717] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:20:09 web02 kernel: [26144.440869] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 08:20:40 web02 sshd[5230]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:21:06 web01 systemd[5000]: Reloading.
+Oct 14 08:21:31 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:21:42 db01 dhclient[7544]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:21:48 db01 dhclient[3080]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:21:51 web01 postgres[5791]: LOG:  checkpoint starting: time
+Oct 14 08:22:12 web01 CRON[3562]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:22:12 db01 CRON[8084]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:22:40 web02 sshd[7761]: Failed password for invalid user admin from 10.0.0.12 port 55164 ssh2
+Oct 14 08:22:55 db01 CRON[2717]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:23:17 web01 sshd[7265]: Failed password for invalid user admin from 10.0.0.8 port 63944 ssh2
+Oct 14 08:23:31 web01 postgres[4382]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:23:36 web02 dhclient[5498]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:23:56 db01 postgres[7291]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:24:24 web02 dhclient[7673]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:24:48 web02 systemd[8840]: Starting Daily apt upgrade and clean activities...
+Oct 14 08:24:57 web01 sshd[4981]: Failed password for invalid user admin from 192.168.1.20 port 52010 ssh2
+Oct 14 08:25:08 web01 postgres[1620]: LOG:  checkpoint starting: time
+Oct 14 08:25:15 web01 sshd[3805]: pam_unix(sshd:session): session closed for user bob
+Oct 14 08:25:29 web02 postgres[7933]: LOG:  checkpoint starting: time
+Oct 14 08:25:35 web02 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:26:06 web02 sshd[6532]: Accepted publickey for alice from 203.0.113.9 port 49569 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:26:31 db01 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:26:54 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:27:09 web02 systemd[7440]: Started Session 42 of User alice.
+Oct 14 08:27:22 db01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:27:48 web02 sshd[741]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:28:07 db01 sshd[1675]: Accepted publickey for bob from 10.0.0.8 port 60257 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:28:12 web02 systemd[6511]: Starting Daily apt upgrade and clean activities...
+Oct 14 08:28:26 web02 kernel: [37471.788539] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+Oct 14 08:28:50 web01 sshd[6033]: Accepted publickey for carol from 10.0.0.7 port 32638 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:29:14 web01 CRON[3566]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:29:33 web02 CRON[2368]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:29:54 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:30:09 web01 systemd[6343]: logrotate.service: Deactivated successfully.
+Oct 14 08:30:29 web02 sshd[2983]: Failed password for invalid user admin from 10.0.0.7 port 31682 ssh2
+Oct 14 08:30:58 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:31:28 web02 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:31:34 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:32:01 db01 CRON[1969]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:32:25 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:32:51 db01 sshd[5988]: Accepted publickey for bob from 203.0.113.9 port 34519 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:33:07 web01 kernel: [57822.379781] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 08:33:36 web02 dhclient[2806]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:33:42 db01 postgres[4725]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 08:34:06 db01 dhclient[7436]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:34:25 web01 kernel: [99366.487282] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 08:34:44 web02 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:35:00 web01 kernel: [47507.836587] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:35:29 db01 systemd[466]: Starting Daily apt upgrade and clean activities...
+Oct 14 08:35:31 web02 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:35:55 web02 dhclient[8341]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:36:20 web01 sshd[5120]: Failed password for invalid user admin from 198.51.100.23 port 45945 ssh2
+Oct 14 08:36:30 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:36:46 web02 postgres[5932]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 08:37:03 db01 kernel: [31217.126516] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 08:37:09 web01 sshd[3333]: Failed password for invalid user admin from 10.0.0.12 port 61732 ssh2
+Oct 14 08:37:18 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:37:37 web02 sshd[3480]: Failed password for invalid user admin from 10.0.0.12 port 53650 ssh2
+Oct 14 08:37:43 web02 sshd[2373]: Accepted publickey for alice from 10.0.0.5 port 49145 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:38:06 web01 sshd[8342]: pam_unix(sshd:session): session closed for user alice
+Oct 14 08:38:24 web02 dhclient[8143]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:38:34 web02 sshd[4436]: Accepted publickey for alice from 10.0.0.7 port 56260 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:38:49 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:39:10 db01 sshd[2744]: pam_unix(sshd:session): session closed for user bob
+Oct 14 08:39:12 db01 sshd[7118]: Failed password for invalid user admin from 10.0.0.12 port 64247 ssh2
+Oct 14 08:39:25 db01 dhclient[5171]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:39:38 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:39:40 db01 sshd[3704]: Failed password for invalid user admin from 10.0.0.12 port 47343 ssh2
+Oct 14 08:40:01 web01 sshd[4229]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:40:03 web02 sshd[6993]: Accepted publickey for carol from 2001:db8::1 port 49087 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:40:04 db01 systemd[4932]: Reloading.
+Oct 14 08:40:07 db01 CRON[4634]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:40:26 web01 CRON[7265]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:40:43 web01 sshd[4652]: pam_unix(sshd:session): session closed for user alice
+Oct 14 08:40:44 web02 systemd[5028]: Started Session 42 of User alice.
+Oct 14 08:40:59 web02 systemd[6894]: logrotate.service: Deactivated successfully.
+Oct 14 08:41:16 db01 dhclient[1617]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:41:18 db01 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:41:37 web01 sshd[1796]: Accepted publickey for carol from 10.0.0.5 port 47662 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:41:55 db01 sshd[8008]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:42:10 db01 systemd[3273]: Reloading.
+Oct 14 08:42:31 web02 dhclient[1794]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:42:43 web02 kernel: [22079.345824] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:42:52 db01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:43:06 web02 kernel: [43372.121552] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+Oct 14 08:43:28 web02 postgres[7869]: LOG:  checkpoint starting: time
+Oct 14 08:43:35 db01 kernel: [58939.796907] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:43:52 db01 systemd[7478]: Reloading.
+Oct 14 08:43:55 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:44:17 db01 systemd[524]: Reloading.
+Oct 14 08:44:19 web01 sshd[7860]: Failed password for invalid user admin from 10.0.0.8 port 62661 ssh2
+Oct 14 08:44:49 db01 systemd[8637]: apt-daily.service: Succeeded.
+Oct 14 08:45:03 web01 dhclient[8036]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:45:18 web01 sshd[6584]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:45:34 web02 sshd[1443]: pam_unix(sshd:session): session closed for user bob
+Oct 14 08:45:45 web01 postgres[4677]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:46:09 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:46:30 db01 sshd[7616]: pam_unix(sshd:session): session closed for user bob
+Oct 14 08:46:41 web02 postgres[6480]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:47:09 web01 CRON[6574]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:47:36 web01 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:48:00 web02 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:48:26 web01 sshd[8415]: pam_unix(sshd:session): session closed for user alice
+Oct 14 08:48:43 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:49:10 db01 dhclient[1933]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:49:39 web02 sshd[2661]: Accepted publickey for carol from 10.0.0.8 port 34903 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:49:55 db01 systemd[5846]: Reloading.
+Oct 14 08:50:15 db01 kernel: [42505.657246] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:50:43 web01 sshd[1421]: Accepted publickey for carol from 192.168.1.20 port 44908 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:51:06 web01 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:51:29 web01 sshd[7569]: Failed password for invalid user admin from 192.168.1.20 port 31897 ssh2
+Oct 14 08:51:30 web02 sshd[5106]: Accepted publickey for bob from 198.51.100.23 port 39540 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:51:38 db01 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 08:52:03 web01 sshd[3168]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:52:30 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:52:38 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:52:45 web02 systemd[7829]: Started Session 42 of User alice.
+Oct 14 08:53:14 db01 dhclient[5012]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:53:31 web02 sshd[7537]: Failed password for invalid user admin from 192.168.1.20 port 57807 ssh2
+Oct 14 08:53:53 web01 dhclient[5249]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:54:06 web01 dhclient[2047]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:54:19 db01 kernel: [39696.023005] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:54:19 web02 sshd[8438]: Accepted publickey for alice from 203.0.113.9 port 44352 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 08:54:40 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 08:55:01 db01 sshd[1891]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:55:03 db01 dhclient[846]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:55:14 web02 sshd[1776]: pam_unix(sshd:session): session closed for user bob
+Oct 14 08:55:38 web01 sshd[3589]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:56:07 db01 kernel: [36720.870813] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 08:56:38 web01 systemd[5849]: Reloading.
+Oct 14 08:57:08 db01 sshd[3996]: pam_unix(sshd:session): session closed for user carol
+Oct 14 08:57:29 web01 postgres[6292]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:57:29 web02 postgres[2324]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 08:57:51 db01 systemd[6542]: apt-daily.service: Succeeded.
+Oct 14 08:57:55 web01 CRON[8024]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 08:58:15 db01 postgres[5674]: LOG:  checkpoint starting: time
+Oct 14 08:58:35 db01 dhclient[5251]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 08:58:48 web01 sshd[1042]: pam_unix(sshd:session): session closed for user bob
+Oct 14 08:59:03 db01 sshd[4146]: Failed password for invalid user admin from 10.0.0.8 port 55470 ssh2
+Oct 14 08:59:18 db01 postgres[7166]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 08:59:41 db01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:00:07 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:00:38 db01 systemd[836]: apt-daily.service: Succeeded.
+Oct 14 09:00:45 web02 dhclient[4168]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:00:48 db01 kernel: [85518.376096] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+Oct 14 09:01:19 db01 dhclient[1801]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:01:26 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:01:28 web01 kernel: [9992.870127] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:01:34 web02 CRON[4117]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:01:58 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:02:07 db01 sshd[2429]: pam_unix(sshd:session): session closed for user bob
+Oct 14 09:02:32 web01 sshd[722]: Failed password for invalid user admin from 10.0.0.5 port 53477 ssh2
+Oct 14 09:02:58 web01 CRON[5604]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:03:04 db01 sshd[2376]: Accepted publickey for bob from 10.0.0.7 port 34165 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:03:19 db01 kernel: [30038.991340] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:03:21 web02 postgres[5241]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 09:03:51 web02 sshd[8147]: Accepted publickey for bob from 10.0.0.7 port 62130 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:04:14 web01 dhclient[1504]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:04:24 web01 sshd[1376]: pam_unix(sshd:session): session closed for user bob
+Oct 14 09:04:44 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:05:06 db01 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:05:16 web01 postgres[7348]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 09:05:20 web02 postgres[3822]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 09:05:48 web02 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:06:00 web02 sshd[5420]: Failed password for invalid user admin from 203.0.113.9 port 46704 ssh2
+Oct 14 09:06:12 web01 sshd[8070]: pam_unix(sshd:session): session closed for user alice
+Oct 14 09:06:38 web01 sshd[7375]: Failed password for invalid user admin from 203.0.113.9 port 38527 ssh2
+Oct 14 09:06:55 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:07:13 web02 sshd[7030]: Failed password for invalid user admin from 198.51.100.23 port 33371 ssh2
+Oct 14 09:07:43 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:07:54 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:08:00 web01 dhclient[3974]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:08:12 web01 postgres[6322]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 09:08:30 db01 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:08:50 db01 postgres[730]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 09:09:17 web01 systemd[774]: apt-daily.service: Succeeded.
+Oct 14 09:09:40 web02 systemd[5867]: Started Session 42 of User alice.
+Oct 14 09:09:45 web01 sshd[6866]: pam_unix(sshd:session): session closed for user alice
+Oct 14 09:10:09 db01 sshd[1803]: Accepted publickey for carol from 10.0.0.12 port 54654 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:10:23 web01 kernel: [49503.326775] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+Oct 14 09:10:51 db01 sshd[2879]: pam_unix(sshd:session): session closed for user alice
+Oct 14 09:11:12 db01 systemd[7559]: Reloading.
+Oct 14 09:11:27 web02 dhclient[7085]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:11:34 web02 postgres[2164]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 09:11:37 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:11:54 web01 systemd[1044]: Reloading.
+Oct 14 09:12:13 web02 sshd[3649]: Accepted publickey for alice from 10.0.0.8 port 46745 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:12:22 web02 sshd[426]: Failed password for invalid user admin from 198.51.100.23 port 41514 ssh2
+Oct 14 09:12:27 db01 postgres[4070]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 09:12:54 web01 kernel: [98260.044357] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 09:13:23 db01 kernel: [54008.743963] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 09:13:26 web01 sshd[5621]: Accepted publickey for carol from 2001:db8::1 port 53714 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:13:28 web02 sshd[4286]: Failed password for invalid user admin from 198.51.100.23 port 64338 ssh2
+Oct 14 09:13:31 web01 systemd[5862]: apt-daily.service: Succeeded.
+Oct 14 09:13:55 db01 sshd[8663]: Failed password for invalid user admin from 10.0.0.7 port 64773 ssh2
+Oct 14 09:14:11 web02 kernel: [96339.858729] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+Oct 14 09:14:16 db01 CRON[3142]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:14:20 db01 sshd[3202]: Failed password for invalid user admin from 2001:db8::1 port 60405 ssh2
+Oct 14 09:14:45 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:15:07 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:15:27 db01 kernel: [62462.463688] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:15:37 web02 systemd[1220]: logrotate.service: Deactivated successfully.
+Oct 14 09:15:40 web01 dhclient[7704]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:15:41 db01 systemd[1557]: Started Session 42 of User alice.
+Oct 14 09:16:01 web02 postgres[6599]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 09:16:19 db01 sshd[7668]: Accepted publickey for carol from 10.0.0.12 port 51071 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:16:38 web01 postgres[2771]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 09:16:42 db01 kernel: [6130.259778] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:16:56 db01 postgres[8864]: LOG:  checkpoint starting: time
+Oct 14 09:17:08 web02 systemd[6647]: apt-daily.service: Succeeded.
+Oct 14 09:17:29 web01 sshd[5782]: Accepted publickey for bob from 10.0.0.7 port 55333 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:17:39 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:17:49 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:17:54 web02 kernel: [17901.623945] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:18:24 db01 systemd[6471]: apt-daily.service: Succeeded.
+Oct 14 09:18:50 db01 postgres[1831]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 09:19:03 web01 kernel: [24627.997373] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 09:19:10 web01 sshd[2838]: pam_unix(sshd:session): session closed for user bob
+Oct 14 09:19:37 db01 sshd[8617]: Failed password for invalid user admin from 10.0.0.5 port 52070 ssh2
+Oct 14 09:20:06 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:20:26 web01 sshd[2958]: pam_unix(sshd:session): session closed for user carol
+Oct 14 09:20:50 web01 sshd[7470]: pam_unix(sshd:session): session closed for user bob
+Oct 14 09:21:02 db01 CRON[7577]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:21:12 db01 dhclient[4133]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:21:19 web02 dhclient[3478]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:21:41 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:21:56 db01 systemd[6556]: logrotate.service: Deactivated successfully.
+Oct 14 09:22:10 db01 sshd[3571]: pam_unix(sshd:session): session closed for user alice
+Oct 14 09:22:37 web02 sshd[8173]: Accepted publickey for carol from 10.0.0.7 port 63810 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:23:04 web01 systemd[1674]: apt-daily.service: Succeeded.
+Oct 14 09:23:19 web02 postgres[2714]: LOG:  checkpoint starting: time
+Oct 14 09:23:50 web02 CRON[7691]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:24:19 web01 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:24:35 web01 CRON[6626]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:24:47 web01 sshd[5521]: Accepted publickey for carol from 203.0.113.9 port 39571 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:24:51 db01 systemd[8040]: Starting Daily apt upgrade and clean activities...
+Oct 14 09:25:15 db01 dhclient[7649]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:25:16 web02 sshd[611]: Failed password for invalid user admin from 10.0.0.12 port 39798 ssh2
+Oct 14 09:25:34 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:25:47 web02 systemd[4193]: Started Session 42 of User alice.
+Oct 14 09:25:49 db01 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:26:03 db01 sshd[8489]: Failed password for invalid user admin from 10.0.0.5 port 63775 ssh2
+Oct 14 09:26:21 web02 sshd[5072]: pam_unix(sshd:session): session closed for user alice
+Oct 14 09:26:40 web01 CRON[7125]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:27:02 web02 sshd[8876]: Failed password for invalid user admin from 10.0.0.7 port 64475 ssh2
+Oct 14 09:27:19 web02 postgres[633]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 09:27:21 web02 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:27:44 web01 kernel: [83346.108699] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:28:08 web01 kernel: [85252.183594] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:28:23 web01 dhclient[3286]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:28:25 web02 dhclient[905]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:28:31 web02 CRON[986]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:29:01 db01 postgres[6824]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 09:29:09 web02 CRON[4987]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:29:37 web02 sshd[5738]: Accepted publickey for alice from 203.0.113.9 port 58636 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:30:05 web02 dhclient[6634]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:30:10 db01 dhclient[6318]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:30:19 web01 sshd[7255]: Failed password for invalid user admin from 198.51.100.23 port 41826 ssh2
+Oct 14 09:30:37 web01 kernel: [41173.467576] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:30:59 web02 sshd[7572]: pam_unix(sshd:session): session closed for user bob
+Oct 14 09:31:01 db01 kernel: [8518.078686] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:31:21 db01 kernel: [5081.149715] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:31:43 web01 dhclient[870]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:31:45 web02 kernel: [80310.160891] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:32:00 web02 kernel: [11077.601800] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 09:32:13 web01 systemd[4389]: Started Session 42 of User alice.
+Oct 14 09:32:36 web02 dhclient[8782]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:33:05 web02 sshd[4588]: Failed password for invalid user admin from 2001:db8::1 port 44062 ssh2
+Oct 14 09:33:25 web01 dhclient[3579]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Oct 14 09:33:29 web01 sshd[7706]: Failed password for invalid user admin from 2001:db8::1 port 35753 ssh2
+Oct 14 09:33:55 db01 kernel: [9511.576713] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 09:34:22 db01 sshd[6222]: pam_unix(sshd:session): session closed for user alice
+Oct 14 09:34:25 web02 sshd[4178]: pam_unix(sshd:session): session closed for user alice
+Oct 14 09:34:37 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:34:52 db01 postgres[2426]: LOG:  checkpoint starting: time
+Oct 14 09:34:54 db01 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:35:10 web02 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:35:12 db01 kernel: [10720.471832] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+Oct 14 09:35:41 web01 postgres[3281]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 09:35:58 db01 sshd[2334]: Accepted publickey for alice from 192.168.1.20 port 40790 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:36:03 db01 CRON[5969]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:36:31 web01 sshd[4405]: Failed password for invalid user admin from 192.168.1.20 port 38203 ssh2
+Oct 14 09:36:52 db01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:36:54 web01 sshd[2826]: pam_unix(sshd:session): session closed for user carol
+Oct 14 09:37:14 web02 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:37:41 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:38:08 web01 sshd[1630]: Accepted publickey for carol from 192.168.1.20 port 43815 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:38:32 db01 sudo:    carol : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:38:33 db01 postgres[5045]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Oct 14 09:38:48 web02 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:38:51 web02 sshd[2889]: Accepted publickey for bob from 2001:db8::1 port 60437 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:38:57 web01 rsyslogd: [origin software="rsyslogd" swVersion="8.2312.0"] rsyslogd was HUPed
+Oct 14 09:39:08 db01 kernel: [49567.539995] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:39:11 web01 CRON[7942]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:39:20 web01 CRON[2608]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 14 09:39:21 db01 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:39:29 db01 sshd[5664]: pam_unix(sshd:session): session closed for user carol
+Oct 14 09:39:39 db01 sshd[8463]: pam_unix(sshd:session): session closed for user bob
+Oct 14 09:39:55 web01 systemd[8448]: Started Session 42 of User alice.
+Oct 14 09:40:26 web01 postgres[7791]: LOG:  checkpoint starting: time
+Oct 14 09:40:44 web02 sshd[1128]: Accepted publickey for bob from 2001:db8::1 port 48726 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:41:01 web01 sshd[7360]: Failed password for invalid user admin from 192.168.1.20 port 53971 ssh2
+Oct 14 09:41:25 web01 kernel: [26513.380133] e1000e: eth0 NIC Link is Up 1000 Mbps Full Duplex
+Oct 14 09:41:34 db01 sudo:    bob : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 14 09:41:59 web01 systemd[2246]: Started Session 42 of User alice.
+Oct 14 09:42:11 db01 kernel: [19909.208727] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 09:42:27 web01 sshd[937]: Accepted publickey for carol from 203.0.113.9 port 61047 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:42:44 web01 sshd[8746]: pam_unix(sshd:session): session closed for user bob
+Oct 14 09:43:13 web01 kernel: [97904.883532] Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Oct 14 09:43:30 db01 postgres[8325]: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+Oct 14 09:43:40 web02 sshd[6335]: Accepted publickey for carol from 10.0.0.7 port 57298 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:43:58 web02 sshd[8075]: Accepted publickey for carol from 10.0.0.12 port 33365 ssh2: ED25519 SHA256:x8Kq3
+Oct 14 09:44:17 db01 sshd[8889]: pam_unix(sshd:session): session closed for user carol

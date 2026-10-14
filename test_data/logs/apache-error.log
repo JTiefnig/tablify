@@ -1,0 +1,204 @@
+[Wed Oct 14 08:00:12.860623 2026] [ssl:info] [pid 2188] [client 198.51.100.23:50037] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:00:52.979692 2026] [mpm_event:notice] [pid 2337:tid 139706698286846] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:01:04.159825 2026] [rewrite:trace3] [pid 2288:tid 139305872287050] [client 10.0.0.8:47231] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:01:10.615846 2026] [:error] [pid 2107:tid 139362421995637] [client 192.168.1.20:61025] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:01:20.226957 2026] [proxy:error] [pid 2075:tid 139677760243893] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:01:29.917099 2026] [mpm_event:crit] [pid 2026:tid 139983881605232] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:01:37.446070 2026] [mpm_event:crit] [pid 2256:tid 139332117319904] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:01:45.412349 2026] [:error] [pid 2159:tid 139774749951405] [client 2001:db8::1:53264] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:02:18.081998 2026] [:error] [pid 2364:tid 139235545417741] [client 10.0.0.8:48201] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:02:28.587712 2026] [mpm_event:notice] [pid 2128:tid 139866273857215] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:02:35.683768 2026] [mpm_event:notice] [pid 2187:tid 139949296415986] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:03:05.763878 2026] [ssl:debug] [pid 2097:tid 139616830207316] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:03:30.978523 2026] [php:warn] [pid 2269:tid 139214794202516] [client 2001:db8::1:53657] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:03:42.325468 2026] [rewrite:trace3] [pid 2006:tid 139407639816080] [client 192.168.1.20:62951] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:04:20.678657 2026] [core:error] [pid 2140:tid 139435847847516] [client 10.0.0.5:46583] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:05:00.863319 2026] [rewrite:trace3] [pid 2088:tid 139694099125997] [client 2001:db8::1:62132] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:05:31.846652 2026] [:error] [pid 2067:tid 139031651906920] [client 10.0.0.8:41593] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:05:36.058770 2026] [authz_core:error] [pid 2278:tid 139067476474012] [client 203.0.113.9:36388] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:05:54.686927 2026] [proxy:error] [pid 2344:tid 139365143836401] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:06:15.949721 2026] [php:warn] [pid 2007] [client 203.0.113.9:63838] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:06:40.068110 2026] [core:error] [pid 2042:tid 139553025542736] [client 10.0.0.8:47474] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:06:52.288909 2026] [core:error] [pid 2325:tid 139557008796905] [client 198.51.100.23:41335] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:06:52.587789 2026] [ssl:info] [pid 2045:tid 139512567635503] [client 10.0.0.7:60343] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:07:00.191366 2026] [authz_core:error] [pid 2005:tid 139348689749832] [client 10.0.0.5:41097] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:07:14.482711 2026] [ssl:debug] [pid 2348:tid 139336067155477] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:07:27.325569 2026] [php:warn] [pid 2071:tid 139316564489986] [client 10.0.0.8:48282] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:08:03.236936 2026] [mpm_event:notice] [pid 2102:tid 139971834273485] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:08:14.731442 2026] [ssl:info] [pid 2178:tid 139537267818760] [client 203.0.113.9:53829] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:08:48.038515 2026] [php:warn] [pid 2275] [client 198.51.100.23:40204] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:09:24.363773 2026] [mpm_event:notice] [pid 2147:tid 139874807605026] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:09:37.578406 2026] [:error] [pid 2395:tid 139295469247304] [client 10.0.0.7:63637] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:09:50.490406 2026] [proxy:error] [pid 2264:tid 139128513665153] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:10:31.146606 2026] [mpm_event:crit] [pid 2288:tid 139409409128730] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:10:55.945055 2026] [rewrite:trace3] [pid 2081:tid 139114681159965] [client 203.0.113.9:30517] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:11:22.353026 2026] [ssl:debug] [pid 2183:tid 139202293851675] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:11:41.573338 2026] [mpm_event:crit] [pid 2315:tid 139481129752545] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:12:11.728234 2026] [rewrite:trace3] [pid 2370:tid 139521406167049] [client 10.0.0.12:46552] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:12:34.505998 2026] [ssl:debug] [pid 2119:tid 139044238907463] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:13:06.446582 2026] [mpm_event:notice] [pid 2205:tid 139635457513745] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:13:43.537085 2026] [php:warn] [pid 2066:tid 139971953602040] [client 10.0.0.12:39145] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:14:05.094789 2026] [core:error] [pid 2202:tid 139157908007902] [client 203.0.113.9:60062] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:14:16.690601 2026] [core:error] [pid 2041:tid 139192770822769] [client 192.168.1.20:50154] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:14:27.457754 2026] [proxy:error] [pid 2350:tid 139168554842725] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:15:03.005184 2026] [ssl:debug] [pid 2241:tid 139108854708605] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:15:38.732723 2026] [mpm_event:notice] [pid 2192:tid 139736467946217] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:16:08.800122 2026] [proxy:error] [pid 2198] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:16:16.419308 2026] [php:warn] [pid 2273:tid 139313094617397] [client 198.51.100.23:55811] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:16:21.702416 2026] [mpm_event:crit] [pid 2113:tid 139028288496979] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:16:59.387063 2026] [proxy:error] [pid 2000:tid 139904096868969] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:17:39.959012 2026] [mpm_event:notice] [pid 2255:tid 139151312013411] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:17:51.316604 2026] [proxy:error] [pid 2334:tid 139422365308579] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:18:02.298806 2026] [php:warn] [pid 2133:tid 139904843407309] [client 2001:db8::1:32282] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:18:28.417559 2026] [php:warn] [pid 2177:tid 139119547118303] [client 2001:db8::1:35415] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:18:35.842583 2026] [mpm_event:notice] [pid 2065:tid 139348583341559] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:19:11.719636 2026] [mpm_event:notice] [pid 2343:tid 139719347491174] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:19:37.317670 2026] [core:error] [pid 2257:tid 139698971846896] [client 10.0.0.7:59508] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:20:01.746610 2026] [mpm_event:crit] [pid 2091:tid 139121826153749] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:20:28.912590 2026] [mpm_event:notice] [pid 2172:tid 139004940875500] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:21:05.539907 2026] [proxy:error] [pid 2232:tid 139960902848767] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:21:33.295398 2026] [mpm_event:crit] [pid 2235:tid 139540598500028] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:21:56.719729 2026] [rewrite:trace3] [pid 2277:tid 139371195565935] [client 192.168.1.20:31542] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:22:13.374221 2026] [ssl:info] [pid 2305:tid 139358401148762] [client 192.168.1.20:32334] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:22:20.557075 2026] [core:error] [pid 2064:tid 139190046404645] [client 10.0.0.7:36197] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:22:30.452041 2026] [mpm_event:crit] [pid 2316:tid 139757881471720] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:22:46.596711 2026] [:error] [pid 2075:tid 139356811005822] [client 203.0.113.9:32509] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:23:24.400464 2026] [authz_core:error] [pid 2216:tid 139089014911214] [client 203.0.113.9:49790] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:23:49.996523 2026] [php:warn] [pid 2059:tid 139720358760888] [client 10.0.0.7:58405] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:24:02.317929 2026] [ssl:info] [pid 2191:tid 139938618534901] [client 10.0.0.12:33200] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:24:39.797671 2026] [proxy:error] [pid 2140] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:24:50.704055 2026] [:error] [pid 2139:tid 139998144690015] [client 10.0.0.8:48672] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:24:50.019628 2026] [proxy:error] [pid 2140:tid 139144556628194] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:25:08.828645 2026] [rewrite:trace3] [pid 2113] [client 203.0.113.9:36366] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:25:22.231795 2026] [ssl:debug] [pid 2364:tid 139800100143104] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:26:01.616472 2026] [mpm_event:crit] [pid 2277:tid 139363333749515] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:26:25.013177 2026] [:error] [pid 2236:tid 139379329977450] [client 2001:db8::1:39946] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:26:56.731618 2026] [:error] [pid 2338:tid 139280848174570] [client 198.51.100.23:32114] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:27:33.662054 2026] [authz_core:error] [pid 2382:tid 139382187438065] [client 10.0.0.7:43602] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:28:07.305998 2026] [ssl:info] [pid 2079:tid 139740673549131] [client 2001:db8::1:31937] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:28:46.654589 2026] [php:warn] [pid 2284:tid 139457119944025] [client 10.0.0.5:48604] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:29:18.965923 2026] [mpm_event:notice] [pid 2063:tid 139667345270387] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:29:24.221569 2026] [proxy:error] [pid 2292] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:29:42.804126 2026] [php:warn] [pid 2384:tid 139603018203721] [client 198.51.100.23:53070] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:29:56.292426 2026] [rewrite:trace3] [pid 2257:tid 139693049558016] [client 10.0.0.7:50825] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:30:30.236033 2026] [mpm_event:notice] [pid 2237:tid 139831053980604] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:30:49.164592 2026] [mpm_event:crit] [pid 2090] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:31:14.558540 2026] [core:error] [pid 2196:tid 139510082921385] [client 10.0.0.8:36443] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:31:52.438587 2026] [mpm_event:notice] [pid 2316:tid 139032798160762] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:32:06.650033 2026] [rewrite:trace3] [pid 2166:tid 139657475766118] [client 198.51.100.23:31496] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:32:45.596960 2026] [php:warn] [pid 2380:tid 139101723564789] [client 203.0.113.9:31488] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:33:24.578874 2026] [mpm_event:notice] [pid 2082:tid 139932836967526] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:33:54.183722 2026] [proxy:error] [pid 2067:tid 139353045389620] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:34:12.217062 2026] [core:error] [pid 2090:tid 139268260190958] [client 2001:db8::1:45852] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:34:41.842726 2026] [authz_core:error] [pid 2236:tid 139959200454580] [client 10.0.0.8:46047] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:34:45.715153 2026] [core:error] [pid 2036:tid 139574954656355] [client 2001:db8::1:55252] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:35:12.926266 2026] [ssl:info] [pid 2246:tid 139786498628775] [client 10.0.0.5:58738] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:35:15.868543 2026] [mpm_event:notice] [pid 2186:tid 139046251478553] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:35:41.659835 2026] [:error] [pid 2074:tid 139865129200254] [client 10.0.0.7:36791] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:35:58.790183 2026] [rewrite:trace3] [pid 2336:tid 139187784535282] [client 203.0.113.9:57059] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:36:19.834197 2026] [proxy:error] [pid 2168:tid 139104215267055] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:36:24.789056 2026] [mpm_event:crit] [pid 2151:tid 139374778844330] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 09:00:00.000000 2026] [cgi:error] [pid 2348:tid 172] [client 10.0.0.12:36000] AH01215: Traceback (most recent call last):
+  File "/var/www/cgi-bin/app.py", line 3, in <module>
+    import missing_module
+ModuleNotFoundError: No module named 'missing_module'
+[Wed Oct 14 08:36:52.733543 2026] [mpm_event:crit] [pid 2018:tid 139654017429102] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:37:00.302441 2026] [:error] [pid 2157:tid 139407507229754] [client 203.0.113.9:49085] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:37:11.498372 2026] [ssl:info] [pid 2075:tid 139325014257273] [client 10.0.0.8:38424] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:37:49.269804 2026] [mpm_event:notice] [pid 2108:tid 139932128182509] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:38:26.612614 2026] [php:warn] [pid 2316:tid 139791838045445] [client 198.51.100.23:61258] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:38:37.675127 2026] [ssl:debug] [pid 2160:tid 139553417747968] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:39:11.907446 2026] [mpm_event:notice] [pid 2331] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:39:21.505468 2026] [:error] [pid 2175:tid 139420464987226] [client 10.0.0.5:34243] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:39:36.235206 2026] [proxy:error] [pid 2373:tid 139857312586089] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:39:43.373818 2026] [proxy:error] [pid 2006:tid 139999175335882] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:40:17.777391 2026] [proxy:error] [pid 2204:tid 139037212644999] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:40:57.532064 2026] [ssl:debug] [pid 2379:tid 139930009686330] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:41:32.836677 2026] [authz_core:error] [pid 2131:tid 139573664617625] [client 10.0.0.12:46036] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:41:44.239431 2026] [proxy:error] [pid 2020:tid 139195232317091] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:42:22.290955 2026] [:error] [pid 2267:tid 139803974988976] [client 10.0.0.7:38686] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:42:41.238641 2026] [proxy:error] [pid 2244:tid 139638926552621] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:43:11.924467 2026] [:error] [pid 2244:tid 139868952879932] [client 10.0.0.7:42872] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:43:18.499159 2026] [authz_core:error] [pid 2153:tid 139646574550789] [client 10.0.0.12:61931] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:43:54.450631 2026] [rewrite:trace3] [pid 2301:tid 139790752973976] [client 2001:db8::1:42766] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:44:35.000519 2026] [mpm_event:crit] [pid 2138:tid 139658878773254] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:45:06.344603 2026] [php:warn] [pid 2272:tid 139311446118511] [client 192.168.1.20:47314] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:45:22.710769 2026] [ssl:info] [pid 2387:tid 139688521070524] [client 2001:db8::1:37305] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:45:33.334713 2026] [core:error] [pid 2091:tid 139517584567226] [client 2001:db8::1:40690] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:45:38.705666 2026] [mpm_event:notice] [pid 2226:tid 139948866918331] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:46:00.862514 2026] [:error] [pid 2157:tid 139119309002301] [client 10.0.0.12:43973] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:46:32.803650 2026] [ssl:debug] [pid 2153:tid 139752061302446] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:47:11.704524 2026] [rewrite:trace3] [pid 2080:tid 139211125077673] [client 198.51.100.23:41257] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:47:51.341501 2026] [php:warn] [pid 2399] [client 2001:db8::1:57322] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:48:08.494908 2026] [ssl:info] [pid 2074] [client 192.168.1.20:54300] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:48:27.869512 2026] [ssl:debug] [pid 2217:tid 139336938929712] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:49:04.005948 2026] [mpm_event:notice] [pid 2209:tid 139061865057303] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:49:26.479083 2026] [php:warn] [pid 2338:tid 139897731829200] [client 10.0.0.12:43671] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:49:43.024829 2026] [ssl:debug] [pid 2166:tid 139420008803120] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:50:18.836212 2026] [proxy:error] [pid 2140:tid 139483196462695] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:50:24.168210 2026] [proxy:error] [pid 2240:tid 139651637866911] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:50:27.721211 2026] [mpm_event:notice] [pid 2361] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:50:58.636176 2026] [ssl:info] [pid 2141:tid 139107628946235] [client 10.0.0.5:52458] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:51:33.968471 2026] [mpm_event:crit] [pid 2383:tid 139148055429179] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:51:37.864352 2026] [mpm_event:notice] [pid 2153:tid 139644891141563] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:52:13.092280 2026] [:error] [pid 2149:tid 139628473296374] [client 192.168.1.20:64801] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:52:14.913021 2026] [authz_core:error] [pid 2395:tid 139814804270208] [client 203.0.113.9:53673] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:52:43.193084 2026] [proxy:error] [pid 2185:tid 139503489061585] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 08:53:04.267762 2026] [ssl:info] [pid 2328:tid 139025480671952] [client 10.0.0.8:37811] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:53:31.845220 2026] [mpm_event:notice] [pid 2270:tid 139910739358674] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 08:53:35.391616 2026] [:error] [pid 2144:tid 139959943279157] [client 203.0.113.9:62244] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 08:54:11.770109 2026] [authz_core:error] [pid 2081:tid 139857096331940] [client 10.0.0.7:64849] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:54:44.601804 2026] [authz_core:error] [pid 2392] [client 10.0.0.12:34789] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:55:12.488337 2026] [ssl:info] [pid 2093:tid 139166382465732] [client 203.0.113.9:34785] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:55:48.553348 2026] [mpm_event:crit] [pid 2221:tid 139900824115400] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:55:50.308086 2026] [rewrite:trace3] [pid 2115:tid 139428758951461] [client 10.0.0.5:30559] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:56:10.271426 2026] [php:warn] [pid 2234:tid 139741244252775] [client 203.0.113.9:64889] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:56:23.970306 2026] [rewrite:trace3] [pid 2395:tid 139789759925303] [client 10.0.0.8:42376] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:56:32.190407 2026] [ssl:info] [pid 2276:tid 139663715993831] [client 10.0.0.5:38344] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:56:55.343367 2026] [authz_core:error] [pid 2155:tid 139253095832148] [client 10.0.0.12:43218] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:57:05.244296 2026] [ssl:info] [pid 2013] [client 10.0.0.12:53287] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:57:14.129090 2026] [mpm_event:crit] [pid 2227:tid 139027380905918] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 08:57:28.468516 2026] [core:error] [pid 2047:tid 139224191441982] [client 198.51.100.23:38169] AH00126: Invalid URI in request GET /%%% HTTP/1.1
+[Wed Oct 14 08:57:39.759712 2026] [rewrite:trace3] [pid 2250:tid 139829628265260] [client 10.0.0.12:37887] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 08:58:18.435293 2026] [ssl:debug] [pid 2259:tid 139103015443892] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 08:58:41.533447 2026] [ssl:info] [pid 2215:tid 139019142470621] [client 10.0.0.5:54905] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 08:59:07.371910 2026] [authz_core:error] [pid 2333:tid 139920454362702] [client 10.0.0.7:58452] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:59:26.682028 2026] [authz_core:error] [pid 2140:tid 139963746363818] [client 2001:db8::1:31038] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 08:59:46.888578 2026] [php:warn] [pid 2079:tid 139011014784000] [client 10.0.0.8:63988] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 08:59:55.799316 2026] [mpm_event:crit] [pid 2107:tid 139883028974433] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 09:00:13.435029 2026] [rewrite:trace3] [pid 2077:tid 139190779179456] [client 10.0.0.8:63986] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 09:00:25.824764 2026] [authz_core:error] [pid 2320:tid 139225475283535] [client 192.168.1.20:56453] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 09:00:49.652123 2026] [ssl:info] [pid 2240:tid 139029133918088] [client 203.0.113.9:31867] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 09:00:51.957954 2026] [php:warn] [pid 2051:tid 139414633887556] [client 10.0.0.8:40365] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 09:00:52.096598 2026] [proxy:error] [pid 2243:tid 139120543951113] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 09:01:21.461809 2026] [:error] [pid 2243:tid 139891649259877] [client 10.0.0.5:50409] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 09:01:52.134425 2026] [ssl:info] [pid 2252:tid 139401751181123] [client 10.0.0.7:61312] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 09:02:28.229964 2026] [php:warn] [pid 2367:tid 139245425579028] [client 10.0.0.7:36212] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 09:02:54.110339 2026] [rewrite:trace3] [pid 2363:tid 139202940085397] [client 192.168.1.20:51536] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 09:03:23.545172 2026] [rewrite:trace3] [pid 2167:tid 139974904502970] [client 192.168.1.20:38631] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 09:03:51.607511 2026] [php:warn] [pid 2101:tid 139038013675017] [client 198.51.100.23:33146] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 09:04:02.665458 2026] [php:warn] [pid 2165:tid 139261111558439] [client 10.0.0.8:56002] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 09:04:02.507348 2026] [mpm_event:crit] [pid 2295:tid 139688001140005] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 09:04:28.475207 2026] [proxy:error] [pid 2060:tid 139483380871449] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 09:04:45.968764 2026] [:error] [pid 2174:tid 139983533275992] [client 10.0.0.8:46730] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 09:05:17.478482 2026] [:error] [pid 2134:tid 139943466930436] [client 203.0.113.9:64017] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 09:05:22.447232 2026] [ssl:debug] [pid 2064:tid 139601144039073] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 09:05:28.870399 2026] [mpm_event:crit] [pid 2151:tid 139784048276047] AH00047: child process 2345 still did not exit, sending a SIGKILL
+[Wed Oct 14 09:05:37.321944 2026] [ssl:debug] [pid 2258:tid 139094229643850] ssl_engine_kernel.c(2394): AH02043: SSL virtual host for servername example.com found
+[Wed Oct 14 09:05:49.204344 2026] [:error] [pid 2375:tid 139243441213234] [client 10.0.0.5:43020] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 09:06:11.817823 2026] [rewrite:trace3] [pid 2185:tid 139583513939844] [client 10.0.0.5:64940] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 09:06:45.174853 2026] [:error] [pid 2384:tid 139747754399234] [client 10.0.0.8:44828] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 09:06:55.444612 2026] [rewrite:trace3] [pid 2199:tid 139052735418295] [client 198.51.100.23:49431] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 09:07:29.937159 2026] [mpm_event:notice] [pid 2369:tid 139147411529451] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 09:07:48.263537 2026] [authz_core:error] [pid 2030:tid 139342171970658] [client 10.0.0.12:34378] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 09:08:14.504293 2026] [php:warn] [pid 2200:tid 139430538100523] [client 10.0.0.8:57460] PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42
+[Wed Oct 14 09:08:51.874857 2026] [proxy:error] [pid 2071:tid 139304723849792] (111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed
+[Wed Oct 14 09:09:16.990213 2026] [rewrite:trace3] [pid 2389:tid 139486215342250] [client 10.0.0.8:48053] mod_rewrite.c(480): applying pattern '^/old/(.*)$' to uri '/old/page'
+[Wed Oct 14 09:09:36.545909 2026] [authz_core:error] [pid 2338:tid 139846549273403] [client 2001:db8::1:45216] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 09:10:05.567551 2026] [authz_core:error] [pid 2139:tid 139169455217814] [client 10.0.0.7:52372] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 09:10:07.118318 2026] [ssl:info] [pid 2388:tid 139641779399092] [client 10.0.0.8:61935] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 09:10:25.108055 2026] [:error] [pid 2340:tid 139664567845862] [client 203.0.113.9:45813] script '/var/www/html/missing.php' not found or unable to stat
+[Wed Oct 14 09:10:57.442157 2026] [mpm_event:notice] [pid 2394:tid 139949639560445] AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations
+[Wed Oct 14 09:11:15.948679 2026] [ssl:info] [pid 2182:tid 139362958338418] [client 198.51.100.23:46465] AH01964: Connection to child 3 established (server example.com:443)
+[Wed Oct 14 09:11:20.747734 2026] [authz_core:error] [pid 2302:tid 139640992705579] [client 2001:db8::1:44508] AH01630: client denied by server configuration: /var/www/html/.env
+[Wed Oct 14 09:11:48.109015 2026] [ssl:info] [pid 2310] [client 2001:db8::1:54629] AH01964: Connection to child 3 established (server example.com:443)

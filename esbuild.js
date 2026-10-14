@@ -28,7 +28,7 @@ const contexts = await Promise.all([
   }),
   esbuild.context({
     ...common,
-    entryPoints: { webview: "webview/main.ts" },
+    entryPoints: { webview: "webview/main.ts", logview: "webview/log/main.ts" },
     outdir: "dist",
     platform: "browser",
     format: "iife",

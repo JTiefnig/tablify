@@ -1,0 +1,26 @@
+Dec 31 23:58:01 web01 CRON[30211]: (root) CMD (/usr/lib/sa/sa1 1 1)
+Dec 31 23:59:59 web01 systemd[1]: Starting Daily apt upgrade and clean activities...
+Jan  1 00:00:02 web01 systemd[1]: apt-daily-upgrade.service: Succeeded.
+Jan  1 00:00:02 web01 systemd[1]: Finished Daily apt upgrade and clean activities.
+Jan  1 00:03:17 web01 sshd[2341]: Accepted password for alice from 10.0.0.5 port 52211 ssh2
+Jan  1 00:03:17 web01 sshd[2341]: pam_unix(sshd:session): session opened for user alice(uid=1000) by (uid=0)
+Jan  1 00:03:18 web01 systemd-logind[812]: New session 42 of user alice.
+Jan  1 00:05:44 web01 kernel: [ 1234.567890] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+Jan  1 00:07:01 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/apt update
+Jan  1 00:07:01 web01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by alice(uid=1000)
+Jan  4 09:12:33 web01 sshd[3120]: Failed password for invalid user admin from 203.0.113.9 port 40022 ssh2
+Jan  4 09:12:35 web01 sshd[3120]: Connection closed by invalid user admin 203.0.113.9 port 40022 [preauth]
+Jan  4 09:15:00 web01 CRON[3301]: (www-data) CMD (php /var/www/cron.php)
+Jan  4 09:20:12 web01 dhclient[640]:DHCPREQUEST for 10.0.0.12 on eth0 to 10.0.0.1 port 67
+Jan  4 09:20:12 web01 dhclient[640]: DHCPACK of 10.0.0.12 from 10.0.0.1
+Jan  4 09:20:12 web01 avahi-daemon: Registering new address record for 10.0.0.12 on eth0.IPv4.
+Jan  4 10:01:09 db02 postgres[1888]: LOG:  checkpoint starting: time
+Jan  4 10:01:40 db02 postgres[1888]: LOG:  checkpoint complete: wrote 1532 buffers (9.4%)
+Jan  4 10:02:11 db02 kernel: Out of memory: Killed process 4211 (java) total-vm:8123456kB
+Jan  4 10:02:12 db02 systemd[1]: app.service: Main process exited, code=killed, status=9/KILL
+Jan  4 10:02:12 db02 systemd[1]: app.service: Failed with result 'signal'.
+Jan  4 10:02:22 db02 systemd[1]: app.service: Scheduled restart job, restart counter is at 1.
+<30>Jan  4 10:02:23 db02 app[4380]: started in 812 ms
+<27>Jan  4 10:02:30 db02 app[4380]: could not connect to cache: connection refused
+2026-01-04T10:03:00.123456+01:00 web01 nginx[901]: worker process 905 exited on signal 11
+2026-01-04T10:03:01.004211+01:00 web01 nginx[901]: start worker process 1180

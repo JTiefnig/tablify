@@ -1,0 +1,250 @@
+<36>1 2026-10-14T08:00:08.836+02:00 db01 app 540 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection restored
+<134>1 2026-10-14T08:00:23.801+02:00 web01 sshd 4239 - - request completed in 12 ms
+<134>1 2026-10-14T08:00:28.533+02:00 db01 app 702 AUTH [meta sequenceId="9540"][timeQuality tzKnown="1" isSynced="1"] certificate expires in 7 days
+<11>1 2026-10-14T08:00:40.251+02:00 db01 app 6647 DB [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection to database lost
+<12>1 2026-10-14T08:00:51.239+02:00 web02 app 6229 - [audit user="alice" cmd="/usr/bin/apt \"update\""] Service started
+<28>1 2026-10-14T08:01:03.713+02:00 web01 sshd 2001 - [origin ip="2001:db8::1"] certificate expires in 7 days
+<134>1 2026-10-14T08:01:08.069+02:00 web02 nginx 7512 ID47 [meta sequenceId="5707"][timeQuality tzKnown="1" isSynced="1"] Retrying in 5 s
+<14>1 2026-10-14T08:01:18.137+02:00 db01 app 2723 HTTP - Connection restored
+<134>1 2026-10-14T08:01:28.710+02:00 web01 nginx 3332 AUTH [meta sequenceId="3054"][timeQuality tzKnown="1" isSynced="1"] certificate expires in 7 days
+<14>1 2026-10-14T08:01:43.316+02:00 db01 nginx 3163 DB [audit user="alice" cmd="/usr/bin/apt \"update\""] Retrying in 5 s
+<14>1 2026-10-14T08:01:54.649+02:00 db01 sshd 1971 AUTH [meta sequenceId="9781"][timeQuality tzKnown="1" isSynced="1"] certificate expires in 7 days
+<28>1 2026-10-14T08:02:06.009+02:00 web01 sshd 5103 ID47 [origin ip="10.0.0.7"] Retrying in 5 s
+<30>1 2026-10-14T08:02:09.196+02:00 web02 - 3143 AUTH - certificate expires in 7 days
+<30>1 2026-10-14T08:02:24.846+02:00 web02 - 7489 DB - Connection restored
+<14>1 2026-10-14T08:02:26.732+02:00 web02 cron 8156 DB [audit user="alice" cmd="/usr/bin/apt \"update\""]
+<132>1 2026-10-14T08:02:40.459+02:00 web02 nginx 3783 - [origin ip="10.0.0.5"] Connection to database lost
+<132>1 2026-10-14T08:02:49.631+02:00 db01 - 6110 ID47 - request completed in 12 ms
+<30>1 2026-10-14T08:02:51.409+02:00 web02 cron 5811 - -
+<12>1 2026-10-14T08:02:53.858+02:00 db01 nginx 2381 DB [meta sequenceId="9999"][timeQuality tzKnown="1" isSynced="1"] Connection restored
+<14>1 2026-10-14T08:03:00.691+02:00 web02 - 4894 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection restored
+<14>1 2026-10-14T08:03:10.277+02:00 web01 nginx 2496 AUTH - Connection restored
+<134>1 2026-10-14T08:03:21.125+02:00 web01 cron 1625 DB [meta sequenceId="6787"][timeQuality tzKnown="1" isSynced="1"]
+<36>1 2026-10-14T08:03:33.652+02:00 db01 cron 7611 AUTH - Retrying in 5 s
+<135>1 2026-10-14T08:03:45.522+02:00 web02 nginx 5633 AUTH [origin ip="10.0.0.12"] cache warmup: 1200 keys
+<36>1 2026-10-14T08:03:50.101+02:00 web01 app 7330 - - Retrying in 5 s
+<130>1 2026-10-14T08:04:04.101+02:00 db01 nginx 6005 DB [origin ip="192.168.1.20"] Retrying in 5 s
+<30>1 2026-10-14T08:04:12.185+02:00 db01 app 1659 AUTH [meta sequenceId="3837"][timeQuality tzKnown="1" isSynced="1"] Retrying in 5 s
+<30>1 2026-10-14T08:04:12.403+02:00 web01 - 7019 DB - cache warmup: 1200 keys
+<135>1 2026-10-14T08:04:16.892+02:00 web01 app 6370 - [origin ip="10.0.0.7"] request completed in 12 ms
+<26>1 2026-10-14T08:04:21.548+02:00 db01 app 3590 ID47 [meta sequenceId="2689"][timeQuality tzKnown="1" isSynced="1"] cache warmup: 1200 keys
+<134>1 2026-10-14T08:04:26.489+02:00 web02 nginx 7135 - - certificate expires in 7 days
+<38>1 2026-10-14T08:04:37.299+02:00 db01 app 8448 DB [origin ip="192.168.1.20"] Service started
+<14>1 2026-10-14T08:04:44.064+02:00 db01 nginx 1263 AUTH -
+<27>1 2026-10-14T08:04:44.433+02:00 web02 cron 1295 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection restored
+<39>1 2026-10-14T08:04:45.034+02:00 db01 nginx 8309 - [audit user="alice" cmd="/usr/bin/apt \"update\""] request completed in 12 ms
+<14>1 2026-10-14T08:04:58.467+02:00 web01 - 8477 ID47 - request completed in 12 ms
+<36>1 2026-10-14T08:05:05.464+02:00 web01 cron 4105 ID47 [meta sequenceId="5082"][timeQuality tzKnown="1" isSynced="1"] Service started
+<134>1 2026-10-14T08:05:08.410+02:00 web01 - 2348 ID47 - Retrying in 5 s
+<38>1 2026-10-14T08:05:08.577+02:00 db01 - 4503 ID47 [origin ip="192.168.1.20"] Connection restored
+<35>1 2026-10-14T08:05:12.366+02:00 web02 cron 7557 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] Retrying in 5 s
+<30>1 2026-10-14T08:05:23.422+02:00 web01 sshd 8436 DB [audit user="alice" cmd="/usr/bin/apt \"update\""] Retrying in 5 s
+<12>1 2026-10-14T08:05:23.467+02:00 web01 nginx 679 - [meta sequenceId="5964"][timeQuality tzKnown="1" isSynced="1"] Connection restored
+<134>1 2026-10-14T08:05:36.696+02:00 db01 sshd 962 HTTP [origin ip="10.0.0.7"] Retrying in 5 s
+<12>1 2026-10-14T08:05:41.924+02:00 web01 cron 7583 - [origin ip="2001:db8::1"] cache warmup: 1200 keys
+<38>1 2026-10-14T08:05:42.301+02:00 web01 - 4116 DB [audit user="alice" cmd="/usr/bin/apt \"update\""]
+<11>1 2026-10-14T08:05:46.307+02:00 db01 nginx 6264 ID47 [origin ip="203.0.113.9"] Connection to database lost
+<30>1 2026-10-14T08:05:55.413+02:00 web01 cron 3892 AUTH [origin ip="10.0.0.5"] Retrying in 5 s
+<131>1 2026-10-14T08:06:09.130+02:00 web01 app 1120 ID47 - certificate expires in 7 days
+<27>1 2026-10-14T08:06:22.808+02:00 web02 sshd 4555 HTTP [origin ip="203.0.113.9"] cache warmup: 1200 keys
+<27>1 2026-10-14T08:06:29.884+02:00 web02 - 5245 - -
+<30>1 2026-10-14T08:06:43.007+02:00 web01 cron 5084 HTTP - Retrying in 5 s
+<36>1 2026-10-14T08:06:44.227+02:00 db01 nginx 4996 - [meta sequenceId="5829"][timeQuality tzKnown="1" isSynced="1"] Connection to database lost
+<10>1 2026-10-14T08:06:53.066+02:00 web01 cron 2089 AUTH [meta sequenceId="1552"][timeQuality tzKnown="1" isSynced="1"] Retrying in 5 s
+<28>1 2026-10-14T08:06:53.129+02:00 web01 nginx 457 DB - request completed in 12 ms
+<131>1 2026-10-14T08:06:55.331+02:00 web01 nginx 2852 - -
+<132>1 2026-10-14T08:07:09.172+02:00 web01 app 4605 AUTH [origin ip="198.51.100.23"] Service started
+<11>1 2026-10-14T08:07:17.628+02:00 db01 - 7948 ID47 [meta sequenceId="4836"][timeQuality tzKnown="1" isSynced="1"] certificate expires in 7 days
+<30>1 2026-10-14T08:07:18.717+02:00 db01 cron 5983 DB - certificate expires in 7 days
+<36>1 2026-10-14T08:07:34.274+02:00 web01 - 5324 ID47 [origin ip="203.0.113.9"] Connection restored
+<35>1 2026-10-14T08:07:41.304+02:00 web01 app 4160 AUTH - Connection restored
+<14>1 2026-10-14T08:07:48.576+02:00 web01 nginx 5310 ID47 - Connection restored
+<38>1 2026-10-14T08:08:00.511+02:00 db01 - 5163 ID47 -
+<15>1 2026-10-14T08:08:06.013+02:00 web01 nginx 5535 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""]
+<30>1 2026-10-14T08:08:12.838+02:00 web01 sshd 8722 - [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection restored
+<135>1 2026-10-14T08:08:24.821+02:00 web01 - 7257 - [origin ip="203.0.113.9"] Connection restored
+<38>1 2026-10-14T08:08:40.485+02:00 web01 nginx 3011 ID47 [origin ip="10.0.0.8"] request completed in 12 ms
+<134>1 2026-10-14T08:08:41.456+02:00 db01 - 1805 - [origin ip="10.0.0.8"] Service started
+<14>1 2026-10-14T08:08:56.600+02:00 web02 nginx 286 HTTP - cache warmup: 1200 keys
+<14>1 2026-10-14T08:09:04.814+02:00 web02 sshd 6975 HTTP - certificate expires in 7 days
+<134>1 2026-10-14T08:09:10.719+02:00 web01 sshd 7493 ID47 [meta sequenceId="1662"][timeQuality tzKnown="1" isSynced="1"] Service started
+<36>1 2026-10-14T08:09:13.537+02:00 web01 app 6251 HTTP - cache warmup: 1200 keys
+<15>1 2026-10-14T08:09:19.286+02:00 db01 sshd 7213 ID47 [meta sequenceId="508"][timeQuality tzKnown="1" isSynced="1"] Connection restored
+<31>1 2026-10-14T08:09:24.340+02:00 web01 nginx 913 AUTH [origin ip="192.168.1.20"] Service started
+<134>1 2026-10-14T08:09:36.925+02:00 web02 nginx 7969 - [meta sequenceId="63"][timeQuality tzKnown="1" isSynced="1"] Retrying in 5 s
+<31>1 2026-10-14T08:09:43.024+02:00 web02 sshd 8113 - [origin ip="2001:db8::1"] certificate expires in 7 days
+<134>1 2026-10-14T08:09:51.117+02:00 web01 nginx 4413 HTTP -
+<38>1 2026-10-14T08:10:05.593+02:00 db01 - 6882 - - cache warmup: 1200 keys
+<135>1 2026-10-14T08:10:13.159+02:00 web02 - 1393 AUTH -
+<12>1 2026-10-14T08:10:26.083+02:00 web01 - 3571 ID47 [meta sequenceId="1971"][timeQuality tzKnown="1" isSynced="1"] Connection restored
+<15>1 2026-10-14T08:10:32.212+02:00 db01 cron 1197 DB [origin ip="10.0.0.8"] cache warmup: 1200 keys
+<38>1 2026-10-14T08:10:34.609+02:00 web01 sshd 6890 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] certificate expires in 7 days
+<14>1 2026-10-14T08:10:38.760+02:00 web02 app 4427 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] cache warmup: 1200 keys
+<134>1 2026-10-14T08:10:51.430+02:00 web01 app 6584 DB - certificate expires in 7 days
+<134>1 2026-10-14T08:11:02.137+02:00 web02 sshd 8154 HTTP [origin ip="10.0.0.5"] request completed in 12 ms
+<28>1 2026-10-14T08:11:06.132+02:00 web01 sshd 7337 AUTH [meta sequenceId="4415"][timeQuality tzKnown="1" isSynced="1"] Retrying in 5 s
+<132>1 2026-10-14T08:11:13.067+02:00 web02 - 8403 HTTP - Retrying in 5 s
+<12>1 2026-10-14T08:11:25.205+02:00 web02 nginx 928 DB - Connection to database lost
+<38>1 2026-10-14T08:11:36.926+02:00 web02 cron 8108 ID47 - Service started
+<131>1 2026-10-14T08:11:51.107+02:00 db01 - 1580 ID47 - request completed in 12 ms
+<30>1 2026-10-14T08:12:00.135+02:00 db01 - 6809 DB - request completed in 12 ms
+<12>1 2026-10-14T08:12:01.020+02:00 web02 cron 5104 DB - Service started
+<35>1 2026-10-14T08:12:09.453+02:00 db01 cron 1776 HTTP [origin ip="10.0.0.12"] certificate expires in 7 days
+<34>1 2026-10-14T08:12:09.976+02:00 web01 - 5609 ID47 -
+<38>1 2026-10-14T08:12:18.631+02:00 web01 sshd 6720 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] Service started
+<14>1 2026-10-14T08:12:29.328+02:00 db01 cron 678 HTTP [meta sequenceId="6858"][timeQuality tzKnown="1" isSynced="1"] certificate expires in 7 days
+<28>1 2026-10-14T08:12:35.679+02:00 db01 - 3067 AUTH [origin ip="203.0.113.9"] Connection restored
+<38>1 2026-10-14T08:12:44.778+02:00 web01 - 5131 DB - cache warmup: 1200 keys
+<35>1 2026-10-14T08:12:58.585+02:00 web01 sshd 1266 ID47 -
+<14>1 2026-10-14T08:13:14.495+02:00 web01 cron 3381 ID47 - Connection restored
+<130>1 2026-10-14T08:13:24.914+02:00 db01 nginx 2997 HTTP [meta sequenceId="1325"][timeQuality tzKnown="1" isSynced="1"] cache warmup: 1200 keys
+<135>1 2026-10-14T08:13:35.563+02:00 web01 sshd 2220 DB -
+<134>1 2026-10-14T08:13:49.211+02:00 db01 cron 6212 AUTH [audit user="alice" cmd="/usr/bin/apt \"update\""] Service started
+<30>1 2026-10-14T08:13:50.124+02:00 web01 app 1782 - [origin ip="10.0.0.12"] request completed in 12 ms
+<30>1 2026-10-14T08:14:02.639+02:00 web02 app 2292 - [meta sequenceId="4765"][timeQuality tzKnown="1" isSynced="1"] cache warmup: 1200 keys
+<30>1 2026-10-14T08:14:13.562+02:00 web01 nginx 459 AUTH - Connection restored
+<14>1 2026-10-14T08:14:18.688+02:00 db01 cron 423 HTTP - Retrying in 5 s
+<135>1 2026-10-14T08:14:20.394+02:00 db01 cron 252 - - Service started
+<38>1 2026-10-14T08:14:29.824+02:00 web02 - 1967 ID47 - Retrying in 5 s
+<30>1 2026-10-14T08:14:33.333+02:00 web01 sshd 745 ID47 [meta sequenceId="5865"][timeQuality tzKnown="1" isSynced="1"] request completed in 12 ms
+<134>1 2026-10-14T08:14:49.265+02:00 db01 sshd 8195 DB - Retrying in 5 s
+<15>1 2026-10-14T08:14:54.237+02:00 web02 app 920 HTTP [origin ip="10.0.0.12"] request completed in 12 ms
+<14>1 2026-10-14T08:14:58.069+02:00 web01 sshd 258 HTTP - Retrying in 5 s
+<38>1 2026-10-14T08:15:02.748+02:00 web01 sshd 1965 AUTH [origin ip="192.168.1.20"] cache warmup: 1200 keys
+<35>1 2026-10-14T08:15:15.157+02:00 db01 cron 1060 AUTH - Connection restored
+<134>1 2026-10-14T08:15:20.263+02:00 db01 - 2240 AUTH [origin ip="10.0.0.8"] Connection to database lost
+<134>1 2026-10-14T08:15:36.205+02:00 db01 cron 8698 - [origin ip="10.0.0.7"] Connection to database lost
+<38>1 2026-10-14T08:15:44.183+02:00 web02 - 6405 ID47 -
+<12>1 2026-10-14T08:15:49.042+02:00 web02 app 5353 DB - Retrying in 5 s
+<10>1 2026-10-14T08:15:56.380+02:00 web02 - 7377 DB - Retrying in 5 s
+<132>1 2026-10-14T08:16:10.470+02:00 web02 sshd 687 - - certificate expires in 7 days
+<39>1 2026-10-14T08:16:11.315+02:00 web01 - 3752 ID47 [origin ip="10.0.0.12"] cache warmup: 1200 keys
+<134>1 2026-10-14T08:16:25.654+02:00 web02 sshd 5918 AUTH - Connection to database lost
+<14>1 2026-10-14T08:16:35.214+02:00 web02 app 3309 DB [meta sequenceId="2302"][timeQuality tzKnown="1" isSynced="1"] Retrying in 5 s
+<131>1 2026-10-14T08:16:41.337+02:00 web01 nginx 2118 AUTH - certificate expires in 7 days
+<30>1 2026-10-14T08:16:55.805+02:00 db01 cron 3003 - [meta sequenceId="9065"][timeQuality tzKnown="1" isSynced="1"]
+<12>1 2026-10-14T08:17:01.553+02:00 db01 cron 4167 ID47 [meta sequenceId="8260"][timeQuality tzKnown="1" isSynced="1"] certificate expires in 7 days
+<35>1 2026-10-14T08:17:09.960+02:00 db01 cron 5243 DB [audit user="alice" cmd="/usr/bin/apt \"update\""] request completed in 12 ms
+<38>1 2026-10-14T08:17:16.165+02:00 db01 sshd 1990 DB [audit user="alice" cmd="/usr/bin/apt \"update\""] cache warmup: 1200 keys
+<134>1 2026-10-14T08:17:27.740+02:00 web01 - 6340 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] Retrying in 5 s
+<30>1 2026-10-14T08:17:31.794+02:00 db01 sshd 4935 DB - Connection to database lost
+<38>1 2026-10-14T08:17:38.565+02:00 db01 cron 4812 - [meta sequenceId="9196"][timeQuality tzKnown="1" isSynced="1"] Service started
+<134>1 2026-10-14T08:17:40.513+02:00 db01 sshd 7359 ID47 [origin ip="10.0.0.5"] Service started
+<38>1 2026-10-14T08:17:48.446+02:00 web01 - 1320 ID47 [origin ip="10.0.0.12"]
+<14>1 2026-10-14T08:17:54.431+02:00 web01 cron 2736 - [audit user="alice" cmd="/usr/bin/apt \"update\""] request completed in 12 ms
+<30>1 2026-10-14T08:18:02.436+02:00 web02 app 5966 DB - request completed in 12 ms
+<30>1 2026-10-14T08:18:05.238+02:00 db01 nginx 8898 ID47 - certificate expires in 7 days
+<30>1 2026-10-14T08:18:17.332+02:00 db01 sshd 244 HTTP -
+<30>1 2026-10-14T08:18:21.016+02:00 web01 - 6422 ID47 [origin ip="10.0.0.12"] certificate expires in 7 days
+<12>1 2026-10-14T08:18:29.569+02:00 db01 - 3254 HTTP - request completed in 12 ms
+<15>1 2026-10-14T08:18:40.095+02:00 db01 nginx 7050 ID47 - Service started
+<134>1 2026-10-14T08:18:43.305+02:00 web01 app 1300 DB [origin ip="10.0.0.5"] Connection to database lost
+<12>1 2026-10-14T08:18:44.487+02:00 db01 - 6726 DB [meta sequenceId="6679"][timeQuality tzKnown="1" isSynced="1"]
+<15>1 2026-10-14T08:18:57.810+02:00 web02 - 8338 - - Retrying in 5 s
+<36>1 2026-10-14T08:19:01.106+02:00 db01 - 604 - [meta sequenceId="7171"][timeQuality tzKnown="1" isSynced="1"] certificate expires in 7 days
+<30>1 2026-10-14T08:19:16.266+02:00 web01 cron 2416 ID47 [origin ip="192.168.1.20"] cache warmup: 1200 keys
+<135>1 2026-10-14T08:19:19.308+02:00 web01 - 6860 ID47 - cache warmup: 1200 keys
+<38>1 2026-10-14T08:19:23.472+02:00 db01 nginx 1298 - -
+<15>1 2026-10-14T08:19:33.159+02:00 db01 nginx 3942 ID47 [origin ip="2001:db8::1"] Connection restored
+<30>1 2026-10-14T08:19:36.450+02:00 db01 sshd 2596 AUTH [audit user="alice" cmd="/usr/bin/apt \"update\""] request completed in 12 ms
+<134>1 2026-10-14T08:19:48.277+02:00 web02 nginx 5989 - - certificate expires in 7 days
+<132>1 2026-10-14T08:19:52.972+02:00 web01 cron 1443 AUTH [meta sequenceId="5005"][timeQuality tzKnown="1" isSynced="1"] Retrying in 5 s
+<28>1 2026-10-14T08:20:01.851+02:00 db01 sshd 6737 - [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection to database lost
+<39>1 2026-10-14T08:20:08.779+02:00 web01 - 4867 ID47 [origin ip="2001:db8::1"] certificate expires in 7 days
+<14>1 2026-10-14T08:20:13.254+02:00 db01 cron 2399 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection restored
+<30>1 2026-10-14T08:20:27.417+02:00 web01 cron 4431 HTTP [meta sequenceId="3586"][timeQuality tzKnown="1" isSynced="1"] Service started
+<31>1 2026-10-14T08:20:38.656+02:00 web01 - 5409 HTTP [meta sequenceId="7696"][timeQuality tzKnown="1" isSynced="1"] Connection to database lost
+<35>1 2026-10-14T08:20:42.376+02:00 db01 sshd 1375 ID47 [meta sequenceId="6172"][timeQuality tzKnown="1" isSynced="1"] cache warmup: 1200 keys
+<26>1 2026-10-14T08:20:50.761+02:00 db01 - 208 AUTH [meta sequenceId="5654"][timeQuality tzKnown="1" isSynced="1"]
+<14>1 2026-10-14T08:20:55.211+02:00 web02 - 2038 HTTP - Connection restored
+<12>1 2026-10-14T08:21:02.635+02:00 db01 cron 6832 AUTH [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection restored
+<31>1 2026-10-14T08:21:02.884+02:00 web01 nginx 4331 ID47 - Connection to database lost
+<11>1 2026-10-14T08:21:08.413+02:00 web02 sshd 2894 - [audit user="alice" cmd="/usr/bin/apt \"update\""]
+<30>1 2026-10-14T08:21:16.263+02:00 db01 - 1227 DB [origin ip="192.168.1.20"]
+<14>1 2026-10-14T08:21:23.650+02:00 web01 app 7896 DB [audit user="alice" cmd="/usr/bin/apt \"update\""] Retrying in 5 s
+<12>1 2026-10-14T08:21:25.548+02:00 db01 app 7169 AUTH [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection to database lost
+<131>1 2026-10-14T08:21:38.927+02:00 web02 nginx 2293 AUTH [audit user="alice" cmd="/usr/bin/apt \"update\""] Retrying in 5 s
+<12>1 2026-10-14T08:21:47.415+02:00 db01 sshd 216 ID47 - Connection to database lost
+<31>1 2026-10-14T08:21:50.947+02:00 db01 sshd 4255 AUTH - certificate expires in 7 days
+<38>1 2026-10-14T08:21:59.822+02:00 web01 - 6165 HTTP [meta sequenceId="3338"][timeQuality tzKnown="1" isSynced="1"]
+<34>1 2026-10-14T08:22:15.081+02:00 web01 cron 3613 DB [meta sequenceId="3765"][timeQuality tzKnown="1" isSynced="1"] Connection restored
+<14>1 2026-10-14T08:22:27.885+02:00 db01 nginx 7233 AUTH -
+<38>1 2026-10-14T08:22:29.950+02:00 db01 app 1041 ID47 [meta sequenceId="6297"][timeQuality tzKnown="1" isSynced="1"] request completed in 12 ms
+<14>1 2026-10-14T08:22:35.605+02:00 db01 nginx 2876 ID47 - Service started
+<14>1 2026-10-14T08:22:36.973+02:00 web02 nginx 3381 - [origin ip="192.168.1.20"] certificate expires in 7 days
+<14>1 2026-10-14T08:22:37.727+02:00 db01 - 3287 HTTP [origin ip="203.0.113.9"] Service started
+<14>1 2026-10-14T08:22:52.679+02:00 db01 sshd 4921 DB - Retrying in 5 s
+<39>1 2026-10-14T08:23:03.648+02:00 web01 - 5665 ID47 [meta sequenceId="7255"][timeQuality tzKnown="1" isSynced="1"]
+<14>1 2026-10-14T08:23:18.345+02:00 db01 cron 3867 - [meta sequenceId="1107"][timeQuality tzKnown="1" isSynced="1"] Service started
+<11>1 2026-10-14T08:23:28.767+02:00 web01 sshd 3024 DB [meta sequenceId="1524"][timeQuality tzKnown="1" isSynced="1"] cache warmup: 1200 keys
+<38>1 2026-10-14T08:23:44.088+02:00 web02 nginx 3487 DB - Service started
+<36>1 2026-10-14T08:23:51.295+02:00 db01 nginx 792 - [meta sequenceId="1286"][timeQuality tzKnown="1" isSynced="1"] Connection to database lost
+<134>1 2026-10-14T08:24:06.675+02:00 web02 - 3738 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] request completed in 12 ms
+<134>1 2026-10-14T08:24:10.730+02:00 db01 cron 2963 ID47 [origin ip="10.0.0.5"] certificate expires in 7 days
+<134>1 2026-10-14T08:24:25.729+02:00 web02 sshd 6024 - [meta sequenceId="3453"][timeQuality tzKnown="1" isSynced="1"] Retrying in 5 s
+<30>1 2026-10-14T08:24:33.920+02:00 web02 sshd 3549 AUTH -
+<36>1 2026-10-14T08:24:47.637+02:00 db01 cron 3844 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection restored
+<30>1 2026-10-14T08:24:51.375+02:00 web02 - 259 AUTH - Connection restored
+<38>1 2026-10-14T08:24:56.806+02:00 web02 cron 1721 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection to database lost
+<38>1 2026-10-14T08:25:01.867+02:00 web02 cron 4322 - [origin ip="2001:db8::1"] cache warmup: 1200 keys
+<38>1 2026-10-14T08:25:12.887+02:00 db01 - 8463 DB [origin ip="10.0.0.8"] cache warmup: 1200 keys
+<12>1 2026-10-14T08:25:28.680+02:00 db01 cron 5627 ID47 - Connection restored
+<134>1 2026-10-14T08:25:42.326+02:00 web02 app 4873 - - cache warmup: 1200 keys
+<38>1 2026-10-14T08:25:50.945+02:00 web01 cron 2148 HTTP - Connection restored
+<14>1 2026-10-14T08:25:58.622+02:00 web02 nginx 981 DB - Retrying in 5 s
+<14>1 2026-10-14T08:25:59.411+02:00 web01 app 4153 HTTP [meta sequenceId="1382"][timeQuality tzKnown="1" isSynced="1"] request completed in 12 ms
+<30>1 2026-10-14T08:26:08.864+02:00 web02 - 7754 DB [origin ip="10.0.0.5"] cache warmup: 1200 keys
+<30>1 2026-10-14T08:26:17.425+02:00 web02 - 7991 ID47 [meta sequenceId="9241"][timeQuality tzKnown="1" isSynced="1"] request completed in 12 ms
+<39>1 2026-10-14T08:26:25.249+02:00 web01 sshd 8674 AUTH [origin ip="192.168.1.20"] Connection to database lost
+<14>1 2026-10-14T08:26:29.601+02:00 db01 cron 3888 AUTH [meta sequenceId="150"][timeQuality tzKnown="1" isSynced="1"] request completed in 12 ms
+<134>1 2026-10-14T08:26:30.162+02:00 web02 - 3714 AUTH - certificate expires in 7 days
+<30>1 2026-10-14T08:26:38.243+02:00 web02 - 3180 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] request completed in 12 ms
+<14>1 2026-10-14T08:26:40.429+02:00 web01 cron 5353 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""]
+<15>1 2026-10-14T08:26:40.584+02:00 db01 nginx 234 - -
+<134>1 2026-10-14T08:26:47.676+02:00 web02 nginx 619 HTTP [meta sequenceId="5105"][timeQuality tzKnown="1" isSynced="1"] cache warmup: 1200 keys
+<28>1 2026-10-14T08:26:57.758+02:00 web01 app 3248 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""]
+<14>1 2026-10-14T08:27:06.594+02:00 web01 app 7650 DB - Connection to database lost
+<30>1 2026-10-14T08:27:10.127+02:00 db01 cron 8634 AUTH - Connection to database lost
+<38>1 2026-10-14T08:27:13.386+02:00 db01 nginx 7213 HTTP - Service started
+<38>1 2026-10-14T08:27:23.401+02:00 db01 - 7886 - - Connection to database lost
+<28>1 2026-10-14T08:27:27.781+02:00 web02 nginx 2621 AUTH - Connection to database lost
+<38>1 2026-10-14T08:27:30.909+02:00 web02 - 2307 HTTP - certificate expires in 7 days
+<135>1 2026-10-14T08:27:39.829+02:00 db01 - 5796 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] Connection restored
+<30>1 2026-10-14T08:27:50.578+02:00 db01 app 6114 ID47 [origin ip="10.0.0.8"] request completed in 12 ms
+<132>1 2026-10-14T08:28:04.578+02:00 db01 nginx 8930 - [origin ip="203.0.113.9"] Retrying in 5 s
+<134>1 2026-10-14T08:28:16.772+02:00 web01 - 1677 DB [meta sequenceId="5286"][timeQuality tzKnown="1" isSynced="1"] cache warmup: 1200 keys
+<28>1 2026-10-14T08:28:18.816+02:00 web01 nginx 621 - [meta sequenceId="1754"][timeQuality tzKnown="1" isSynced="1"] Service started
+<38>1 2026-10-14T08:28:31.489+02:00 web01 app 8151 HTTP - Connection to database lost
+<12>1 2026-10-14T08:28:33.968+02:00 db01 sshd 766 ID47 - request completed in 12 ms
+<30>1 2026-10-14T08:28:36.822+02:00 web01 - 3264 - [audit user="alice" cmd="/usr/bin/apt \"update\""] certificate expires in 7 days
+<30>1 2026-10-14T08:28:44.405+02:00 db01 - 7615 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] cache warmup: 1200 keys
+<31>1 2026-10-14T08:28:58.309+02:00 web02 - 5263 AUTH [audit user="alice" cmd="/usr/bin/apt \"update\""]
+<134>1 2026-10-14T08:29:09.174+02:00 web02 sshd 4262 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] Service started
+<134>1 2026-10-14T08:29:21.158+02:00 web02 app 207 - - Connection restored
+<38>1 2026-10-14T08:29:30.385+02:00 web02 app 2657 HTTP -
+<30>1 2026-10-14T08:29:34.656+02:00 db01 nginx 3662 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] certificate expires in 7 days
+<134>1 2026-10-14T08:29:37.396+02:00 db01 nginx 6351 AUTH [origin ip="10.0.0.7"] Connection to database lost
+<39>1 2026-10-14T08:29:40.194+02:00 db01 sshd 6366 AUTH - Connection to database lost
+<38>1 2026-10-14T08:29:41.506+02:00 web01 - 927 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] Service started
+<14>1 2026-10-14T08:29:54.500+02:00 web02 nginx 1452 AUTH - Connection restored
+<132>1 2026-10-14T08:30:10.085+02:00 web01 sshd 7979 - [meta sequenceId="8222"][timeQuality tzKnown="1" isSynced="1"] Connection restored
+<30>1 2026-10-14T08:30:16.584+02:00 web02 - 5398 ID47 - request completed in 12 ms
+<134>1 2026-10-14T08:30:18.699+02:00 web02 sshd 2873 HTTP [origin ip="10.0.0.12"] Connection to database lost
+<132>1 2026-10-14T08:30:30.330+02:00 db01 - 6224 DB - Service started
+<12>1 2026-10-14T08:30:35.105+02:00 web02 app 1923 - [origin ip="10.0.0.12"] Connection to database lost
+<38>1 2026-10-14T08:30:44.565+02:00 db01 nginx 8013 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] request completed in 12 ms
+<14>1 2026-10-14T08:30:49.276+02:00 web02 cron 3388 ID47 - Connection to database lost
+<14>1 2026-10-14T08:30:57.330+02:00 web02 app 6432 AUTH - Connection to database lost
+<14>1 2026-10-14T08:31:04.719+02:00 db01 sshd 452 AUTH -
+<35>1 2026-10-14T08:31:05.972+02:00 db01 sshd 5865 AUTH - cache warmup: 1200 keys
+<38>1 2026-10-14T08:31:17.612+02:00 web01 app 2585 HTTP [audit user="alice" cmd="/usr/bin/apt \"update\""] request completed in 12 ms
+<30>1 2026-10-14T08:31:28.530+02:00 web02 app 5218 AUTH - Connection restored
+<30>1 2026-10-14T08:31:38.989+02:00 web02 nginx 2478 ID47 [origin ip="10.0.0.12"] Connection restored
+<15>1 2026-10-14T08:31:44.314+02:00 web02 nginx 5070 HTTP [origin ip="10.0.0.8"] certificate expires in 7 days
+<35>1 2026-10-14T08:31:59.077+02:00 db01 nginx 4472 DB - Connection to database lost
+<14>1 2026-10-14T08:32:06.687+02:00 db01 sshd 6226 - [audit user="alice" cmd="/usr/bin/apt \"update\""]
+<134>1 2026-10-14T08:32:12.559+02:00 web01 nginx 4521 DB - certificate expires in 7 days
+<28>1 2026-10-14T08:32:25.786+02:00 db01 nginx 5423 - [audit user="alice" cmd="/usr/bin/apt \"update\""]
+<134>1 2026-10-14T08:32:40.694+02:00 db01 app 1891 ID47 [meta sequenceId="5127"][timeQuality tzKnown="1" isSynced="1"] Connection to database lost
+<12>1 2026-10-14T08:32:55.161+02:00 db01 nginx 907 ID47 [audit user="alice" cmd="/usr/bin/apt \"update\""] certificate expires in 7 days
+<38>1 2026-10-14T08:33:01.459+02:00 db01 sshd 8570 AUTH [origin ip="10.0.0.8"] Connection to database lost

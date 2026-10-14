@@ -1,6 +1,7 @@
 # Tablify
 
-A VS Code extension that opens JSON, YAML and CSV files as an interactive, filterable table.
+A VS Code extension that opens JSON, YAML and CSV files as an interactive, filterable table,
+and log files as a sortable, filterable table of log events.
 
 ![Tablify table view](media/tablify-screenshot.png)
 
@@ -259,13 +260,100 @@ new and modified entries, plus entries that were **deleted** (red bar, struck th
 where they used to be; read-only). It combines with the filter query and is kept per editor
 tab; click the header again, or **Clear Filter**, to show all rows.
 
+## Log files
+
+**Open as Log Table** (Explorer context menu, the editor title bar of `.log` files, or the
+command palette) shows a log file as a read-only table: one row per log event, one column per
+field. It works for any file, including extensionless ones such as `syslog` or `messages`. The
+**Log Table** editor is also offered in **Reopen Editor With…** for `*.log`, `*.log.1`,
+`*.jsonl`, `*.ndjson`, `access_log*` and `error_log*`; to always use it, add an editor
+association:
+
+```json
+"workbench.editorAssociations": { "*.log": "tablify.logView" }
+```
+
+**Formats.** The format is detected from the first lines of the file:
+
+| Format                         | Example                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------- |
+| JSON Lines / NDJSON            | `{"time":"…","level":"info","msg":"…"}` (pino / bunyan numeric levels as well)  |
+| logfmt                         | `ts=2026-10-14T10:37:02Z level=error msg="payment failed" order=4711`           |
+| Syslog RFC 3164 (and rsyslog)  | `Oct 14 10:37:02 web01 sshd[2341]: Accepted password for alice`                 |
+| Syslog RFC 5424                | `<34>1 2026-10-14T10:37:02.123+02:00 web01 sshd 2341 ID47 [origin ip="…"] …`    |
+| Access log (Common / Combined) | `10.0.0.5 - alice [14/Oct/2026:10:37:02 +0200] "GET / HTTP/1.1" 200 5123 …`     |
+| Nginx error log                | `2026/10/14 10:37:02 [error] 1234#0: *56 open() "/x" failed …`                  |
+| Apache error log (2.4)         | `[Wed Oct 14 10:37:02.123456 2026] [core:error] [pid 2341:tid 140] …`           |
+| Application log                | `2026-10-14 10:37:02,123 ERROR [main] com.example.OrderService - Payment failed` |
+| Python `logging`               | `2026-10-14 10:37:02,123 - orders.payment - ERROR - Payment failed`             |
+
+Anything else opens as plain text: a leading timestamp and a level keyword are picked out when
+present, otherwise each line is one row. The status bar shows the format
+(**Log: Syslog RFC 3164**); click it, or the format button in the toolbar, to choose another
+one. The choice is remembered per file.
+
+**Entries.** Lines that do not start an entry (stack traces, `Caused by:` chains) belong to the
+entry above; such entries show a **+N lines** badge. Lines that do not match a single-line
+format (JSON Lines, logfmt, access logs) are shown dimmed. Levels are normalized
+(`WARNING` → warn, `SEVERE` → error, syslog severities, pino levels, …) and color the row;
+access logs get a level from the status code (5xx error, 4xx warn). Timestamps are shown as
+written and parsed for sorting and the time filter. Syslog timestamps without a year take the
+year of the file's modification time.
+
+**Toolbar.**
+
+- **Search** the message as you type: plain text (case-insensitive) or `/regex/flags`. **All
+  fields** searches the whole entry.
+- **Level chips** show the count per level and toggle it; <kbd>Alt</kbd>+click shows only that
+  level.
+- **From / To** limit the time range (entries without a timestamp are hidden while set).
+- **Columns** shows or hides columns (also by right-clicking a header). Columns that are
+  always empty or `-`, and those in `tablify.log.defaultHiddenColumns`, start hidden.
+
+Click a header to sort (ascending, descending, file order); timestamps sort by time. Drag a
+header's edge to resize it. Click a row, or use the arrow keys, to see the full entry with all
+fields below the table; double-click or <kbd>Enter</kbd> opens the text editor at that line
+(**Reveal in Source**). The table reloads when the file changes on disk.
+
+**Large files.** Parsing and filtering run in the extension host, and the table only renders
+the visible rows, so files with millions of lines stay responsive. Above
+`tablify.log.largeFileThresholdMB` (50 MB) you choose to load the first or last 100,000 lines,
+or all of it.
+
+**Custom formats.** Add formats in the settings: a JavaScript regex with named groups, and the
+role of each group (`timestamp`, `level`, `message`, `source`). Custom formats take part in
+detection and win ties with the built-in ones. Invalid patterns are reported and skipped.
+
+```jsonc
+"tablify.log.customFormats": [
+  {
+    "id": "my-ecu-trace",
+    "label": "ECU trace",
+    "pattern": "^(?<timestamp>\\d+\\.\\d+)\\s+(?<channel>\\w+)\\s+(?<level>[A-Z])\\s+(?<message>.*)$",
+    "roles": { "timestamp": "timestamp", "level": "level", "channel": "source", "message": "message" },
+    "multiline": false
+  }
+]
+```
+
+Optional keys: `multiline` (default `true`: non-matching lines continue the entry above) and
+`postProcess`, a list of built-in enrichers: `syslog-pri` (facility, severity and level from
+`pri`), `split-http-request` (`method`, `path`, `protocol` from `request`), `status-level`
+(level from `status`), `nil-dash` (`-` means empty) and `sd-params` (RFC 5424 structured data
+from `sd` as `sd.<id>.<param>` columns).
+
 ## Settings
 
-| Setting                         | Default | Description                                                                                                   |
-| ------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------- |
-| `tablify.idField`               | `id`    | Column name for the key of each entry in hash files.                                                          |
-| `tablify.git.enabled`           | `true`  | Show the change bar and blame for files in a git repository.                                                  |
-| `tablify.saveWithoutFormatting` | `true`  | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>S</kbd> in the table saves without format-on-save and other save actions. |
+| Setting                            | Default                       | Description                                                                                                   |
+| ---------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `tablify.idField`                  | `id`                          | Column name for the key of each entry in hash files.                                                          |
+| `tablify.git.enabled`              | `true`                        | Show the change bar and blame for files in a git repository.                                                  |
+| `tablify.saveWithoutFormatting`    | `true`                        | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>S</kbd> in the table saves without format-on-save and other save actions. |
+| `tablify.log.customFormats`        | `[]`                          | Additional log formats (see [Log files](#log-files)).                                                         |
+| `tablify.log.detectionSampleLines` | `200`                         | Non-empty lines from the start of a log file used to detect its format.                                       |
+| `tablify.log.detectionThreshold`   | `0.6`                         | Share of sampled lines a format must match to be detected; otherwise plain text.                              |
+| `tablify.log.largeFileThresholdMB` | `50`                          | Larger log files ask whether to load the first or last lines, or all of it.                                   |
+| `tablify.log.defaultHiddenColumns` | `["ident", "version", "tid"]` | Log table columns hidden by default.                                                                          |
 
 ## Development
 
@@ -284,8 +372,13 @@ Layout:
 
 - `src/` runs in the extension host: the custom editor provider, the JSON/YAML parser and
   the webview HTML with its CSP.
-- `webview/` runs in the webview: the Tabulator table, formatters and filter.
-- `test/` holds the parser tests, which use the files in `test_data/`.
+- `src/log/` is the log table: formats (data, not code), detection, the streaming parser, the
+  record store (filtering, sorting, row windows) and its read-only editor provider.
+- `webview/` runs in the webview: the Tabulator table, formatters and filter;
+  `webview/log/` is the virtualized log grid.
+- `test/` holds the parser tests, which use the files in `test_data/`, and the log tests with
+  one fixture per format in `test/fixtures/logs/` (snapshots in `__snapshots__/`; run
+  `UPDATE_SNAPSHOTS=1 npm test` to update them).
 
 ## License
 

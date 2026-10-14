@@ -1,0 +1,22 @@
+ts=2026-10-14T10:37:02Z level=info msg="server started" port=8080 component=api
+ts=2026-10-14T10:37:03Z level=debug msg="config loaded" file=/etc/app.yaml component=config
+ts=2026-10-14T10:37:04Z level=error msg="payment failed" order=4711 err="connection refused" component=payment
+ts=2026-10-14T10:37:05Z level=warn msg="retrying" order=4711 attempt=1 component=payment
+ts=2026-10-14T10:37:06Z level=info msg="payment ok" order=4711 duration=0.512s component=payment
+ts=2026-10-14T10:37:07Z level=info msg="request" method=GET path=/orders status=200 took=12ms
+ts=2026-10-14T10:37:08Z level=info msg="quoted \"value\" inside" key=value
+ts=2026-10-14T10:37:09Z level=crit msg="disk almost full" free=1.2GB
+ts=2026-10-14T10:37:10Z level=info msg= empty=
+ts=2026-10-14T10:37:11Z level=info msg="shutting down" signal=SIGTERM
+ts=2026-10-14T10:37:12Z level=info msg="worker started" worker=1 component=worker
+ts=2026-10-14T10:37:12Z level=info msg="worker started" worker=2 component=worker
+ts=2026-10-14T10:37:13Z level=debug msg="cache hit" key=user:42 component=cache
+ts=2026-10-14T10:37:14Z level=debug msg="cache miss" key=user:43 component=cache
+ts=2026-10-14T10:37:15Z level=warn msg="slow request" path=/orders took=2.4s
+ts=2026-10-14T10:37:16Z level=error msg="db error" err="deadlock detected" table=orders
+ts=2026-10-14T10:37:17Z level=info msg="retry ok" table=orders attempt=2
+ts=2026-10-14T10:37:18Z level=trace msg="tick" n=1
+ts=2026-10-14T10:37:19Z level=info msg="multi\nline value escaped" component=api
+ts=2026-10-14T10:37:20Z level=info msg="request" method=POST path=/orders status=201 took=33ms
+ts=2026-10-14T10:37:21Z level=info msg="request" method=GET path=/health status=200 took=1ms
+ts=2026-10-14T10:37:22Z level=fatal msg="cannot bind port" port=8080

@@ -1,0 +1,310 @@
+{
+  "columns": [
+    {
+      "name": "timestamp",
+      "role": "timestamp",
+      "nonEmpty": 19,
+      "superseded": false
+    },
+    {
+      "name": "host",
+      "role": "source",
+      "nonEmpty": 19,
+      "superseded": false
+    },
+    {
+      "name": "app",
+      "role": "source",
+      "nonEmpty": 19,
+      "superseded": false
+    },
+    {
+      "name": "pri",
+      "role": "none",
+      "nonEmpty": 20,
+      "superseded": true
+    },
+    {
+      "name": "facility",
+      "role": "none",
+      "nonEmpty": 20,
+      "superseded": false
+    },
+    {
+      "name": "severity",
+      "role": "none",
+      "nonEmpty": 20,
+      "superseded": false
+    },
+    {
+      "name": "version",
+      "role": "none",
+      "nonEmpty": 20,
+      "superseded": false
+    },
+    {
+      "name": "procid",
+      "role": "none",
+      "nonEmpty": 16,
+      "superseded": false
+    },
+    {
+      "name": "msgid",
+      "role": "none",
+      "nonEmpty": 7,
+      "superseded": false
+    },
+    {
+      "name": "sd",
+      "role": "none",
+      "nonEmpty": 6,
+      "superseded": false
+    },
+    {
+      "name": "sd.origin.ip",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "sd.exampleSDID@32473.iut",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": true
+    },
+    {
+      "name": "sd.exampleSDID@32473.eventSource",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": true
+    },
+    {
+      "name": "sd.exampleSDID@32473.eventID",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": true
+    },
+    {
+      "name": "sd.examplePriority@32473.class",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "sd.meta.sequenceId",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "sd.audit.user",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "sd.audit.cmd",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "sd.audit.note",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "sd.timeQuality.tzKnown",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "sd.timeQuality.isSynced",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "sd.origin.software",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "sd.origin.swVersion",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": true
+    },
+    {
+      "name": "message",
+      "role": "message",
+      "nonEmpty": 19,
+      "superseded": false
+    }
+  ],
+  "records": [
+    {
+      "lineStart": 0,
+      "lineEnd": 0,
+      "fields": {
+        "pri": "34",
+        "version": "1",
+        "timestamp": "2026-10-14T10:37:02.123+02:00",
+        "host": "web01",
+        "app": "sshd",
+        "procid": "2341",
+        "msgid": "ID47",
+        "sd": "[origin ip=\"10.0.0.5\"]",
+        "message": "Accepted password for alice",
+        "facility": 4,
+        "severity": 2,
+        "sd.origin.ip": "10.0.0.5"
+      },
+      "epochMs": 1791967022123,
+      "level": "fatal"
+    },
+    {
+      "lineStart": 1,
+      "lineEnd": 1,
+      "fields": {
+        "pri": "165",
+        "version": "1",
+        "timestamp": "2026-10-14T10:37:03.003Z",
+        "host": "mymachine.example.com",
+        "app": "evntslog",
+        "procid": null,
+        "msgid": "ID47",
+        "sd": "[exampleSDID@32473 iut=\"3\" eventSource=\"Application\" eventID=\"1011\"]",
+        "message": "An application event log entry",
+        "facility": 20,
+        "severity": 5,
+        "sd.exampleSDID@32473.iut": "3",
+        "sd.exampleSDID@32473.eventSource": "Application",
+        "sd.exampleSDID@32473.eventID": "1011"
+      },
+      "epochMs": 1791974223003,
+      "level": "info"
+    },
+    {
+      "lineStart": 2,
+      "lineEnd": 2,
+      "fields": {
+        "pri": "165",
+        "version": "1",
+        "timestamp": "2026-10-14T10:37:04.000Z",
+        "host": "mymachine.example.com",
+        "app": "evntslog",
+        "procid": null,
+        "msgid": "ID47",
+        "sd": "[exampleSDID@32473 iut=\"3\" eventSource=\"Application\" eventID=\"1011\"][examplePriority@32473 class=\"high\"]",
+        "facility": 20,
+        "severity": 5,
+        "sd.exampleSDID@32473.iut": "3",
+        "sd.exampleSDID@32473.eventSource": "Application",
+        "sd.exampleSDID@32473.eventID": "1011",
+        "sd.examplePriority@32473.class": "high"
+      },
+      "epochMs": 1791974224000,
+      "level": "info"
+    },
+    {
+      "lineStart": 3,
+      "lineEnd": 3,
+      "fields": {
+        "pri": "13",
+        "version": "1",
+        "timestamp": "2026-10-14T10:37:05.512+02:00",
+        "host": "web01",
+        "app": "app",
+        "procid": "4211",
+        "msgid": null,
+        "sd": null,
+        "message": "Service started",
+        "facility": 1,
+        "severity": 5
+      },
+      "epochMs": 1791967025512,
+      "level": "info"
+    },
+    {
+      "lineStart": 4,
+      "lineEnd": 4,
+      "fields": {
+        "pri": "11",
+        "version": "1",
+        "timestamp": "2026-10-14T10:37:06.100+02:00",
+        "host": "web01",
+        "app": "app",
+        "procid": "4211",
+        "msgid": "DB",
+        "sd": null,
+        "message": "Connection to database lost",
+        "facility": 1,
+        "severity": 3
+      },
+      "epochMs": 1791967026100,
+      "level": "error"
+    },
+    {
+      "lineStart": 5,
+      "lineEnd": 5,
+      "fields": {
+        "pri": "12",
+        "version": "1",
+        "timestamp": "2026-10-14T10:37:06.900+02:00",
+        "host": "web01",
+        "app": "app",
+        "procid": "4211",
+        "msgid": "DB",
+        "sd": null,
+        "message": "Retrying in 5 s",
+        "facility": 1,
+        "severity": 4
+      },
+      "epochMs": 1791967026900,
+      "level": "warn"
+    },
+    {
+      "lineStart": 6,
+      "lineEnd": 6,
+      "fields": {
+        "pri": "14",
+        "version": "1",
+        "timestamp": "2026-10-14T10:37:11.902+02:00",
+        "host": "web01",
+        "app": "app",
+        "procid": "4211",
+        "msgid": "DB",
+        "sd": null,
+        "message": "Connection restored",
+        "facility": 1,
+        "severity": 6
+      },
+      "epochMs": 1791967031902,
+      "level": "info"
+    },
+    {
+      "lineStart": 7,
+      "lineEnd": 7,
+      "fields": {
+        "pri": "15",
+        "version": "1",
+        "timestamp": "2026-10-14T10:37:12.000+02:00",
+        "host": "web01",
+        "app": "app",
+        "procid": "4211",
+        "msgid": null,
+        "sd": "[meta sequenceId=\"17\"]",
+        "message": "cache warmup: 1200 keys",
+        "facility": 1,
+        "severity": 7,
+        "sd.meta.sequenceId": "17"
+      },
+      "epochMs": 1791967032000,
+      "level": "debug"
+    }
+  ]
+}

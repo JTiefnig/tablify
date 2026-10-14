@@ -1,0 +1,76 @@
+{
+  "columns": [
+    {
+      "name": "level",
+      "role": "level",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "message",
+      "role": "message",
+      "nonEmpty": 20,
+      "superseded": false
+    }
+  ],
+  "records": [
+    {
+      "lineStart": 0,
+      "lineEnd": 0,
+      "fields": {
+        "message": "Starting backup job"
+      }
+    },
+    {
+      "lineStart": 1,
+      "lineEnd": 1,
+      "fields": {
+        "message": "Copying /home to /mnt/backup"
+      }
+    },
+    {
+      "lineStart": 2,
+      "lineEnd": 2,
+      "fields": {
+        "level": "WARNING",
+        "message": "3 files could not be read"
+      },
+      "level": "warn"
+    },
+    {
+      "lineStart": 3,
+      "lineEnd": 3,
+      "fields": {
+        "message": "Copied 12034 files (4.2 GB)"
+      }
+    },
+    {
+      "lineStart": 4,
+      "lineEnd": 4,
+      "fields": {
+        "message": "Verifying checksums"
+      }
+    },
+    {
+      "lineStart": 5,
+      "lineEnd": 5,
+      "fields": {
+        "message": "Backup finished"
+      }
+    },
+    {
+      "lineStart": 6,
+      "lineEnd": 6,
+      "fields": {
+        "message": "Rotating old backups"
+      }
+    },
+    {
+      "lineStart": 7,
+      "lineEnd": 7,
+      "fields": {
+        "message": "Removed backup-2026-09-30.tar.gz"
+      }
+    }
+  ]
+}

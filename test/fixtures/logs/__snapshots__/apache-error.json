@@ -1,0 +1,165 @@
+{
+  "columns": [
+    {
+      "name": "timestamp",
+      "role": "timestamp",
+      "nonEmpty": 18,
+      "superseded": false
+    },
+    {
+      "name": "level",
+      "role": "level",
+      "nonEmpty": 18,
+      "superseded": false
+    },
+    {
+      "name": "module",
+      "role": "source",
+      "nonEmpty": 17,
+      "superseded": false
+    },
+    {
+      "name": "pid",
+      "role": "none",
+      "nonEmpty": 18,
+      "superseded": false
+    },
+    {
+      "name": "tid",
+      "role": "none",
+      "nonEmpty": 17,
+      "superseded": false
+    },
+    {
+      "name": "client",
+      "role": "none",
+      "nonEmpty": 9,
+      "superseded": false
+    },
+    {
+      "name": "message",
+      "role": "message",
+      "nonEmpty": 18,
+      "superseded": false
+    }
+  ],
+  "records": [
+    {
+      "lineStart": 0,
+      "lineEnd": 0,
+      "fields": {
+        "timestamp": "Wed Oct 14 10:37:02.123456 2026",
+        "module": "mpm_event",
+        "level": "notice",
+        "pid": "2341",
+        "tid": "140",
+        "message": "AH00489: Apache/2.4.62 (Unix) configured -- resuming normal operations"
+      },
+      "epochMs": 1791967022123,
+      "level": "info"
+    },
+    {
+      "lineStart": 1,
+      "lineEnd": 1,
+      "fields": {
+        "timestamp": "Wed Oct 14 10:37:02.123512 2026",
+        "module": "core",
+        "level": "notice",
+        "pid": "2341",
+        "tid": "140",
+        "message": "AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'"
+      },
+      "epochMs": 1791967022123,
+      "level": "info"
+    },
+    {
+      "lineStart": 2,
+      "lineEnd": 2,
+      "fields": {
+        "timestamp": "Wed Oct 14 10:37:05.000001 2026",
+        "module": "core",
+        "level": "error",
+        "pid": "2342",
+        "tid": "141",
+        "client": "10.0.0.5:52211",
+        "message": "AH00126: Invalid URI in request GET /%%% HTTP/1.1"
+      },
+      "epochMs": 1791967025000,
+      "level": "error"
+    },
+    {
+      "lineStart": 3,
+      "lineEnd": 3,
+      "fields": {
+        "timestamp": "Wed Oct 14 10:37:06.882910 2026",
+        "module": "authz_core",
+        "level": "error",
+        "pid": "2342",
+        "tid": "142",
+        "client": "203.0.113.9:40022",
+        "message": "AH01630: client denied by server configuration: /var/www/html/.env"
+      },
+      "epochMs": 1791967026882,
+      "level": "error"
+    },
+    {
+      "lineStart": 4,
+      "lineEnd": 4,
+      "fields": {
+        "timestamp": "Wed Oct 14 10:37:07.100000 2026",
+        "module": "php",
+        "level": "warn",
+        "pid": "2343",
+        "tid": "150",
+        "client": "10.0.0.6:50000",
+        "message": "PHP Warning:  Undefined variable $user in /var/www/html/index.php on line 42"
+      },
+      "epochMs": 1791967027100,
+      "level": "warn"
+    },
+    {
+      "lineStart": 5,
+      "lineEnd": 5,
+      "fields": {
+        "timestamp": "Wed Oct 14 10:37:08.000000 2026",
+        "module": "proxy",
+        "level": "error",
+        "pid": "2343",
+        "tid": "151",
+        "message": "(111)Connection refused: AH00957: http: attempt to connect to 127.0.0.1:8080 (localhost:8080) failed"
+      },
+      "epochMs": 1791967028000,
+      "level": "error"
+    },
+    {
+      "lineStart": 6,
+      "lineEnd": 6,
+      "fields": {
+        "timestamp": "Wed Oct 14 10:37:08.000100 2026",
+        "module": "proxy_http",
+        "level": "error",
+        "pid": "2343",
+        "tid": "151",
+        "client": "10.0.0.8:41000",
+        "message": "AH01114: HTTP: failed to make connection to backend: localhost"
+      },
+      "epochMs": 1791967028000,
+      "level": "error"
+    },
+    {
+      "lineStart": 7,
+      "lineEnd": 7,
+      "fields": {
+        "timestamp": "Wed Oct 14 10:37:09.500000 2026",
+        "module": "ssl",
+        "level": "info",
+        "pid": "2344",
+        "tid": "160",
+        "client": "10.0.0.9:39000",
+        "message": "AH01964: Connection to child 3 established (server example.com:443)"
+      },
+      "epochMs": 1791967029500,
+      "level": "info"
+    }
+  ]
+}

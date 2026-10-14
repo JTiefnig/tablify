@@ -1,0 +1,348 @@
+2026-10-14 08:00:07,408 - orders.payment - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:00:10,882 - orders - DEBUG - Connection pool created: size=5
+2026-10-14 08:00:13,800 - orders - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:00:18,854 - orders.payment - INFO - Worker ready
+2026-10-14 08:00:20,466 - urllib3.connectionpool - INFO - Worker ready
+2026-10-14 08:00:21,422 - orders.payment - CRITICAL - Disk usage at 97%
+2026-10-14 08:00:26,761 - urllib3.connectionpool - DEBUG - Connection pool created: size=5
+2026-10-14 08:00:26,864 - celery.worker - DEBUG - Heartbeat
+2026-10-14 08:00:30,925 - orders.api - DEBUG - Heartbeat
+2026-10-14 08:00:39,305 - orders.payment - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:00:48,776 - orders.db - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:00:53,828 - urllib3.connectionpool - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:01:01,604 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:01:12,402 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:01:15,357 - orders.db - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:01:25,630 - orders.api - DEBUG - Connection pool created: size=5
+2026-10-14 08:01:35,023 - orders.api - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:01:35,333 - orders.api - DEBUG - Connection pool created: size=5
+2026-10-14 08:01:41,915 - orders.api - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:01:50,496 - orders.api - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:01:51,663 - orders.db - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:01:52,887 - orders.api - INFO - Worker ready
+2026-10-14 08:01:53,968 - orders.db - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:02:01,946 - urllib3.connectionpool - ERROR - Deadlock detected - retrying transaction
+2026-10-14 08:02:07,485 - celery.worker - DEBUG - Heartbeat
+2026-10-14 08:02:17,017 - urllib3.connectionpool - INFO - POST /orders 201 33ms
+2026-10-14 08:02:20,851 - orders.payment - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:02:26,813 - orders.payment - INFO - Worker ready
+2026-10-14 08:02:27,787 - orders.db - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:02:30,355 - orders.api - INFO - POST /orders 201 33ms
+2026-10-14 08:02:38,281 - orders - DEBUG - Heartbeat
+2026-10-14 08:02:46,798 - celery.worker - INFO - Worker ready
+2026-10-14 08:02:53,378 - orders - INFO - POST /orders 201 33ms
+2026-10-14 08:02:56,016 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:03:01,964 - orders.payment - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:03:08,121 - orders - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:03:13,242 - orders.payment - INFO - Worker ready
+2026-10-14 08:03:19,844 - orders.payment - INFO - POST /orders 201 33ms
+2026-10-14 08:03:24,093 - orders.api - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:03:26,705 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:03:27,789 - celery.worker - DEBUG - Connection pool created: size=5
+2026-10-14 08:03:30,342 - orders - INFO - POST /orders 201 33ms
+2026-10-14 08:03:30,344 - orders - INFO - POST /orders 201 33ms
+2026-10-14 08:03:35,207 - celery.worker - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:03:45,792 - orders.api - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:03:50,894 - urllib3.connectionpool - DEBUG - Connection pool created: size=5
+2026-10-14 08:03:51,523 - orders.api - DEBUG - Connection pool created: size=5
+2026-10-14 08:03:58,366 - orders - CRITICAL - Disk usage at 97%
+2026-10-14 08:04:07,664 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:04:16,955 - orders.payment - DEBUG - Heartbeat
+2026-10-14 08:04:21,116 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:04:28,737 - orders.db - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:04:35,609 - orders.api - INFO - Worker ready
+2026-10-14 08:04:42,976 - orders.db - ERROR - Deadlock detected - retrying transaction
+2026-10-14 08:04:49,404 - orders.api - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:04:59,738 - orders.payment - INFO - POST /orders 201 33ms
+2026-10-14 08:05:01,775 - urllib3.connectionpool - DEBUG - Connection pool created: size=5
+2026-10-14 08:05:03,885 - orders.api - CRITICAL - Disk usage at 97%
+2026-10-14 08:05:05,174 - celery.worker - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:05:14,418 - orders.payment - INFO - Worker ready
+2026-10-14 08:05:16,370 - celery.worker - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:05:20,287 - orders - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:05:22,687 - orders - DEBUG - Connection pool created: size=5
+2026-10-14 08:05:23,548 - orders.db - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:05:26,380 - celery.worker - INFO - Worker ready
+2026-10-14 08:05:31,840 - orders.db - DEBUG - Heartbeat
+2026-10-14 08:05:38,514 - urllib3.connectionpool - INFO - POST /orders 201 33ms
+2026-10-14 08:05:39,404 - orders.db - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:05:40,902 - orders.db - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:05:41,807 - urllib3.connectionpool - DEBUG - Heartbeat
+2026-10-14 08:05:49,787 - orders.api - INFO - POST /orders 201 33ms
+2026-10-14 08:05:55,826 - celery.worker - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:06:01,645 - orders.db - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:06:03,139 - urllib3.connectionpool - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:06:06,290 - celery.worker - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:06:14,690 - urllib3.connectionpool - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:06:21,478 - orders - ERROR - Deadlock detected - retrying transaction
+2026-10-14 08:06:31,038 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:06:35,378 - urllib3.connectionpool - DEBUG - Heartbeat
+2026-10-14 08:06:36,863 - orders.payment - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:06:46,448 - orders.db - INFO - POST /orders 201 33ms
+2026-10-14 08:06:53,719 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:06:57,403 - orders.db - ERROR - Deadlock detected - retrying transaction
+Traceback (most recent call last):
+  File "/app/orders/payment.py", line 42, in charge
+    response = client.post(url, json=payload)
+  File "/usr/lib/python3.12/site-packages/httpx/_client.py", line 1145, in post
+    return self.request("POST", url, json=json)
+httpx.ConnectError: [Errno 111] Connection refused
+2026-10-14 08:07:05,637 - orders.payment - DEBUG - Connection pool created: size=5
+2026-10-14 08:07:11,639 - orders - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:07:20,472 - orders.payment - ERROR - Payment failed
+Traceback (most recent call last):
+  File "/app/orders/payment.py", line 42, in charge
+    response = client.post(url, json=payload)
+  File "/usr/lib/python3.12/site-packages/httpx/_client.py", line 1145, in post
+    return self.request("POST", url, json=json)
+httpx.ConnectError: [Errno 111] Connection refused
+2026-10-14 08:07:31,278 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:07:38,872 - celery.worker - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:07:40,747 - orders.payment - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:07:43,305 - orders - INFO - Worker ready
+2026-10-14 08:07:44,641 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:07:45,773 - celery.worker - ERROR - Deadlock detected - retrying transaction
+Traceback (most recent call last):
+  File "/app/orders/payment.py", line 42, in charge
+    response = client.post(url, json=payload)
+  File "/usr/lib/python3.12/site-packages/httpx/_client.py", line 1145, in post
+    return self.request("POST", url, json=json)
+httpx.ConnectError: [Errno 111] Connection refused
+2026-10-14 08:07:50,460 - orders.api - INFO - Worker ready
+2026-10-14 08:07:54,206 - orders - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:07:58,761 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:07:59,920 - orders - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:08:01,717 - orders.db - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:08:03,500 - orders - INFO - Worker ready
+2026-10-14 08:08:11,625 - urllib3.connectionpool - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:08:12,989 - orders.db - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:08:19,814 - orders.db - DEBUG - Heartbeat
+2026-10-14 08:08:20,746 - orders - ERROR - Payment failed
+Traceback (most recent call last):
+  File "/app/orders/payment.py", line 42, in charge
+    response = client.post(url, json=payload)
+  File "/usr/lib/python3.12/site-packages/httpx/_client.py", line 1145, in post
+    return self.request("POST", url, json=json)
+httpx.ConnectError: [Errno 111] Connection refused
+2026-10-14 08:08:25,910 - celery.worker - INFO - POST /orders 201 33ms
+2026-10-14 08:08:33,856 - orders.db - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:08:39,729 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:08:48,523 - orders.api - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:08:52,158 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:08:56,012 - orders.payment - INFO - Worker ready
+2026-10-14 08:09:02,341 - orders.api - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:09:02,804 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:09:03,484 - celery.worker - ERROR - Deadlock detected - retrying transaction
+Traceback (most recent call last):
+  File "/app/orders/payment.py", line 42, in charge
+    response = client.post(url, json=payload)
+  File "/usr/lib/python3.12/site-packages/httpx/_client.py", line 1145, in post
+    return self.request("POST", url, json=json)
+httpx.ConnectError: [Errno 111] Connection refused
+2026-10-14 08:09:04,476 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:09:07,339 - urllib3.connectionpool - DEBUG - Heartbeat
+2026-10-14 08:09:08,946 - orders.payment - DEBUG - Heartbeat
+2026-10-14 08:09:17,689 - orders - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:09:28,013 - urllib3.connectionpool - INFO - Worker ready
+2026-10-14 08:09:32,052 - orders - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:09:43,039 - celery.worker - CRITICAL - Disk usage at 97%
+2026-10-14 08:09:49,195 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:09:57,567 - orders.db - DEBUG - Heartbeat
+2026-10-14 08:10:01,983 - orders.db - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:10:04,711 - orders.api - DEBUG - Heartbeat
+2026-10-14 08:10:14,324 - orders.db - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:10:16,322 - orders.db - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:10:17,509 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:10:20,559 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:10:29,516 - celery.worker - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:10:38,189 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:10:43,129 - orders - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:10:47,887 - orders - DEBUG - Connection pool created: size=5
+2026-10-14 08:10:56,891 - orders.payment - DEBUG - Connection pool created: size=5
+2026-10-14 08:11:04,719 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:11:08,881 - urllib3.connectionpool - INFO - POST /orders 201 33ms
+2026-10-14 08:11:10,223 - celery.worker - DEBUG - Heartbeat
+2026-10-14 08:11:11,868 - orders.payment - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:11:14,041 - celery.worker - INFO - POST /orders 201 33ms
+2026-10-14 08:11:20,046 - orders.db - INFO - POST /orders 201 33ms
+2026-10-14 08:11:27,606 - orders.payment - INFO - POST /orders 201 33ms
+2026-10-14 08:11:37,288 - urllib3.connectionpool - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:11:42,427 - urllib3.connectionpool - INFO - Worker ready
+2026-10-14 08:11:51,721 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:11:57,982 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:11:59,397 - celery.worker - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:12:01,987 - celery.worker - DEBUG - Heartbeat
+2026-10-14 08:12:03,977 - orders.api - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:12:07,232 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:12:17,636 - orders.api - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:12:19,224 - orders.api - DEBUG - Heartbeat
+2026-10-14 08:12:21,073 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:12:26,284 - orders.api - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:12:31,616 - orders.payment - ERROR - Deadlock detected - retrying transaction
+Traceback (most recent call last):
+  File "/app/orders/payment.py", line 42, in charge
+    response = client.post(url, json=payload)
+  File "/usr/lib/python3.12/site-packages/httpx/_client.py", line 1145, in post
+    return self.request("POST", url, json=json)
+httpx.ConnectError: [Errno 111] Connection refused
+2026-10-14 08:12:35,494 - orders.api - INFO - Worker ready
+2026-10-14 08:12:40,686 - celery.worker - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:12:48,186 - orders.payment - ERROR - Payment failed
+Traceback (most recent call last):
+  File "/app/orders/payment.py", line 42, in charge
+    response = client.post(url, json=payload)
+  File "/usr/lib/python3.12/site-packages/httpx/_client.py", line 1145, in post
+    return self.request("POST", url, json=json)
+httpx.ConnectError: [Errno 111] Connection refused
+2026-10-14 08:12:54,660 - orders - DEBUG - Heartbeat
+2026-10-14 08:13:02,196 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:13:06,340 - orders.api - INFO - Worker ready
+2026-10-14 08:13:06,824 - urllib3.connectionpool - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:13:16,289 - celery.worker - INFO - POST /orders 201 33ms
+2026-10-14 08:13:23,494 - orders.db - INFO - Worker ready
+2026-10-14 08:13:29,770 - orders.api - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:13:31,787 - celery.worker - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:13:38,011 - urllib3.connectionpool - CRITICAL - Disk usage at 97%
+2026-10-14 08:13:39,285 - urllib3.connectionpool - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:13:40,563 - urllib3.connectionpool - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:13:46,583 - orders - DEBUG - Connection pool created: size=5
+2026-10-14 08:13:50,841 - celery.worker - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:14:01,349 - orders - ERROR - Payment failed
+2026-10-14 08:14:07,135 - urllib3.connectionpool - INFO - Worker ready
+2026-10-14 08:14:16,484 - orders.api - DEBUG - Connection pool created: size=5
+2026-10-14 08:14:18,234 - orders.payment - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:14:22,834 - orders.payment - DEBUG - Heartbeat
+2026-10-14 08:14:32,412 - orders - INFO - Worker ready
+2026-10-14 08:14:40,051 - orders.api - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:14:40,929 - orders.payment - INFO - POST /orders 201 33ms
+2026-10-14 08:14:49,270 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:14:50,375 - orders.api - INFO - POST /orders 201 33ms
+2026-10-14 08:14:57,262 - orders.payment - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:15:06,018 - celery.worker - DEBUG - Heartbeat
+2026-10-14 08:15:13,753 - celery.worker - DEBUG - Connection pool created: size=5
+2026-10-14 08:15:17,132 - orders.db - DEBUG - Connection pool created: size=5
+2026-10-14 08:15:26,550 - orders.db - DEBUG - Heartbeat
+2026-10-14 08:15:36,461 - orders.api - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:15:42,406 - orders - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:15:47,216 - celery.worker - INFO - POST /orders 201 33ms
+2026-10-14 08:15:47,703 - urllib3.connectionpool - INFO - POST /orders 201 33ms
+2026-10-14 08:15:58,478 - orders - INFO - Worker ready
+2026-10-14 08:16:02,292 - orders.db - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:16:03,807 - urllib3.connectionpool - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:16:04,244 - orders.db - INFO - Worker ready
+2026-10-14 08:16:12,956 - celery.worker - DEBUG - Connection pool created: size=5
+2026-10-14 08:16:23,541 - orders.db - DEBUG - Connection pool created: size=5
+2026-10-14 08:16:26,383 - celery.worker - DEBUG - Connection pool created: size=5
+2026-10-14 08:16:28,583 - orders.api - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:16:33,054 - orders.payment - DEBUG - Connection pool created: size=5
+2026-10-14 08:16:42,191 - celery.worker - DEBUG - Heartbeat
+2026-10-14 08:16:45,566 - orders.db - INFO - Worker ready
+2026-10-14 08:16:48,270 - orders.api - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:16:54,277 - orders - DEBUG - Heartbeat
+2026-10-14 08:16:56,977 - orders.payment - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:16:58,759 - orders - DEBUG - Connection pool created: size=5
+2026-10-14 08:17:04,870 - celery.worker - INFO - POST /orders 201 33ms
+2026-10-14 08:17:09,600 - urllib3.connectionpool - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:17:16,761 - urllib3.connectionpool - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:17:24,196 - orders.payment - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:17:29,462 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:17:32,877 - urllib3.connectionpool - INFO - Worker ready
+2026-10-14 08:17:34,772 - celery.worker - INFO - POST /orders 201 33ms
+2026-10-14 08:17:35,007 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:17:43,497 - celery.worker - INFO - POST /orders 201 33ms
+2026-10-14 08:17:44,027 - orders.api - DEBUG - Connection pool created: size=5
+2026-10-14 08:17:47,956 - urllib3.connectionpool - DEBUG - Heartbeat
+2026-10-14 08:17:49,203 - orders - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:17:57,753 - orders.db - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:18:05,892 - orders - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:18:13,762 - orders.api - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:18:23,853 - urllib3.connectionpool - INFO - Worker ready
+2026-10-14 08:18:25,285 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:18:30,756 - orders.db - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:18:30,789 - orders - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:18:30,874 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:18:32,578 - orders - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:18:41,241 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:18:43,602 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:18:52,263 - orders.db - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:18:54,350 - orders.api - INFO - Worker ready
+2026-10-14 08:18:58,852 - orders - INFO - POST /orders 201 33ms
+2026-10-14 08:19:01,696 - urllib3.connectionpool - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:19:07,084 - urllib3.connectionpool - INFO - Worker ready
+2026-10-14 08:19:14,110 - orders - DEBUG - Connection pool created: size=5
+2026-10-14 08:19:24,377 - orders.payment - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:19:34,726 - celery.worker - DEBUG - Heartbeat
+2026-10-14 08:19:39,268 - orders.payment - DEBUG - Heartbeat
+2026-10-14 08:19:40,509 - orders.db - INFO - POST /orders 201 33ms
+2026-10-14 08:19:45,887 - orders.db - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:19:48,690 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:19:57,421 - orders.payment - DEBUG - Connection pool created: size=5
+2026-10-14 08:20:03,633 - urllib3.connectionpool - INFO - Worker ready
+2026-10-14 08:20:12,996 - orders - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:20:15,062 - orders - DEBUG - Connection pool created: size=5
+2026-10-14 08:20:21,320 - orders - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:20:25,960 - celery.worker - INFO - POST /orders 201 33ms
+2026-10-14 08:20:34,931 - orders.api - INFO - POST /orders 201 33ms
+2026-10-14 08:20:41,666 - urllib3.connectionpool - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:20:47,940 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:20:50,653 - celery.worker - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:20:53,187 - celery.worker - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:20:59,491 - orders.api - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:21:01,868 - urllib3.connectionpool - INFO - Worker ready
+2026-10-14 08:21:04,974 - orders.db - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:21:12,868 - orders.payment - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:21:23,267 - orders.db - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:21:23,458 - orders.api - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:21:29,014 - orders.db - INFO - POST /orders 201 33ms
+2026-10-14 08:21:29,698 - orders.payment - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:21:36,509 - orders.db - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:21:40,257 - orders.api - DEBUG - Heartbeat
+2026-10-14 08:21:48,788 - orders.db - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:21:51,264 - celery.worker - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:22:01,968 - orders.db - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:22:06,212 - orders.api - INFO - POST /orders 201 33ms
+2026-10-14 08:22:11,410 - orders.db - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:22:12,814 - orders.api - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:22:13,910 - orders.payment - INFO - Worker ready
+2026-10-14 08:22:15,467 - orders.api - DEBUG - Connection pool created: size=5
+2026-10-14 08:22:24,560 - orders.api - INFO - Worker ready
+2026-10-14 08:22:27,697 - orders.db - INFO - POST /orders 201 33ms
+2026-10-14 08:22:28,600 - orders - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:22:30,540 - urllib3.connectionpool - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:22:35,938 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:22:44,675 - orders - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:22:46,888 - orders - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:22:52,685 - urllib3.connectionpool - INFO - POST /orders 201 33ms
+2026-10-14 08:23:02,221 - orders.api - ERROR - Deadlock detected - retrying transaction
+Traceback (most recent call last):
+  File "/app/orders/payment.py", line 42, in charge
+    response = client.post(url, json=payload)
+  File "/usr/lib/python3.12/site-packages/httpx/_client.py", line 1145, in post
+    return self.request("POST", url, json=json)
+httpx.ConnectError: [Errno 111] Connection refused
+2026-10-14 08:23:12,940 - celery.worker - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:23:22,062 - orders.payment - ERROR - Payment failed
+2026-10-14 08:23:32,280 - urllib3.connectionpool - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:23:35,187 - orders.db - DEBUG - Heartbeat
+2026-10-14 08:23:37,014 - urllib3.connectionpool - DEBUG - Heartbeat
+2026-10-14 08:23:46,307 - orders.db - DEBUG - Connection pool created: size=5
+2026-10-14 08:23:49,713 - orders.db - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:23:58,855 - orders.payment - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:24:01,689 - orders.api - INFO - POST /orders 201 33ms
+2026-10-14 08:24:02,934 - orders.db - INFO - Task orders.sync succeeded in 0.42s
+2026-10-14 08:24:09,012 - orders - DEBUG - Heartbeat
+2026-10-14 08:24:13,145 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:24:18,790 - orders.db - DEBUG - Connection pool created: size=5
+2026-10-14 08:24:26,748 - orders.payment - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:24:35,458 - celery.worker - DEBUG - Connection pool created: size=5
+2026-10-14 08:24:42,257 - orders - WARNING - Slow request: GET /orders?limit=1000 2.4s
+2026-10-14 08:24:42,789 - orders.db - WARNING - Retrying in 5 s (attempt 1 of 3)
+2026-10-14 08:24:49,694 - orders - INFO - Worker ready
+2026-10-14 08:24:52,395 - orders.db - INFO - POST /orders 201 33ms
+2026-10-14 08:24:54,370 - orders.api - DEBUG - Starting new HTTPS connection (1): api.example.com:443
+2026-10-14 08:24:59,734 - orders.payment - DEBUG - Heartbeat
+2026-10-14 08:25:07,921 - orders - INFO - Worker ready
+2026-10-14 08:25:18,788 - urllib3.connectionpool - INFO - POST /orders 201 33ms
+2026-10-14 08:25:28,003 - orders.db - CRITICAL - Disk usage at 97%
+2026-10-14 08:25:28,121 - urllib3.connectionpool - INFO - GET /orders/4711 200 12ms
+2026-10-14 08:25:36,579 - orders.db - WARNING - Retrying in 5 s (attempt 1 of 3)

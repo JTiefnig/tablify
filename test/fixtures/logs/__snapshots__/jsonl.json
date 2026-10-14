@@ -1,0 +1,371 @@
+{
+  "columns": [
+    {
+      "name": "time",
+      "role": "timestamp",
+      "nonEmpty": 13,
+      "superseded": false
+    },
+    {
+      "name": "@timestamp",
+      "role": "timestamp",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "timestamp",
+      "role": "timestamp",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "ts",
+      "role": "timestamp",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "asctime",
+      "role": "timestamp",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "t",
+      "role": "timestamp",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "datetime",
+      "role": "timestamp",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "level",
+      "role": "level",
+      "nonEmpty": 14,
+      "superseded": false
+    },
+    {
+      "name": "log.level",
+      "role": "level",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "severity",
+      "role": "level",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "lvl",
+      "role": "level",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "levelname",
+      "role": "level",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "name",
+      "role": "source",
+      "nonEmpty": 6,
+      "superseded": false
+    },
+    {
+      "name": "logger",
+      "role": "source",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "component",
+      "role": "source",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "module",
+      "role": "source",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "pid",
+      "role": "none",
+      "nonEmpty": 5,
+      "superseded": false
+    },
+    {
+      "name": "hostname",
+      "role": "none",
+      "nonEmpty": 5,
+      "superseded": false
+    },
+    {
+      "name": "port",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "pool.size",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "pool.idle",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "durationMs",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "query.sql",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "query.params",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "err.type",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "err.message",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "err.stack",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "service.name",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "tags",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "log.logger",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "user",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "ok",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "extra",
+      "role": "none",
+      "nonEmpty": 0,
+      "superseded": false
+    },
+    {
+      "name": "req.method",
+      "role": "none",
+      "nonEmpty": 4,
+      "superseded": false
+    },
+    {
+      "name": "req.url",
+      "role": "none",
+      "nonEmpty": 4,
+      "superseded": false
+    },
+    {
+      "name": "req.headers",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "status",
+      "role": "none",
+      "nonEmpty": 4,
+      "superseded": false
+    },
+    {
+      "name": "count",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "msg",
+      "role": "message",
+      "nonEmpty": 15,
+      "superseded": false
+    },
+    {
+      "name": "message",
+      "role": "message",
+      "nonEmpty": 6,
+      "superseded": false
+    },
+    {
+      "name": "text",
+      "role": "message",
+      "nonEmpty": 1,
+      "superseded": false
+    }
+  ],
+  "records": [
+    {
+      "lineStart": 0,
+      "lineEnd": 0,
+      "fields": {
+        "level": 30,
+        "time": 1792046222123,
+        "pid": 4211,
+        "hostname": "web01",
+        "name": "orders",
+        "msg": "server listening",
+        "port": 8080
+      },
+      "epochMs": 1792046222123,
+      "level": "info"
+    },
+    {
+      "lineStart": 1,
+      "lineEnd": 1,
+      "fields": {
+        "level": 20,
+        "time": 1792046222200,
+        "pid": 4211,
+        "hostname": "web01",
+        "name": "orders",
+        "msg": "db pool ready",
+        "pool.size": 5,
+        "pool.idle": 5
+      },
+      "epochMs": 1792046222200,
+      "level": "debug"
+    },
+    {
+      "lineStart": 2,
+      "lineEnd": 2,
+      "fields": {
+        "level": 40,
+        "time": 1792046223000,
+        "pid": 4211,
+        "hostname": "web01",
+        "name": "orders",
+        "msg": "slow query",
+        "durationMs": 1200,
+        "query.sql": "SELECT * FROM orders",
+        "query.params": "{\"limit\":1000}"
+      },
+      "epochMs": 1792046223000,
+      "level": "warn"
+    },
+    {
+      "lineStart": 3,
+      "lineEnd": 3,
+      "fields": {
+        "level": 50,
+        "time": 1792046224000,
+        "pid": 4211,
+        "hostname": "web01",
+        "name": "orders",
+        "msg": "payment failed",
+        "err.type": "Error",
+        "err.message": "connection refused",
+        "err.stack": "Error: connection refused\n    at charge (/app/payment.js:42:11)"
+      },
+      "epochMs": 1792046224000,
+      "level": "error"
+    },
+    {
+      "lineStart": 4,
+      "lineEnd": 4,
+      "fields": {
+        "level": 60,
+        "time": 1792046225000,
+        "pid": 4211,
+        "hostname": "web01",
+        "name": "orders",
+        "msg": "out of memory"
+      },
+      "epochMs": 1792046225000,
+      "level": "fatal"
+    },
+    {
+      "lineStart": 5,
+      "lineEnd": 5,
+      "fields": {
+        "@timestamp": "2026-10-14T10:37:06.000Z",
+        "log.level": "info",
+        "message": "ECS style entry",
+        "service.name": "billing",
+        "tags": "[\"a\",\"b\"]"
+      },
+      "epochMs": 1791974226000,
+      "level": "info"
+    },
+    {
+      "lineStart": 6,
+      "lineEnd": 6,
+      "fields": {
+        "@timestamp": "2026-10-14T10:37:07.000Z",
+        "log.level": "warn",
+        "log.logger": "billing.tax",
+        "message": "nested ECS level",
+        "service.name": "billing"
+      },
+      "epochMs": 1791974227000,
+      "level": "warn"
+    },
+    {
+      "lineStart": 7,
+      "lineEnd": 7,
+      "fields": {
+        "timestamp": "2026-10-14T10:37:08.000+02:00",
+        "severity": "ERROR",
+        "logger": "auth",
+        "message": "token expired",
+        "user": "alice",
+        "ok": "false"
+      },
+      "epochMs": 1791967028000,
+      "level": "error"
+    }
+  ]
+}

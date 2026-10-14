@@ -1,0 +1,244 @@
+{
+  "columns": [
+    {
+      "name": "timestamp",
+      "role": "timestamp",
+      "nonEmpty": 21,
+      "superseded": false
+    },
+    {
+      "name": "client",
+      "role": "source",
+      "nonEmpty": 21,
+      "superseded": false
+    },
+    {
+      "name": "ident",
+      "role": "none",
+      "nonEmpty": 0,
+      "superseded": false
+    },
+    {
+      "name": "user",
+      "role": "none",
+      "nonEmpty": 5,
+      "superseded": false
+    },
+    {
+      "name": "request",
+      "role": "none",
+      "nonEmpty": 20,
+      "superseded": true
+    },
+    {
+      "name": "method",
+      "role": "none",
+      "nonEmpty": 20,
+      "superseded": false
+    },
+    {
+      "name": "path",
+      "role": "none",
+      "nonEmpty": 20,
+      "superseded": false
+    },
+    {
+      "name": "protocol",
+      "role": "none",
+      "nonEmpty": 20,
+      "superseded": false
+    },
+    {
+      "name": "status",
+      "role": "none",
+      "nonEmpty": 21,
+      "superseded": false
+    },
+    {
+      "name": "bytes",
+      "role": "none",
+      "nonEmpty": 19,
+      "superseded": false
+    },
+    {
+      "name": "referer",
+      "role": "none",
+      "nonEmpty": 6,
+      "superseded": false
+    },
+    {
+      "name": "userAgent",
+      "role": "none",
+      "nonEmpty": 19,
+      "superseded": false
+    },
+    {
+      "name": "message",
+      "role": "message",
+      "nonEmpty": 1,
+      "superseded": false
+    }
+  ],
+  "records": [
+    {
+      "lineStart": 0,
+      "lineEnd": 0,
+      "fields": {
+        "client": "10.0.0.5",
+        "ident": "-",
+        "user": "alice",
+        "timestamp": "14/Oct/2026:10:37:02 +0200",
+        "request": "GET /index.html HTTP/1.1",
+        "status": "200",
+        "bytes": "5123",
+        "referer": "https://example.com/",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) Gecko/20100101 Firefox/131.0",
+        "method": "GET",
+        "path": "/index.html",
+        "protocol": "HTTP/1.1"
+      },
+      "epochMs": 1791967022000,
+      "level": "info"
+    },
+    {
+      "lineStart": 1,
+      "lineEnd": 1,
+      "fields": {
+        "client": "10.0.0.5",
+        "ident": "-",
+        "user": "alice",
+        "timestamp": "14/Oct/2026:10:37:02 +0200",
+        "request": "GET /static/app.css HTTP/1.1",
+        "status": "200",
+        "bytes": "18234",
+        "referer": "https://example.com/index.html",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) Gecko/20100101 Firefox/131.0",
+        "method": "GET",
+        "path": "/static/app.css",
+        "protocol": "HTTP/1.1"
+      },
+      "epochMs": 1791967022000,
+      "level": "info"
+    },
+    {
+      "lineStart": 2,
+      "lineEnd": 2,
+      "fields": {
+        "client": "10.0.0.5",
+        "ident": "-",
+        "user": "alice",
+        "timestamp": "14/Oct/2026:10:37:03 +0200",
+        "request": "GET /static/app.js HTTP/1.1",
+        "status": "304",
+        "bytes": "-",
+        "referer": "https://example.com/index.html",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) Gecko/20100101 Firefox/131.0",
+        "method": "GET",
+        "path": "/static/app.js",
+        "protocol": "HTTP/1.1"
+      },
+      "epochMs": 1791967023000,
+      "level": "info"
+    },
+    {
+      "lineStart": 3,
+      "lineEnd": 3,
+      "fields": {
+        "client": "203.0.113.9",
+        "ident": "-",
+        "user": "-",
+        "timestamp": "14/Oct/2026:10:37:05 +0200",
+        "request": "GET /wp-login.php HTTP/1.1",
+        "status": "404",
+        "bytes": "162",
+        "referer": "-",
+        "userAgent": "python-requests/2.31.0",
+        "method": "GET",
+        "path": "/wp-login.php",
+        "protocol": "HTTP/1.1"
+      },
+      "epochMs": 1791967025000,
+      "level": "warn"
+    },
+    {
+      "lineStart": 4,
+      "lineEnd": 4,
+      "fields": {
+        "client": "203.0.113.9",
+        "ident": "-",
+        "user": "-",
+        "timestamp": "14/Oct/2026:10:37:05 +0200",
+        "request": "POST /xmlrpc.php HTTP/1.1",
+        "status": "404",
+        "bytes": "162",
+        "referer": "-",
+        "userAgent": "python-requests/2.31.0",
+        "method": "POST",
+        "path": "/xmlrpc.php",
+        "protocol": "HTTP/1.1"
+      },
+      "epochMs": 1791967025000,
+      "level": "warn"
+    },
+    {
+      "lineStart": 5,
+      "lineEnd": 5,
+      "fields": {
+        "client": "2001:db8::1",
+        "ident": "-",
+        "user": "-",
+        "timestamp": "14/Oct/2026:10:37:08 +0200",
+        "request": "GET /api/v1/orders?limit=20 HTTP/2.0",
+        "status": "200",
+        "bytes": "4410",
+        "referer": "-",
+        "userAgent": "curl/8.5.0",
+        "method": "GET",
+        "path": "/api/v1/orders?limit=20",
+        "protocol": "HTTP/2.0"
+      },
+      "epochMs": 1791967028000,
+      "level": "info"
+    },
+    {
+      "lineStart": 6,
+      "lineEnd": 6,
+      "fields": {
+        "client": "2001:db8::1",
+        "ident": "-",
+        "user": "bob",
+        "timestamp": "14/Oct/2026:10:37:09 +0200",
+        "request": "POST /api/v1/orders HTTP/2.0",
+        "status": "201",
+        "bytes": "87",
+        "referer": "-",
+        "userAgent": "curl/8.5.0",
+        "method": "POST",
+        "path": "/api/v1/orders",
+        "protocol": "HTTP/2.0"
+      },
+      "epochMs": 1791967029000,
+      "level": "info"
+    },
+    {
+      "lineStart": 7,
+      "lineEnd": 7,
+      "fields": {
+        "client": "10.0.0.7",
+        "ident": "-",
+        "user": "-",
+        "timestamp": "14/Oct/2026:10:37:10 +0200",
+        "request": "GET /health HTTP/1.1",
+        "status": "200",
+        "bytes": "2",
+        "referer": "-",
+        "userAgent": "kube-probe/1.30",
+        "method": "GET",
+        "path": "/health",
+        "protocol": "HTTP/1.1"
+      },
+      "epochMs": 1791967030000,
+      "level": "info"
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "columns": [
+    {
+      "name": "ts",
+      "role": "timestamp",
+      "nonEmpty": 22,
+      "superseded": false
+    },
+    {
+      "name": "level",
+      "role": "level",
+      "nonEmpty": 22,
+      "superseded": false
+    },
+    {
+      "name": "component",
+      "role": "source",
+      "nonEmpty": 10,
+      "superseded": false
+    },
+    {
+      "name": "port",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "file",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "order",
+      "role": "none",
+      "nonEmpty": 3,
+      "superseded": false
+    },
+    {
+      "name": "err",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "attempt",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "duration",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "method",
+      "role": "none",
+      "nonEmpty": 3,
+      "superseded": false
+    },
+    {
+      "name": "path",
+      "role": "none",
+      "nonEmpty": 4,
+      "superseded": false
+    },
+    {
+      "name": "status",
+      "role": "none",
+      "nonEmpty": 3,
+      "superseded": false
+    },
+    {
+      "name": "took",
+      "role": "none",
+      "nonEmpty": 4,
+      "superseded": false
+    },
+    {
+      "name": "key",
+      "role": "none",
+      "nonEmpty": 3,
+      "superseded": false
+    },
+    {
+      "name": "free",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "empty",
+      "role": "none",
+      "nonEmpty": 0,
+      "superseded": false
+    },
+    {
+      "name": "signal",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "worker",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "table",
+      "role": "none",
+      "nonEmpty": 2,
+      "superseded": false
+    },
+    {
+      "name": "n",
+      "role": "none",
+      "nonEmpty": 1,
+      "superseded": false
+    },
+    {
+      "name": "msg",
+      "role": "message",
+      "nonEmpty": 21,
+      "superseded": false
+    }
+  ],
+  "records": [
+    {
+      "lineStart": 0,
+      "lineEnd": 0,
+      "fields": {
+        "ts": "2026-10-14T10:37:02Z",
+        "level": "info",
+        "msg": "server started",
+        "port": "8080",
+        "component": "api"
+      },
+      "epochMs": 1791974222000,
+      "level": "info"
+    },
+    {
+      "lineStart": 1,
+      "lineEnd": 1,
+      "fields": {
+        "ts": "2026-10-14T10:37:03Z",
+        "level": "debug",
+        "msg": "config loaded",
+        "file": "/etc/app.yaml",
+        "component": "config"
+      },
+      "epochMs": 1791974223000,
+      "level": "debug"
+    },
+    {
+      "lineStart": 2,
+      "lineEnd": 2,
+      "fields": {
+        "ts": "2026-10-14T10:37:04Z",
+        "level": "error",
+        "msg": "payment failed",
+        "order": "4711",
+        "err": "connection refused",
+        "component": "payment"
+      },
+      "epochMs": 1791974224000,
+      "level": "error"
+    },
+    {
+      "lineStart": 3,
+      "lineEnd": 3,
+      "fields": {
+        "ts": "2026-10-14T10:37:05Z",
+        "level": "warn",
+        "msg": "retrying",
+        "order": "4711",
+        "attempt": "1",
+        "component": "payment"
+      },
+      "epochMs": 1791974225000,
+      "level": "warn"
+    },
+    {
+      "lineStart": 4,
+      "lineEnd": 4,
+      "fields": {
+        "ts": "2026-10-14T10:37:06Z",
+        "level": "info",
+        "msg": "payment ok",
+        "order": "4711",
+        "duration": "0.512s",
+        "component": "payment"
+      },
+      "epochMs": 1791974226000,
+      "level": "info"
+    },
+    {
+      "lineStart": 5,
+      "lineEnd": 5,
+      "fields": {
+        "ts": "2026-10-14T10:37:07Z",
+        "level": "info",
+        "msg": "request",
+        "method": "GET",
+        "path": "/orders",
+        "status": "200",
+        "took": "12ms"
+      },
+      "epochMs": 1791974227000,
+      "level": "info"
+    },
+    {
+      "lineStart": 6,
+      "lineEnd": 6,
+      "fields": {
+        "ts": "2026-10-14T10:37:08Z",
+        "level": "info",
+        "msg": "quoted \"value\" inside",
+        "key": "value"
+      },
+      "epochMs": 1791974228000,
+      "level": "info"
+    },
+    {
+      "lineStart": 7,
+      "lineEnd": 7,
+      "fields": {
+        "ts": "2026-10-14T10:37:09Z",
+        "level": "crit",
+        "msg": "disk almost full",
+        "free": "1.2GB"
+      },
+      "epochMs": 1791974229000,
+      "level": "fatal"
+    }
+  ]
+}
