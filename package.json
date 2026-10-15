@@ -2,7 +2,7 @@
   "name": "tablify",
   "displayName": "Tablify",
   "description": "View and edit JSON and YAML lists and hashes of entries, and CSV files, as an interactive table. Open log files as a sortable, filterable table.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "publisher": "JohannesTiefnig",
   "icon": "media/tablify-icon.png",
   "license": "MIT",

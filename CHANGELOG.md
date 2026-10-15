@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0
 
 - `path` in a view selects entries nested in the file, e.g. `path: document.data.objects`
   (also `/document/data/objects`, `items[0].rows`). Editing, adding, deleting and moving rows
