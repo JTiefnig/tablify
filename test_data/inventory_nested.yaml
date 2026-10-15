@@ -1,0 +1,25 @@
+# Example for a view with a data path: the table shows document.data.objects
+# (see the "Inventory (nested)" view in .vscode/tablify.yaml). The rest of the
+# file is left untouched by edits in the table.
+document:
+  title: Plant inventory
+  version: 3
+  data:
+    updated: 2026-10-15
+    objects:
+      - id: A1
+        name: Pump
+        status: active
+        quantity: 4
+      - id: A2
+        name: Valve
+        status: draft
+        quantity: 12
+      - id: A3
+        name: Pressure sensor
+        status: active
+        quantity: 7
+      - id: A4
+        name: Old controller
+        status: retired
+        quantity: 1

@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { test } from "node:test";
 import { parseConfig } from "../src/config.ts";
 import { applyEdits, computeEdit, deleteRow, insertRow, moveRow, type EditResult } from "../src/edit.ts";
@@ -141,4 +143,15 @@ test("data path errors and the nested table hint", () => {
   const topLevel = parseTable(`version: 1\n${YAML_TEXT}`, "yaml", { idField: "id" });
   assert.ok(!topLevel.ok);
   assert.match(topLevel.message, /set `path: document\.data\.objects`/);
+});
+
+test("example file with its view's data path", () => {
+  const dataDir = join(import.meta.dirname, "..", "test_data");
+  const config = parseConfig(readFileSync(join(dataDir, ".vscode", "tablify.yaml"), "utf8"));
+  assert.ok(config.ok);
+  const view = config.config.views.find((candidate) => candidate.files?.includes("inventory_nested.yaml"));
+  const text = readFileSync(join(dataDir, "inventory_nested.yaml"), "utf8");
+  const t = table(text, "yaml", view?.dataPath ?? null);
+  assert.deepEqual(t.rows.map((row) => row.id), ["A1", "A2", "A3", "A4"]);
+  assert.equal(t.rows[2].quantity, 7);
 });

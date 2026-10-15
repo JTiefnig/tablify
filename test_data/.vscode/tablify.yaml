@@ -145,3 +145,17 @@ views:
       miscellaneous:
         type: text
         label: Misc
+
+  - name: Inventory (nested)
+    files: ["inventory_nested.yaml"]
+    path: document.data.objects # the entries are below the top level
+    columns: [id, name, status, quantity]
+    attributes:
+      id: { type: string, readonly: true }
+      status:
+        type: enum
+        values:
+          - { value: active, color: green }
+          - { value: draft, color: yellow }
+          - { value: retired, color: gray }
+      quantity: number

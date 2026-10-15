@@ -14,8 +14,8 @@ function parsed(text: string): Config {
 
 test("example config parses", () => {
   const config = parsed(example);
-  assert.equal(config.views.length, 1);
-  const [view] = config.views;
+  assert.equal(config.views.length, 2);
+  const [view, nested] = config.views;
   assert.equal(view.name, "Requirements");
   assert.deepEqual(view.files, ["req_test_data*.{json,yaml,yml,csv}"]);
   assert.equal(view.layout.columns?.[0], "id");
@@ -36,6 +36,10 @@ test("example config parses", () => {
   assert.equal(findView(config, "req_test_data_3.yaml")?.index, 0);
   assert.equal(findView(config, "sub/dir/req_test_data.json")?.index, 0);
   assert.equal(findView(config, "testdata.json"), null);
+
+  assert.equal(nested.name, "Inventory (nested)");
+  assert.deepEqual(nested.dataPath, ["document", "data", "objects"]);
+  assert.equal(findView(config, "inventory_nested.yaml")?.index, 1);
 });
 
 test("first matching view wins; views without files match everything", () => {
@@ -126,7 +130,7 @@ test("saveLayout: a new view is placed first, so it takes precedence", () => {
     widths: {},
   });
   const config = parsed(updated);
-  assert.equal(config.views.length, 2);
+  assert.equal(config.views.length, 3);
   assert.equal(findView(config, "req_test_data_3.yaml")?.view.name, "one file");
   assert.equal(findView(config, "req_test_data.json")?.view.name, "Requirements");
   assert.ok(updated.includes("description: Requirement"));
