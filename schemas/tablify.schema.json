@@ -25,6 +25,10 @@
           "$ref": "#/definitions/stringList",
           "description": "Glob patterns of the data files this view applies to, relative to the workspace folder. Patterns without '/' match the file name at any depth. Omit to apply to all files."
         },
+        "path": {
+          "type": "string",
+          "markdownDescription": "Where the entries are in the file, when they are not at the top level: keys separated by `.` or `/`, array indices as `[0]`, keys with special characters as `[\"a.b\"]`. Examples: `document.data.objects`, `/document/data/objects`, `items[0].rows`."
+        },
         "columns": {
           "type": "array",
           "items": { "type": "string" },

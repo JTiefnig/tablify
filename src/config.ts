@@ -4,6 +4,7 @@
 //   views:                                 # the first view whose `files` match is used
 //     - name: Requirements
 //       files: ["requirements/**/*.yaml"]  # globs, relative to the workspace folder
+//       path: document.data.objects        # where the entries are (default: top level)
 //       columns: [id, type, status, text]  # column order
 //       hiddenColumns: [comment]
 //       otherColumns: show                 # show | hide fields not in `columns`
@@ -24,6 +25,7 @@
 //             - { value: valid, label: Valid, color: green }
 
 import * as YAML from "yaml";
+import { parseDataPath } from "./parser.ts";
 import {
   ATTRIBUTE_TYPES,
   BADGE_COLORS,
@@ -165,9 +167,17 @@ function parseView(raw: unknown, index: number): ViewConfig {
     }
   }
 
+  let dataPath: string[] | null = null;
+  const dataPathText = optionalString(raw.path, `${path}.path`);
+  if (dataPathText !== undefined) {
+    dataPath = parseDataPath(dataPathText);
+    if (!dataPath) fail(`${path}.path`, "expected keys separated by . or /, e.g. document.data.objects or items[0].rows");
+  }
+
   return {
     name: optionalString(raw.name, `${path}.name`) ?? null,
     files: stringList(raw.files, `${path}.files`) ?? null,
+    dataPath: dataPath && dataPath.length > 0 ? dataPath : null,
     attributes: Object.entries(attributes).map(([name, spec]) => parseAttribute(name, spec, `${path}.attributes`)),
     layout: {
       columns: stringList(raw.columns, `${path}.columns`) ?? null,

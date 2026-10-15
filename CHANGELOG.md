@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- `path` in a view selects entries nested in the file, e.g. `path: document.data.objects`
+  (also `/document/data/objects`, `items[0].rows`). Editing, adding, deleting and moving rows
+  work there as at the top level. Files without a table at the top level suggest a path.
 - Log files as a table: **Open as Log Table** shows a log file as a read-only, sortable,
   filterable table with one row per event. Detects JSON Lines, logfmt, syslog (RFC 3164 and
   5424), access logs, Nginx and Apache error logs, Log4j-style application logs and Python

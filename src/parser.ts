@@ -1,7 +1,8 @@
 // Turns JSON / YAML / CSV text into table rows. Free of the vscode API so it can be
 // unit-tested with plain Node.
 //
-// Supported shapes, at the top level of the file:
+// Supported shapes, at the top level of the file or at a configured data path
+// (e.g. `document.data.objects`, see `parseDataPath`):
 //   array:    [ {...}, ... ]         a list of entries
 //   mapping:  { ID: {...}, ... }     a hash of ID -> entry (every value an object)
 // CSV / TSV files are always a list: the header names the fields (see csv.ts).
@@ -20,16 +21,20 @@ import {
 
 export type Language = "json" | "yaml" | "csv";
 export type Shape = "array" | "mapping";
-/** Location of a row's object in the document: [3] (list) or ["REQ-001"] (hash). */
+/** Location of a row's object in the document: [3] (list) or ["REQ-001"] (hash), after `root`. */
 export type RowPath = (string | number)[];
 
 export interface ParseOptions {
   /** Field name for the key of each entry in the `mapping` shape. */
   idField: string;
+  /** Path to the entries in the document (see `parseDataPath`); null or [] = the top level. */
+  dataPath?: string[] | null;
 }
 
 export interface Table {
   shape: Shape;
+  /** Document path of the list or hash that holds the entries ([] = the top level). */
+  root: RowPath;
   rows: Row[];
   /** Union of all row fields in first-seen order (excludes ROW_INDEX). */
   fields: string[];
@@ -67,19 +72,36 @@ export function parseTable(
     return { ok: false, kind: "syntax", ...source.error };
   }
 
-  const shape = detectShape(source.value);
+  const dataPath = options.dataPath ?? [];
+  const resolved = resolveDataPath(source.value, dataPath);
+  if ("missing" in resolved) {
+    return { ok: false, kind: "shape", message: resolved.missing };
+  }
+  const { root, value } = resolved;
+
+  const shape = detectShape(value);
   if (!shape) {
+    if (dataPath.length > 0) {
+      return {
+        ok: false,
+        kind: "shape",
+        message: `Expected a list of entries or a hash of ID -> entry at "${formatDataPath(dataPath)}".`,
+      };
+    }
+    const nested = findNestedTable(value);
+    const hint = nested && formatDataPath(nested.map(String));
     return {
       ok: false,
       kind: "shape",
       message:
-        "Expected a list of entries or a hash of ID -> entry at the top level of the file.",
+        "Expected a list of entries or a hash of ID -> entry at the top level of the file." +
+        (hint ? ` There is one at "${hint}": set \`path: ${hint}\` in a view in .vscode/tablify.yaml to show it.` : ""),
     };
   }
 
-  const items = rawItems(source.value, shape);
-  const entries = toEntries(source.value, shape, options.idField);
-  const offsets = source.offsets(shape);
+  const items = rawItems(value, shape);
+  const entries = toEntries(value, shape, options.idField);
+  const offsets = source.offsets(root, shape);
   const fields: string[] = [];
   const seen = new Set<string>();
 
@@ -113,8 +135,97 @@ export function parseTable(
     return row;
   });
 
-  const paths = items.map(({ key }): RowPath => [key]);
-  return { ok: true, table: { shape, rows, fields, offsets, paths } };
+  const paths = items.map(({ key }): RowPath => [...root, key]);
+  return { ok: true, table: { shape, root, rows, fields, offsets, paths } };
+}
+
+/**
+ * Parses a data path: keys separated by "." or "/", array indices as `[0]` or
+ * plain `0`, and keys with special characters quoted as `["a.b"]`. A leading
+ * `$`, `$.` or `/` is allowed, so JSONPath and XPath-like spellings work:
+ * `document.data.objects`, `$.document.data.objects`, `/document/data/objects`,
+ * `items[0].rows`. Returns null when the syntax is invalid; "" is the top level.
+ */
+export function parseDataPath(text: string): string[] | null {
+  const source = text.trim().replace(/^\$/, "");
+  const token = /\[(\d+)\]|\[\s*"((?:[^"\\]|\\.)*)"\s*\]|\[\s*'([^']*)'\s*\]|([^./[\]]+)|([./])/y;
+  const segments: string[] = [];
+  // At the start, or right after a separator: a plain key may follow.
+  let expectKey = true;
+  while (token.lastIndex < source.length) {
+    const start = token.lastIndex;
+    const match = token.exec(source);
+    if (!match) return null;
+    const [, index, double, single, key, separator] = match;
+    if (separator !== undefined) {
+      if (expectKey && start > 0) return null;
+      expectKey = true;
+      continue;
+    }
+    if (key !== undefined && !expectKey) return null;
+    if (double !== undefined) {
+      try {
+        segments.push(JSON.parse(`"${double}"`) as string);
+      } catch {
+        return null;
+      }
+    } else {
+      segments.push(index ?? single ?? key);
+    }
+    expectKey = false;
+  }
+  return expectKey && segments.length > 0 ? null : segments;
+}
+
+export function formatDataPath(segments: string[]): string {
+  return segments
+    .map((segment, i) =>
+      /^[^./[\]"']+$/.test(segment) ? `${i > 0 ? "." : ""}${segment}` : `[${JSON.stringify(segment)}]`,
+    )
+    .join("");
+}
+
+/** Follows `segments` into `value`; array indices become numbers in `root`. */
+function resolveDataPath(
+  value: unknown,
+  segments: string[],
+): { root: RowPath; value: unknown } | { missing: string } {
+  const root: RowPath = [];
+  let current = value;
+  for (const segment of segments) {
+    if (Array.isArray(current) && /^\d+$/.test(segment) && Number(segment) < current.length) {
+      root.push(Number(segment));
+      current = current[Number(segment)];
+    } else if (isPlainObject(current) && Object.hasOwn(current, segment)) {
+      root.push(segment);
+      current = current[segment];
+    } else {
+      const at = root.length > 0 ? ` in "${formatDataPath(root.map(String))}"` : " at the top level";
+      return { missing: `The data path "${formatDataPath(segments)}" does not exist in this file: no "${segment}"${at}.` };
+    }
+  }
+  return { root, value: current };
+}
+
+/** The shallowest nested list of objects or hash of entries, breadth first. */
+function findNestedTable(value: unknown): RowPath | null {
+  const queue: { path: RowPath; value: unknown }[] = [{ path: [], value }];
+  for (let i = 0; i < queue.length && i < 10_000; i++) {
+    const { path, value: current } = queue[i];
+    if (path.length > 0 && isTableLike(current)) return path;
+    if (Array.isArray(current)) {
+      current.forEach((item, index) => queue.push({ path: [...path, index], value: item }));
+    } else if (isPlainObject(current)) {
+      Object.entries(current).forEach(([key, item]) => queue.push({ path: [...path, key], value: item }));
+    }
+  }
+  return null;
+}
+
+/** A non-empty list of objects, or a hash of entries: worth suggesting as a data path. */
+function isTableLike(value: unknown): boolean {
+  if (Array.isArray(value)) return value.length > 0 && value.every(isPlainObject);
+  return detectShape(value) === "mapping";
 }
 
 /** Every field is a string; empty fields are left out, like missing fields in JSON. */
@@ -136,6 +247,7 @@ function parseCsvTable(text: string): ParseResult {
     ok: true,
     table: {
       shape: "array",
+      root: [],
       rows,
       fields: columns,
       offsets: records.map((record) => record.start),
@@ -146,7 +258,8 @@ function parseCsvTable(text: string): ParseResult {
 
 interface Source {
   value: unknown;
-  offsets(shape: Shape): number[];
+  /** Source offsets of the entries of the collection at `root`. */
+  offsets(root: RowPath, shape: Shape): number[];
 }
 
 interface SourceError {
@@ -171,14 +284,10 @@ function loadJson(text: string): Source | SourceError {
 
   return {
     value: jsonc.getNodeValue(root),
-    offsets(shape) {
-      switch (shape) {
-        case "array":
-          return (root.children ?? []).map((item) => item.offset);
-        case "mapping":
-          // Property nodes start at their key.
-          return (root.children ?? []).map((property) => property.offset);
-      }
+    offsets(path) {
+      const container = path.length > 0 ? jsonc.findNodeAtLocation(root, path) : root;
+      // Array items, or property nodes (which start at their key) of an object.
+      return (container?.children ?? []).map((item) => item.offset);
     },
   };
 }
@@ -201,14 +310,14 @@ function loadYaml(text: string): Source | SourceError {
 
   return {
     value: doc.toJS(),
-    offsets(shape) {
-      const contents = doc.contents;
+    offsets(path, shape) {
+      const container = doc.getIn(path, true);
       switch (shape) {
         case "array":
-          return YAML.isSeq(contents) ? contents.items.map(start) : [];
+          return YAML.isSeq(container) ? container.items.map(start) : [];
         case "mapping":
-          return YAML.isMap(contents)
-            ? contents.items.map((pair) => start(pair.key))
+          return YAML.isMap(container)
+            ? container.items.map((pair) => start(pair.key))
             : [];
       }
     },

@@ -144,6 +144,7 @@ example.
 views:
   - name: Requirements
     files: ["requirements/**/*.yaml"]
+    path: document.data.objects # where the entries are (default: top level)
     columns: [id, type, status, text] # column order
     hiddenColumns: [internal_note] # not shown (still filterable)
     otherColumns: show # show | hide fields that are not in `columns`
@@ -162,6 +163,35 @@ views:
           - draft # shorthand: just the value
           - { value: valid, label: Valid, color: green, description: Approved }
 ```
+
+#### Entries nested in the file
+
+By default the entries are the list or hash at the top level of the file. When they are
+nested deeper, `path` in the view says where:
+
+```yaml
+# data file
+document:
+  title: Inventory
+  data:
+    objects:
+      - { id: A1, name: Pump }
+      - { id: A2, name: Valve }
+```
+
+```yaml
+# .vscode/tablify.yaml
+views:
+  - files: ["inventory/*.yaml"]
+    path: document.data.objects
+```
+
+Keys are separated by `.` or `/` (`/document/data/objects` and `$.document.data.objects` work
+too). Array items are selected by index, `items[0].rows` or `items.0.rows`; keys containing
+`.`, `/` or brackets are quoted: `sheets["2026.Q1"]`. Editing, adding, deleting and moving
+rows, git changes and blame work as for top-level entries; the rest of the file is left as it
+is. If a file has no table at the top level, the error page suggests the path of the first
+nested list it finds.
 
 #### Running a command on save
 

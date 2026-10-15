@@ -66,6 +66,8 @@ export interface SavedFilter {
 /** The view (from .vscode/tablify.yaml) that applies to a file. */
 export interface ViewSettings {
   name: string | null;
+  /** Path to the entries in the file (parsed `path`, e.g. ["document", "data", "objects"]); null = the top level. */
+  dataPath: string[] | null;
   attributes: Attribute[];
   layout: ColumnLayout;
   /** Columns that cannot be edited in the table (in addition to `readonly` attributes). */

@@ -242,7 +242,7 @@ export type Placement = "above" | "below";
 export function insertRow(
   text: string,
   language: Language,
-  table: Pick<Table, "shape" | "paths">,
+  table: Pick<Table, "shape" | "root" | "paths">,
   index: number,
   placement: Placement,
   id: string,
@@ -255,10 +255,10 @@ export function insertRow(
   if (language === "json") {
     const formattingOptions = jsonFormatting(text);
     if (table.shape === "mapping") {
-      return jsonEdits(jsonc.modify(text, [id], {}, { formattingOptions, getInsertionIndex: () => at }));
+      return jsonEdits(jsonc.modify(text, [...table.root, id], {}, { formattingOptions, getInsertionIndex: () => at }));
     }
     return jsonEdits(
-      jsonc.modify(text, [at], { [idField]: id }, { formattingOptions, isArrayInsertion: true }),
+      jsonc.modify(text, [...table.root, at], { [idField]: id }, { formattingOptions, isArrayInsertion: true }),
     );
   }
 
@@ -273,7 +273,7 @@ export function insertRow(
   return blocks.apply([{ offset, length: 0, text: line }]);
 }
 
-export function deleteRow(text: string, language: Language, table: Pick<Table, "shape" | "paths">, index: number): EditResult {
+export function deleteRow(text: string, language: Language, table: Pick<Table, "shape" | "root" | "paths">, index: number): EditResult {
   if (language === "csv") {
     return deleteCsvRow(text, table.paths.length, index);
   }
@@ -293,7 +293,7 @@ export function deleteRow(text: string, language: Language, table: Pick<Table, "
 export function moveRow(
   text: string,
   language: Language,
-  table: Pick<Table, "shape" | "paths">,
+  table: Pick<Table, "shape" | "root" | "paths">,
   from: number,
   target: number,
   placement: Placement,
@@ -308,7 +308,8 @@ export function moveRow(
   }
   if (language === "json") {
     const root = jsonc.parseTree(text, [], { allowTrailingComma: true });
-    const items = root?.children;
+    const container = root && (table.root.length > 0 ? jsonc.findNodeAtLocation(root, table.root) : root);
+    const items = container?.children;
     if (!items || items.length !== table.paths.length) return fail("Cannot locate the entries in the file.");
     // Keep the separators (commas, line breaks, indentation) in place; move the items.
     const spans = items.map((item) => [item.offset, item.offset + item.length] as const);
@@ -345,14 +346,14 @@ interface YamlBlock {
  */
 function yamlBlocks(
   original: string,
-  table: Pick<Table, "shape" | "paths">,
+  table: Pick<Table, "shape" | "root" | "paths">,
 ): { ok: false; message: string } | { ok: true; items: YamlBlock[]; text: string; apply(edits: TextEdit[]): EditResult } {
   const text = original.endsWith("\n") ? original : `${original}\n`;
   const doc = YAML.parseDocument(text);
   if (doc.errors.length > 0) {
     return { ok: false, message: "The file has YAML errors; fix them before editing in the table." };
   }
-  const container = doc.contents;
+  const container = doc.getIn(table.root, true);
   if (!(YAML.isSeq(container) || YAML.isMap(container)) || container.flow) {
     return { ok: false, message: "Rows can only be added, removed or moved in block-style YAML collections." };
   }

@@ -64,9 +64,10 @@ function locateYaml(text: string, rowPath: RowPath): RowLocation | null {
 
   // A mapping entry starts at its key.
   let start = node.range[0];
-  const parent = rowPath.length === 1 ? doc.contents : null;
+  const parent = doc.getIn(rowPath.slice(0, -1), true);
   if (YAML.isMap(parent)) {
-    const pair = parent.items.find((item) => YAML.isScalar(item.key) && String(item.key.value) === String(rowPath[0]));
+    const key = String(rowPath[rowPath.length - 1]);
+    const pair = parent.items.find((item) => YAML.isScalar(item.key) && String(item.key.value) === key);
     if (YAML.isScalar(pair?.key) && pair.key.range) start = pair.key.range[0];
   }
   return { row: [start, trimEnd(text, end)], fields };

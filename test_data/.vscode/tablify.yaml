@@ -6,6 +6,7 @@
 #
 # Per view:
 #   files          globs of the data files the view applies to (omit for all files)
+#   path           where the entries are, if not at the top level, e.g. document.data.objects
 #   columns        column order; "Save View" in the table writes it
 #   hiddenColumns  columns not shown (they can still be filtered)
 #   otherColumns   show | hide fields that are not in `columns`

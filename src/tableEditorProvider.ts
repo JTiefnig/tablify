@@ -298,10 +298,13 @@ export class TableEditorProvider implements vscode.CustomTextEditorProvider, vsc
 
     const language = languageForPath(document.uri.path);
     const idField = () => vscode.workspace.getConfiguration("tablify", document.uri).get<string>("idField", "id");
-    const parse = (text = document.getText()) => parseTable(text, language, { idField: idField() });
+    const dataPath = () => entry.source?.view?.dataPath ?? null;
+    const parse = (text = document.getText()) => parseTable(text, language, { idField: idField(), dataPath: dataPath() });
+    // The view's data path decides what the rows are: show nothing before it is known.
+    let configLoaded = false;
 
     const update = () => {
-      if (!ready) {
+      if (!ready || !configLoaded) {
         return;
       }
       const result = parse();
@@ -419,12 +422,19 @@ export class TableEditorProvider implements vscode.CustomTextEditorProvider, vsc
 
     const loadConfig = async () => {
       const found = await findViewSource(document.uri);
+      const previousPath = JSON.stringify(dataPath());
       entry.source = found.source;
+      configLoaded = true;
       if (found.error && found.error !== lastConfigError) {
         void vscode.window.showWarningMessage(`Tablify: ${found.error}`);
       }
       lastConfigError = found.error ?? "";
-      update();
+      if (JSON.stringify(dataPath()) !== previousPath && git) {
+        // The committed rows were read at the old path.
+        await refreshGit();
+      } else {
+        update();
+      }
     };
 
     const scheduleUpdate = () => {
