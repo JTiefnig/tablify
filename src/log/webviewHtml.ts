@@ -21,27 +21,19 @@ export function getLogWebviewHtml(webview: vscode.Webview, extensionUri: vscode.
     <title>Log Table</title>
   </head>
   <body>
-    <header id="toolbar" class="toolbar">
-      <div class="search">
-        <input id="search" type="text" spellcheck="false" autocomplete="off" placeholder="Search messages (text or /regex/)" aria-label="Search" />
-        <label class="check" title="Search the whole entry, not only the message">
-          <input id="all-fields" type="checkbox" /> All fields
-        </label>
-      </div>
-      <div id="levels" class="levels" role="group" aria-label="Levels"></div>
-      <div id="time" class="time" role="group" aria-label="Time range">
-        <input id="time-from" type="datetime-local" step="1" aria-label="From" title="From" />
-        <span class="time-sep">–</span>
-        <input id="time-to" type="datetime-local" step="1" aria-label="To" title="To" />
-        <button id="time-clear" class="icon-button" type="button" title="Clear time range" aria-label="Clear time range">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8m0-8l-8 8" stroke="currentColor" stroke-width="1.2"/></svg>
-        </button>
-      </div>
-      <span class="spacer"></span>
-      <span id="count" class="count" aria-live="polite"></span>
-      <button id="columns" class="toolbar-button" type="button" aria-haspopup="menu">Columns</button>
-      <button id="format" class="toolbar-button" type="button" title="Log format · click to change"></button>
-    </header>
+    <div id="filter-widget" class="filter-widget" role="search" hidden>
+      <input id="search" type="text" spellcheck="false" autocomplete="off" placeholder="Search messages (text or /regex/)" aria-label="Search" />
+      <button id="all-fields" class="icon-button toggle" type="button" title="Search All Fields" aria-label="Search all fields" aria-pressed="false">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12" stroke="currentColor"/><path d="M5.5 2v12M10.5 2v12" stroke="currentColor" opacity="0.6"/></svg>
+      </button>
+      <span id="count" class="match-count" aria-live="polite"></span>
+      <button id="clear-filter" class="icon-button" type="button" title="Clear Filter" aria-label="Clear filter">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12l-4.5 5.5V13l-3 1.5v-6L2 3z" fill="none" stroke="currentColor"/><path d="M10.5 10.5l4 4m0-4l-4 4" stroke="currentColor"/></svg>
+      </button>
+      <button id="close-filter" class="icon-button" type="button" title="Close (Escape)" aria-label="Close filter">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8m0-8l-8 8" stroke="currentColor" stroke-width="1.2"/></svg>
+      </button>
+    </div>
     <div id="progress" class="progress" hidden><div id="progress-bar"></div></div>
     <div id="notice" class="notice" hidden></div>
     <section id="message" class="message" hidden>

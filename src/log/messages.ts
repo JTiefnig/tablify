@@ -18,14 +18,11 @@ export interface LogQuery {
   text: string;
   /** Search the whole entry instead of the message only. */
   allFields: boolean;
-  /** Time range (epoch ms, inclusive); entries without a timestamp are hidden while set. */
-  from: number | null;
-  to: number | null;
   /** null = file order. */
   sort: LogSort | null;
 }
 
-export const EMPTY_QUERY: LogQuery = { levels: null, text: "", allFields: false, from: null, to: null, sort: null };
+export const EMPTY_QUERY: LogQuery = { levels: null, text: "", allFields: false, sort: null };
 
 export interface ColumnInfo {
   name: string;
@@ -63,13 +60,6 @@ export interface RecordDetail {
   fields: { name: string; value: string }[];
 }
 
-export interface FormatInfo {
-  id: string;
-  label: string;
-  /** Chosen by detection (not overridden by the user). */
-  detected: boolean;
-}
-
 export type ToLogWebview =
   | {
       type: "state";
@@ -85,9 +75,6 @@ export type ToLogWebview =
       /** Records per level matching the query apart from the level filter. */
       levelCounts: Partial<Record<LevelKey, number>>;
       columns: ColumnInfo[];
-      /** Range of parsed timestamps; null when no entry has one. */
-      timeRange: { min: number; max: number } | null;
-      format: FormatInfo;
       /** Invalid regex in the search, etc. */
       queryError: string | null;
       /** Set when only part of a large file is shown. */
@@ -98,7 +85,8 @@ export type ToLogWebview =
   /** The file is above `tablify.log.largeFileThresholdMB`: ask how much to load. */
   | { type: "largeFile"; sizeMB: number; lines: number }
   | { type: "error"; message: string }
-  | { type: "focusSearch" };
+  | { type: "focusSearch" }
+  | { type: "clearFilter" };
 
 export type ToLogHost =
   | { type: "ready"; query: LogQuery }
@@ -106,6 +94,5 @@ export type ToLogHost =
   | { type: "rows"; generation: number; start: number; count: number }
   | { type: "detail"; index: number }
   | { type: "reveal"; index: number }
-  | { type: "selectFormat" }
   | { type: "openAsText" }
   | { type: "loadLarge"; mode: "all" | "head" | "tail" };

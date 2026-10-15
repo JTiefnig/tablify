@@ -47,15 +47,13 @@ export class LogStore {
   /** Record indices matching the query, in display order. */
   view: number[] = [];
   levelCounts: Partial<Record<LevelKey, number>> = {};
-  timeRange: { min: number; max: number } | null = null;
   queryError: string | null = null;
 
   private query: LogQuery;
   private match: TextMatcher | null = null;
   private levels: Set<LevelKey> | null = null;
-  /** Records already filtered into the view / counted in the time range. */
+  /** Records already filtered into the view. */
   private processed = 0;
-  private ranged = 0;
   private messageKey: MessageKey;
 
   constructor(query: LogQuery, messageKey: MessageKey) {
@@ -68,8 +66,6 @@ export class LogStore {
   reset(records: LogRecord[], messageKey: MessageKey) {
     this.records = records;
     this.messageKey = messageKey;
-    this.timeRange = null;
-    this.ranged = 0;
     this.restart();
   }
 
@@ -100,27 +96,13 @@ export class LogStore {
   /** Adds records loaded since the last call to the view (appended; call `sort()` afterwards). */
   update() {
     const { records } = this;
-    for (let i = this.ranged; i < records.length; i++) {
-      const epochMs = records[i].epochMs;
-      if (epochMs === undefined) continue;
-      if (!this.timeRange) this.timeRange = { min: epochMs, max: epochMs };
-      else if (epochMs < this.timeRange.min) this.timeRange.min = epochMs;
-      else if (epochMs > this.timeRange.max) this.timeRange.max = epochMs;
-    }
-    this.ranged = records.length;
-
-    const { from, to, allFields } = this.query;
-    const timed = from !== null || to !== null;
+    const { allFields } = this.query;
     const messageKey = this.messageKey;
     const match = this.match;
     const levels = this.levels;
     const counts = this.levelCounts;
     for (let i = this.processed; i < records.length; i++) {
       const record = records[i];
-      if (timed) {
-        const epochMs = record.epochMs;
-        if (epochMs === undefined || (from !== null && epochMs < from) || (to !== null && epochMs > to)) continue;
-      }
       if (match) {
         const key = allFields ? null : messageKey(record);
         if (!match(key === null ? record.raw : String(record.fields[key]))) continue;

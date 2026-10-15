@@ -289,28 +289,28 @@ association:
 
 Anything else opens as plain text: a leading timestamp and a level keyword are picked out when
 present, otherwise each line is one row. The status bar shows the format
-(**Log: Syslog RFC 3164**); click it, or the format button in the toolbar, to choose another
-one. The choice is remembered per file.
+(**Log: Syslog RFC 3164**); click it to choose another one. The choice is remembered per file.
 
 **Entries.** Lines that do not start an entry (stack traces, `Caused by:` chains) belong to the
 entry above; such entries show a **+N lines** badge. Lines that do not match a single-line
 format (JSON Lines, logfmt, access logs) are shown dimmed. Levels are normalized
-(`WARNING` → warn, `SEVERE` → error, syslog severities, pino levels, …) and color the row;
+(`WARNING` → warn, `SEVERE` → error, syslog severities, pino levels, …) and colored;
 access logs get a level from the status code (5xx error, 4xx warn). Timestamps are shown as
-written and parsed for sorting and the time filter. Syslog timestamps without a year take the
+written and parsed for sorting. Syslog timestamps without a year take the
 year of the file's modification time.
 
-**Toolbar.**
+**Filtering.** Like in the table view, <kbd>Ctrl/Cmd</kbd>+<kbd>F</kbd> or the filter button in
+the editor title opens the filter bar:
 
-- **Search** the message as you type: plain text (case-insensitive) or `/regex/flags`. **All
-  fields** searches the whole entry.
-- **Level chips** show the count per level and toggle it; <kbd>Alt</kbd>+click shows only that
-  level.
-- **From / To** limit the time range (entries without a timestamp are hidden while set).
-- **Columns** shows or hides columns (also by right-clicking a header). Columns that are
-  always empty or `-`, and those in `tablify.log.defaultHiddenColumns`, start hidden.
+- **Search** the message as you type: plain text (case-insensitive) or `/regex/flags`. The
+  **All fields** toggle searches the whole entry.
+- **Level**: click the level column's header to choose the levels shown, with the count per
+  level; <kbd>Alt</kbd>+click shows only that level.
+- **Columns**: right-click a header to show or hide columns. Columns that are always empty or
+  `-`, and those in `tablify.log.defaultHiddenColumns`, start hidden.
 
-Click a header to sort (ascending, descending, file order); timestamps sort by time. Drag a
+Click a header to sort (ascending, descending, file order), or right-click it; timestamps sort
+by time. Drag a
 header's edge to resize it. Click a row, or use the arrow keys, to see the full entry with all
 fields below the table; double-click or <kbd>Enter</kbd> opens the text editor at that line
 (**Reveal in Source**). The table reloads when the file changes on disk.

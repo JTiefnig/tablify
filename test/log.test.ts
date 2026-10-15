@@ -576,18 +576,6 @@ test("store: text search over the message, all fields, regex", () => {
   assert.equal(textMatcher("  ").match, null);
 });
 
-test("store: time range hides entries outside it and without a timestamp", () => {
-  const from = Date.parse("2026-10-14T08:37:05Z");
-  const to = Date.parse("2026-10-14T08:37:10Z");
-  const { store: ranged, records } = store("clf", { from, to });
-  assert.ok(ranged.view.every((index) => records[index].epochMs! >= from && records[index].epochMs! <= to));
-  assert.equal(ranged.view.length, 5);
-  assert.deepEqual(store("clf").store.timeRange, {
-    min: Date.parse("2026-10-14T08:37:02Z"),
-    max: Date.parse("2026-10-14T08:37:23Z"),
-  });
-});
-
 test("store: sorting by time, numbers and text; missing values last", () => {
   const { store: byTime, records } = store("jsonl", { sort: { column: "time", descending: true } });
   const times = byTime.view.map((index) => records[index].epochMs);

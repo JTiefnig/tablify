@@ -3,7 +3,7 @@
 
 import type { ColumnInfo, LogSort, WindowRow } from "../../src/log/messages.ts";
 
-export const ROW_HEIGHT = 22;
+export const ROW_HEIGHT = 28;
 const BLOCK = 200;
 const OVERSCAN = 15;
 const CACHE_MAX = 20_000;
@@ -21,6 +21,8 @@ export interface GridCallbacks {
   /** Double-click or Enter. */
   onActivate(row: WindowRow): void;
   onSort(column: string): void;
+  /** Click on a header with a filter (the level column). */
+  onHeaderFilter(cell: HTMLElement, column: ColumnInfo): void;
   onHeaderMenu(event: MouseEvent, column: string): void;
   /** A column was resized by dragging its header edge. */
   onResize(column: string, width: number): void;
@@ -38,6 +40,8 @@ export class LogGrid {
   private userWidths: Record<string, number> = {};
   private readonly autoWidths = new Map<string, number>();
   private sort: LogSort | null = null;
+  /** Columns with an active filter (highlighted header). */
+  private filtered = new Set<string>();
 
   private generation = -1;
   private count = 0;
@@ -77,10 +81,11 @@ export class LogGrid {
     root.addEventListener("keydown", (event) => this.onKey(event));
   }
 
-  setColumns(columns: ColumnInfo[], widths: Record<string, number>, sort: LogSort | null) {
+  setColumns(columns: ColumnInfo[], widths: Record<string, number>, sort: LogSort | null, filtered: Set<string>) {
     this.columns = columns;
     this.userWidths = widths;
     this.sort = sort;
+    this.filtered = filtered;
     this.renderHeader();
     this.schedule();
   }
@@ -214,13 +219,14 @@ export class LogGrid {
 
     for (const column of this.columns) {
       const cell = document.createElement("div");
-      cell.className = `hcell role-${column.role}`;
+      const filterable = column.role === "level";
+      cell.className = `hcell role-${column.role}${filterable ? " has-filter-options" : ""}${this.filtered.has(column.name) ? " header-linked" : ""}`;
       cell.setAttribute("role", "columnheader");
       this.applyWidth(cell, column);
       const label = document.createElement("span");
       label.className = "hlabel";
       label.textContent = column.name;
-      cell.title = `${column.name}${column.role !== "none" ? ` (${column.role})` : ""} · click to sort, right-click for columns`;
+      cell.title = `${column.name}${column.role !== "none" ? ` (${column.role})` : ""} · click to ${filterable ? "filter" : "sort"}, right-click for more`;
       cell.appendChild(label);
       if (this.sort?.column === column.name) {
         const arrow = document.createElement("span");
@@ -229,7 +235,9 @@ export class LogGrid {
         cell.appendChild(arrow);
         cell.setAttribute("aria-sort", this.sort.descending ? "descending" : "ascending");
       }
-      cell.addEventListener("click", () => this.callbacks.onSort(column.name));
+      cell.addEventListener("click", () =>
+        filterable ? this.callbacks.onHeaderFilter(cell, column) : this.callbacks.onSort(column.name),
+      );
       cell.addEventListener("contextmenu", (event) => {
         event.preventDefault();
         this.callbacks.onHeaderMenu(event, column.name);

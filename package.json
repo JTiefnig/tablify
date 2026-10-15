@@ -134,7 +134,7 @@
         "command": "tablify.openAsLogTable",
         "title": "Open as Log Table",
         "category": "Tablify",
-        "icon": "$(list-flat)"
+        "icon": "$(table)"
       },
       {
         "command": "tablify.selectLogFormat",
@@ -173,12 +173,12 @@
         },
         {
           "command": "tablify.filter",
-          "when": "activeCustomEditorId == tablify.tableView && !tablify.filterActive",
+          "when": "activeCustomEditorId == tablify.tableView && !tablify.filterActive || activeCustomEditorId == tablify.logView && !tablify.logFilterActive",
           "group": "navigation@1"
         },
         {
           "command": "tablify.clearFilter",
-          "when": "activeCustomEditorId == tablify.tableView && tablify.filterActive",
+          "when": "activeCustomEditorId == tablify.tableView && tablify.filterActive || activeCustomEditorId == tablify.logView && tablify.logFilterActive",
           "group": "navigation@1"
         },
         {
@@ -233,7 +233,7 @@
         },
         {
           "command": "tablify.clearFilter",
-          "when": "activeCustomEditorId == tablify.tableView && tablify.filterActive"
+          "when": "activeCustomEditorId == tablify.tableView && tablify.filterActive || activeCustomEditorId == tablify.logView && tablify.logFilterActive"
         },
         {
           "command": "tablify.saveFilter",

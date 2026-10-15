@@ -3,6 +3,7 @@ import "./styles.css";
 import {
   EMPTY_QUERY,
   type ColumnInfo,
+  type LogSort,
   type LevelKey,
   type LogQuery,
   type RecordDetail,
@@ -28,6 +29,7 @@ interface PersistedState {
   widths: Record<string, number>;
   scrollTop: number;
   selected: number | null;
+  filterOpen: boolean;
 }
 
 const vscode = acquireVsCodeApi();
@@ -38,8 +40,11 @@ const state: PersistedState = {
   widths: {},
   scrollTop: 0,
   selected: null,
+  filterOpen: false,
   ...vscode.getState(),
 };
+// Older states had a time range; it is not a filter any more.
+state.query = { levels: state.query.levels, text: state.query.text, allFields: state.query.allFields, sort: state.query.sort };
 
 let saveTimer: ReturnType<typeof setTimeout> | undefined;
 function saveState() {
@@ -48,16 +53,11 @@ function saveState() {
 }
 
 const byId = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+const widgetEl = byId<HTMLDivElement>("filter-widget");
 const searchEl = byId<HTMLInputElement>("search");
-const allFieldsEl = byId<HTMLInputElement>("all-fields");
-const levelsEl = byId<HTMLDivElement>("levels");
-const timeEl = byId<HTMLDivElement>("time");
-const fromEl = byId<HTMLInputElement>("time-from");
-const toEl = byId<HTMLInputElement>("time-to");
-const timeClearEl = byId<HTMLButtonElement>("time-clear");
+const allFieldsEl = byId<HTMLButtonElement>("all-fields");
+const clearFilterEl = byId<HTMLButtonElement>("clear-filter");
 const countEl = byId<HTMLSpanElement>("count");
-const columnsEl = byId<HTMLButtonElement>("columns");
-const formatEl = byId<HTMLButtonElement>("format");
 const progressEl = byId<HTMLDivElement>("progress");
 const progressBarEl = byId<HTMLDivElement>("progress-bar");
 const noticeEl = byId<HTMLDivElement>("notice");
@@ -66,7 +66,6 @@ const messageTitleEl = byId<HTMLDivElement>("message-title");
 const messageTextEl = byId<HTMLDivElement>("message-text");
 const messageActionsEl = byId<HTMLDivElement>("message-actions");
 const gridEl = byId<HTMLElement>("grid");
-const toolbarEl = byId<HTMLElement>("toolbar");
 const detailEl = byId<HTMLElement>("detail");
 const detailTitleEl = byId<HTMLSpanElement>("detail-title");
 const detailBodyEl = byId<HTMLDivElement>("detail-body");
@@ -83,7 +82,12 @@ let levelCounts: Partial<Record<LevelKey, number>> = {};
 
 function sendQuery() {
   saveState();
+  clearFilterEl.disabled = !filterActive();
   vscode.postMessage({ type: "query", query: state.query });
+}
+
+function filterActive(): boolean {
+  return state.query.text.trim() !== "" || state.query.levels !== null;
 }
 
 // --- Grid --------------------------------------------------------------------------------
@@ -99,12 +103,19 @@ const grid = new LogGrid(gridEl, byId("grid-header"), byId("grid-body"), {
   onSort: (column) => {
     const sort = state.query.sort;
     // Ascending, descending, then file order again.
-    state.query.sort =
+    setSort(
       !column || (sort?.column === column && sort.descending)
         ? null
-        : { column, descending: sort?.column === column };
-    applyColumns(true);
-    sendQuery();
+        : { column, descending: sort?.column === column },
+    );
+  },
+  onHeaderFilter: (cell) => {
+    if (menu) {
+      closeMenu();
+      return;
+    }
+    const rect = cell.getBoundingClientRect();
+    showLevelMenu(rect.left, rect.bottom + 2);
   },
   onHeaderMenu: (event, column) => showColumnMenu(event.clientX, event.clientY, column),
   onResize: (column, width) => {
@@ -127,17 +138,57 @@ function visibleColumns(): ColumnInfo[] {
 
 function applyColumns(force = false) {
   const visible = visibleColumns();
-  const key = JSON.stringify([visible.map((column) => column.name), state.query.sort]);
+  const filtered = new Set(state.query.levels ? columns.filter((column) => column.role === "level").map((column) => column.name) : []);
+  const key = JSON.stringify([visible.map((column) => column.name), state.query.sort, [...filtered]]);
   if (!force && key === columnsKey) return;
   columnsKey = key;
-  grid.setColumns(visible, state.widths, state.query.sort);
+  grid.setColumns(visible, state.widths, state.query.sort, filtered);
 }
+
+function setSort(sort: LogSort | null) {
+  state.query.sort = sort;
+  applyColumns(true);
+  sendQuery();
+}
+
+// --- Filter widget ---------------------------------------------------------------------
+
+function openFilter() {
+  widgetEl.hidden = false;
+  state.filterOpen = true;
+  saveState();
+  searchEl.focus();
+  searchEl.select();
+}
+
+function closeFilter() {
+  widgetEl.hidden = true;
+  state.filterOpen = false;
+  saveState();
+  grid.focus();
+}
+
+function clearFilter() {
+  searchEl.value = "";
+  state.query.text = "";
+  state.query.levels = null;
+  applyColumns();
+  sendQuery();
+}
+
+widgetEl.hidden = !state.filterOpen;
+clearFilterEl.disabled = !filterActive();
+clearFilterEl.addEventListener("click", () => {
+  clearFilter();
+  searchEl.focus();
+});
+byId<HTMLButtonElement>("close-filter").addEventListener("click", closeFilter);
 
 // --- Search --------------------------------------------------------------------------------
 
 let searchTimer: ReturnType<typeof setTimeout> | undefined;
 searchEl.value = state.query.text;
-allFieldsEl.checked = state.query.allFields;
+allFieldsEl.setAttribute("aria-pressed", String(state.query.allFields));
 
 function applySearch() {
   clearTimeout(searchTimer);
@@ -152,9 +203,8 @@ searchEl.addEventListener("input", () => {
 });
 searchEl.addEventListener("keydown", (event) => {
   if (event.key === "Enter") applySearch();
-  if (event.key === "Escape" && searchEl.value) {
-    searchEl.value = "";
-    applySearch();
+  if (event.key === "Escape" && !menu) {
+    closeFilter();
     event.stopPropagation();
   }
   if (event.key === "ArrowDown") {
@@ -162,8 +212,9 @@ searchEl.addEventListener("keydown", (event) => {
     grid.focus();
   }
 });
-allFieldsEl.addEventListener("change", () => {
-  state.query.allFields = allFieldsEl.checked;
+allFieldsEl.addEventListener("click", () => {
+  state.query.allFields = !state.query.allFields;
+  allFieldsEl.setAttribute("aria-pressed", String(state.query.allFields));
   sendQuery();
 });
 
@@ -194,74 +245,44 @@ function toggleLevel(level: LevelKey, only: boolean) {
     next = current.includes(level) ? current.filter((item) => item !== level) : [...current, level];
   }
   state.query.levels = LEVEL_KEYS.every((item) => next.includes(item)) ? null : next;
-  renderLevels();
+  applyColumns();
   sendQuery();
 }
 
-function renderLevels() {
-  const present = LEVEL_KEYS.filter((level) => (levelCounts[level] ?? 0) > 0 || !levelShown(level));
-  // Without any levels (e.g. plain text), the chips would only say "Other".
-  levelsEl.hidden = present.length === 0 || (present.length === 1 && present[0] === "none" && !state.query.levels);
-  levelsEl.replaceChildren(
-    ...LEVEL_KEYS.filter((level) => level !== "none" || present.includes("none")).map((level) => {
-      const chip = document.createElement("button");
-      chip.type = "button";
-      chip.className = `chip chip-${level}`;
-      chip.setAttribute("aria-pressed", String(levelShown(level)));
-      chip.title = `Show or hide ${LEVEL_LABELS[level].toLowerCase()} entries · Alt+click: only this level`;
-      const dot = document.createElement("span");
-      dot.className = "dot";
-      const label = document.createElement("span");
-      label.textContent = LEVEL_LABELS[level];
-      const count = document.createElement("span");
-      count.className = "chip-count";
-      count.textContent = number(levelCounts[level] ?? 0);
-      chip.append(dot, label, count);
-      chip.addEventListener("click", (event) => toggleLevel(level, event.altKey || event.metaKey || event.ctrlKey));
-      return chip;
-    }),
+/** Levels listed in the level filter: those with entries, and those filtered out. */
+function presentLevels(): LevelKey[] {
+  return LEVEL_KEYS.filter((level) => (levelCounts[level] ?? 0) > 0 || !levelShown(level));
+}
+
+function showLevelMenu(x: number, y: number) {
+  closeMenu();
+  const element = document.createElement("div");
+  element.className = "menu";
+  element.setAttribute("role", "menu");
+  const rerender = () => showLevelMenu(x, y);
+
+  const title = document.createElement("div");
+  title.className = "menu-title";
+  title.textContent = "Filter by level · Alt+click: only this level";
+  element.appendChild(title);
+  element.appendChild(
+    menuItem("All Levels", () => {
+      state.query.levels = null;
+      applyColumns();
+      sendQuery();
+      rerender();
+    }, { checked: state.query.levels === null }),
   );
+  element.appendChild(separator());
+  for (const level of presentLevels()) {
+    const item = menuItem(LEVEL_LABELS[level], (event) => {
+      toggleLevel(level, event.altKey || event.metaKey || event.ctrlKey);
+      rerender();
+    }, { checked: levelShown(level), level, count: levelCounts[level] ?? 0 });
+    element.appendChild(item);
+  }
+  placeMenu(element, x, y);
 }
-
-// --- Time range ------------------------------------------------------------------------------
-
-/** Epoch ms -> `datetime-local` value (local time, seconds). */
-function toLocalInput(epochMs: number): string {
-  const date = new Date(epochMs);
-  const pad = (value: number) => String(value).padStart(2, "0");
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
-}
-
-function fromLocalInput(value: string, end: boolean): number | null {
-  if (!value) return null;
-  const time = new Date(value).getTime();
-  if (Number.isNaN(time)) return null;
-  // Inputs have second precision: "to" includes the whole second.
-  return end ? time + 999 : time;
-}
-
-function syncTimeInputs() {
-  fromEl.value = state.query.from !== null ? toLocalInput(state.query.from) : "";
-  toEl.value = state.query.to !== null ? toLocalInput(state.query.to) : "";
-  timeClearEl.disabled = state.query.from === null && state.query.to === null;
-}
-
-function onTimeChange() {
-  state.query.from = fromLocalInput(fromEl.value, false);
-  state.query.to = fromLocalInput(toEl.value, true);
-  timeClearEl.disabled = state.query.from === null && state.query.to === null;
-  sendQuery();
-}
-
-fromEl.addEventListener("change", onTimeChange);
-toEl.addEventListener("change", onTimeChange);
-timeClearEl.addEventListener("click", () => {
-  state.query.from = null;
-  state.query.to = null;
-  syncTimeInputs();
-  sendQuery();
-});
-syncTimeInputs();
 
 // --- Column menu -------------------------------------------------------------------------------
 
@@ -272,7 +293,15 @@ function closeMenu() {
   menu = null;
 }
 
-function menuItem(label: string, onSelect: () => void, options: { checked?: boolean; disabled?: boolean } = {}): HTMLElement {
+interface MenuItemOptions {
+  checked?: boolean;
+  disabled?: boolean;
+  /** Level color dot. */
+  level?: LevelKey;
+  count?: number;
+}
+
+function menuItem(label: string, onSelect: (event: MouseEvent) => void, options: MenuItemOptions = {}): HTMLElement {
   const item = document.createElement("div");
   item.className = `menu-item${options.disabled ? " disabled" : ""}`;
   item.setAttribute("role", options.checked === undefined ? "menuitem" : "menuitemcheckbox");
@@ -280,13 +309,26 @@ function menuItem(label: string, onSelect: () => void, options: { checked?: bool
   const check = document.createElement("span");
   check.className = "menu-check";
   check.textContent = options.checked ? "✓" : "";
+  item.appendChild(check);
+  if (options.level) {
+    const dot = document.createElement("span");
+    dot.className = `dot dot-${options.level}`;
+    item.appendChild(dot);
+  }
   const text = document.createElement("span");
+  text.className = "menu-label";
   text.textContent = label;
-  item.append(check, text);
+  item.appendChild(text);
+  if (options.count !== undefined) {
+    const count = document.createElement("span");
+    count.className = "menu-count";
+    count.textContent = number(options.count);
+    item.appendChild(count);
+  }
   item.addEventListener("mousedown", (event) => {
     event.preventDefault();
     event.stopPropagation();
-    if (!options.disabled) onSelect();
+    if (!options.disabled) onSelect(event);
   });
   return item;
 }
@@ -310,13 +352,27 @@ function showColumnMenu(x: number, y: number, column?: string) {
   const rerender = () => showColumnMenu(x, y, column);
 
   if (column) {
-    element.appendChild(
+    const sort = state.query.sort?.column === column ? state.query.sort : null;
+    element.append(
+      menuItem("Sort Ascending", () => {
+        setSort({ column, descending: false });
+        closeMenu();
+      }, { checked: sort?.descending === false }),
+      menuItem("Sort Descending", () => {
+        setSort({ column, descending: true });
+        closeMenu();
+      }, { checked: sort?.descending === true }),
+      menuItem("File Order", () => {
+        setSort(null);
+        closeMenu();
+      }, { disabled: !state.query.sort }),
+      separator(),
       menuItem(`Hide “${column}”`, () => {
         setColumnVisible(column, false);
         closeMenu();
       }, { disabled: visible.size <= 1 }),
+      separator(),
     );
-    element.appendChild(separator());
   }
   const title = document.createElement("div");
   title.className = "menu-title";
@@ -343,6 +399,10 @@ function showColumnMenu(x: number, y: number, column?: string) {
     }),
   );
 
+  placeMenu(element, x, y);
+}
+
+function placeMenu(element: HTMLElement, x: number, y: number) {
   document.body.appendChild(element);
   menu = element;
   const rect = element.getBoundingClientRect();
@@ -356,20 +416,12 @@ function separator(): HTMLElement {
   return element;
 }
 
-columnsEl.addEventListener("click", () => {
-  if (menu) {
-    closeMenu();
-    return;
-  }
-  const rect = columnsEl.getBoundingClientRect();
-  showColumnMenu(rect.right - 200, rect.bottom + 2);
-});
 document.addEventListener("mousedown", (event) => {
-  if (menu && !menu.contains(event.target as Node) && !columnsEl.contains(event.target as Node)) closeMenu();
+  // The level header toggles its menu itself.
+  const target = event.target as Element;
+  if (menu && !menu.contains(target) && !target.closest?.(".hcell.has-filter-options")) closeMenu();
 });
 window.addEventListener("resize", closeMenu);
-
-formatEl.addEventListener("click", () => vscode.postMessage({ type: "selectFormat" }));
 
 // --- Detail pane --------------------------------------------------------------------------------
 
@@ -439,13 +491,13 @@ byId<HTMLButtonElement>("detail-copy").addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "f") {
     event.preventDefault();
-    searchEl.focus();
-    searchEl.select();
+    openFilter();
     return;
   }
   if (event.key === "Escape") {
     if (menu) closeMenu();
     else if (!detailEl.hidden) grid.clearSelection();
+    else if (!widgetEl.hidden) closeFilter();
   }
 });
 
@@ -453,7 +505,7 @@ document.addEventListener("keydown", (event) => {
 
 function showMessage(title: string, text: string, actions: { label: string; onClick: () => void }[]) {
   messageEl.hidden = false;
-  toolbarEl.hidden = true;
+  widgetEl.hidden = true;
   progressEl.hidden = true;
   noticeEl.hidden = true;
   gridEl.hidden = true;
@@ -475,7 +527,7 @@ const openAsText = { label: "Open as Text", onClick: () => vscode.postMessage({ 
 
 function onState(message: Extract<ToLogWebview, { type: "state" }>) {
   messageEl.hidden = true;
-  toolbarEl.hidden = false;
+  widgetEl.hidden = !state.filterOpen;
   gridEl.hidden = false;
   detailEl.hidden = grid.selection === null;
   generation = message.generation;
@@ -492,32 +544,13 @@ function onState(message: Extract<ToLogWebview, { type: "state" }>) {
     gridEl.scrollTop = state.scrollTop;
   }
 
-  renderLevels();
-  const hasTime = message.timeRange !== null;
-  timeEl.classList.toggle("disabled", !hasTime);
-  fromEl.disabled = toEl.disabled = !hasTime && state.query.from === null && state.query.to === null;
-  if (message.timeRange) {
-    fromEl.min = toEl.min = toLocalInput(message.timeRange.min);
-    fromEl.max = toEl.max = toLocalInput(message.timeRange.max + 1000);
-    timeEl.title = `Entries from ${new Date(message.timeRange.min).toLocaleString()} to ${new Date(message.timeRange.max).toLocaleString()}`;
-  } else {
-    timeEl.title = "No timestamps found";
-  }
-
   searchEl.classList.toggle("invalid", message.queryError !== null);
   searchEl.title = message.queryError ? `Invalid regular expression: ${message.queryError}` : "";
 
-  const filtered = message.count !== message.total;
-  countEl.textContent = message.loading
-    ? `Loading… ${number(message.total)} entries`
-    : filtered
-      ? `${number(message.count)} of ${number(message.total)} entries`
-      : `${number(message.total)} entries`;
+  countEl.textContent = `${number(message.count)} of ${number(message.total)}`;
   progressEl.hidden = !message.loading;
   progressBarEl.style.width = `${Math.round(message.progress * 100)}%`;
 
-  formatEl.textContent = message.format.label;
-  formatEl.title = `${message.format.detected ? "Detected" : "Selected"} log format · click to change`;
   noticeEl.hidden = !message.notice;
   noticeEl.textContent = message.notice ?? "";
 }
@@ -535,8 +568,10 @@ window.addEventListener("message", (event: MessageEvent<ToLogWebview>) => {
       renderDetail(message.detail);
       return;
     case "focusSearch":
-      searchEl.focus();
-      searchEl.select();
+      openFilter();
+      return;
+    case "clearFilter":
+      clearFilter();
       return;
     case "error":
       showMessage("Could not read this file", message.message, [openAsText]);

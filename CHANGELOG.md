@@ -6,8 +6,9 @@
   filterable table with one row per event. Detects JSON Lines, logfmt, syslog (RFC 3164 and
   5424), access logs, Nginx and Apache error logs, Log4j-style application logs and Python
   `logging`, with a plain-text fallback; the format can be changed from the status bar.
-  Multi-line entries (stack traces), normalized levels with colors and filter chips, message
-  search (text or regex), time range filter, column menu, entry details and reveal in source.
+  Multi-line entries (stack traces), normalized levels with colors, a level filter in the
+  level column's header, message search (text or regex) in the same filter bar as the table
+  view, column menu, entry details and reveal in source.
   Parsing and filtering run in the extension host and only visible rows are rendered, for
   files with millions of lines; large files can be opened partially. Custom formats in
   `tablify.log.customFormats`.

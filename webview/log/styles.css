@@ -10,7 +10,9 @@
   --lg-row-hover: var(--vscode-list-hoverBackground);
   --lg-selected: var(--vscode-list-inactiveSelectionBackground);
   --lg-accent: var(--vscode-focusBorder);
-  --lg-row-height: 22px;
+  --lg-link: var(--vscode-textLink-foreground);
+  --lg-linked-bg: color-mix(in srgb, var(--vscode-textLink-foreground) 15%, transparent);
+  --lg-row-height: 28px;
 
   --lg-trace: var(--vscode-disabledForeground, var(--lg-muted));
   --lg-debug: var(--vscode-descriptionForeground);
@@ -23,6 +25,7 @@
 
 html,
 body {
+  position: relative;
   height: 100%;
   margin: 0;
   overflow: hidden;
@@ -50,29 +53,31 @@ button {
   font: inherit;
 }
 
-/* --- Toolbar ---------------------------------------------------------------- */
+/* --- Filter widget (styled like the table view's and the editor's Find widget) --- */
 
-.toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px 12px;
-  padding: 6px 10px;
-  background: var(--lg-header-bg);
-  border-bottom: 1px solid var(--lg-border);
-}
-
-.search {
+.filter-widget {
+  position: absolute;
+  top: 0;
+  right: 18px;
+  z-index: 100;
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex: 1 1 340px;
-  min-width: 240px;
-  max-width: 560px;
+  gap: 4px;
+  box-sizing: border-box;
+  height: 33px;
+  width: min(440px, calc(100vw - 36px));
+  padding: 0 4px 0 6px;
+  background: var(--vscode-editorWidget-background, var(--lg-header-bg));
+  color: var(--vscode-editorWidget-foreground, var(--lg-fg));
+  border: 1px solid var(--vscode-editorWidget-border, transparent);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 0 8px 2px var(--vscode-widget-shadow);
 }
 
-input[type="text"],
-input[type="datetime-local"] {
+#search {
+  flex: 1;
+  min-width: 0;
   box-sizing: border-box;
   height: 24px;
   padding: 0 6px;
@@ -81,15 +86,9 @@ input[type="datetime-local"] {
   background: var(--vscode-input-background);
   color: var(--vscode-input-foreground);
   font: inherit;
-  color-scheme: light dark;
 }
 
-#search {
-  flex: 1;
-  min-width: 0;
-}
-
-input:focus {
+#search:focus {
   outline: 1px solid var(--lg-accent);
   outline-offset: -1px;
 }
@@ -103,102 +102,18 @@ input:focus {
   color: var(--vscode-input-placeholderForeground);
 }
 
-.check {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  white-space: nowrap;
+.match-count {
+  flex-shrink: 0;
+  min-width: 64px;
+  padding: 0 2px;
+  font-size: 0.92em;
   color: var(--lg-muted);
-  cursor: pointer;
-}
-
-.check input {
-  margin: 0;
-  accent-color: var(--vscode-checkbox-background, var(--lg-accent));
-}
-
-.levels {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  height: 22px;
-  padding: 0 8px;
-  border: 1px solid var(--vscode-button-secondaryBackground, var(--lg-border));
-  border-radius: 11px;
-  background: transparent;
-  color: var(--lg-muted);
-  cursor: pointer;
-}
-
-.chip[aria-pressed="true"] {
-  background: var(--vscode-button-secondaryBackground, var(--lg-row-alt));
-  color: var(--vscode-button-secondaryForeground, var(--lg-fg));
-}
-
-.chip[aria-pressed="false"] {
-  opacity: 0.6;
-  text-decoration: line-through;
-}
-
-.chip:hover {
-  background: var(--vscode-button-secondaryHoverBackground, var(--lg-row-hover));
-}
-
-.chip:focus-visible,
-.toolbar-button:focus-visible,
-.icon-button:focus-visible {
-  outline: 1px solid var(--lg-accent);
-  outline-offset: 1px;
-}
-
-.chip .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.chip-trace .dot { background: var(--lg-trace); }
-.chip-debug .dot { background: var(--lg-debug); }
-.chip-info .dot { background: var(--lg-info); }
-.chip-warn .dot { background: var(--lg-warn); }
-.chip-error .dot { background: var(--lg-error); }
-.chip-fatal .dot { background: var(--lg-fatal); box-shadow: 0 0 0 2px color-mix(in srgb, var(--lg-fatal) 35%, transparent); }
-.chip-none .dot { background: transparent; border: 1px solid var(--lg-none); box-sizing: border-box; }
-
-.chip-count {
   font-variant-numeric: tabular-nums;
-  opacity: 0.8;
-}
-
-.time {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.time.disabled {
-  opacity: 0.5;
-}
-
-.time-sep {
-  color: var(--lg-muted);
+  white-space: nowrap;
 }
 
 .spacer {
   flex: 1;
-}
-
-.count {
-  color: var(--lg-muted);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
 }
 
 .toolbar-button {
@@ -216,23 +131,23 @@ input:focus {
   background: var(--vscode-button-secondaryHoverBackground);
 }
 
-#format {
-  max-width: 260px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.toolbar-button:focus-visible,
+.icon-button:focus-visible {
+  outline: 1px solid var(--lg-accent);
 }
 
 .icon-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 22px;
   height: 22px;
   padding: 0;
-  border: none;
-  border-radius: 3px;
+  border: 1px solid transparent;
+  border-radius: 4px;
   background: transparent;
-  color: inherit;
+  color: var(--vscode-icon-foreground, var(--lg-fg));
   cursor: pointer;
 }
 
@@ -248,6 +163,13 @@ input:focus {
 .icon-button:disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+/* Toggle, like the Find widget's "Match Case". */
+.icon-button.toggle[aria-pressed="true"] {
+  background: var(--vscode-inputOption-activeBackground, var(--lg-linked-bg));
+  border-color: var(--vscode-inputOption-activeBorder, var(--lg-accent));
+  color: var(--vscode-inputOption-activeForeground, inherit);
 }
 
 .progress {
@@ -319,8 +241,6 @@ input:focus {
   min-height: 0;
   overflow: auto;
   outline: none;
-  font-family: var(--vscode-editor-font-family, var(--vscode-font-family));
-  font-size: var(--vscode-editor-font-size, var(--vscode-font-size));
 }
 
 .grid-header {
@@ -328,11 +248,9 @@ input:focus {
   top: 0;
   z-index: 2;
   display: flex;
-  height: 26px;
+  height: 30px;
   background: var(--lg-header-bg);
   border-bottom: 1px solid var(--lg-border);
-  font-family: var(--vscode-font-family);
-  font-size: var(--vscode-font-size);
   font-weight: 600;
 }
 
@@ -352,6 +270,24 @@ input:focus {
 
 .hcell:hover {
   background: var(--lg-row-hover);
+}
+
+/* Header linked to an active filter. */
+.hcell.header-linked {
+  background: var(--lg-linked-bg);
+  color: var(--lg-link);
+}
+
+/* Columns with a filter dropdown get a small caret. */
+.hcell.has-filter-options .hlabel::after {
+  content: "";
+  display: inline-block;
+  margin-left: 5px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  vertical-align: middle;
+  opacity: 0.5;
 }
 
 .hlabel {
@@ -382,9 +318,9 @@ input:focus {
 .resizer::after {
   content: "";
   position: absolute;
-  top: 6px;
-  bottom: 6px;
-  right: 2px;
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 1px;
   background: var(--lg-border);
 }
@@ -398,8 +334,10 @@ input:focus {
   left: 0;
   right: 0;
   display: flex;
+  box-sizing: border-box;
   height: var(--lg-row-height);
-  line-height: var(--lg-row-height);
+  line-height: calc(var(--lg-row-height) - 1px);
+  border-bottom: 1px solid var(--lg-border);
   cursor: default;
 }
 
@@ -424,6 +362,7 @@ input:focus {
   flex: none;
   box-sizing: border-box;
   padding: 0 8px;
+  border-right: 1px solid var(--lg-border);
   overflow: hidden;
   white-space: pre;
   text-overflow: ellipsis;
@@ -434,40 +373,15 @@ input:focus {
   flex: 1 1 auto;
 }
 
+.cell.flex {
+  border-right: none;
+}
+
 .cell.gutter {
   position: relative;
   text-align: right;
   color: var(--vscode-editorLineNumber-foreground, var(--lg-muted));
   font-variant-numeric: tabular-nums;
-}
-
-/* Level color bar at the start of each row. */
-.cell.gutter::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  bottom: 2px;
-  width: 3px;
-  border-radius: 1px;
-}
-
-.row.level-warn .gutter::before { background: var(--lg-warn); }
-.row.level-error .gutter::before { background: var(--lg-error); }
-.row.level-fatal .gutter::before { background: var(--lg-fatal); }
-.row.level-info .gutter::before { background: color-mix(in srgb, var(--lg-info) 55%, transparent); }
-
-.row.level-error:not(.selected) {
-  background: color-mix(in srgb, var(--lg-error) 7%, transparent);
-}
-
-.row.level-fatal:not(.selected) {
-  background: color-mix(in srgb, var(--lg-fatal) 14%, transparent);
-}
-
-.row.level-trace .cell:not(.gutter),
-.row.level-debug .cell:not(.gutter) {
-  color: var(--lg-muted);
 }
 
 .row.parse-error .cell:not(.gutter) {
@@ -489,8 +403,6 @@ input:focus {
 
 .cell.role-level {
   font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.9em;
 }
 
 .cell .more {
@@ -606,6 +518,30 @@ input:focus {
   width: 14px;
   text-align: center;
 }
+
+.menu-label {
+  flex: 1;
+}
+
+.menu-count {
+  margin-left: 16px;
+  color: var(--lg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot-trace { background: var(--lg-trace); }
+.dot-debug { background: var(--lg-debug); }
+.dot-info { background: var(--lg-info); }
+.dot-warn { background: var(--lg-warn); }
+.dot-error { background: var(--lg-error); }
+.dot-fatal { background: var(--lg-fatal); }
+.dot-none { box-sizing: border-box; border: 1px solid var(--lg-none); }
 
 .menu-separator {
   height: 1px;

@@ -60,9 +60,10 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand("tablify.saveFilter", () => provider.saveActiveFilter()),
     vscode.commands.registerCommand("tablify.resetView", () => provider.resetActiveView()),
 
-    vscode.commands.registerCommand("tablify.clearFilter", () =>
-      provider.postToActive({ type: "clearFilter" }),
-    ),
+    vscode.commands.registerCommand("tablify.clearFilter", () => {
+      provider.postToActive({ type: "clearFilter" });
+      logProvider.clearFilter();
+    }),
   );
 }
 

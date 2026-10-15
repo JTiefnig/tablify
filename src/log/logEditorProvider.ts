@@ -141,6 +141,16 @@ export class LogEditorProvider implements vscode.CustomReadonlyEditorProvider, v
     this.active?.post({ type: "focusSearch" });
   }
 
+  clearFilter() {
+    this.active?.post({ type: "clearFilter" });
+  }
+
+  /** Mirrors the active log table's filter in the `tablify.logFilterActive` context (editor title buttons). */
+  refreshFilterContext(session?: LogSession) {
+    if (session && session !== this.active) return;
+    void vscode.commands.executeCommand("setContext", "tablify.logFilterActive", !!this.active?.filterActive);
+  }
+
   openCustomDocument(uri: vscode.Uri): vscode.CustomDocument {
     return { uri, dispose() {} };
   }
@@ -163,6 +173,7 @@ export class LogEditorProvider implements vscode.CustomReadonlyEditorProvider, v
   private setActive(session: LogSession | undefined) {
     this.active = session;
     this.refreshStatusBar();
+    this.refreshFilterContext();
   }
 
   /** Shows the active log table's format in the status bar ("Log: Syslog RFC 3164"). */
@@ -174,7 +185,7 @@ export class LogEditorProvider implements vscode.CustomReadonlyEditorProvider, v
       return;
     }
     const detected = !this.formatOverride(this.active!.uri);
-    this.statusBar.text = `$(list-flat) Log: ${format.label}`;
+    this.statusBar.text = `$(table) Log: ${format.label}`;
     this.statusBar.tooltip = `${detected ? "Detected" : "Selected"} log format · click to change`;
     this.statusBar.show();
   }
@@ -238,6 +249,7 @@ class LogSession {
       case "ready":
         // Also sent again when a hidden webview is restored: keep the loaded data.
         this.store.setQuery(message.query);
+        this.provider.refreshFilterContext(this);
         if (!this.started) {
           this.started = true;
           void this.load();
@@ -248,6 +260,7 @@ class LogSession {
       case "query":
         this.store.setQuery(message.query);
         this.resort();
+        this.provider.refreshFilterContext(this);
         break;
       case "rows":
         if (message.generation === this.generation) {
@@ -262,9 +275,6 @@ class LogSession {
       }
       case "reveal":
         void this.reveal(message.index);
-        break;
-      case "selectFormat":
-        void this.provider.selectFormat(this);
         break;
       case "openAsText":
         void openAsText(this.uri);
@@ -281,6 +291,12 @@ class LogSession {
     if (!this.loading) this.store.sort(this.timestampColumns());
     this.generation++;
     this.postState();
+  }
+
+  /** A search or level filter is set. */
+  get filterActive(): boolean {
+    const query = this.store.getQuery();
+    return query.text.trim() !== "" || query.levels !== null;
   }
 
   private timestampColumns(): Set<string> {
@@ -307,8 +323,6 @@ class LogSession {
       count: this.store.view.length,
       levelCounts: this.store.levelCounts,
       columns: this.columns,
-      timeRange: this.store.timeRange,
-      format: { id: this.format?.id ?? "", label: this.format?.label ?? "", detected: !this.provider.formatOverride(this.uri) },
       queryError: this.store.queryError,
       notice: this.notice,
     });
