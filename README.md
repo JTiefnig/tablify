@@ -1,11 +1,55 @@
 # Tablify
 
-A VS Code extension that opens JSON, YAML and CSV files as an interactive, filterable table,
-and log files as a sortable, filterable table of log events.
+**Open JSON, YAML, CSV and log files as interactive tables in VS Code.** Filter thousands of
+entries in a keystroke, edit cells without reformatting the file, and see which entries changed
+since the last commit, with git blame per field.
 
-![Tablify table view](media/tablify-screenshot.png)
+<!-- Demo GIF goes here once recorded: media/tablify-demo.gif (see docs/marketing/demo-script.md). -->
 
-[Recording of Tablify](https://github.com/user-attachments/assets/f11cfb34-4c39-4f40-9068-d628a83d4668)
+![A requirements file open in Tablify: a table with ID, type, status and text columns, filtered by "status=valid AND type=requirement", showing 8 of 24 rows](media/tablify-screenshot.png)
+
+## Features
+
+- **Any list of records becomes a table.** JSON and YAML lists or ID → entry maps, CSV and
+  TSV. Entries nested inside a file (`{"data": {"items": [...]}}`) open with one click.
+- **Filter like a query, not a regex.** `status=open AND priority>=2`, free text, header
+  dropdowns, autocomplete for fields and values, saved filters.
+- **Edit in place, keep the file tidy.** Type-aware editors (dropdowns, checkboxes, dates,
+  rich text). Each edit changes only that value, so comments, quoting and formatting
+  elsewhere stay as they are, and undo works as usual.
+- **Git-aware.** A change bar marks entries added or modified since the last commit (compared
+  by ID, not by line), a "changes only" filter shows deleted entries too, and per-field git
+  blame shows who changed what.
+- **Log files as a table.** JSON Lines, logfmt, syslog, access logs, Nginx/Apache error logs,
+  Log4j-style and Python logs are detected automatically, with level filter, search and stack
+  traces kept together. Handles files with millions of lines.
+- **Shareable views.** Column order, widths, types, colors and saved filters live in
+  `.vscode/tablify.yaml`, so the whole team sees the same table.
+- **Local and private.** No telemetry, and Tablify makes no network requests of its own. Your
+  data stays in the editor.
+
+## Install
+
+Search for **Tablify** in the Extensions view (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>),
+or run:
+
+```sh
+code --install-extension JohannesTiefnig.tablify
+```
+
+Requires VS Code 1.90 or later.
+
+## Quick start
+
+1. Open a JSON, YAML or CSV file that holds a list of records.
+2. Click the **table icon** in the editor title bar (or right-click the file in the Explorer
+   → **Open as Table**).
+3. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>F</kbd> and type a filter such as
+   `status=open`, or click a column header to pick a value.
+4. Double-click a cell to edit it, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+click to jump to it in the source.
+
+For a log file, right-click it → **Open as Log Table**. **Open as Text** in the title bar
+always switches back.
 
 ## Supported files
 
@@ -36,7 +80,10 @@ REQ-001:               # hash: the key becomes the `id` column
   status: valid
 ```
 
-Any other shape shows a "Not a table file" message with an **Open as Text** button.
+When the entries are nested deeper, for example in an API response such as
+`{"data": {"items": [...]}}`, the "Not a table file" page offers a **Show data.items** button
+(see [Entries nested in the file](#entries-nested-in-the-file)). Any other shape shows the
+message with an **Open as Text** button.
 
 **CSV and TSV** files (`.csv`, `.tsv`) are read as a list: the first line names the columns,
 every other line is an entry.
@@ -190,8 +237,9 @@ Keys are separated by `.` or `/` (`/document/data/objects` and `$.document.data.
 too). Array items are selected by index, `items[0].rows` or `items.0.rows`; keys containing
 `.`, `/` or brackets are quoted: `sheets["2026.Q1"]`. Editing, adding, deleting and moving
 rows, git changes and blame work as for top-level entries; the rest of the file is left as it
-is. If a file has no table at the top level, the error page suggests the path of the first
-nested list it finds.
+is. If a file has no table at the top level, the error page offers a **Show …** button for the
+first nested list it finds, for example **Show data.items**. The choice is remembered for the
+file, and **Save View** writes it to the view as `path`.
 
 #### Running a command on save
 
@@ -384,6 +432,45 @@ from `sd` as `sd.<id>.<param>` columns).
 | `tablify.log.detectionThreshold`   | `0.6`                         | Share of sampled lines a format must match to be detected; otherwise plain text.                              |
 | `tablify.log.largeFileThresholdMB` | `50`                          | Larger log files ask whether to load the first or last lines, or all of it.                                   |
 | `tablify.log.defaultHiddenColumns` | `["ident", "version", "tid"]` | Log table columns hidden by default.                                                                          |
+
+## Troubleshooting
+
+- **"Not a table file".** The top level must be a list of entries or a hash of ID → entry.
+  For nested data, click the **Show …** button on that page, or set `path` in a view. A
+  single object (a settings file, for example) is not a table.
+- **No change bar or blame.** The file must be tracked by git (committed or staged), the
+  `git` executable must be on your `PATH` (or set in `git.path`), and `tablify.git.enabled`
+  must be on. Untracked files show no change bar.
+- **The table does not open by default.** Tablify never takes over `.json` or `.yaml` files on
+  its own. Use **Open as Table**, **Reopen Editor With…**, or an editor association (see
+  [Usage](#usage)).
+- **Saving reformats the whole file.** <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>S</kbd> in the
+  table skips format-on-save, but **File → Save** and **Save All** do not. See
+  [Saving](#saving).
+- **A log file is shown as plain text.** Click the format in the status bar to choose one, or
+  add a custom format (`tablify.log.customFormats`).
+- **The on-save command does not run.** It only runs in trusted workspaces; its output is in
+  the **Tablify** output channel.
+
+## Known limitations
+
+- Log tables are read-only.
+- Nested objects inside a cell are shown as JSON and cannot be edited in the table.
+- CSV values are always text.
+- Rows of flow-style YAML collections (`[...]`, `{...}`) cannot be added, deleted or moved,
+  and the last entry of a YAML file cannot be deleted from the table. In an empty list, add
+  the first entry in the text editor.
+- Autocompletion in `.vscode/tablify.yaml` needs the Red Hat YAML extension (`.json` config
+  works without it).
+
+## Feedback and contributing
+
+Bug reports, ideas and pull requests are welcome:
+
+- [Report a bug or request a feature](https://github.com/JTiefnig/tablify/issues)
+- [Changelog](CHANGELOG.md) · [Releases](https://github.com/JTiefnig/tablify/releases)
+- If Tablify saves you time, a [rating on the Marketplace](https://marketplace.visualstudio.com/items?itemName=JohannesTiefnig.tablify&ssr=false#review-details)
+  helps others find it.
 
 ## Development
 

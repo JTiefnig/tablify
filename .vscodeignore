@@ -1,6 +1,7 @@
 **
 !dist/**
-!media/**
+!media/*.png
+!media/*.gif
 !schemas/**
 !package.json
 !README.md

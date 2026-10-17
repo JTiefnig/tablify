@@ -478,6 +478,13 @@ byId<HTMLButtonElement>("open-as-text").addEventListener("click", () =>
   vscode.postMessage({ type: "openAsText" }),
 );
 
+const showDataPathEl = byId<HTMLButtonElement>("show-data-path");
+/** Data path offered by the last error message. */
+let suggestedPath: string[] | null = null;
+showDataPathEl.addEventListener("click", () => {
+  if (suggestedPath) vscode.postMessage({ type: "showDataPath", segments: suggestedPath });
+});
+
 window.addEventListener("message", (event: MessageEvent<ToWebview>) => {
   const message = event.data;
 
@@ -502,6 +509,9 @@ window.addEventListener("message", (event: MessageEvent<ToWebview>) => {
       messageEl.hidden = false;
       messageTitleEl.textContent = ERROR_TITLES[message.kind];
       messageTextEl.textContent = message.message;
+      suggestedPath = message.suggestedPath?.segments ?? null;
+      showDataPathEl.hidden = !suggestedPath;
+      showDataPathEl.textContent = message.suggestedPath ? `Show ${message.suggestedPath.label}` : "";
       return;
     case "data":
       messageEl.hidden = true;

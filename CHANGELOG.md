@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+- Files whose entries are nested (e.g. API responses such as `{"data": {"items": [...]}}`)
+  show a **Show data.items** button instead of only an error. The choice is remembered per
+  file, also without a workspace folder, and **Save View** writes it to the view as `path`.
+- Empty tables and filters without matches show a message instead of a blank area.
+- **Open as Log Table** in the Explorer context menu only appears for log-like files (`.log`,
+  `.jsonl`, `.ndjson`, `.out`, `.txt`, rotated logs and files without an extension). It is
+  still available for any file from the editor tab menu and the command palette.
+- Marketplace: clearer description, keywords and links. README reorganized around getting
+  started, with troubleshooting and known limitations.
+
 ## 0.2.0
 
 - `path` in a view selects entries nested in the file, e.g. `path: document.data.objects`

@@ -263,7 +263,10 @@ const NEW_CONFIG_HEADER = `# Tablify configuration for this workspace folder.
 # folder); the first matching view is used. See the Tablify README for all options.
 `;
 
-export type SaveTarget = { kind: "existing"; index: number } | { kind: "new"; name: string; files: string[] };
+/** `path`: the data path shown in the table, written to the view when it has none. */
+export type SaveTarget = ({ kind: "existing"; index: number } | { kind: "new"; name: string; files: string[] }) & {
+  path?: string;
+};
 
 /**
  * Applies `change` to one view of the config: an existing view, or a new view
@@ -297,7 +300,11 @@ function updateView(text: string | null, target: SaveTarget, change: (view: View
     view = existing;
   }
 
-  change(new ViewEditor(doc, view));
+  const editor = new ViewEditor(doc, view);
+  if (target.path && !view.has("path")) {
+    editor.set("path", doc.createNode(target.path));
+  }
+  change(editor);
   return doc.toString({ lineWidth: 0, flowCollectionPadding: false });
 }
 

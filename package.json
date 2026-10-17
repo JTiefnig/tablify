@@ -1,11 +1,20 @@
 {
   "name": "tablify",
   "displayName": "Tablify",
-  "description": "View and edit JSON and YAML lists and hashes of entries, and CSV files, as an interactive table. Open log files as a sortable, filterable table.",
+  "description": "Open JSON, YAML, CSV and log files as interactive, filterable tables. Edit cells in place and see git changes and blame per entry.",
   "version": "0.2.0",
   "publisher": "JohannesTiefnig",
   "icon": "media/tablify-icon.png",
+  "galleryBanner": {
+    "color": "#0f172a",
+    "theme": "dark"
+  },
   "license": "MIT",
+  "pricing": "Free",
+  "homepage": "https://github.com/JTiefnig/tablify#readme",
+  "bugs": {
+    "url": "https://github.com/JTiefnig/tablify/issues"
+  },
   "type": "module",
   "repository": {
     "type": "git",
@@ -16,18 +25,31 @@
   },
   "categories": [
     "Visualization",
+    "Data Science",
     "Other"
   ],
   "keywords": [
     "json",
     "yaml",
     "csv",
+    "tsv",
     "table",
-    "requirements",
+    "grid",
     "viewer",
+    "editor",
+    "json viewer",
+    "yaml viewer",
+    "csv viewer",
+    "json table",
+    "data viewer",
+    "filter",
+    "git blame",
     "log",
+    "log viewer",
     "syslog",
-    "jsonl"
+    "jsonl",
+    "ndjson",
+    "requirements"
   ],
   "main": "./dist/extension.cjs",
   "activationEvents": [],
@@ -151,7 +173,7 @@
         },
         {
           "command": "tablify.openAsLogTable",
-          "when": "!explorerResourceIsFolder",
+          "when": "!explorerResourceIsFolder && resourceFilename =~ /(\\.(log|jsonl|ndjson|out|txt)(\\.[0-9]+)?|_log.*)$|^[^.]+$/i",
           "group": "navigation@21"
         }
       ],

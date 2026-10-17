@@ -183,6 +183,12 @@ body {
   white-space: pre-wrap;
 }
 
+.message-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .message button {
   padding: 4px 12px;
   border: 1px solid var(--vscode-button-border, transparent);
@@ -668,9 +674,16 @@ body {
   pointer-events: none;
 }
 
-.tabulator .tabulator-tableholder .tabulator-placeholder,
 .tabulator-row.tabulator-row-moving {
   background: var(--vscode-list-dropBackground, var(--tf-linked-bg)) !important;
+}
+
+/* Empty table: no entries, or none match the filter. */
+.tabulator .tabulator-tableholder .tabulator-placeholder .empty-message {
+  padding: 24px;
+  color: var(--tf-muted);
+  font-weight: normal;
+  font-size: inherit;
 }
 
 /* Hover toolbar of the baseline: add above / below, delete. */

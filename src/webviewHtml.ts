@@ -54,7 +54,10 @@ export function getWebviewHtml(webview: vscode.Webview, extensionUri: vscode.Uri
     <section id="message" class="message" hidden>
       <div id="message-title" class="message-title"></div>
       <div id="message-text" class="message-text"></div>
-      <button id="open-as-text" type="button">Open as Text</button>
+      <div class="message-actions">
+        <button id="show-data-path" type="button" hidden></button>
+        <button id="open-as-text" type="button">Open as Text</button>
+      </div>
     </section>
     <main id="table"></main>
     <script nonce="${nonce}" src="${asset("webview.js")}"></script>

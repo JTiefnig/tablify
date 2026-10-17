@@ -225,6 +225,8 @@ export class TableView {
   attributes: AttributeMap = new Map();
   /** Rows as read from the file, by row index; edits are compared against these. */
   private sourceRows = new Map<number, Row>();
+  /** Shown instead of rows when none are displayed; its text depends on why (see `updateCount`). */
+  private readonly placeholder = Object.assign(document.createElement("div"), { className: "empty-message" });
   /** Edit type per visible column. */
   private editTypes = new Map<string, AttributeType>();
   /** Columns that cannot be edited (`readonlyColumns` and `readonly` attributes). */
@@ -608,7 +610,15 @@ export class TableView {
   private updateCount() {
     if (this.table) {
       // Deleted rows are not part of the file: not counted in the total.
-      this.callbacks.onCountChanged(this.table.getDataCount("active"), this.sourceRows.size);
+      const shown = this.table.getDataCount("active");
+      const total = this.sourceRows.size;
+      this.placeholder.textContent =
+        total === 0
+          ? "No entries yet. Add the first one in the text editor (Open as Text)."
+          : this.changesOnly && !this.filter
+            ? "No changes since the last commit."
+            : "No rows match the filter.";
+      this.callbacks.onCountChanged(shown, total);
     }
   }
 
@@ -672,6 +682,7 @@ export class TableView {
       movableColumns: true,
       layout: "fitColumns",
       height: "100%",
+      placeholder: this.placeholder,
       editTriggerEvent: "dblclick",
       nestedFieldSeparator: false,
       columnDefaults: {

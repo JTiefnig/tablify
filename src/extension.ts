@@ -4,7 +4,7 @@ import { openAsText, TableEditorProvider } from "./tableEditorProvider.ts";
 
 export function activate(context: vscode.ExtensionContext) {
   const statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-  const provider = new TableEditorProvider(context.extensionUri, statusBar);
+  const provider = new TableEditorProvider(context.extensionUri, statusBar, context.workspaceState);
   const logProvider = new LogEditorProvider(context);
 
   context.subscriptions.push(

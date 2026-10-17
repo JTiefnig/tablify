@@ -105,6 +105,15 @@ test("saveLayout: new config file and new view", () => {
   assert.match(created, /columns: \[ id, status \]|columns: \[id, status\]/);
 });
 
+test("saveLayout: a data path chosen in the table is saved with the view, an existing path is kept", () => {
+  const layout = { columns: null, hidden: [], showOthers: true, widths: {} };
+  const created = saveLayout(null, { kind: "new", name: "api", files: ["api.json"], path: "data.items" }, layout);
+  assert.deepEqual(parsed(created).views[0].dataPath, ["data", "items"]);
+
+  const kept = saveLayout(created, { kind: "existing", index: 0, path: "other" }, layout);
+  assert.deepEqual(parsed(kept).views[0].dataPath, ["data", "items"]);
+});
+
 test("saveLayout: updates an existing view, keeps comments and attributes", () => {
   const updated = saveLayout(example, { kind: "existing", index: 0 }, {
     columns: ["status", "id"],

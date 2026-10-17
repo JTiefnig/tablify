@@ -110,3 +110,93 @@ test("unknown shape and empty file", () => {
   assert.ok(!empty.ok);
   assert.equal(empty.kind, "empty");
 });
+
+test("the top level is not a table: the shallowest nested table is suggested", () => {
+  const response = parseTable('{"status": "ok", "data": {"total": 2, "items": [{"id": 1}, {"id": 2}]}}', "json", options);
+  assert.ok(!response.ok);
+  assert.equal(response.kind, "shape");
+  assert.deepEqual(response.suggestedPath, ["data", "items"]);
+
+  const shown = parseTable('{"status": "ok", "data": {"total": 2, "items": [{"id": 1}, {"id": 2}]}}', "json", {
+    ...options,
+    dataPath: response.suggestedPath,
+  });
+  assert.ok(shown.ok);
+  assert.deepEqual(shown.table.rows.map((row) => row.id), [1, 2]);
+
+  const nothing = parseTable('{"name": "x", "version": "1.0.0"}', "json", options);
+  assert.ok(!nothing.ok);
+  assert.equal(nothing.suggestedPath, undefined);
+
+  const yaml = parseTable("kind: List\nitems:\n  - name: a\n  - name: b\n", "yaml", options);
+  assert.ok(!yaml.ok);
+  assert.deepEqual(yaml.suggestedPath, ["items"]);
+});
+
+test("empty collections are empty tables", () => {
+  for (const [text, language] of [["[]", "json"], ["[]\n", "yaml"], ["id,name\n", "csv"]] as const) {
+    const result = parseTable(text, language, options);
+    assert.ok(result.ok, text);
+    assert.equal(result.table.rows.length, 0);
+  }
+});
+
+test("nulls, missing fields and mixed value types", () => {
+  const result = parseTable(
+    '[{"id": 1, "a": null, "b": true}, {"id": "two", "b": "yes", "c": [1, "x", null]}, {"id": 3.5, "a": 0}]',
+    "json",
+    options,
+  );
+  assert.ok(result.ok);
+  const { rows, fields } = result.table;
+  assert.deepEqual(fields, ["id", "a", "b", "c"]);
+  assert.equal(rows[0].a, null);
+  assert.equal(rows[0].c, undefined);
+  assert.equal(rows[1].a, undefined);
+  assert.deepEqual(rows[1].c, [1, "x", null]);
+  assert.equal(rows[2].a, 0);
+  assert.equal(rows[2].id, 3.5);
+});
+
+test("rows that are not objects get a locked `value` column", () => {
+  const result = parseTable('[1, "text", null, {"id": "x"}]', "json", options);
+  assert.ok(result.ok);
+  assert.deepEqual(result.table.rows.map((row) => row.value), [1, "text", null, undefined]);
+  assert.deepEqual(result.table.rows[0][ROW_LOCKED], ["*"]);
+  assert.equal(result.table.rows[3][ROW_LOCKED], undefined);
+});
+
+test("special characters in keys and values", () => {
+  const json = parseTable('[{"na.me": "<b>x</b>", "ü ñ": "\\u00e9 \\"q\\"", "emoji": "🚀\\n2"}]', "json", options);
+  assert.ok(json.ok);
+  assert.deepEqual(json.table.fields, ["na.me", "ü ñ", "emoji"]);
+  assert.equal(json.table.rows[0]["na.me"], "<b>x</b>");
+  assert.equal(json.table.rows[0]["ü ñ"], 'é "q"');
+  assert.equal(json.table.rows[0].emoji, "🚀\n2");
+
+  const yaml = parseTable('"key: with colon":\n  note: "# not a comment"\n', "yaml", options);
+  assert.ok(yaml.ok);
+  assert.equal(yaml.table.rows[0].id, "key: with colon");
+  assert.equal(yaml.table.rows[0].note, "# not a comment");
+});
+
+test("JSON with comments and trailing commas (jsonc) is read", () => {
+  const result = parseTable('// list\n[\n  {"id": 1}, /* two */ {"id": 2},\n]', "json", options);
+  assert.ok(result.ok);
+  assert.equal(result.table.rows.length, 2);
+});
+
+test("performance: 50,000 rows of JSON and YAML parse in under 3 s", () => {
+  const rows = Array.from({ length: 50_000 }, (_, i) => ({ id: `R-${i}`, status: i % 3 ? "open" : "done", n: i, tags: ["a", "b"] }));
+  for (const [text, language] of [
+    [JSON.stringify(rows, null, 2), "json"],
+    [rows.map((row) => `- id: ${row.id}\n  status: ${row.status}\n  n: ${row.n}\n  tags: [a, b]\n`).join(""), "yaml"],
+  ] as const) {
+    const start = performance.now();
+    const result = parseTable(text, language, options);
+    const elapsed = performance.now() - start;
+    assert.ok(result.ok);
+    assert.equal(result.table.rows.length, 50_000);
+    assert.ok(elapsed < 3000, `${language}: ${Math.round(elapsed)} ms`);
+  }
+});

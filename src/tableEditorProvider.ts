@@ -21,7 +21,7 @@ import {
   type ViewSettings,
 } from "./messages.ts";
 import { expandCommand, runCommand } from "./onSave.ts";
-import { languageForPath, parseTable, type Table } from "./parser.ts";
+import { formatDataPath, languageForPath, parseTable, type Table } from "./parser.ts";
 import { getWebviewHtml } from "./webviewHtml.ts";
 
 const UPDATE_DELAY_MS = 200;
@@ -55,6 +55,8 @@ interface TablePanel {
   /** Current column layout in the webview, and whether it differs from the saved view. */
   layout: ColumnLayout | null;
   layoutModified: boolean;
+  /** Nested data path chosen from the "Not a table file" page; used when the view sets no `path`. */
+  dataPath: string[] | null;
 }
 
 export class TableEditorProvider implements vscode.CustomTextEditorProvider, vscode.Disposable {
@@ -69,10 +71,13 @@ export class TableEditorProvider implements vscode.CustomTextEditorProvider, vsc
   /** Running `onSave` commands by document URI, and whether another save came in meanwhile. */
   private readonly onSaveRuns = new Map<string, { again: boolean }>();
   private untrustedWarned = false;
+  /** Workspace state: the data path chosen per file (see `TablePanel.dataPath`). */
+  private readonly state: vscode.Memento;
 
-  constructor(extensionUri: vscode.Uri, statusBar: vscode.StatusBarItem) {
+  constructor(extensionUri: vscode.Uri, statusBar: vscode.StatusBarItem, state: vscode.Memento) {
     this.extensionUri = extensionUri;
     this.statusBar = statusBar;
+    this.state = state;
     statusBar.command = "tablify.filter";
 
     // Any config change may affect any open table (files can move in or out of a view).
@@ -168,7 +173,7 @@ export class TableEditorProvider implements vscode.CustomTextEditorProvider, vsc
     if (!entry?.layout || !source) {
       return;
     }
-    const target = await pickTarget(source, {
+    const target = await pickTarget(source, pathToSave(entry), {
       title: "Save Tablify View",
       placeHolder: `Column order, hidden columns and widths go to ${vscode.workspace.asRelativePath(source.configUri)}`,
     });
@@ -203,10 +208,11 @@ export class TableEditorProvider implements vscode.CustomTextEditorProvider, vsc
     if (!name?.trim()) {
       return;
     }
+    const path = pathToSave(this.active);
     const target: SaveTarget | undefined =
       source.index !== null
-        ? { kind: "existing", index: source.index }
-        : await pickTarget(source, {
+        ? { kind: "existing", index: source.index, path }
+        : await pickTarget(source, path, {
             title: "Save Tablify Filter",
             placeHolder: "No view applies to this file yet: create one for the filter",
           });
@@ -282,6 +288,13 @@ export class TableEditorProvider implements vscode.CustomTextEditorProvider, vsc
       source: null,
       layout: null,
       layoutModified: false,
+      dataPath: null,
+    };
+    const dataPathKey = `dataPath:${document.uri.toString()}`;
+    entry.dataPath = this.state.get<string[]>(dataPathKey) ?? null;
+    const setDataPath = (segments: string[] | null) => {
+      entry.dataPath = segments;
+      void this.state.update(dataPathKey, segments ?? undefined);
     };
 
     // Source offset of each row, from the most recent successful parse.
@@ -298,7 +311,7 @@ export class TableEditorProvider implements vscode.CustomTextEditorProvider, vsc
 
     const language = languageForPath(document.uri.path);
     const idField = () => vscode.workspace.getConfiguration("tablify", document.uri).get<string>("idField", "id");
-    const dataPath = () => entry.source?.view?.dataPath ?? null;
+    const dataPath = () => entry.source?.view?.dataPath ?? entry.dataPath;
     const parse = (text = document.getText()) => parseTable(text, language, { idField: idField(), dataPath: dataPath() });
     // The view's data path decides what the rows are: show nothing before it is known.
     let configLoaded = false;
@@ -310,7 +323,20 @@ export class TableEditorProvider implements vscode.CustomTextEditorProvider, vsc
       const result = parse();
 
       if (!result.ok) {
-        post({ type: "error", kind: result.kind, message: result.message, line: result.line });
+        if (result.kind === "shape" && entry.dataPath && !entry.source?.view?.dataPath) {
+          // The chosen nested path no longer fits the file: back to the top level.
+          setDataPath(null);
+          update();
+          return;
+        }
+        const suggested = result.suggestedPath;
+        post({
+          type: "error",
+          kind: result.kind,
+          message: result.message,
+          line: result.line,
+          suggestedPath: suggested && { segments: suggested, label: formatDataPath(suggested) },
+        });
         return;
       }
       offsets = result.table.offsets;
@@ -500,6 +526,11 @@ export class TableEditorProvider implements vscode.CustomTextEditorProvider, vsc
           case "openAsText":
             void openAsText(document.uri);
             break;
+          case "showDataPath":
+            setDataPath(message.segments);
+            // The committed rows are read at the data path as well.
+            void refreshGit();
+            break;
           case "edit":
             // Resync right away: on success the webview needs the new document version
             // for its next edit; on failure the table still shows the typed value.
@@ -599,6 +630,7 @@ function popupText(text: string): string {
  */
 async function pickTarget(
   source: ViewSource,
+  dataPath: string | undefined,
   options: { title: string; placeHolder: string },
 ): Promise<SaveTarget | undefined> {
   const path = source.relativePath;
@@ -624,7 +656,13 @@ async function pickTarget(
       target: { kind: "new", name: `${dir || "workspace"} (all)`, files: [`${dir ? `${dir}/` : ""}**/*${extension}`] },
     },
   );
-  return (await vscode.window.showQuickPick(choices, options))?.target;
+  const target = (await vscode.window.showQuickPick(choices, options))?.target;
+  return target && { ...target, path: dataPath };
+}
+
+/** The data path chosen for the table, when its view does not set one: saved into the view. */
+function pathToSave(entry: TablePanel | undefined): string | undefined {
+  return entry?.dataPath && !entry.source?.view?.dataPath ? formatDataPath(entry.dataPath) : undefined;
 }
 
 /**

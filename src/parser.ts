@@ -46,7 +46,14 @@ export interface Table {
 
 export type ParseResult =
   | { ok: true; table: Table }
-  | { ok: false; kind: ErrorKind; message: string; line?: number };
+  | {
+      ok: false;
+      kind: ErrorKind;
+      message: string;
+      line?: number;
+      /** Data path of a nested table, offered when the top level is not one. */
+      suggestedPath?: string[];
+    };
 
 export function languageForPath(path: string): Language {
   if (/\.ya?ml$/i.test(path)) return "yaml";
@@ -88,14 +95,15 @@ export function parseTable(
         message: `Expected a list of entries or a hash of ID -> entry at "${formatDataPath(dataPath)}".`,
       };
     }
-    const nested = findNestedTable(value);
-    const hint = nested && formatDataPath(nested.map(String));
+    const nested = findNestedTable(value)?.map(String);
+    const hint = nested && formatDataPath(nested);
     return {
       ok: false,
       kind: "shape",
       message:
         "Expected a list of entries or a hash of ID -> entry at the top level of the file." +
-        (hint ? ` There is one at "${hint}": set \`path: ${hint}\` in a view in .vscode/tablify.yaml to show it.` : ""),
+        (hint ? ` There is one at "${hint}". To always show it, set \`path: ${hint}\` in a view in .vscode/tablify.yaml.` : ""),
+      ...(nested && { suggestedPath: nested }),
     };
   }
 

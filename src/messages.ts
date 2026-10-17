@@ -138,6 +138,8 @@ export type ToWebview =
       kind: ErrorKind;
       message: string;
       line?: number;
+      /** A nested table the file can be shown at instead (data path segments). */
+      suggestedPath?: { segments: string[]; label: string };
     }
   | { type: "focusFilter" }
   | { type: "clearFilter" }
@@ -150,6 +152,8 @@ export type ToHost =
   | { type: "reveal"; index: number }
   | { type: "openLink"; href: string }
   | { type: "openAsText" }
+  /** Show the entries at a nested data path for this file (remembered per file). */
+  | { type: "showDataPath"; segments: string[] }
   | { type: "blame"; requestId: number; index: number }
   | { type: "filterState"; query: string; shown: number; total: number }
   /** The effective column layout, and whether it differs from the configured view. */
