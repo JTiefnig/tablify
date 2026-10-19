@@ -2,7 +2,7 @@
   "name": "tablify",
   "displayName": "Tablify",
   "description": "Open JSON, YAML, CSV and log files as interactive, filterable tables. Edit cells in place and see git changes and blame per entry.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "JohannesTiefnig",
   "icon": "media/tablify-icon.png",
   "galleryBanner": {
